@@ -1,15 +1,17 @@
-"use client";
+'use client'
 
-import { RecoilRoot, atom } from "recoil";
+import { RecoilRoot, atom } from 'recoil'
 
 export const isKoreanState = atom({
-  key: "isKorean",
+  key: 'isKorean',
   default: true,
-});
-export default function RecoilContextProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <RecoilRoot>{children}</RecoilRoot>;
+})
+
+export const loggedInState = atom({
+  key: 'loggedIn',
+  default: false,
+})
+
+export default function RecoilContextProvider({ children }: { children: React.ReactNode }) {
+  return <RecoilRoot>{children}</RecoilRoot>
 }
