@@ -1,0 +1,72 @@
+/* HistoryComponent.css */
+.tab-button4 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #939393;
+  letter-spacing: -0.386px;
+
+  border-top: 0.689px solid #ddd;
+  border-right: 0.689px solid #ddd;
+  border-bottom: 0.689px solid #ddd;
+  background-color: white;
+}
+.tab-button5 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #939393;
+  letter-spacing: -0.386px;
+
+  border-top: 0.689px solid #ddd;
+
+  border-right: 0.689px solid #ddd;
+  border-bottom: 0.689px solid #ddd;
+  background-color: white;
+}
+.tab-button6 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #939393;
+  letter-spacing: -0.386px;
+
+  border-top: 0.689px solid #ddd;
+
+  border-right: 0.689px solid #ddd;
+  border-bottom: 0.689px solid #ddd;
+  background-color: white;
+}
+.tab-button7 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #939393;
+  letter-spacing: -0.386px;
+
+  border-top: 0.689px solid #ddd;
+
+  border-bottom: 0.689px solid #ddd;
+  background-color: white;
+}
+
+.active-tab4 {
+  font-weight: 600;
+  color: black;
+
+  background-color: #f1f1f1;
+}
+.active-tab5 {
+  font-weight: 600;
+  color: black;
+
+  background-color: #f1f1f1;
+}
+.active-tab6 {
+  font-weight: 600;
+  color: black;
+
+  background-color: #f1f1f1;
+}
+.active-tab7 {
+  font-weight: 600;
+  color: black;
+
+  background-color: #f1f1f1;
+}
