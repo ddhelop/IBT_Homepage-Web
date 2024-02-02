@@ -1,4 +1,4 @@
-import BatteryDetail from '@/components/battery/BatteryDetail'
+import Page from '@/components/Floating'
 import BatteryItem from '@/components/battery/BatteryItem'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,6 +11,7 @@ export const metadata = {
 const BatteryPage = () => {
   return (
     <>
+      <Page />
       {/* Battery 소개 */}
       <div className="relative h-837 mx-40 bg-white">
         <div className="flex justify-center">
@@ -51,7 +52,7 @@ const BatteryPage = () => {
                     <div className="text-4xl font-medium mb-1.5">Ni-cd</div>
                     <div className="text-sm font-normal pl-1.5">니켈카드뮴축전지</div>
                   </div>
-                  <Link href="/battery/batteryDetail">
+                  <Link href="/battery/batteryDetail/defense">
                     <button className="hidden transition-all group-hover:flex rounded-xl w-30 px-8 h-10 items-center justify-center bg-primary-green">
                       <Image src={'/image/arrow.svg'} width={30} height={10} />
                     </button>
@@ -72,7 +73,7 @@ const BatteryPage = () => {
                     사용되고 있습니다.
                   </p>
                   <div className="hidden group-hover:flex flex-col gap-5 pt-10">
-                    <Link href="/battery/batteryDetail">
+                    <Link href="/battery/batteryDetail/defense">
                       <button className="w-full hover:bg-gray-300 rounded-2xl">
                         <div className="flex flex-row justify-between items-center px-10 my-5 text-lg font-noraml">
                           방산용
@@ -80,7 +81,7 @@ const BatteryPage = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link href="/battery/batteryDetail">
+                    <Link href="/battery/batteryDetail/industry">
                       <button className="w-full hover:bg-gray-300 rounded-2xl">
                         <div className="flex flex-row justify-between items-center px-10 my-5 text-lg font-noraml">
                           산업용
@@ -106,7 +107,7 @@ const BatteryPage = () => {
                     <div className="text-4xl font-medium mb-1.5">Lithium</div>
                     <div className="text-sm font-normal pl-1.5">리튬축전지</div>
                   </div>
-                  <Link href="/battery/batteryDetail">
+                  <Link href="/battery/batteryDetail/power">
                     <button className="hidden transition-all group-hover:flex rounded-xl w-30 px-8 h-10 items-center justify-center bg-primary-green">
                       <Image src={'/image/arrow.svg'} width={30} height={10} />
                     </button>
@@ -125,7 +126,7 @@ const BatteryPage = () => {
                     다양한 영역의 고객에게 사랑받고 있습니다.
                   </p>
                   <div className="hidden group-hover:flex flex-col gap-5 pt-10">
-                    <Link href="/battery/batteryDetail">
+                    <Link href="/battery/batteryDetail/power">
                       <button className="w-full hover:bg-gray-300 rounded-2xl">
                         <div className="flex flex-row justify-between items-center px-10 my-5 text-lg font-noraml">
                           동력용
@@ -133,7 +134,7 @@ const BatteryPage = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link href="/battery/batteryDetail">
+                    <Link href="/battery/batteryDetail/energy-save">
                       <button className="w-full hover:bg-gray-300 rounded-2xl">
                         <div className="flex flex-row justify-between items-center px-10 my-5 text-lg font-noraml">
                           에너지저장용

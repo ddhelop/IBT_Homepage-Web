@@ -87,3 +87,24 @@ export const batteryList = [
     explain4: ' 낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
   },
 ]
+
+export const defenseList = [
+  {
+    title: '항공',
+    itemFile: '/image/itemSample.png',
+    itemTitle: 'Ni-Cd battery Sintered Type',
+    itemAdvanced: ['고율 방전 성능 우수', '극저온 출력 특성 우수', '운용 안정성 우수'],
+  },
+  {
+    title: '육상',
+    itemFile: '/image/Lithium.png',
+    itemTitle: 'Ni-Cd battery Sintered Type',
+    itemAdvanced: ['육상용 ~~ 우수', '극저온 출력 특성 우수'],
+  },
+  {
+    title: '해상',
+    itemFile: '/image/Ni-cd.png',
+    itemTitle: 'Ni-Cd battery Sintered Type',
+    itemAdvanced: ['해상용 ~~ 우수', '운용 안정성 우수'],
+  },
+]
