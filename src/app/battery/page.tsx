@@ -39,7 +39,7 @@ const BatteryPage = () => {
       {/* Battery 메인 */}
       <div className="flex min-w-screen min-h-screen flex-col items-center bg-white mb-20">
         <h1 className="text-6xl font-medium my-40">BATTERY</h1>
-        <div className="flex flex-col mx-40">
+        <div className="flex flex-col px-40 w-full">
           <div className="inline-flex flex-shrink-0 h-514">
             <div className="flex w-2/3 bg-gray-200 justify-center items-center">
               <Image src={'/image/Ni-cd.png'} width={980} height={516} />

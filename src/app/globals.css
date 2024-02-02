@@ -32,3 +32,21 @@ body {
     text-wrap: balance;
   }
 }
+
+@media screen and (max-width: 280px) {
+  html {
+    @apply text-[5px];
+  }
+}
+
+@media screen and (min-width: 281px) {
+  html {
+    @apply text-[10px];
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    @apply text-[16px];
+  }
+}
