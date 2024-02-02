@@ -1,6 +1,4 @@
 import NewsPosts from '@/components/news/NewsPosts'
-import { Counter, Post } from '@/lib/models'
-import mongoose from 'mongoose'
 
 const getData = async () => {
   const res = await fetch('http://localhost:3000/api/admin', {

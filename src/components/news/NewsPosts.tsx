@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 import NewsCardAdmin from '../admin/NewsCardAdmin'
 import { NewsProps } from '@/lib/types'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { StrictModeDroppable } from '../admin/StrictModeDroppable'
 
 const NewsPosts = ({ posts }: any) => {
   const [news, setNews] = useState<NewsProps[]>(posts)
+  console.log(posts)
   const onDragEnd = (result: any) => {
     const { source, desc } = result
   }
@@ -19,7 +21,7 @@ const NewsPosts = ({ posts }: any) => {
   return (
     <div className="flex p-8 flex-col gap-4  bg-red-100  w-[800px]">
       <DragDropContext onDragStart={onDragStart} onDragUpdate={onDragUpdate} onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable">
+        <StrictModeDroppable droppableId="droppable">
           {(droppableProvided) => (
             <div {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
               {news?.map((post: any, id: number) => (
@@ -36,9 +38,10 @@ const NewsPosts = ({ posts }: any) => {
                   )}
                 </Draggable>
               ))}
+              {droppableProvided.placeholder}
             </div>
           )}
-        </Droppable>
+        </StrictModeDroppable>
       </DragDropContext>
     </div>
   )
