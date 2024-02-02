@@ -18,3 +18,13 @@ export const connectToDb = async (): Promise<void> => {
     throw new Error(error)
   }
 }
+
+export const toBase64 = (arr: any) => {
+  arr = new Uint8Array(arr)
+  return btoa(
+    arr.reduce(
+      (data: any, byte: number) => data + String.fromCharCode(byte),
+      '',
+    ),
+  )
+}
