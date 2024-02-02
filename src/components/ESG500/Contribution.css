@@ -1,0 +1,40 @@
+/* HistoryComponent.css */
+.tab-button1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: -0.386px;
+
+  border-radius: 6.885px 0 0 6.885px;
+  border-top: 0.689px solid #ddd;
+  border-bottom: 1.377px solid #ddd;
+  border-left: 0.689px solid #ddd;
+  background-color: white;
+}
+.tab-button2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: -0.386px;
+
+  border-radius: 0 6.885px 6.885px 0;
+  border-top: 0.689px solid #ddd;
+  border-bottom: 1.377px solid #ddd;
+  border-right: 0.689px solid #ddd;
+  background-color: white;
+}
+
+.active-tab1 {
+  font-weight: 600;
+
+  border-radius: 6.885px 0px 0px 6.885px;
+  color: #59a833; /* 텍스트 색상을 초록색으로 변경 */
+  border: 2px solid #59a833;
+}
+.active-tab2 {
+  font-weight: 600;
+
+  border-radius: 0 6.885px 6.885px 0;
+  color: #59a833; /* 텍스트 색상을 초록색으로 변경 */
+  border: 2px solid #59a833;
+}
