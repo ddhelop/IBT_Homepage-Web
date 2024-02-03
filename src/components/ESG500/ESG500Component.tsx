@@ -5,7 +5,7 @@ import SocialContributionComponent from './SocialContributionComponent'
 export default function ESG500Component() {
   return (
     <>
-      <div className="w-full p-[160px] flex flex-col min-h-screen bg-no-repeat bg-cover bg-white ">
+      <div className="w-full md:p-[160px] flex flex-col min-h-screen bg-no-repeat bg-cover bg-white ">
         <div>
           <Image
             src="/ESG500/eco_friendly.svg" // 이미지 경로
@@ -13,7 +13,7 @@ export default function ESG500Component() {
             width={487} // 너비
             height={194} // 높이
             layout="fixed" // 레이아웃 옵션
-            className="mb-32 ml-[108px]"
+            className="mb-32 md:ml-[108px]"
           />
           <Image
             src="/ESG500/Eclipse1.png" // 이미지 경로
@@ -30,24 +30,24 @@ export default function ESG500Component() {
 
         {/* 세번째 단락 */}
 
-        <div className="w-full mt-72">
+        <div className="w-full mt-36 md:mt-72">
           <Image
             src="/ESG500/Reliable_Governance.svg" // 이미지 경로
             alt="Reliable_Governance"
             width={715} // 너비
             height={122} // 높이
-            layout="fixed" // 레이아웃 옵션
-            className="mb-32 ml-[108px]"
+            layout="responsive" // 레이아웃 옵션
+            className="mb-32 md:ml-[108px] max-w-screen-md"
           />
-          <h1 className="text-[40px] font-medium ml-[410px]">윤리경영 보고서</h1>
+          <h1 className="text-4xl font-medium md:mr-[48%] text-center">윤리경영 보고서</h1>
           <div className="w-full flex flex-col justify-end items-center">
-            <div className="w-2/3 flex flex-row p-3 mt-28">
-              <div className="w-1/3 flex">
-                <div className="w-1/2 h-[40px] text-[20px] tracking-wider text-[#9a9a9a] flex items-center justify-start">
-                  <p className="pl-6">재단 소개 및 사업내용</p>
+            <div className="md:w-2/3 flex flex-col md:flex-row p-3 mt-28">
+              <div className="md:w-1/3 flex w-full">
+                <div className="md:w-1/2 h-[40px] text-[20px] tracking-wider text-[#9a9a9a] flex items-center justify-start">
+                  <p className="md:pl-6">재단 소개 및 사업내용</p>
                 </div>
               </div>
-              <div className="w-2/3 flex flex-col">
+              <div className="md:w-2/3 flex flex-col">
                 <p className="text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
                   지우장학회는 2000년 광주, 전남 지역의 골프 스포츠 인재 육성을 위해 설립되었습니다. 설립 이후 대회
                   후원과 골프 유망주 지원 등을 꾸준히 이어오고 있습니다.
@@ -62,14 +62,15 @@ export default function ESG500Component() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col justify-end items-center">
-            <div className="w-2/3 flex flex-row p-3 mt-28">
-              <div className="w-1/3 flex">
-                <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
+          <div className="w-full md:flex md:flex-col justify-end items-center">
+            <div className="md:w-2/3 flex flex-col md:flex-row p-3 mt-28">
+              <div className="md:w-1/3 flex">
+                <div className="md:w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
                   투명 경영
                 </div>
               </div>
-              <div className="w-2/3 flex flex-col">
+
+              <div className="md:w-2/3 flex flex-col">
                 <p className="text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
                   지우장학회는 운영과 관련한 모든 법률과 규정을 준수하고 있으며, 회계 전문가를 통해 철저한 내부 관리를
                   실시하고 있습니다.
@@ -144,13 +145,13 @@ export default function ESG500Component() {
           </div>
 
           <div className="w-full flex flex-col justify-end items-center">
-            <div className="w-2/3 flex flex-row p-3 mt-28">
-              <div className="w-1/3 flex">
-                <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
+            <div className="md:w-2/3 flex flex-col md:flex-row p-3 mt-28">
+              <div className="md:w-1/3 flex">
+                <div className="md:w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
                   기부 및 후원 문의
                 </div>
               </div>
-              <div className="w-2/3 flex flex-col">
+              <div className="md:w-2/3 flex flex-col">
                 <p className="text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
                   기부 및 후원은 전액 장학 목적 사업에만 사용되며 문의사항은 아래로 부탁드립니다.
                 </p>

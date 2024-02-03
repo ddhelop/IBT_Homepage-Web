@@ -10,17 +10,17 @@ export default function Contribution1() {
           alt="Social_Contribution"
           width={1300} // 너비
           height={406} // 높이
-          layout="fixed" // 레이아웃 옵션
+          layout="responsive" // 레이아웃 옵션
           className="mb-28 mt-28"
         />
         {/* 첫 단락 */}
-        <div className="w-full flex flex-row p-3">
-          <div className="w-1/3 flex ">
-            <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
+        <div className="w-full flex flex-col md:flex-row p-3">
+          <div className="md:w-1/3 flex">
+            <div className="md:w-1/2 h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
               재단소개 및 사업내용
             </div>
           </div>
-          <p className="w-2/3 text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
+          <p className="md:w-2/3 text-xl leading-9 tracking-wider text-[#7b7b7b]">
             안녕하세요. 지우장학회 이사장 장민기입니다.
             <br />
             지우장학회는 2000년 광주, 전남 지역의 골프 스포츠 인재 육성을 위해 설립되었습니다. 설립 이후 대회 후원과
@@ -35,13 +35,13 @@ export default function Contribution1() {
         </div>
 
         {/* 두번째 단락 */}
-        <div className="w-full flex flex-row p-3 mt-24">
-          <div className="w-1/3 flex ">
-            <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
-              <p className="pl-6">투명 경영</p>
+        <div className="w-full flex flex-col md:flex-row p-3 mt-24">
+          <div className="md:w-1/3 flex ">
+            <div className="md:w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
+              <p className="md:pl-6">투명 경영</p>
             </div>
           </div>
-          <div className="w-2/3 flex flex-col">
+          <div className="md:w-2/3 flex flex-col">
             <p className="text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
               지우장학회는 운영과 관련한 모든 법률과 규정을 준수 하고 있으며, 회계 전문가를 통해 철저히 내부 관리를
               실시하고 있습니다.

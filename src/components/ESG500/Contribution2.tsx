@@ -10,17 +10,17 @@ export default function Contribution2() {
           alt="Social_Contribution"
           width={1300} // 너비
           height={406} // 높이
-          layout="fixed" // 레이아웃 옵션
+          layout="responsive" // 레이아웃 옵션
           className="mb-28 mt-28"
         />
         {/* 첫 단락 */}
-        <div className="w-full flex flex-row p-3">
-          <div className="w-1/3 flex ">
-            <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
+        <div className="w-full flex flex-col md:flex-row p-3">
+          <div className="md:w-1/3 flex ">
+            <div className="md:w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
               재단소개 및 사업내용
             </div>
           </div>
-          <p className="w-2/3 text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
+          <p className="md:w-2/3 text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
             안녕하세요. 중양장형태기념재단 이사장 허상만입니다.
             <br />
             중양장형태기념재단은 2013년 작고하신 중양 장형태 전 전남도지사님의 뜻을 이어 받아 젊은 인재들을 지원,
@@ -35,13 +35,13 @@ export default function Contribution2() {
         </div>
 
         {/* 두번째 단락 */}
-        <div className="w-full flex flex-row p-3 mt-24">
-          <div className="w-1/3 flex ">
-            <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
-              <p className="pl-6">투명 경영</p>
+        <div className="w-full flex flex-col md:flex-row p-3 mt-24">
+          <div className="md:w-1/3 flex ">
+            <div className="md:w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
+              <p className="md:pl-6">투명 경영</p>
             </div>
           </div>
-          <div className="w-2/3 flex flex-col">
+          <div className="md:w-2/3 flex flex-col">
             <p className="text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
               중양장형태기념재단은 운영과 관련한 모든 법률과 규정을 준수 하고 있으며, 회계법인을 통해 철저한 감사를 실시
               하고 있습니다.
@@ -113,13 +113,14 @@ export default function Contribution2() {
             </p>
           </div>
         </div>
-        <div className="w-full flex flex-row mt-20">
-          <div className="w-1/3 flex ">
-            <div className="w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
-              <p className="pl-6">재단소개 및 사업내용</p>
+
+        <div className="w-full flex flex-col md:flex-row mt-20 p-3">
+          <div className="md:w-1/3 flex ">
+            <div className="md:w-1/2 h-[80px] border-t-2 text-[20px] tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
+              <p className="md:pl-6">재단소개 및 사업내용</p>
             </div>
           </div>
-          <div className="w-2/3">
+          <div className="md:w-2/3">
             <p className="text-[20px] leading-9 tracking-wider text-[#7b7b7b]">
               기부 및 후원은 전액 장학 목적 사업에만 사용되며 문의사항은 아래로 부탁드립니다.
             </p>
