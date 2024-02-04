@@ -101,16 +101,34 @@ export default function Contribution2() {
             <p className="text-[18px] leading-9 tracking-wider text-[#7b7b7b]">
               기부금은 장학 목적 사업에만 사용 됩니다.
             </p>
-            <p className="text-[18px] mt-12 leading-8 tracking-wider text-[#7b7b7b]">
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_22.pdf"
+              className="text-[18px] hover:text-[#000000] mt-12 tracking-wider text-[#7b7b7b] cursor-pointer"
+              target="_blank"
+            >
               중양장형태기념재단 22년 기부금모금액 및 활용실적명세.pdf
-              <br />
+            </a>
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_21.pdf"
+              target="_blank"
+              className="text-[18px] hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
+            >
               중양장형태기념재단 21년 기부금모금액 및 활용실적명세.pdf
-              <br />
+            </a>
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_20.pdf"
+              target="_blank"
+              className="text-[18px] mt-2 hover:text-[#000000] tracking-wider text-[#7b7b7b] cursor-pointer"
+            >
               중양장형태기념재단 20년 기부금모금액 및 활용실적명세.pdf
-              <br />
+            </a>
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_19.pdf"
+              target="_blank"
+              className="text-[18px] hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
+            >
               중양장형태기념재단 19년 기부금모금액 및 활용실적명세.pdf
-              <br />
-            </p>
+            </a>
           </div>
         </div>
 

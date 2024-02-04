@@ -49,7 +49,6 @@ export default function Contribution1() {
               기부 빛 후원은 &apos;기부금품의 모집 및 사용에 관한 법률&apos;등 관련 법률을 따르고 있습니다.
             </p>
             <h3 className="text-[35px] mt-28 font-medium text-[#787878]">기부금 모금 및 사용 현황</h3>
-
             {/* table */}
             <div className="overflow-x-auto mt-8 text-[#7b7b7b]">
               <p className="text-right text-[20px]">(단위:만원)</p>
@@ -100,21 +99,38 @@ export default function Contribution1() {
             <p className="text-[18px] leading-9 tracking-wider text-[#7b7b7b]">
               기부금은 장학 목적 사업에만 사용 됩니다.
             </p>
-            <p className="text-[18px] mt-12 leading-8 tracking-wider text-[#7b7b7b]">
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_22.pdf"
+              className="text-[18px] hover:text-[#000000] mt-12 tracking-wider text-[#7b7b7b] cursor-pointer"
+              target="_blank"
+            >
               지우장학회 22년 기부금모금액 및 활용실적명세.pdf
-              <br />
+            </a>
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_21.pdf"
+              target="_blank"
+              className="text-[18px] hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
+            >
               지우장학회 21년 기부금모금액 및 활용실적명세.pdf
-              <br />
+            </a>
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_20.pdf"
+              target="_blank"
+              className="text-[18px] mt-2 hover:text-[#000000] tracking-wider text-[#7b7b7b] cursor-pointer"
+            >
               지우장학회 20년 기부금모금액 및 활용실적명세.pdf
-              <br />
+            </a>
+            <a
+              href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_19.pdf"
+              target="_blank"
+              className="text-[18px] hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
+            >
               지우장학회 19년 기부금모금액 및 활용실적명세.pdf
-              <br />
-            </p>
+            </a>
 
             <p className="text-[20px] mt-16 leading-9 tracking-wider text-[#7b7b7b]">
               기부 및 후원은 전액 장학 목적 사업에만 사용되며 문의사항은 아래로 부탁드립니다.
             </p>
-
             <p className="text-[20px] mt-12 leading-9 tracking-wider text-[#7b7b7b]">
               광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983
               <br />
