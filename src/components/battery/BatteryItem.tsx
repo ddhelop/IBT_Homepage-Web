@@ -58,17 +58,35 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
 부하 패턴 분석을 통한 최적 용량 및 신뢰도 높은 배터리로 고객 맞춤형 ESS 공급과 통합 EMS를 통한 효율적이고 안정적인 운영을 보장합니다.`}
             </div>
           )}
+          {/* 제품명 */}
           <div className="text-5xl font-bold mb-10">{detailInfo[categoryIndex].itemTitle}</div>
-          {mainCategoryIndex != 3 && <div className="text-4xl font-light my-20">제품 특징</div>}
 
-          {detailInfo[categoryIndex].itemAdvanced.map((adv) => {
-            return <div className="w-3/4 text-3xl font-light mb-4 text-center">{adv}</div>
-          })}
+          {/* 제품특징 */}
+          {mainCategoryIndex === 3 ? (
+            <>
+              <div className="text-4xl font-light my-20">제품 특징</div>
+              {detailInfo[categoryIndex].itemAdvanced.map((v, i) => {
+                return i % 2 === 1 ? (
+                  <span className="w-3/4 text-xl font-light mb-4 text-center">{v}</span>
+                ) : (
+                  <span className="w-3/4 text-xl font-medium mb-4 text-center">{v}</span>
+                )
+              })}
+            </>
+          ) : (
+            <>
+              <div className="text-3xl font-light my-20">주요 특징</div>{' '}
+              {detailInfo[categoryIndex].itemAdvanced.map((adv) => {
+                return <div className="w-3/4 text-3xl font-light mb-4 text-center">{adv}</div>
+              })}
+            </>
+          )}
+
           {/* 동력용 충전기 */}
           {mainCategoryIndex === 2 && (
-            <div>
+            <div className="relative w-1/3 flex flex-col justify-center items-center mt-20 mb-20">
               <Image src={'/image/340동력용Lithium/341.2_동력용 Lithium_제품(충전기).png'} width={1000} height={700} />
-              <div>충전기</div>
+              <div className="text-5xl font-bold mb-10">충전기</div>
             </div>
           )}
           <div className="w-full mt-20 h-10 border border-t-0 border-b-black" />
