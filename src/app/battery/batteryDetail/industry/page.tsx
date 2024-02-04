@@ -1,7 +1,7 @@
-import Page from '@/components/Floating'
+import FloatingButton from '@/components/Floating'
 import BatteryDetail from '@/components/battery/BatteryDetail'
 import BatteryItem from '@/components/battery/BatteryItem'
-import { batteryList, defenseList } from '@/lib/data'
+import { batteryList, industryList } from '@/lib/data'
 import Image from 'next/image'
 
 export const metadata = {
@@ -12,7 +12,7 @@ export const metadata = {
 const BatteryIndustryPage = () => {
   return (
     <>
-      <Page />
+      <FloatingButton />
       <BatteryDetail
         title={batteryList[1].title}
         explain1={batteryList[1].explain1}
@@ -20,7 +20,7 @@ const BatteryIndustryPage = () => {
         explain3={batteryList[1].explain3}
         explain4={batteryList[1].explain4}
       />
-      <BatteryItem detailInfo={defenseList} />
+      <BatteryItem detailInfo={industryList} mainCategoryIndex={1} />
     </>
   )
 }

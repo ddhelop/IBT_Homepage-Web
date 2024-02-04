@@ -1,4 +1,4 @@
-import Page from '@/components/Floating'
+import FloatingButton from '@/components/Floating'
 import BatteryItem from '@/components/battery/BatteryItem'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ export const metadata = {
 const BatteryPage = () => {
   return (
     <>
-      <Page />
+      <FloatingButton />
       {/* Battery 소개 */}
       <div className="relative h-837 mx-40 bg-white">
         <div className="flex justify-center">
@@ -29,7 +29,7 @@ const BatteryPage = () => {
           </div>
           <Image
             className="flex-shrink-0 z-0"
-            src={'/image/Lithium.png'}
+            src={'/image/310인트로/311_소개_배경.png'}
             width={1575}
             height={837}
             objectFit="cover"
@@ -38,12 +38,12 @@ const BatteryPage = () => {
         </div>
       </div>
       {/* Battery 메인 */}
-      <div className="flex min-w-screen min-h-screen flex-col items-center bg-white mb-20">
+      <div className="flex w-screen min-h-screen px-40 flex-col items-center mb-20">
         <h1 className="text-6xl font-medium my-40">BATTERY</h1>
-        <div className="flex flex-col px-40 w-full">
+        <div className="flex flex-col w-full">
           <div className="inline-flex flex-shrink-0 h-514">
             <div className="flex w-2/3 bg-gray-200 justify-center items-center">
-              <Image src={'/image/Ni-cd.png'} width={980} height={516} />
+              <Image src={'/image/310인트로/312_메인(Ni-cd).png'} width={980} height={516} />
             </div>
             <div className="group flex flex-col flex-shrink-0 justify-between w-1/3 bg-gray-200 px-9 py-9">
               <div>
@@ -152,7 +152,7 @@ const BatteryPage = () => {
               </div>
             </div>
             <div className="flex w-2/3 bg-gray-200 justify-center items-center">
-              <Image src={'/image/Lithium.png'} width={980} height={516} />
+              <Image src={'/image/310인트로/312_메인(Lithium).png'} width={980} height={516} />
             </div>
           </div>
         </div>
