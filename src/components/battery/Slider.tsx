@@ -30,7 +30,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               <Image src={'/image/leftArrow.svg'} alt="" width={40} height={40} />
             </button>
             <div>
-              <div className="w-[80rem] h-40 overflow-hidden relative bg-slate-500">
+              <div className="w-[60rem] h-40 overflow-hidden relative bg-slate-500">
                 {/* 제품 이미지 */}
                 <div
                   ref={carouselRef}
@@ -55,7 +55,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               <Image src={'/image/rightArrow.svg'} alt="" width={40} height={40} />
             </button>
           </div>
-          <div className="w-[80rem] h-20 overflow-hidden relative">
+          <div className="w-[60rem] h-20 overflow-hidden relative">
             {/* 제품명 */}
             <div
               ref={carouselRef}
