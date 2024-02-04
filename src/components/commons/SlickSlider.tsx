@@ -32,30 +32,34 @@ const slidesData = [
 function NextArrow(props: ArrowProps) {
   const { className, style, onClick } = props
   return (
-    <Image
-      src="/intro/right arrow.svg" // 이미지 경로
-      alt="slidesImages"
-      width={69} // 너비
-      height={287} // 높이
-      layout="fixed" // 레이아웃 옵션
-      onClick={onClick}
-      className="cursor-pointer block absolute top-0 left-[98%]"
-    />
+    <div className="absolute top-0 left-[105%] md:left-[98%] w-8 md:w-16 h-8 md:h-16" onClick={onClick}>
+      <Image
+        src="/intro/right arrow.svg" // 이미지 경로
+        alt="slidesImages"
+        width={69} // 너비
+        height={287} // 높이
+        layout="fix" // 레이아웃 옵션
+        onClick={onClick}
+        className="cursor-pointer block"
+      />
+    </div>
   )
 }
 
 function PrevArrow(props: ArrowProps) {
   const { onClick } = props
   return (
-    <Image
-      src="/intro/left arrow.svg" // 이미지 경로
-      alt="slidesImages"
-      width={69} // 너비
-      height={287} // 높이
-      layout="fixed" // 레이아웃 옵션
-      onClick={onClick}
-      className="cursor-pointer block absolute top-0 left-[-2%]"
-    />
+    <div className="absolute top-0 left-[-18%] md:left-[98%] w-8 md:w-16 h-8 md:h-16" onClick={onClick}>
+      <Image
+        src="/intro/left arrow.svg" // 이미지 경로
+        alt="slidesImages"
+        width={69} // 너비
+        height={287} // 높이
+        layout="fixed" // 레이아웃 옵션
+        onClick={onClick}
+        className="cursor-pointer block"
+      />
+    </div>
   )
 }
 
@@ -69,24 +73,33 @@ export default class CustomArrows extends Component {
 
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2, // 모바일 화면에서 보여줄 슬라이드의 개수
+            slidesToScroll: 1,
+          },
+        },
+      ],
     }
 
     return (
-      <div className="w-11/12 mt-[120px]">
+      <div className="w-2/3 md:w-11/12 mt-[10px]">
         <Slider {...settings} className="items-center">
           {slidesData.map((data, index) => (
-            <div key={index} className="flex flex-col justify-center items-center h-full relative">
+            <div key={index} className=" flex flex-col justify-center items-center h-full relative">
               <Image
                 src={data.image} // 이미지 경로
                 alt="slidesImages"
                 width={data.width} // 너비
                 height={data.height} // 높이
-                layout="fixed" // 레이아웃 옵션
-                className="ml-[24%;]"
+                layout="responsive" // 레이아웃 옵션
+                className="md:ml-[24%;]"
               />
-              <div className="text-center mt-[30px]">
-                <h1 className="font-bold text-[15.4px] tracking-[0.23px]">{data.title}</h1>
-                <p className="font-light text-[15.4px] tracking-[0.23px]">{data.description}</p>
+              <div className="text-center mt-3 md:mt-[30px]">
+                <h1 className="font-bold text-sm md:text-base tracking-[0.23px]">{data.title}</h1>
+                <p className="font-light text-sm  tracking-[0.23px]">{data.description}</p>
               </div>
             </div>
           ))}

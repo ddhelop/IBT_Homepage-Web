@@ -40,11 +40,11 @@ export default function TechnicalComponent() {
 
   return (
     <>
-      <div className=" h-[1000px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
+      <div className="h-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
         <h1 className="text-[61.1px] font-medium">기술 인증</h1>
 
         {/* Tabs */}
-        <div className="mt-16 w-1/2 flex items-center justify-center">
+        <div className="mt-16 w-full md:w-2/5 flex items-center justify-center">
           <button
             className={`w-1/5 h-[48px] tab-button4 ${isActive('tab1') ? 'active-tab4' : ''}`}
             value="tab1"

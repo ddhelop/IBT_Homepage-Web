@@ -5,7 +5,7 @@ export default function CompanyHistory2() {
     <>
       <div className="mt-12 w-full flex flex-col justify-center">
         {/* top */}
-        <div className="flex flex-col">
+        <div className="flex flex-col pl-7">
           <h3 className="text-[24.7px] font-bold tracking-[-0.38px] text-[#59A833] mb-3">2014</h3>
           <p className="font-[350] text-[13.7px] mb-6">UPS, ESS 리튬인산철 전지시스템 개발</p>
           <h3 className="text-[24.7px] font-bold tracking-[-0.38px] text-[#59A833] mb-3">2013</h3>
@@ -27,7 +27,7 @@ export default function CompanyHistory2() {
           />
         </div>
         {/* middle */}
-        <div className="relative">
+        <div className="relative pl-7">
           <h3 className="text-[24.7px] font-bold tracking-[-0.38px] text-[#59A833] mb-3">2011</h3>
           <p className="font-[350] text-[13.7px] leading-[31px] mb-6">
             포켓식 니켈수소 전지 KS인증 획득
