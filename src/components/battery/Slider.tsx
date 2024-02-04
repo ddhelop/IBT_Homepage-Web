@@ -30,17 +30,17 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               <Image src={'/image/leftArrow.svg'} alt="" width={40} height={40} />
             </button>
             <div>
-              <div className="w-[60rem] h-40 overflow-hidden relative bg-slate-500">
+              <div className="w-[60rem] h-40 overflow-hidden relative">
                 {/* 제품 이미지 */}
                 <div
                   ref={carouselRef}
                   style={{
-                    transform: `translateX(-${(100 / imagesPerPage) * currentImg}%)`,
+                    transform: `translateX(-${(100 / imagesPerPage) * currentImg + 3}%)`,
                   }}
-                  className="w-full h-full absolute flex transition-all duration-300"
+                  className="w-full h-full absolute flex transition-all duration-300 gap-3 pl-6 pr-3"
                 >
                   {data.map((v, i) => (
-                    <div key={i} className={`relative shrink-0 w-20rem h-full w-1/4`}>
+                    <div key={i} className={`relative shrink-0 w-1/4 h-full`}>
                       <Image className="pointer-events-none" alt={`carousel-image-${i}`} fill src={v.imagePath} />
                     </div>
                   ))}
@@ -60,15 +60,15 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <div
               ref={carouselRef}
               style={{
-                transform: `translateX(-${(100 / imagesPerPage) * currentImg}%)`,
+                transform: `translateX(-${(100 / imagesPerPage) * currentImg + 3}%)`,
               }}
-              className="w-full h-full absolute flex transition-all duration-300"
+              className="w-full h-full absolute flex transition-all duration-300 gap-3 pl-6 pr-3"
             >
               {data.map((v, i) => (
                 <div
                   key={i}
-                  className="relative shrink-0 h-full text-center text-4xl font-light my-3"
-                  style={{ width: `${100 / imagesPerPage}%` }}
+                  className="relative shrink-0 h-full w-1/4 text-center text-4xl font-light my-3"
+                  // style={{ width: `${100 / imagesPerPage}%` }}
                 >
                   {v.name}
                 </div>
