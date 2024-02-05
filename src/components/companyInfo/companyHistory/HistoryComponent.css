@@ -1,0 +1,71 @@
+/* HistoryComponent.css */
+.tab-button1 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: -0.386px;
+
+  border-radius: 6.885px 0px 0px 0px;
+  border-top: 0.689px solid #ddd;
+  border-bottom: 1.377px solid #ddd;
+  border-left: 0.689px solid #ddd;
+  background-color: white;
+}
+.tab-button2 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: -0.386px;
+
+  border-top: 0.689px solid #ddd;
+  border-bottom: 1.377px solid #ddd;
+  border-left: 0.689px solid #ddd;
+  background-color: white;
+  color: black; /* 기본 텍스트 색상 */
+  /* 여기에 패딩, 폰트 크기 등 다른 스타일 추가 */
+}
+.tab-button3 {
+  font-size: 13.77px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: -0.386px;
+
+  border-radius: 0px 6.885px 0px 0px;
+  border-top: 0.689px solid #ddd;
+  border-right: 0.689px solid #ddd;
+  border-bottom: 1.377px solid #ddd;
+  border-left: 0.689px solid #ddd;
+  background-color: white;
+  color: black; /* 기본 텍스트 색상 */
+  /* 여기에 패딩, 폰트 크기 등 다른 스타일 추가 */
+}
+
+.active-tab1 {
+  font-weight: 600;
+
+  border-radius: 6.885px 6.885px 0px 0px;
+  color: #59a833; /* 텍스트 색상을 초록색으로 변경 */
+  border-top: 1.377px solid #59a833;
+  border-left: 1.377px solid #59a833;
+  border-right: 1.377px solid #59a833;
+
+  /* 탭 효과를 위해 아래쪽 테두리는 없음 */
+}
+
+.active-tab2 {
+  font-weight: 600;
+  border-radius: 6.885px 6.885px 0px 0px;
+  color: #59a833; /* 텍스트 색상을 초록색으로 변경 */
+  border-top: 1.377px solid #59a833;
+  border-left: 1.377px solid #59a833;
+  border-right: 1.377px solid #59a833;
+}
+
+.active-tab3 {
+  font-weight: 600;
+  border-radius: 6.885px 6.885px 0px 0px;
+  color: #59a833; /* 텍스트 색상을 초록색으로 변경 */
+  border-top: 1.377px solid #59a833;
+  border-left: 1.377px solid #59a833;
+  border-right: 1.377px solid #59a833;
+}
