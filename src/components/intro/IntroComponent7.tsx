@@ -1,12 +1,16 @@
 'use client'
 
+import { useState } from 'react'
+import Slider from '../battery/Slider'
 import SlickSlider from '../commons/SlickSlider'
 
 export default function IntroComponent7(): JSX.Element {
+  const [categoryIndex, setCategoryIndex] = useState(0)
+
   return (
     <>
-      <div className="w-full flex flex-col min-h-screen bg-no-repeat bg-cover bg-white ">
-        <div className="flex flex-col h-full w-full text-center align-middle justify-center">
+      <div className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-white ">
+        <div className="flex flex-col h-full text-center align-middle justify-center">
           {/* top container */}
           <div className="h-1/2 min-h-[600px] flex flex-col justify-center align-middle">
             <p className="font-[350] text-[14px] tracking-[0.2px] mt-[180px]">Dynamic Growth</p>
@@ -15,9 +19,8 @@ export default function IntroComponent7(): JSX.Element {
           </div>
 
           {/* below container */}
-          <div className="h-1/2 flex justify-center align-middle">
-            <SlickSlider />
-          </div>
+
+          <SlickSlider />
         </div>
       </div>
     </>
