@@ -17,6 +17,7 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
 
+
       // animation library
       keyframes: {
         fadeIn: {
@@ -29,10 +30,18 @@ const config: Config = {
           '50%': { transform: 'scale(1.2)' },
         },
       },
+      
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out forwards',
         // 다른 애니메이션 이름을 여기에 추가
         pulse: 'pulse 3s infinite',
+      }
+      colors: {
+        'primary-green': '#79AD4B',
+      },
+      lineHeight: {
+        'extra-loose': '2.5',
+
       },
     },
   },

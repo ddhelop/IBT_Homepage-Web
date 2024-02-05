@@ -18,7 +18,9 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+
 }
 
 @layer utilities {
@@ -26,6 +28,7 @@ body {
     text-wrap: balance;
   }
 }
+
 
 /* Intro text fade-In animation */
 @keyframes fadeIn {
@@ -40,4 +43,21 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* -- */
+@media screen and (max-width: 280px) {
+  html {
+    @apply text-[5px];
+  }
+}
+
+@media screen and (min-width: 281px) {
+  html {
+    @apply text-[10px];
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    @apply text-[16px];
+  }
+}
+
