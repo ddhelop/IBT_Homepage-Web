@@ -27,7 +27,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <button
               disabled={currentImg === 0}
               onClick={() => setCurrentImg((prev) => prev - 1)}
-              className={`relative px-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
+              className={`relative lg:px-20 pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
             >
               <Image src={'/image/leftArrow.svg'} alt="" fill />
             </button>
@@ -79,7 +79,9 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <button
               disabled={currentImg === data.length - 1}
               onClick={() => setCurrentImg((prev) => prev + 1)}
-              className={`lg:hidden relative px-20 w-[3rem] h-[3rem] ${currentImg === data.length - 1 && 'opacity-50'}`}
+              className={`lg:hidden relative pl-20 pr-10 w-[3rem] h-[3rem] ${
+                currentImg === data.length - 1 && 'opacity-50'
+              }`}
             >
               <Image src={'/image/rightArrow.svg'} alt="" fill />
             </button>
@@ -137,7 +139,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <button
               disabled={currentImg === 0}
               onClick={() => setCurrentImg((prev) => prev - 1)}
-              className={`relative px-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
+              className={`relative pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
             >
               <Image src={'/image/leftArrow.svg'} alt="" fill />
             </button>
@@ -161,7 +163,9 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <button
               disabled={currentImg === data.length - 1}
               onClick={() => setCurrentImg((prev) => prev + 1)}
-              className={`lg:hidden relative px-20 w-[3rem] h-[3rem] ${currentImg === data.length - 1 && 'opacity-50'}`}
+              className={`lg:hidden relative pl-20 pr-10 w-[3rem] h-[3rem] ${
+                currentImg === data.length - 1 && 'opacity-50'
+              }`}
             >
               <Image src={'/image/rightArrow.svg'} alt="" fill />
             </button>
