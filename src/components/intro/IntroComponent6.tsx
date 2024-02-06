@@ -1,4 +1,7 @@
+'use client'
 import Image from 'next/image'
+
+import { useRouter } from 'next/navigation'
 
 const Data = [
   {
@@ -7,19 +10,36 @@ const Data = [
     icon: '/intro/companyIntro.svg',
     width: 45,
     height: 45,
+    path: '/companyInfo',
   },
-  { title: 'Battery', description: 'IBT 대표 제품\n라인업 소개', icon: '/intro/battery.svg', width: 23, height: 45 },
+  {
+    title: 'Battery',
+    description: 'IBT 대표 제품\n라인업 소개',
+    icon: '/intro/battery.svg',
+    width: 23,
+    height: 45,
+    path: '/battery',
+  },
   {
     title: 'Hydrogen',
     description: '수소 연료전지의 소개와\n도입효과 및 강점',
     icon: '/intro/hydrogen.svg',
     width: 45,
     height: 45,
+    path: '/hydrogen',
   },
-  { title: '고객문의', description: 'IBT에\n자유롭게 문의하세요', icon: '/intro/customer.svg', width: 45, height: 45 },
+  {
+    title: '고객문의',
+    description: 'IBT에\n자유롭게 문의하세요',
+    icon: '/intro/customer.svg',
+    width: 45,
+    height: 45,
+    path: '/',
+  },
 ]
 
 export default function IntroComponent6(): JSX.Element {
+  const router = useRouter()
   return (
     <>
       <div
@@ -59,6 +79,7 @@ export default function IntroComponent6(): JSX.Element {
                       layout="fixed" // 레이아웃 옵션
                       className="hidden md:flex"
                     />
+
                     <h3 className="font-bold text-left text-[28px] mt-1">{data.title}</h3>
                     <div className="flex flex-row justify-between">
                       <p className="font-thin text-[14px] text-left whitespace-pre-line mt-1">{data.description}</p>
@@ -70,6 +91,9 @@ export default function IntroComponent6(): JSX.Element {
                           height={40} // 높이
                           layout="fixed" // 레이아웃 옵션
                           className="mt-1 cursor-pointer"
+                          onClick={() => {
+                            router.push(data.path)
+                          }}
                         />
                       </div>
                     </div>

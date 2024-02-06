@@ -28,10 +28,20 @@ const config: Config = {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.2)' },
         },
+        infiniteScroll: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+        infiniteScrollLeft: {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0%)' },
+        },
       },
 
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out forwards',
+        infiniteScroll: 'infiniteScroll 50s linear infinite',
+        infiniteScrollLeft: 'infiniteScrollLeft 50s linear infinite',
         // 다른 애니메이션 이름을 여기에 추가
         pulse: 'pulse 3s infinite',
       },

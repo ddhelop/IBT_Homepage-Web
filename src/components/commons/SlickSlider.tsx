@@ -32,13 +32,16 @@ const slidesData = [
 function NextArrow(props: ArrowProps) {
   const { onClick } = props
   return (
-    <div className="absolute top-0 left-[105%] md:left-[96%] w-8 md:w-16 h-8 md:h-16" onClick={onClick}>
+    <div
+      className="absolute top-[13%] md:top-[-6%] left-[105%] md:left-[99%] w-8 md:w-16 h-8 md:h-16"
+      onClick={onClick}
+    >
       <Image
         src="/intro/right arrow.svg" // 이미지 경로
         alt="slidesImages"
         width={69} // 너비
         height={287} // 높이
-        layout="fix" // 레이아웃 옵션
+        layout="fixed" // 레이아웃 옵션
         onClick={onClick}
         className="cursor-pointer block"
       />
@@ -49,7 +52,10 @@ function NextArrow(props: ArrowProps) {
 function PrevArrow(props: ArrowProps) {
   const { onClick } = props
   return (
-    <div className="absolute top-0 left-[-18%] md:left-0 w-8 md:w-16 h-8 md:h-16" onClick={onClick}>
+    <div
+      className="absolute top-[13%] md:top-[-6%] left-[-13%] md:left-[-3%] w-8 md:w-16 h-8 md:h-16"
+      onClick={onClick}
+    >
       <Image
         src="/intro/left arrow.svg" // 이미지 경로
         alt="slidesImages"
@@ -86,25 +92,22 @@ export default class CustomArrows extends Component {
     }
 
     return (
-      <div className="w-2/3 md:w-11/12 mt-[10px]">
-        <Slider {...settings} className="items-center">
-          {slidesData.map((data, index) => (
-            <div key={index} className="flex flex-col justify-center items-center h-full relative">
-              <Image
-                src={data.image} // 이미지 경로
-                alt="slidesImages"
-                width={data.width} // 너비
-                height={data.height} // 높이
-                layout="fixed" // 레이아웃 옵션
-                className="md:ml-[25%]"
-              />
-              <div className="text-center mt-3 md:mt-[30px]">
-                <h1 className="font-bold text-sm md:text-base tracking-[0.23px]">{data.title}</h1>
-                <p className="font-light text-sm  tracking-[0.23px]">{data.description}</p>
+      <div className="text-center">
+        <div className="m-auto w-full p-20">
+          <Slider {...settings}>
+            {slidesData.map((el) => (
+              <div key={el.title}>
+                <div className="flex justify-center ">
+                  <img src={el.image} alt={el.description} />
+                </div>
+                <div>
+                  <h2>{el.title}</h2>
+                  <p>{el.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
     )
   }
