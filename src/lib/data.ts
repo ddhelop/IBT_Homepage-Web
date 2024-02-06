@@ -56,7 +56,6 @@ export const links_battery = [
   },
 ] as const
 
-
 // intro_data
 export const contents = [
   {
@@ -74,8 +73,7 @@ export const contents = [
     text: '친환경 전지와 안전 관리 시스템을 중심으로,\n차세대를 책임질 에너지 시스템을 만들어가고 있습니다.\nIBT는 미래를 함께합니다.',
     background: '/intro/intro3.png',
   },
-  { title: '', text: '', background: '/intro/intro4.png' },
-];
+]
 ////// 배터리 페이지 데이터 //////
 export const batteryList = [
   {
