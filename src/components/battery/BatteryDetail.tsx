@@ -16,7 +16,7 @@ type Props = {
 export default function BatteryDetail({ title, explain1, explain2, explain3, explain4 }: Props) {
   return (
     <>
-      <div className="text-center">
+      <div className="text-center lg:pt-24 pt-32">
         <div className="text-6xl font-medium mt-32 text-primary-green lg:translate-x-[65px]">{title}</div>
       </div>
       <div className="relative text-center lg:my-40 my-28 items-center">
