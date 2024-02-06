@@ -1,4 +1,23 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+    ],
+  },
+  webpack: (config) => {
+    config.resolve.fallback = {
+      'mongodb-client-encryption': false,
+      aws4: false,
+    }
 
-export default nextConfig;
+    return config
+  },
+  experimental: {
+    serverActions: true,
+  },
+}
+export default nextConfig
