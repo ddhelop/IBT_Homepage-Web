@@ -7,9 +7,9 @@ export default function DirectionsComponent() {
     <>
       <div className="h-[2300px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
         <h1 className="text-6xl font-medium">오시는 길</h1>
-        {/* 광주지점 */}
+        {/* 광주본사 */}
         <div className="mt-32 flex flex-col p-5">
-          <h2 className="text-[29px] font-medium mb-8">광주지점</h2>
+          <h2 className="text-[29px] font-medium mb-8">광주본사</h2>
           <div className="flex flex-col md:flex-row items-center">
             <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
             <div className="w-full h-full md:w-[33.85vw] md:h-[33.85vw] bg-[#f1f1f1] text-[13px] ">
