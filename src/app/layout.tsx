@@ -22,7 +22,9 @@ export default function RootLayout({
       <body className={`${cls(notoSansKr.className, roboto.variable)} transition  text-gray-950 relative`}>
         <ActiveSectionContextProvider>
           <Header />
-          <RecoilContextProvider>{children}</RecoilContextProvider>
+          <RecoilContextProvider>
+            <div className="mt-[100px]">{children}</div>
+          </RecoilContextProvider>
           <Footer />
         </ActiveSectionContextProvider>
       </body>

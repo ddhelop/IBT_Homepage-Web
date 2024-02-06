@@ -13,12 +13,12 @@ const BatteryPage = () => {
     <>
       <FloatingButton />
       {/* Battery 소개 */}
-      <div className="relative lg:mx-40 bg-white lg:mt-24 mt-32">
+      <div className="relative lg:mx-40 bg-white">
         <div className="flex justify-center">
           <div className="absolute text-center z-10 h-4/5 w-full top-1/2 -translate-y-1/2">
             <div className="h-1/2 translate-y-1/2 flex flex-col jusify-center items-center">
               <div className="relative w-[18rem] h-[12rem]">
-                <Image src={'/image/Logo.png'} fill />
+                <Image alt="" src={'/image/Logo.png'} fill />
               </div>
               <h1 className="font-bold text-5xl text-white mb-10">IBT는 다릅니다</h1>
               <div className="lg:font-light text-lg text-white leading-6">
@@ -29,6 +29,7 @@ const BatteryPage = () => {
           </div>
           <div className="relative w-[100rem] h-[45rem]">
             <Image
+              alt="1"
               className="flex-shrink-0 z-0"
               src={'/image/310인트로/311_소개_배경.png'}
               fill
@@ -45,7 +46,7 @@ const BatteryPage = () => {
           {/* Ni-cd */}
           <div className="inline-flex h-[30rem] lg:mx-40">
             <div className="lg:relative lg:flex lg:w-2/3 lg:h-full lg:justify-center lg:items-center hidden">
-              <Image src={'/image/310인트로/312_메인(Ni-cd).png'} fill />
+              <Image alt="2" src={'/image/310인트로/312_메인(Ni-cd).png'} fill />
             </div>
             <div className="group relative flex flex-col flex-shrink-0 justify-between lg:w-1/3 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
               <div className="z-10">
@@ -56,7 +57,7 @@ const BatteryPage = () => {
                   </div>
                   <Link href="/battery/batteryDetail/defense">
                     <button className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green">
-                      <Image src={'/image/arrow.svg'} width={30} height={10} />
+                      <Image alt="3" src={'/image/arrow.svg'} width={30} height={10} />
                     </button>
                   </Link>
                 </div>
@@ -79,7 +80,7 @@ const BatteryPage = () => {
                       <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
                         <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-noraml">
                           방산용
-                          <Image src={'/image/arrow_green.svg'} width={30} height={10} />
+                          <Image alt="4" src={'/image/arrow_green.svg'} width={30} height={10} />
                         </div>
                       </button>
                     </Link>

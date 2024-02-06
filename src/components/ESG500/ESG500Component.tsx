@@ -12,7 +12,7 @@ export default function ESG500Component() {
             alt="eco_friendly"
             width={487} // 너비
             height={194} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className="mb-32 md:ml-[108px]"
           />
           <Image
@@ -20,7 +20,7 @@ export default function ESG500Component() {
             alt="Eclipse1"
             width={1074} // 너비
             height={1050} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className=""
           />
         </div>
@@ -36,7 +36,7 @@ export default function ESG500Component() {
             alt="Reliable_Governance"
             width={715} // 너비
             height={122} // 높이
-            layout="responsive" // 레이아웃 옵션
+            // layout="responsive" // 레이아웃 옵션
             className="mb-32 md:ml-[108px] max-w-screen-md"
           />
           <h1 className="text-4xl font-medium md:mr-[48%] text-center">윤리경영 보고서</h1>

@@ -41,7 +41,7 @@ function NextArrow(props: ArrowProps) {
         alt="slidesImages"
         width={69} // 너비
         height={287} // 높이
-        layout="fixed" // 레이아웃 옵션
+        // layout="fixed" // 레이아웃 옵션
         onClick={onClick}
         className="cursor-pointer block"
       />
@@ -61,7 +61,7 @@ function PrevArrow(props: ArrowProps) {
         alt="slidesImages"
         width={69} // 너비
         height={287} // 높이
-        layout="responsive" // 레이아웃 옵션
+        // layout="responsive" // 레이아웃 옵션
         onClick={onClick}
         className="cursor-pointer block"
       />

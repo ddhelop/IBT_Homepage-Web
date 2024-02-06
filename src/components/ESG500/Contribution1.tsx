@@ -10,7 +10,7 @@ export default function Contribution1() {
           alt="Social_Contribution"
           width={1300} // 너비
           height={406} // 높이
-          layout="responsive" // 레이아웃 옵션
+          // layout="responsive" // 레이아웃 옵션
           className="mb-28 mt-28"
         />
         {/* 첫 단락 */}

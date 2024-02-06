@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState } from 'react'
 import { NewsProps } from '@/lib/types'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
@@ -22,9 +23,6 @@ const NewsPosts = ({ posts }: any) => {
     console.log(source.index, destination.index)
     const newPosts = reorderPosts(news, source.index, destination.index)
     setNews(newPosts)
-    // if (destination.droppableId === source.droppableId && destination.index === source.index) {
-    //   return
-    // }
   }
   const handleDelete = (id: number) => {
     const tempNews = Array.from(news)
@@ -35,7 +33,7 @@ const NewsPosts = ({ posts }: any) => {
   }
 
   return (
-    <div className="flex p-8 flex-col gap-4  bg-red-100  w-[640px]">
+    <div className="flex p-8 flex-col gap-4 px-64 basis-1/2">
       <DragDropContext onDragEnd={onDragEnd}>
         <StrictModeDroppable droppableId="droppable">
           {(droppableProvided) => (

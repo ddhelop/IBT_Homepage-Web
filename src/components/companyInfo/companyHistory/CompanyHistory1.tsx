@@ -17,7 +17,7 @@ export default function CompanyHistory1() {
             alt="2021"
             width={334} // 너비
             height={179} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className="mt-3 rounded mb-10"
           />
         </div>
@@ -38,7 +38,7 @@ export default function CompanyHistory1() {
             alt="2018"
             width={384} // 너비
             height={185} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className="mt-3 mb-8"
           />
           <h3 className="text-[24.7px] font-bold tracking-[-0.38px] text-[#59A833] mb-4">2017</h3>

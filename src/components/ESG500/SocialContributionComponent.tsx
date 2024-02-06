@@ -32,7 +32,7 @@ export default function SocialContributionComponent() {
             alt="Social_Contribution"
             width={646} // 너비
             height={194} // 높이
-            layout="responsive" // 레이아웃 옵션
+            // layout="responsive" // 레이아웃 옵션
             className="mb-32 md:ml-[98px]"
           />
 

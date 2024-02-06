@@ -1,5 +1,6 @@
 'use client'
 
+import { revalidatePath } from 'next/cache'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -17,15 +18,14 @@ const PostForm = () => {
       formData.append('title', title)
       formData.append('description', description)
       const res = await fetch('/api/admin/add-post', { method: 'POST', body: formData }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
-      router.replace('/admin')
-      // revalidatePath('/admin')
+      revalidatePath('/admin')
       if (!res.ok) throw new Error(await res.text())
     } catch (e: any) {
       console.log(e)
     }
   }
   return (
-    <div className="bg-white">
+    <div className=" basis-1/2">
       <h1 className="text-2xl font-bold mb-4">블로그 작성 페이지</h1>
       <form onSubmit={onSubmit}>
         <div className="mb-4">

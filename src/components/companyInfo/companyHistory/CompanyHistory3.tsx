@@ -41,7 +41,7 @@ export default function CompanyHistory3() {
             alt="2021"
             width={330} // 너비
             height={150} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className="mt-3 rounded mb-10"
           />
 
@@ -68,7 +68,7 @@ export default function CompanyHistory3() {
             alt="2000"
             width={270} // 너비
             height={185} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className="mt-3 mb-12"
           />
 

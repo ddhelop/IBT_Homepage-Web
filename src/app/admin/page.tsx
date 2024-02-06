@@ -1,10 +1,10 @@
 import NewsPosts from '@/components/admin/NewsPosts'
-import { posts } from '@/lib/data'
-import { connectToDb } from '@/lib/utils'
+import PostForm from '@/components/admin/PostForm'
+import { Suspense } from 'react'
 
 const getData = async () => {
   const res = await fetch('http://localhost:3000/api/admin', {
-    // cache: 'no-store',
+    cache: 'no-store',
     method: 'GET',
   })
   if (!res.ok) {
@@ -13,13 +13,15 @@ const getData = async () => {
   return res.json()
 }
 const AdminPage = async () => {
-  // const dposts = await getData()
-  // console.log(dposts)
+  const posts = await getData()
 
   return (
-    <div className="flex flex-col items-end bg-gray-50">
+    <div className="flex w-full h-screen bg-gray-200">
       <h1>뉴스 관리</h1>
-      <NewsPosts posts={posts} />
+      <Suspense fallback={<div className="w-full h-screen bg-red-500">로딩중...</div>}>
+        <NewsPosts posts={posts} />
+      </Suspense>
+      <PostForm />
     </div>
   )
 }

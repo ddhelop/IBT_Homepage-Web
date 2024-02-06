@@ -70,7 +70,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {logos.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={350} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={350} height={60} />
                 </li>
               ))}
             </ul>
@@ -78,7 +78,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {logos.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={320} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={320} height={60} />
                 </li>
               ))}
             </ul>
@@ -88,7 +88,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {logos2.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={350} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={350} height={60} />
                 </li>
               ))}
             </ul>
@@ -96,7 +96,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {logos2.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={350} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={350} height={60} />
                 </li>
               ))}
             </ul>
@@ -107,7 +107,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {logos3.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -115,7 +115,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {logos3.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -126,7 +126,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {logos4.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -134,7 +134,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {logos4.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -145,7 +145,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {logos5.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -153,7 +153,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {logos5.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -164,7 +164,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {logos6.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -172,7 +172,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {logos6.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} layout="responsive" />
+                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
                 </li>
               ))}
             </ul>

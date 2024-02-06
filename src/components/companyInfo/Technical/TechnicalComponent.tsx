@@ -21,7 +21,7 @@ export default function TechnicalComponent() {
             alt="2021"
             width={800} // 너비
             height={150} // 높이
-            layout="fixed" // 레이아웃 옵션
+            // layout="fixed" // 레이아웃 옵션
             className="mt-3 rounded mb-10"
           />
         )
