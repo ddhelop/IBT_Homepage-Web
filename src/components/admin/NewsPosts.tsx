@@ -33,7 +33,8 @@ const NewsPosts = ({ posts }: any) => {
   }
 
   return (
-    <div className="flex p-8 flex-col gap-4 px-64 basis-1/2">
+    <div className="flex px-16 flex-col">
+      <h1 className="text-2xl font-bold mb-4 text-center">뉴스 글 수정</h1>
       <DragDropContext onDragEnd={onDragEnd}>
         <StrictModeDroppable droppableId="droppable">
           {(droppableProvided) => (

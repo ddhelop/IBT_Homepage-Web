@@ -1,6 +1,19 @@
 import { Post, getId } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
+import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
+
+export const GET = async (request: NextRequest) => {
+  try {
+    connectToDb()
+    const posts = await Post.find().exec()
+
+    return NextResponse.json(posts)
+  } catch (err) {
+    console.log(err)
+    throw new Error('Failed to fetch posts!')
+  }
+}
 
 export const POST = async (request: NextRequest) => {
   const data = await request.formData() //Server에게 완전히 도달했고, 그 후에 data라는 변수로 들어왔는지 대기
@@ -26,6 +39,9 @@ export const POST = async (request: NextRequest) => {
     const newId = await getId()
     const newPost = new Post({ title, img: buffer, desc, postId: newId })
     newPost.save()
+    console.log('saved to db')
+    revalidatePath('/admin')
+    console.log('revalidated')
   } catch (e: any) {
     console.log(e)
   }

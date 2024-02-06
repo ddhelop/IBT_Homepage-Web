@@ -199,7 +199,7 @@ export const Header = () => {
                   : ''
               }`}
                 >
-                  <Link href={'/'}>
+                  <Link href={'/customer/catelog'}>
                     <li onClick={() => setActive(false)}>고객지원</li>
                   </Link>
                   <ul
@@ -209,7 +209,7 @@ export const Header = () => {
                         : 'transition-opacity duration-300 ease-out transform opacity-0'
                     } ${active ? 'hidden' : ''}absolute w-full translate-y-1/2 mt-[100px]`}
                   >
-                    <Link href={'/'}>
+                    <Link href={'/customer/catelog'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -217,7 +217,7 @@ export const Header = () => {
                         카탈로그
                       </li>
                     </Link>
-                    <Link href={'/'}>
+                    <Link href={'/customer/news'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -225,7 +225,7 @@ export const Header = () => {
                         IBT News
                       </li>
                     </Link>
-                    <Link href={'/'}>
+                    <Link href={'/customer/contact-us'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
