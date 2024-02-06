@@ -17,7 +17,7 @@ export const Header = () => {
 
   return (
     <>
-      <nav className="flex items-center flex-wrap bg-white py-3" onMouseEnter={() => setNavDown(true)}>
+      <nav className="flex items-center flex-wrap lg:px-20 bg-white py-3" onMouseEnter={() => setNavDown(true)}>
         <div className="inline-flex items-center p-2 ml-5 lg:hidden">
           <Image src={'/image/Logo.png'} width={100} height={50} />
         </div>
@@ -37,9 +37,7 @@ export const Header = () => {
           </svg>
         </button>
         {/* 네비게이션*/}
-        <div
-          className={`${active ? 'shadow-sm mb-10' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
-        >
+        <div className={`${active ? 'shadow-sm' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
           <div className="lg:inline-flex lg:flex-row lg:w-full lg:items-center lg:h-auto items-center text-center lg:justify-between flex flex-col">
             {/* 로고 */}
             <Link href={'/intro'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
@@ -55,7 +53,7 @@ export const Header = () => {
                   : ''
               }`}
               >
-                <Link href={`${active ? '/companyInfo' : ''}`}>
+                <Link href={'/companyInfo'}>
                   <li onClick={() => setActive(false)}>회사정보</li>
                 </Link>
                 <ul
@@ -116,7 +114,7 @@ export const Header = () => {
                   : ''
               }`}
               >
-                <Link href={`${active ? '/battery' : ''}`}>
+                <Link href={'/battery'}>
                   <li onClick={() => setActive(false)}>Battery</li>
                 </Link>
                 <ul
@@ -161,7 +159,7 @@ export const Header = () => {
                   : ''
               }`}
               >
-                <Link href={`${active ? '/hydrogen' : ''}`}>
+                <Link href={'/hydrogen'}>
                   <li onClick={() => setActive(false)}>Hydrogen</li>
                 </Link>
                 <ul
@@ -198,7 +196,7 @@ export const Header = () => {
                   : ''
               }`}
               >
-                <Link href={`${active ? '/' : ''}`}>
+                <Link href={'/'}>
                   <li onClick={() => setActive(false)}>고객지원</li>
                 </Link>
                 <ul
@@ -243,7 +241,7 @@ export const Header = () => {
                   : ''
               }`}
               >
-                <Link href={`${active ? '/ESG_500' : ''}`}>
+                <Link href={'/ESG_500'}>
                   <li onClick={() => setActive(false)}>ESG</li>
                 </Link>
                 <ul
