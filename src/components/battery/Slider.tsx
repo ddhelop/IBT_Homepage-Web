@@ -111,7 +111,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               className="lg:hidden w-full h-full absolute flex transition-all duration-300"
             >
               {data.map((v, i) => (
-                <div key={i} className="relative shrink-0 w-full h-full text-center text-5xl font-light my-3">
+                <div key={i} className="relative shrink-0 w-full h-full text-center text-4xl font-light my-3">
                   {v.name}
                 </div>
               ))}
@@ -179,7 +179,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               className="lg:hidden w-full h-full absolute flex transition-all duration-300"
             >
               {data.map((v, i) => (
-                <div key={i} className="relative shrink-0 w-full h-full text-center text-5xl font-light my-3">
+                <div key={i} className="relative shrink-0 w-full h-full text-center text-4xl font-light my-3">
                   {v.name}
                 </div>
               ))}
