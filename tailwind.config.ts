@@ -49,6 +49,7 @@ const config: Config = {
         'primary-green': '#79AD4B',
         'footer-black': '#1C1C1C',
         'category-back': '#C3C3C3',
+        'battery-back': '#EAEAEA',
       },
       lineHeight: {
         'extra-loose': '2.5',
