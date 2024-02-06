@@ -40,7 +40,7 @@ export const Header = () => {
         <div className={`${active ? '' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
           <div className="lg:inline-flex lg:flex-row lg:w-full lg:items-center lg:h-auto items-center text-center lg:justify-between flex flex-col">
             {/* 로고 */}
-            <Link href={'/intro'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
+            <Link href={'/'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
               <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
             </Link>
             <ul className={`${active ? 'w-full' : 'flex w-3/4 justify-between'}`}>
