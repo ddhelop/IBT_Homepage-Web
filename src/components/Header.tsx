@@ -116,7 +116,7 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/battery'}>
-                    <li onClick={() => setActive(false)}>Battery</li>
+                    <li onClick={() => setActive(false)}>BATTERY</li>
                   </Link>
                   <ul
                     className={`${
@@ -161,7 +161,7 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/hydrogen'}>
-                    <li onClick={() => setActive(false)}>Hydrogen</li>
+                    <li onClick={() => setActive(false)}>HYDROGEN</li>
                   </Link>
                   <ul
                     className={`${
