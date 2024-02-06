@@ -5,6 +5,7 @@ import { cls, notoSansKr, roboto } from '@/lib/fonts'
 import RecoilContextProvider from '@/context/recoil-context'
 import ActiveSectionContextProvider from '@/context/active-section-context'
 import Footer from '@/components/Footer'
+import { Header } from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'IBT',
@@ -19,8 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cls(notoSansKr.className, roboto.variable)} transition  text-gray-950 relative pt-28`}>
+      <body className={`${cls(notoSansKr.className, roboto.variable)} transition  text-gray-950 relative`}>
         <ActiveSectionContextProvider>
+          <Header />
           <RecoilContextProvider>{children}</RecoilContextProvider>
           <Footer />
         </ActiveSectionContextProvider>
