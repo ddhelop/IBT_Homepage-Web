@@ -3,8 +3,8 @@ import Image from 'next/image'
 export default function Footer() {
   return (
     <footer className="w-full bg-footer-black mt-20 py-10">
-      <div className="flex lg:flex-col flex-row-reverse justify-center gap-9 px-[3rem] lg:px-0 items-center">
-        <div className="relative flex w-48 h-28">
+      <div className="flex flex-col justify-center gap-9 px-[3rem] lg:px-0 lg:items-center items-start">
+        <div className="hidden lg:relative lg:flex lg:w-48 lg:h-28">
           <Image src={'/image/Logo.png'} fill objectFit="cover" />
         </div>
         <div className="flex lg:flex-row flex-col lg:w-full lg:justify-center">
