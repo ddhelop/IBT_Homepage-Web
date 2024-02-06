@@ -1,11 +1,40 @@
 'use client'
 import { useIntersectionObserver } from '@/context/useIntersectionObserver.client'
-import React from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 
 export default function IntroComponent5(): JSX.Element {
+  const [count1, setCount1] = useState(0)
+  const [count2, setCount2] = useState(0)
+  const [count3, setCount3] = useState(0)
+
+  // 카운트업 완료 상태 추적
+  const [completed, setCompleted] = useState({ count1: false, count2: false, count3: false })
+
   const handleAnimation = (entry: IntersectionObserverEntry) => {
-    // 애니메이션 클래스 추가
-    entry.target.classList.add('animate-pulse')
+    if (!completed.count1) countUp(setCount1, 13, 500, 'count1')
+    if (!completed.count2) countUp(setCount2, 23, 500, 'count2')
+    if (!completed.count3) countUp(setCount3, 16, 500, 'count3')
+  }
+
+  function countUp(setCount: Dispatch<SetStateAction<number>>, end: number, duration: number, countKey: string) {
+    const start = performance.now()
+
+    function update(currentTime: number) {
+      const elapsedTime = currentTime - start
+      const progress = elapsedTime / duration
+      const currentCount = Math.min(Math.round(end * progress), end)
+
+      setCount(currentCount)
+
+      if (currentCount < end) {
+        requestAnimationFrame(update)
+      } else {
+        // 카운트업 완료 시, 해당 카운트의 완료 상태를 true로 설정
+        setCompleted((prev) => ({ ...prev, [countKey]: true }))
+      }
+    }
+
+    requestAnimationFrame(update)
   }
 
   const ref = useIntersectionObserver(handleAnimation, {
@@ -45,7 +74,7 @@ export default function IntroComponent5(): JSX.Element {
               <div className="flex flex-col relative z-10 justify-center ">
                 <div className="flex flex-row justify-center">
                   <div className="text-white">
-                    13
+                    {count1}
                     <span className="relative bottom-6">+</span>
                   </div>
                 </div>
@@ -55,7 +84,7 @@ export default function IntroComponent5(): JSX.Element {
               <div className="flex flex-col relative z-10 justify-center">
                 <div className="flex flex-row justify-center">
                   <div className="text-white">
-                    23
+                    {count2}
                     <span className=" relative bottom-6">+</span>
                   </div>
                 </div>
@@ -65,7 +94,7 @@ export default function IntroComponent5(): JSX.Element {
               <div className="flex flex-col relative z-10 justify-center ">
                 <div className="flex flex-row justify-center">
                   <div className="text-white ">
-                    16
+                    {count3}
                     <span className=" relative bottom-6 left-1">+</span>
                   </div>
                 </div>

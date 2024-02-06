@@ -5,10 +5,11 @@ export const metadata = {
   description: 'IBT 소개 페이지',
 }
 
-export default function AboutCorpPage() {
+const AboutCorpPage = () => {
   return (
     <div className="flex flex-col w-full">
       <ExampleComponent1 />
     </div>
   )
 }
+export default AboutCorpPage

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { cls, notoSansKr, roboto } from '@/lib/fonts'
 import RecoilContextProvider from '@/context/recoil-context'

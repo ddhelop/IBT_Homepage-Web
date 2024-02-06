@@ -19,7 +19,7 @@ export const Header = () => {
     <>
       <nav className="flex items-center flex-wrap lg:px-20 bg-white py-3" onMouseEnter={() => setNavDown(true)}>
         <div className="inline-flex items-center p-2 ml-5 lg:hidden">
-          <Image src={'/image/Logo.png'} width={100} height={50} />
+          <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
         </div>
         {/* 햄버거 바 */}
         <button
@@ -40,8 +40,8 @@ export const Header = () => {
         <div className={`${active ? 'shadow-sm' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
           <div className="lg:inline-flex lg:flex-row lg:w-full lg:items-center lg:h-auto items-center text-center lg:justify-between flex flex-col">
             {/* 로고 */}
-            <Link href={'/intro'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
-              <Image src={'/image/Logo.png'} width={100} height={50} />
+            <Link href={'/'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
+              <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
             </Link>
             <ul className={`${active ? 'w-full' : 'flex w-3/4 justify-between'}`}>
               {/* 1. 회사정보 */}
