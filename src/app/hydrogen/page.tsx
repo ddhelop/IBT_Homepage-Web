@@ -1,14 +1,39 @@
-import ExampleComponent1 from '@/components/ExampleComponent1'
+import FloatingButton from '@/components/Floating'
+import BatteryDetail from '@/components/battery/BatteryDetail'
+import BatteryItem from '@/components/battery/BatteryItem'
+import CheckerBoard from '@/components/battery/CheckerBoard'
+import { batteryList, industryList } from '@/lib/data'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'About Hydrogen',
-  description: 'IBT 소개 페이지',
+  description: 'IBT Hydrogen 제품 소개 페이지',
 }
 
-export default function AboutCorpPage() {
+const HydrogenPage = () => {
   return (
-    <div className="flex flex-col w-full">
-      <ExampleComponent1 />
-    </div>
+    <>
+      <FloatingButton />
+      <BatteryDetail
+        title={'HYDROGEN'}
+        explain1={'아이비티는 고객의 니즈에 따라'}
+        explain2={'고 에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.'}
+        explain3={'우수한 가격 경쟁력을 바탕으로'}
+        explain4={'내구성을 가지며 진동, 충격에 강한 특징을 가지고 있습니다.'}
+      />
+      <CheckerBoard
+        image1={'/image/Lithium.png'}
+        title1={'항공장애등용'}
+        explain1={'설명 필요'}
+        image2={'/image/Lithium.png'}
+        title2={'개폐기용'}
+        explain2={'설명 필요'}
+        image3={'/image/Lithium.png'}
+        title3={'통신용 5G 정류기'}
+        explain3={'설명 필요'}
+      />
+    </>
   )
 }
+
+export default HydrogenPage
