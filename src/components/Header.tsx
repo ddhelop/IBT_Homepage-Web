@@ -23,11 +23,11 @@ export const Header = () => {
         </div>
         {/* 햄버거 바 */}
         <button
-          className=" inline-flex p-3 hover:bg-gray-200 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
+          className=" inline-flex p-3 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
           onClick={handleClick}
         >
           <svg
-            className="w-6 h-6"
+            className="w-12 h-12"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -37,7 +37,9 @@ export const Header = () => {
           </svg>
         </button>
         {/* 네비게이션*/}
-        <div className={`${active ? '' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
+        <div
+          className={`${active ? 'shadow-sm mb-10' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+        >
           <div className="lg:inline-flex lg:flex-row lg:w-full lg:items-center lg:h-auto items-center text-center lg:justify-between flex flex-col">
             {/* 로고 */}
             <Link href={'/intro'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
@@ -49,7 +51,7 @@ export const Header = () => {
                 className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
               ${
                 active
-                  ? 'hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
+                  ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
                   : ''
               }`}
               >
@@ -110,7 +112,7 @@ export const Header = () => {
                 className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
-                  ? 'hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
+                  ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
                   : ''
               }`}
               >
@@ -155,7 +157,7 @@ export const Header = () => {
                 className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
-                  ? 'hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
+                  ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
                   : ''
               }`}
               >
@@ -192,7 +194,7 @@ export const Header = () => {
                 className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
-                  ? 'hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
+                  ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
                   : ''
               }`}
               >
@@ -237,7 +239,7 @@ export const Header = () => {
                 className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
-                  ? 'hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
+                  ? 'text-3xl mt-3 mb-6 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
                   : ''
               }`}
               >
