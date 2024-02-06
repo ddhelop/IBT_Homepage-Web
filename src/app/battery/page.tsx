@@ -13,7 +13,7 @@ const BatteryPage = () => {
     <>
       <FloatingButton />
       {/* Battery 소개 */}
-      <div className="relative lg:mx-40 bg-white lg:mt-5">
+      <div className="relative lg:mx-40 bg-white lg:mt-24 mt-32">
         <div className="flex justify-center">
           <div className="absolute text-center z-10 h-4/5 w-full top-1/2 -translate-y-1/2">
             <div className="h-1/2 translate-y-1/2 flex flex-col jusify-center items-center">
