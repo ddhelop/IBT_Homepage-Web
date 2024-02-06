@@ -25,17 +25,19 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
     <>
       <section className="w-full min-h-screen">
         {/* 소분류 카테고리 */}
-        <div className="flex flex-row mx-20 items-center mb-40">
+        <div className={`${detailInfo.length > 2 ? 'mx-20' : 'mx-80'} flex flex-row items-center mb-40`}>
           {detailInfo.map((v, i) => {
             return (
               <div
                 className={`${
-                  categoryIndex == i ? 'opacity-100 font-bold text-white' : 'opacity-40 font-semibold text-black'
-                } relative w-1/${detailInfo.length} h-20`}
+                  categoryIndex == i
+                    ? 'opacity-100 font-bold bg-primary-green'
+                    : 'opacity-40 font-semibold bg-category-back'
+                } relative w-1/${detailInfo.length} h-20 text-white`}
                 onClick={() => setCategoryIndex(i)}
               >
                 <div className="absolute flex justify-center items-center z-10 h-full w-full text-3xl">{v.title}</div>
-                <Image src={v.backgroundImage} className="z-0" fill objectFit="cover" />
+                {/* <Image src={v.backgroundImage} className="z-0" fill objectFit="cover" /> */}
               </div>
             )
           })}
@@ -89,11 +91,13 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
               <div className="text-5xl font-bold mb-10">충전기</div>
             </div>
           )}
-          <div className="w-full mt-20 h-10 border border-t-0 border-b-black" />
           {ModelInfo[mainCategoryIndex][categoryIndex].itemAdvanced.length === 0 ? (
             ''
           ) : (
-            <Slider categoryIndex={categoryIndex} mainCategoryIndex={mainCategoryIndex} />
+            <>
+              <div className="w-full mt-20 h-10 border border-t-0 border-b-black" />
+              <Slider categoryIndex={categoryIndex} mainCategoryIndex={mainCategoryIndex} />
+            </>
           )}
         </div>
       </section>

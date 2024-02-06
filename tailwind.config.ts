@@ -38,12 +38,14 @@ const config: Config = {
       colors: {
         'primary-green': '#79AD4B',
         'footer-black': '#1C1C1C',
+        'category-back': '#C3C3C3',
       },
       lineHeight: {
         'extra-loose': '2.5',
       },
     },
   },
+
   plugins: [],
   darkMode: 'class',
 }
