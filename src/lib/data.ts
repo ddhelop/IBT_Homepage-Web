@@ -56,7 +56,6 @@ export const links_battery = [
   },
 ] as const
 
-
 // intro_data
 export const contents = [
   {
@@ -75,7 +74,7 @@ export const contents = [
     background: '/intro/intro3.png',
   },
   { title: '', text: '', background: '/intro/intro4.png' },
-];
+]
 ////// 배터리 페이지 데이터 //////
 export const batteryList = [
   {
