@@ -25,19 +25,22 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
     <>
       <section className="w-full min-h-screen">
         {/* 소분류 카테고리 */}
-        <div className={`${detailInfo.length > 2 ? 'mx-20' : 'mx-80'} flex flex-row items-center mb-40`}>
+        <div
+          className={`${
+            detailInfo.length > 3 ? 'mx-20' : detailInfo.length == 3 ? 'lg:mx-48 mx-5' : 'lg:mx-80 mx-5'
+          } flex flex-row items-center mb-40`}
+        >
           {detailInfo.map((v, i) => {
             return (
               <div
                 className={`${
                   categoryIndex == i
-                    ? 'opacity-100 font-bold bg-primary-green'
+                    ? 'opacity-100 font-semibold bg-primary-green'
                     : 'opacity-40 font-semibold bg-category-back'
-                } relative w-1/${detailInfo.length} h-20 text-white`}
+                } relative w-1/${detailInfo.length} h-20 text-white z-0`}
                 onClick={() => setCategoryIndex(i)}
               >
                 <div className="absolute flex justify-center items-center z-10 h-full w-full text-3xl">{v.title}</div>
-                {/* <Image src={v.backgroundImage} className="z-0" fill objectFit="cover" /> */}
               </div>
             )
           })}
@@ -61,12 +64,12 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
             </div>
           )}
           {/* 제품명 */}
-          <div className="text-5xl font-bold mb-10">{detailInfo[categoryIndex].itemTitle}</div>
+          <div className="lg:text-5xl text-4xl text-center font-bold mb-10">{detailInfo[categoryIndex].itemTitle}</div>
 
           {/* 제품특징 */}
           {mainCategoryIndex === 3 ? (
             <>
-              <div className="text-4xl font-light my-20">제품 특징</div>
+              <div className="text-4xl font-light my-20">주요 특징</div>
               {detailInfo[categoryIndex].itemAdvanced.map((v, i) => {
                 return i % 2 === 1 ? (
                   <span className="w-3/4 text-xl font-light mb-4 text-center">{v}</span>
@@ -77,9 +80,9 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
             </>
           ) : (
             <>
-              <div className="text-3xl font-light my-20">주요 특징</div>{' '}
+              <div className="text-3xl font-medium my-20">제품 특징</div>{' '}
               {detailInfo[categoryIndex].itemAdvanced.map((adv) => {
-                return <div className="w-3/4 text-3xl font-light mb-4 text-center">{adv}</div>
+                return <div className="w-3/4 text-3xl font-medium mb-4 text-center">{adv}</div>
               })}
             </>
           )}
@@ -95,7 +98,7 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
             ''
           ) : (
             <>
-              <div className="w-full mt-20 h-10 border border-t-0 border-b-black" />
+              <div className="w-full mt-20 h-10 border border-t-0 border-b-gray-700" />
               <Slider categoryIndex={categoryIndex} mainCategoryIndex={mainCategoryIndex} />
             </>
           )}
