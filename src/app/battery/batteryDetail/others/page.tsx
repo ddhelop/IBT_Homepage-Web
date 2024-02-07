@@ -6,21 +6,17 @@ import { batteryList, industryList } from '@/lib/data'
 import Image from 'next/image'
 
 export const metadata = {
-  title: 'About Hydrogen',
-  description: 'IBT Hydrogen 제품 소개 페이지',
+  title: 'About Others',
+  description: 'IBT 배터리 제품 소개 페이지',
 }
 
-const HydrogenPage = () => {
+const BatteryOthersPage = () => {
   return (
     <>
       <FloatingButton />
-      <BatteryDetail
-        title={'HYDROGEN'}
-        explain1={'아이비티는 고객의 니즈에 따라'}
-        explain2={'고 에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.'}
-        explain3={'우수한 가격 경쟁력을 바탕으로'}
-        explain4={'내구성을 가지며 진동, 충격에 강한 특징을 가지고 있습니다.'}
-      />
+      <div className="text-center lg:pt-24 pt-32">
+        <div className="text-6xl font-medium my-32 text-primary-green lg:translate-x-[65px]">기타</div>
+      </div>
       <CheckerBoard
         image1={'/image/Lithium.png'}
         title1={'항공장애등용'}
@@ -36,4 +32,4 @@ const HydrogenPage = () => {
   )
 }
 
-export default HydrogenPage
+export default BatteryOthersPage

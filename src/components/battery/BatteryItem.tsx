@@ -80,9 +80,9 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
             </>
           ) : (
             <>
-              <div className="text-3xl font-medium my-20">제품 특징</div>{' '}
+              <div className="text-3xl font-light my-20">제품 특징</div>{' '}
               {detailInfo[categoryIndex].itemAdvanced.map((adv) => {
-                return <div className="w-3/4 text-3xl font-medium mb-4 text-center">{adv}</div>
+                return <div className="w-3/4 text-3xl font-light mb-4 text-center">{adv}</div>
               })}
             </>
           )}

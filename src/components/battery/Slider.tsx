@@ -139,12 +139,12 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <button
               disabled={currentImg === 0}
               onClick={() => setCurrentImg((prev) => prev - 1)}
-              className={`relative pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
+              className={`lg:hidden relative pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
             >
               <Image src={'/image/leftArrow.svg'} alt="" fill />
             </button>
             <div>
-              <div className="lg:w-[60rem] lg:h-40 w-[20rem] h-[10rem] overflow-hidden relative">
+              <div className="lg:hidden w-[20rem] h-[10rem] overflow-hidden relative">
                 <div
                   ref={carouselRef}
                   style={{
@@ -170,7 +170,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               <Image src={'/image/rightArrow.svg'} alt="" fill />
             </button>
           </div>
-          <div className="lg:w-[60rem] lg:h-40 w-[20rem] h-20 overflow-hidden relative flex">
+          <div className="lg:hidden w-[20rem] h-20 overflow-hidden relative flex">
             <div
               ref={carouselRef}
               style={{
