@@ -32,7 +32,15 @@ export default function CheckerBoard({
   return (
     <>
       <div className="flex flex-col w-full">
-        <div className="inline-flex h-[30rem] lg:mx-40">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.5,
+          }}
+          className="inline-flex h-[30rem] lg:mx-40"
+        >
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
             <Image alt="" src={image1} fill />
           </div>
@@ -43,8 +51,16 @@ export default function CheckerBoard({
             </div>
             <Image alt="" src={image1} fill className="lg:hidden z-0 opacity-40" />
           </div>
-        </div>
-        <div className="inline-flex h-[30rem] lg:mx-40">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: +100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.5,
+          }}
+          className="inline-flex h-[30rem] lg:mx-40"
+        >
           <div className="relative flex flex-col flex-shrink-0 justify-between lg:w-1/2 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
             <div className="z-10">
               <div>{title2}</div>
@@ -55,8 +71,16 @@ export default function CheckerBoard({
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
             <Image alt="" src={image2} fill />
           </div>
-        </div>
-        <div className="inline-flex h-[30rem] lg:mx-40">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.5,
+          }}
+          className="inline-flex h-[30rem] lg:mx-40"
+        >
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
             <Image alt="" src={image3} fill />
           </div>
@@ -67,7 +91,7 @@ export default function CheckerBoard({
             </div>
             <Image alt="" src={image3} fill className="lg:hidden z-0 opacity-40" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   )

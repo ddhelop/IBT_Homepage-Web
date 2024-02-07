@@ -147,7 +147,7 @@ export const Header = () => {
                         Lithium
                       </li>
                     </Link>
-                    <Link href={'/battery'}>
+                    <Link href={'/battery/batteryDetail/others'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
