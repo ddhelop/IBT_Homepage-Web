@@ -14,8 +14,8 @@ const BatteryOthersPage = () => {
   return (
     <>
       <FloatingButton />
-      <div className="text-center lg:pt-24 pt-32">
-        <div className="text-6xl font-medium my-32 text-primary-green lg:translate-x-[65px]">기타</div>
+      <div className="text-center lg:pt-24">
+        <div className="text-6xl font-medium mb-32 text-primary-green lg:translate-x-[65px]">기타</div>
       </div>
       <CheckerBoard
         image1={'/image/Lithium.png'}

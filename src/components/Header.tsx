@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export const Header = () => {
   const [active, setActive] = useState(false)
@@ -18,13 +19,19 @@ export const Header = () => {
   return (
     <>
       <nav className="fixed top-0 w-full z-50">
-        <nav className="flex items-center flex-wrap lg:px-20 bg-white py-3" onMouseEnter={() => setNavDown(true)}>
+        <nav
+          className={`flex items-center flex-wrap lg:px-20 hover:bg-white py-3 shadow-md ${
+            navDown ? 'bg-white' : 'bg-transparent'
+          }`}
+          onMouseEnter={() => setNavDown(true)}
+          onMouseLeave={() => setNavDown(false)}
+        >
           <div className="inline-flex items-center p-2 ml-5 lg:hidden">
             <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
           </div>
           {/* 햄버거 바 */}
           <button
-            className=" inline-flex p-3 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
+            className="inline-flex p-3 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
             onClick={handleClick}
           >
             <svg
@@ -57,12 +64,15 @@ export const Header = () => {
                   <Link href={'/companyInfo'}>
                     <li onClick={() => setActive(false)}>회사정보</li>
                   </Link>
-                  <ul
-                    className={`${
-                      navDown
-                        ? 'transition-opacity duration-300 ease-in transform opacity-100'
-                        : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
+                  <motion.ul
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className={`${navDown ? '' : 'hidden'} ${
+                      active ? 'hidden' : ''
+                    } absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/companyInfo'}>
                       <li
@@ -104,7 +114,7 @@ export const Header = () => {
                         오시는길
                       </li>
                     </Link>
-                  </ul>
+                  </motion.ul>
                 </div>
                 {/* 2. battery */}
                 <div
@@ -118,12 +128,19 @@ export const Header = () => {
                   <Link href={'/battery'}>
                     <li onClick={() => setActive(false)}>Battery</li>
                   </Link>
-                  <ul
-                    className={`${
-                      navDown
+                  {/* navDown animation
+                        navDown
                         ? 'transition-opacity duration-300 ease-in transform opacity-100'
-                        : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
+                        : 'transition-opacity duration-300 ease-out transform opacity-0' */}
+                  <motion.ul
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className={`${navDown ? '' : 'hidden'} ${
+                      active ? 'hidden' : ''
+                    } absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/battery'}>
                       <li
@@ -141,7 +158,7 @@ export const Header = () => {
                         Lithium
                       </li>
                     </Link>
-                    <Link href={'/battery'}>
+                    <Link href={'/battery/batteryDetail/others'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -149,7 +166,7 @@ export const Header = () => {
                         기타
                       </li>
                     </Link>
-                  </ul>
+                  </motion.ul>
                 </div>
                 {/* 3. hydrogen */}
                 <div
@@ -163,12 +180,15 @@ export const Header = () => {
                   <Link href={'/hydrogen'}>
                     <li onClick={() => setActive(false)}>Hydrogen</li>
                   </Link>
-                  <ul
-                    className={`${
-                      navDown
-                        ? 'transition-opacity duration-300 ease-in transform opacity-100'
-                        : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
+                  <motion.ul
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className={`${navDown ? '' : 'hidden'} ${
+                      active ? 'hidden' : ''
+                    } absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/hydrogen'}>
                       <li
@@ -186,7 +206,7 @@ export const Header = () => {
                         사업개요
                       </li>
                     </Link>
-                  </ul>
+                  </motion.ul>
                 </div>
                 {/* 4. 고객지원 */}
                 <div
@@ -200,12 +220,15 @@ export const Header = () => {
                   <Link href={'/customer/news'}>
                     <li onClick={() => setActive(false)}>고객지원</li>
                   </Link>
-                  <ul
-                    className={`${
-                      navDown
-                        ? 'transition-opacity duration-300 ease-in transform opacity-100'
-                        : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
+                  <motion.ul
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className={`${navDown ? '' : 'hidden'} ${
+                      active ? 'hidden' : ''
+                    } absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/customer/catelogs'}>
                       <li
@@ -231,7 +254,7 @@ export const Header = () => {
                         Contact Us
                       </li>
                     </Link>
-                  </ul>
+                  </motion.ul>
                 </div>
                 {/* 5. ESG */}
                 <div
@@ -245,12 +268,15 @@ export const Header = () => {
                   <Link href={'/ESG_500'}>
                     <li onClick={() => setActive(false)}>ESG</li>
                   </Link>
-                  <ul
-                    className={`${
-                      navDown
-                        ? 'transition-opacity duration-300 ease-in transform opacity-100'
-                        : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
+                  <motion.ul
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className={`${navDown ? '' : 'hidden'} ${
+                      active ? 'hidden' : ''
+                    } absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/ESG_500'}>
                       <li
@@ -260,7 +286,7 @@ export const Header = () => {
                         IBT ESG
                       </li>
                     </Link>
-                  </ul>
+                  </motion.ul>
                 </div>
               </ul>
               {/* 언어 선택 버튼 */}
@@ -291,6 +317,7 @@ export const Header = () => {
           className={`${
             navDown ? '' : 'hidden'
           } lg:flex-col lg:flex-grow lg:w-full lg:bg-white lg:h-[250px] lg:z-0 shadow-sm`}
+          onMouseEnter={() => setNavDown(true)}
           onMouseLeave={() => setNavDown(false)}
         />
       </nav>
