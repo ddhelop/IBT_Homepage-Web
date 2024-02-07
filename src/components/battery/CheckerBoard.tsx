@@ -36,7 +36,6 @@ export default function CheckerBoard({
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{
-            delay: 0.1,
             duration: 0.5,
           }}
           className="inline-flex h-[30rem] lg:mx-40"
