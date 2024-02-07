@@ -48,7 +48,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
         {/* 제품 이미지 */}
         <div className="w-full flex flex-col items-center justify-center">
           <div className="relative w-1/2 flex justify-center items-center mb-20">
-            <Image src={detailInfo[categoryIndex].itemFile} width={1000} height={700} />
+            <Image alt="배터리 제품 이미지" src={detailInfo[categoryIndex].itemFile} width={1000} height={700} />
           </div>
           {/* 에너지저장용 설명 */}
           {mainCategoryIndex === 3 && (
@@ -90,7 +90,12 @@ IBT는 종합에너지 시스템으로써 신재생에너지 연계, 주파수 �
           {/* 동력용 충전기 */}
           {mainCategoryIndex === 2 && (
             <div className="relative w-1/3 flex flex-col justify-center items-center mt-20 mb-20">
-              <Image src={'/image/340동력용Lithium/341.2_동력용 Lithium_제품(충전기).png'} width={1000} height={700} />
+              <Image
+                alt="동력용 Lithium 제품(충전기)"
+                src={'/image/340동력용Lithium/341.2_동력용 Lithium_제품(충전기).png'}
+                width={1000}
+                height={700}
+              />
               <div className="text-5xl font-bold mb-10">충전기</div>
             </div>
           )}

@@ -29,7 +29,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               onClick={() => setCurrentImg((prev) => prev - 1)}
               className={`relative lg:px-20 pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
             >
-              <Image src={'/image/leftArrow.svg'} alt="" fill />
+              <Image alt="arrow" src={'/image/leftArrow.svg'} fill />
             </button>
             <div>
               <div className="lg:w-[60rem] lg:h-40 w-[20rem] h-[10rem] overflow-hidden relative">
@@ -44,7 +44,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 >
                   {data.map((v, i) => (
                     <div key={i} className={`relative shrink-0 w-1/4 h-full`}>
-                      <Image className="pointer-events-none" alt={`carousel-image-${i}`} fill src={v.imagePath} />
+                      <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
                     </div>
                   ))}
                 </div>
@@ -58,7 +58,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 >
                   {data.map((v, i) => (
                     <div key={i} className={`relative shrink-0 w-full h-full`}>
-                      <Image className="pointer-events-none" alt={`carousel-image-${i}`} fill src={v.imagePath} />
+                      <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
                     </div>
                   ))}
                 </div>
@@ -73,7 +73,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 currentImg === data.length - 4 && 'opacity-50'
               }`}
             >
-              <Image src={'/image/rightArrow.svg'} alt="" fill />
+              <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
             </button>
             {/* 작은화면: 1개 carousel */}
             <button
@@ -83,7 +83,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 currentImg === data.length - 1 && 'opacity-50'
               }`}
             >
-              <Image src={'/image/rightArrow.svg'} alt="" fill />
+              <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
             </button>
           </div>
           <div className="lg:w-[60rem] lg:h-40 w-[20rem] h-20 overflow-hidden relative flex">
@@ -126,7 +126,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             {data.map((v, i) => (
               <div key={i} className={'relative flex flex-col justify-center items-center'}>
                 <div key={i} className={`relative shrink-0 lg:w-[20rem] w-20 h-40`}>
-                  <Image className="pointer-events-none" alt={`carousel-image-${i}`} fill src={v.imagePath} />
+                  <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
                 </div>
                 <div key={i} className="relative shrink-0 lg:w-[20rem] w-20 h-20 text-center text-4xl font-light my-3">
                   {v.name}
@@ -141,7 +141,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               onClick={() => setCurrentImg((prev) => prev - 1)}
               className={`lg:hidden relative pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
             >
-              <Image src={'/image/leftArrow.svg'} alt="" fill />
+              <Image alt="arrow" src={'/image/leftArrow.svg'} fill />
             </button>
             <div>
               <div className="lg:hidden w-[20rem] h-[10rem] overflow-hidden relative">
@@ -154,7 +154,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 >
                   {data.map((v, i) => (
                     <div key={i} className={`relative shrink-0 w-full h-full`}>
-                      <Image className="pointer-events-none" alt={`carousel-image-${i}`} fill src={v.imagePath} />
+                      <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
                     </div>
                   ))}
                 </div>
@@ -167,7 +167,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 currentImg === data.length - 1 && 'opacity-50'
               }`}
             >
-              <Image src={'/image/rightArrow.svg'} alt="" fill />
+              <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
             </button>
           </div>
           <div className="lg:hidden w-[20rem] h-20 overflow-hidden relative flex">

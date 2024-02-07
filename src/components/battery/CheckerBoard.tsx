@@ -34,14 +34,14 @@ export default function CheckerBoard({
       <div className="flex flex-col w-full">
         <div className="inline-flex h-[30rem] lg:mx-40">
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
-            <Image src={image1} fill />
+            <Image alt="" src={image1} fill />
           </div>
           <div className="relative flex flex-col flex-shrink-0 justify-between lg:w-1/2 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
             <div className="z-10">
               <div>{title1}</div>
               <div>{explain1}</div>
             </div>
-            <Image src={image1} fill className="lg:hidden z-0 opacity-40" />
+            <Image alt="" src={image1} fill className="lg:hidden z-0 opacity-40" />
           </div>
         </div>
         <div className="inline-flex h-[30rem] lg:mx-40">
@@ -50,22 +50,22 @@ export default function CheckerBoard({
               <div>{title2}</div>
               <div>{explain2}</div>
             </div>
-            <Image src={image2} fill className="lg:hidden z-0 opacity-40" />
+            <Image alt="" src={image2} fill className="lg:hidden z-0 opacity-40" />
           </div>
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
-            <Image src={image2} fill />
+            <Image alt="" src={image2} fill />
           </div>
         </div>
         <div className="inline-flex h-[30rem] lg:mx-40">
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
-            <Image src={image3} fill />
+            <Image alt="" src={image3} fill />
           </div>
           <div className="relative flex flex-col flex-shrink-0 justify-between lg:w-1/2 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
             <div className="z-10">
               <div>{title3}</div>
               <div>{explain3}</div>
             </div>
-            <Image src={image3} fill className="lg:hidden z-0 opacity-40" />
+            <Image alt="" src={image3} fill className="lg:hidden z-0 opacity-40" />
           </div>
         </div>
       </div>
