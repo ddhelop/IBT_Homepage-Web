@@ -25,3 +25,10 @@ export const toBase64 = (arr: any) => {
   arr = new Uint8Array(arr)
   return btoa(arr.reduce((data: any, byte: number) => data + String.fromCharCode(byte), ''))
 }
+
+export const reorderPosts = (posts: any, startIndex: number, endIndex: number) => {
+  const newPostList = Array.from(posts)
+  const [removed] = newPostList.splice(startIndex, 1)
+  newPostList.splice(endIndex, 0, removed)
+  return newPostList as unknown as any
+}

@@ -1,35 +1,27 @@
 'use client'
 
 import React, { useState } from 'react'
-import { NewsProps } from '@/lib/types'
+import { CatelogProps } from '@/lib/types'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
-import { toBase64 } from '@/lib/utils'
+import { reorderPosts, toBase64 } from '@/lib/utils'
 import { IoIosClose } from 'react-icons/io'
 
-const reorderPosts = (posts: any, startIndex: number, endIndex: number) => {
-  const newPostList = Array.from(posts)
-  const [removed] = newPostList.splice(startIndex, 1)
-  newPostList.splice(endIndex, 0, removed)
-  return newPostList as unknown as any
-}
-
-const NewsPosts = ({ posts }: any) => {
-  const [news, setNews] = useState<NewsProps[]>(posts)
+const CatelogPosts = ({ datas }: any) => {
+  const [catelogs, setCatelogs] = useState<CatelogProps[]>(datas)
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
-    console.log(source.index, destination.index)
-    const newPosts = reorderPosts(news, source.index, destination.index)
-    setNews(newPosts)
+    const newPosts = reorderPosts(catelogs, source.index, destination.index)
+    setCatelogs(newPosts)
   }
   const handleDelete = (id: number) => {
-    const tempNews = Array.from(news)
-    setNews(tempNews.filter((item) => item.postId != id))
+    const tempCatelogs = Array.from(catelogs)
+    setCatelogs(tempCatelogs.filter((item) => item.catelogId != id))
   }
   const handleSubmit = () => {
-    if (news === posts) return
+    if (catelogs === datas) return
   }
 
   return (
@@ -39,8 +31,8 @@ const NewsPosts = ({ posts }: any) => {
         <StrictModeDroppable droppableId="droppable">
           {(droppableProvided) => (
             <div {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
-              {news?.map((post: any, id: number) => (
-                <Draggable key={post?.postId} draggableId={post?.postId.toString()} index={id}>
+              {catelogs?.map((catelog: any, id: number) => (
+                <Draggable key={catelog?.catelogId} draggableId={catelog?.catelogId.toString()} index={id}>
                   {(draggableProvided) => (
                     <div
                       ref={draggableProvided.innerRef}
@@ -52,15 +44,15 @@ const NewsPosts = ({ posts }: any) => {
                         <Image
                           alt="img"
                           className="object-contain"
-                          src={`data:image/png;base64,${toBase64(post.img?.data)}`}
+                          src={`data:image/png;base64,${toBase64(catelog.img?.data)}`}
                           fill
                         />
                       </div>
                       <div className="p-4 flex-1">
-                        <h1 className="font-md text-md min-h-16">{post.title}</h1>
-                        <h3 className="text-gray-700 font-light text-s">{post.createdAt.substring(0, 10)}</h3>
+                        <h1 className="font-md text-md min-h-16">{catelog.title}</h1>
+                        <h3 className="text-gray-300 font-light text-xs">{catelog.createdAt}</h3>
                       </div>
-                      <button onClick={() => handleDelete(post?.postId)}>
+                      <button onClick={() => handleDelete(catelog?.catelogId)}>
                         <IoIosClose size={48} color="#747474" />
                       </button>
                     </div>
@@ -76,4 +68,4 @@ const NewsPosts = ({ posts }: any) => {
   )
 }
 
-export default NewsPosts
+export default CatelogPosts

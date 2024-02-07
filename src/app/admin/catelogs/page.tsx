@@ -1,10 +1,8 @@
-import NewsPosts from '@/components/admin/NewsPosts'
-import PostForm from '@/components/admin/PostForm'
-import { Counter } from '@/lib/models'
+import CatelogForm from '@/components/admin/CatelogForm'
 import { Suspense } from 'react'
 
-export const getNewsData = async () => {
-  const res = await fetch('http://localhost:3000/api/admin/news', {
+const getData = async () => {
+  const res = await fetch('http://localhost:3000/api/admin/catelogs', {
     cache: 'no-store',
     method: 'GET',
   })
@@ -14,7 +12,8 @@ export const getNewsData = async () => {
   return res.json()
 }
 const AdminPage = async () => {
-  const posts = await getNewsData()
+  const posts = await getData()
+  console.log(posts)
   return (
     <div className="flex w-full h-screen pt-80 bg-gray-200">
       <div className="bg-white basis-1/4 px-16">
@@ -26,11 +25,11 @@ const AdminPage = async () => {
 
       <div className="basis-1/4">
         <Suspense fallback={<div className="w-full h-screen bg-red-500">로딩중...</div>}>
-          <NewsPosts posts={posts} />
+          {/* <NewsPosts posts={posts} /> */}
         </Suspense>
       </div>
       <div className="basis-1/2">
-        <PostForm />
+        <CatelogForm />
       </div>
     </div>
   )

@@ -11,3 +11,16 @@ export type NewsProps = {
   updatedAt: String
   _id: String
 }
+
+export type CatelogProps = {
+  title: string
+  img: any
+  pdf: any
+  catelogId: Number
+  description: String
+  createdAt: String
+  updatedAt: String
+  _id: String
+}
+
+export type ItemTypes = 'news' | 'catelogs'

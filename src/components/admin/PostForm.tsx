@@ -1,5 +1,6 @@
 'use client'
 
+import { getNewsData } from '@/app/admin/news/page'
 import { FormEvent, useState } from 'react'
 
 const PostForm = () => {
