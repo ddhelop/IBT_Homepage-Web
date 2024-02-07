@@ -11,6 +11,8 @@ export default function LogoComponent() {
     '/intro/logo/대구도시철도공사.png',
     '/intro/logo/광주철도건설본부.png',
   ])
+  const doubledLogos = [...logos, ...logos]
+
   const [logos2, setLogs2] = useState([
     '/intro/logo/TOVICA.png',
     '/intro/logo/LIG넥스원.png',
@@ -19,6 +21,8 @@ export default function LogoComponent() {
     '/intro/logo/Sk plug hyverse.png',
     '/intro/logo/LG 화학.png',
   ])
+  const doubledLogos2 = [...logos2, ...logos2]
+
   const [logos3, setLogs3] = useState([
     '/intro/logo/TOTAL.png',
     '/intro/logo/posco.png',
@@ -26,6 +30,7 @@ export default function LogoComponent() {
     '/intro/logo/Hanhwa.png',
     '/intro/logo/한화솔루션.png',
   ])
+  const doubledLogos3 = [...logos3, ...logos3]
 
   const [logos4, setLogs4] = useState([
     '/intro/logo/DAEATI.png',
@@ -35,6 +40,7 @@ export default function LogoComponent() {
     '/intro/logo/한화디펜스.png',
     '/intro/logo/한화시스템.png',
   ])
+  const doubledLogos4 = [...logos4, ...logos4]
 
   const [logos5, setLogs5] = useState([
     '/intro/logo/HYUNDAI MOVEX.png',
@@ -44,6 +50,7 @@ export default function LogoComponent() {
     '/intro/logo/롯데케미칼.png',
     '/intro/logo/한화오션.png',
   ])
+  const doubledLogos5 = [...logos5, ...logos5]
 
   const [logos6, setLogs6] = useState([
     '/intro/logo/퍼스텍.png',
@@ -53,6 +60,7 @@ export default function LogoComponent() {
     '/intro/logo/LS ELECTRIC.png',
     '/intro/logo/VINSSEN.png',
   ])
+  const doubledLogos6 = [...logos6, ...logos6]
 
   return (
     <>
@@ -67,55 +75,55 @@ export default function LogoComponent() {
         <div>
           {/* 1번째 줄 */}
           <div className="inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-            <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
-              {logos.map((logo, index) => (
+            <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
+              {doubledLogos.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={350} height={60} />
+                  <Image src={logo} alt="" width={350} height={60} />
                 </li>
               ))}
             </ul>
 
-            <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
-              {logos.map((logo, index) => (
+            <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
+              {doubledLogos.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={320} height={60} />
+                  <Image src={logo} alt="" width={320} height={60} />
                 </li>
               ))}
             </ul>
           </div>
           {/* 두번째 줄 */}
-          <div className="inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-            <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
-              {logos2.map((logo, index) => (
+          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+            <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
+              {doubledLogos2.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={350} height={60} />
+                  <Image src={logo} alt="" width={350} height={60} />
                 </li>
               ))}
             </ul>
 
-            <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
-              {logos2.map((logo, index) => (
+            <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
+              {doubledLogos2.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={350} height={60} />
+                  <Image src={logo} alt="" width={350} height={60} />
                 </li>
               ))}
             </ul>
           </div>
 
           {/* 세번째 줄 */}
-          <div className="inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
-              {logos3.map((logo, index) => (
+              {doubledLogos3.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
-              {logos3.map((logo, index) => (
+              {doubledLogos3.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -124,17 +132,17 @@ export default function LogoComponent() {
           {/* 네번째 줄 */}
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
-              {logos4.map((logo, index) => (
+              {doubledLogos4.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
-              {logos4.map((logo, index) => (
+              {doubledLogos4.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -143,17 +151,17 @@ export default function LogoComponent() {
           {/* 다섯번째 줄 */}
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
-              {logos5.map((logo, index) => (
+              {doubledLogos5.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
-              {logos5.map((logo, index) => (
+              {doubledLogos5.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -162,17 +170,17 @@ export default function LogoComponent() {
           {/* 여섯번째 줄 */}
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
-              {logos6.map((logo, index) => (
+              {doubledLogos6.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
-              {logos6.map((logo, index) => (
+              {doubledLogos6.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" objectFit="contain" width={250} height={60} />
+                  <Image src={logo} alt="" width={250} height={60} />
                 </li>
               ))}
             </ul>

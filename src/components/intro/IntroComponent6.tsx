@@ -72,7 +72,6 @@ export default function IntroComponent6(): JSX.Element {
                     style={{ boxShadow: '2px 2px 12px 5px rgba(0, 0, 0, 0.20)' }}
                   >
                     <Image
-                      objectFit="contain"
                       src={data.icon} // 이미지 경로
                       alt="icon"
                       width={data.width} // 너비
@@ -86,7 +85,6 @@ export default function IntroComponent6(): JSX.Element {
                       <p className="font-thin text-[14px] text-left whitespace-pre-line mt-1">{data.description}</p>
                       <div>
                         <Image
-                          objectFit="contain"
                           src="intro/pointer.svg" // 이미지 경로
                           alt="바로가기"
                           width={40} // 너비
