@@ -23,7 +23,7 @@ const CatelogPosts = ({ datas }: any) => {
   const handleSubmit = () => {
     if (catelogs === datas) return
   }
-  console.log(datas)
+  //   console.log(datas)
   return (
     <div className="flex px-16 flex-col">
       <h1 className="text-2xl font-bold mb-4 text-center">뉴스 글 수정</h1>

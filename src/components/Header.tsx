@@ -7,8 +7,10 @@ import { useState } from 'react'
 export const Header = () => {
   const [active, setActive] = useState(false)
   const [navDown, setNavDown] = useState(false)
+
   const [isKorean, setIsKorean] = useState(true)
   // 전역 변수 연결 필요
+
   const handleClick = () => {
     setActive(!active)
   }
@@ -16,17 +18,13 @@ export const Header = () => {
   return (
     <>
       <nav className="fixed top-0 w-full z-50">
-        <nav
-          className="flex items-center flex-wrap lg:px-20 h-[100px] bg-white"
-          onMouseEnter={() => setNavDown(true)}
-          onMouseLeave={() => setNavDown(false)}
-        >
-          <div className="inline-flex items-center  ml-5 lg:hidden">
+        <nav className="flex items-center flex-wrap lg:px-20 bg-white py-3" onMouseEnter={() => setNavDown(true)}>
+          <div className="inline-flex items-center p-2 ml-5 lg:hidden">
             <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
           </div>
           {/* 햄버거 바 */}
           <button
-            className="inline-flex p-3 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
+            className=" inline-flex p-3 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
             onClick={handleClick}
           >
             <svg
@@ -40,13 +38,13 @@ export const Header = () => {
             </svg>
           </button>
           {/* 네비게이션*/}
-          <div className={`${active ? 'shadow-sm' : 'hidden px-40'}  w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
-            <div className="lg:inline-flex lg:flex-row lg:w-full lg:items-center lg:h-[100px] my-0 items-center text-center lg:justify-between flex flex-col">
+          <div className={`${active ? 'shadow-sm' : 'hidden px-40'}   w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
+            <div className="lg:inline-flex lg:flex-row lg:w-full lg:items-center lg:h-auto items-center text-center lg:justify-between flex flex-col">
               {/* 로고 */}
               <Link href={'/'} className={`inline-flex items-center p-2 mr-4 ${active ? 'hidden' : ''}`}>
                 <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
               </Link>
-              <ul className={`${active ? 'flex w-full ' : 'flex w-3/4 justify-between'}`}>
+              <ul className={`${active ? 'w-full' : 'flex w-3/4 justify-between'}`}>
                 {/* 1. 회사정보 */}
                 <div
                   className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
@@ -64,7 +62,7 @@ export const Header = () => {
                       navDown
                         ? 'transition-opacity duration-300 ease-in transform opacity-100'
                         : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute w-full translate-y-1/2 mt-[100px]`} //*** */
+                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/companyInfo'}>
                       <li
@@ -118,14 +116,14 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/battery'}>
-                    <li onClick={() => setActive(false)}>BATTERY</li>
+                    <li onClick={() => setActive(false)}>Battery</li>
                   </Link>
                   <ul
                     className={`${
                       navDown
                         ? 'transition-opacity duration-300 ease-in transform opacity-100'
                         : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} w-full absolute translate-y-1/2 mt-[100px]`}
+                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/battery'}>
                       <li
@@ -163,14 +161,14 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/hydrogen'}>
-                    <li onClick={() => setActive(false)}>HYDROGEN</li>
+                    <li onClick={() => setActive(false)}>Hydrogen</li>
                   </Link>
                   <ul
                     className={`${
                       navDown
                         ? 'transition-opacity duration-300 ease-in transform opacity-100'
                         : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''} absolute w-full translate-y-1/2 mt-[100px]`}
+                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/hydrogen'}>
                       <li
@@ -199,7 +197,7 @@ export const Header = () => {
                   : ''
               }`}
                 >
-                  <Link href={'/customer/catelog'}>
+                  <Link href={'/customer/news'}>
                     <li onClick={() => setActive(false)}>고객지원</li>
                   </Link>
                   <ul
@@ -207,9 +205,9 @@ export const Header = () => {
                       navDown
                         ? 'transition-opacity duration-300 ease-in transform opacity-100'
                         : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''}absolute w-full translate-y-1/2 mt-[100px]`}
+                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
                   >
-                    <Link href={'/customer/catelog'}>
+                    <Link href={'/customer/catelogs'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -225,7 +223,7 @@ export const Header = () => {
                         IBT News
                       </li>
                     </Link>
-                    <Link href={'/customer/contact-us'}>
+                    <Link href={'/customer/news'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -252,7 +250,7 @@ export const Header = () => {
                       navDown
                         ? 'transition-opacity duration-300 ease-in transform opacity-100'
                         : 'transition-opacity duration-300 ease-out transform opacity-0'
-                    } ${active ? 'hidden' : ''}absolute w-full translate-y-1/2 mt-[100px]`}
+                    } ${active ? 'hidden' : ''} absolute translate-y-1/2 mt-[120px]`}
                   >
                     <Link href={'/ESG_500'}>
                       <li
