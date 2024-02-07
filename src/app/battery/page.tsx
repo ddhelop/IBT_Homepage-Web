@@ -51,7 +51,7 @@ const BatteryPage = () => {
               <div className="z-10">
                 <div className="flex flex-row justify-between items-center">
                   <div>
-                    <div className="lg:text-4xl text-5xl lg:font-medium font-semibold mb-1.5 lg:mt-0 mt-3">Ni-cd</div>
+                    <div className="lg:text-4xl text-5xl font-medium mb-1.5 lg:mt-0 mt-3">Ni-cd</div>
                     <div className="lg:text-sm text-md lg:font-normal font-medium pl-1.5">니켈카드뮴축전지</div>
                   </div>
                   <Link href="/battery/batteryDetail/defense">
@@ -108,7 +108,7 @@ const BatteryPage = () => {
               <div className="z-10">
                 <div className="flex flex-row justify-between items-center">
                   <div>
-                    <div className="lg:text-4xl text-5xl lg:font-medium font-semibold mb-1.5 lg:mt-0 mt-3">Lithium</div>
+                    <div className="lg:text-4xl text-5xl font-medium mb-1.5 lg:mt-0 mt-3">Lithium</div>
                     <div className="lg:text-sm text-md lg:font-normal font-medium pl-1.5">리튬축전지</div>
                   </div>
                   <Link href="/battery/batteryDetail/power">
