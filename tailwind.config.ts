@@ -30,7 +30,7 @@ const config: Config = {
         },
         infiniteScroll: {
           from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(-50%)' },
         },
         infiniteScrollLeft: {
           from: { transform: 'translateX(-50%)' },
@@ -40,8 +40,8 @@ const config: Config = {
 
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out forwards',
-        infiniteScroll: 'infiniteScroll 50s linear infinite',
-        infiniteScrollLeft: 'infiniteScrollLeft 50s linear infinite',
+        infiniteScroll: 'infiniteScroll 60s linear infinite',
+        infiniteScrollLeft: 'infiniteScrollLeft 60s linear infinite',
         // 다른 애니메이션 이름을 여기에 추가
         pulse: 'pulse 3s infinite',
       },
