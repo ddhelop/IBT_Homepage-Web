@@ -19,7 +19,7 @@ const LoginPage = () => {
     const user = await compare(e.target.username.value, e.target.password.value)
     if (user) {
       setLoggedIn(true)
-      router.replace('/admin')
+      router.replace('/admin/news')
     } else {
       setError('아이디나 비밀번호가 일치하지 않습니다.')
     }
@@ -30,7 +30,15 @@ const LoginPage = () => {
         <h2 className="text-2xl font-bold mb-4">관리자 로그인</h2>
         {isClient ? (
           loggedIn === true ? (
-            <div>이미 관리자로 로그인한 상태입니다.</div>
+            <>
+              <div>이미 관리자로 로그인한 상태입니다.</div>
+              <button
+                onClick={() => setLoggedIn(false)}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                로그아웃
+              </button>
+            </>
           ) : (
             <>
               <form onSubmit={handleSubmit}>

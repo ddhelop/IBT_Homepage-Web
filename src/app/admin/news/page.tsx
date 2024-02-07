@@ -17,7 +17,7 @@ const AdminPage = async () => {
   const posts = await getNewsData()
   return (
     <div className="flex w-full h-screen pt-80 bg-gray-200">
-      <div className="bg-white basis-1/4 px-16">
+      <div className="bg-gray-100 basis-1/4 px-16">
         <ul className="">
           <h1 className="text-lg">뉴스</h1>
           <h1 className="text-lg">카탈로그</h1>
@@ -29,7 +29,7 @@ const AdminPage = async () => {
           <NewsPosts posts={posts} />
         </Suspense>
       </div>
-      <div className="basis-1/2">
+      <div className="basis-1/2 bg-gray-100">
         <PostForm />
       </div>
     </div>

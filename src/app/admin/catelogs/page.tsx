@@ -1,4 +1,6 @@
 import CatelogForm from '@/components/admin/CatelogForm'
+import CatelogPosts from '@/components/admin/CatelogPosts'
+import NewsPosts from '@/components/admin/NewsPosts'
 import { Suspense } from 'react'
 
 const getData = async () => {
@@ -25,7 +27,7 @@ const AdminPage = async () => {
 
       <div className="basis-1/4">
         <Suspense fallback={<div className="w-full h-screen bg-red-500">로딩중...</div>}>
-          {/* <NewsPosts posts={posts} /> */}
+          <CatelogPosts posts={posts} />
         </Suspense>
       </div>
       <div className="basis-1/2">

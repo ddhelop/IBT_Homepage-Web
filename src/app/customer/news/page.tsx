@@ -1,4 +1,4 @@
-import NewsCard from '@/components/news/NewsCard'
+import NewsCard from '@/components/customer/NewsCard'
 
 import { NewsProps } from '@/lib/types'
 import Link from 'next/link'
