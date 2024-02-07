@@ -78,7 +78,7 @@ export default function LogoComponent() {
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={350} height={60} />
+                  <Image src={logo} alt={`Partner1-${index}`} width={350} height={60} />
                 </li>
               ))}
             </ul>
@@ -86,7 +86,7 @@ export default function LogoComponent() {
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={320} height={60} />
+                  <Image src={logo} alt={`Partner1-${index}`} width={320} height={60} />
                 </li>
               ))}
             </ul>
@@ -96,7 +96,7 @@ export default function LogoComponent() {
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos2.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={350} height={60} />
+                  <Image src={logo} alt={`Partner2-${index}`} width={350} height={60} />
                 </li>
               ))}
             </ul>
@@ -104,7 +104,7 @@ export default function LogoComponent() {
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos2.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={350} height={60} />
+                  <Image src={logo} alt={`Partner2-${index}`} width={350} height={60} />
                 </li>
               ))}
             </ul>
@@ -115,7 +115,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos3.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner3-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -123,7 +123,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos3.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner3-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -134,7 +134,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos4.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner4-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -142,7 +142,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos4.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner4-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -153,7 +153,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos5.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner5-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -161,7 +161,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos5.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner5-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -172,7 +172,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos6.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner6-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -180,7 +180,7 @@ export default function LogoComponent() {
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos6.map((logo, index) => (
                 <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt="" width={250} height={60} />
+                  <Image src={logo} alt={`Partner6-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
