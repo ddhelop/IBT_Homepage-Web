@@ -4,6 +4,11 @@ import DirectionsComponent from '@/components/companyInfo/Directions/DirectionsC
 import TechnicalComponent from '@/components/companyInfo/Technical/TechnicalComponent'
 import HistoryComponent from '@/components/companyInfo/companyHistory/HistoryComponent'
 
+export const metadata = {
+  title: 'Company Info',
+  description: 'IBT CompanyInfo 회사소개 페이지',
+}
+
 export default function IntroPage(): JSX.Element {
   return (
     <div className="flex flex-col w-full">
