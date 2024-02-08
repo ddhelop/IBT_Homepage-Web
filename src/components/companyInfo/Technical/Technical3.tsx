@@ -4,8 +4,8 @@ import React from 'react'
 export default function Technical3() {
   return (
     <>
-      <div className="w-full mt-9 ">
-        <div className="w-[75rem] px-12 md:p-0">
+      <div className="w-full mt-9 flex justify-center">
+        <div className="w-[95%] lg:w-3/5">
           <table className="w-full">
             <thead className="l bg-green-600">
               <tr className="">

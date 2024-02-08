@@ -7,19 +7,19 @@ export default function DirectionsComponent() {
     <>
       <div
         id="directions"
-        className="h-[2300px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="h-[2800px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
         <h1 className="text-6xl font-medium">오시는 길</h1>
         {/* 광주본사 */}
         <div className="mt-32 flex flex-col p-5">
-          <h2 className="text-[29px] font-medium mb-8">광주본사</h2>
-          <div className="flex flex-col md:flex-row items-center">
+          <h2 className="text-3xl font-medium mb-8">광주본사</h2>
+          <div className="flex flex-col lg:flex-row items-center">
             <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
-            <div className="w-full h-full md:w-[33.85vw] md:h-[33.85vw] bg-[#f1f1f1] text-[13px] ">
+            <div className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm ">
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
                   <AiOutlineCompass className="w-12 h-12 hidden md:flex" />
-                  <p className="md:mt-4 text-xl font-semibold mb-1">주소</p>
+                  <p className="lg:mt-4 text-xl font-semibold mb-1">주소</p>
                   <p className="font-normal mt-1 text-xl text-[#7e7e7e] leading-8">
                     광주시 북구 첨단벤처
                     <br />
@@ -28,8 +28,8 @@ export default function DirectionsComponent() {
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
                   <AiOutlinePhone className="w-12 h-12 hidden md:flex" />
-                  <p className="md:mt-4 text-xl font-semibold mb-1">연락처</p>
-                  <p className="font-normal text-base mt-1 text-[#7e7e7e] leading-8">
+                  <p className="lg:mt-4 text-xl font-semibold mb-1">연락처</p>
+                  <p className="font-normal text-xl mt-1 text-[#7e7e7e] leading-8">
                     TEL:062-971-7983~6
                     <br />
                     Fax:062-971-7989
@@ -37,9 +37,9 @@ export default function DirectionsComponent() {
                 </div>
               </div>
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
-                <AiOutlineClockCircle className="w-12 h-12 hidden md:flex" />
-                <p className="md:mt-4 text-xl font-semibold md:mb-1">안내</p>
-                <p className="font-normal text-xl text-[#7e7e7e] leading-7">
+                <AiOutlineClockCircle className="w-12 h-12 hidden lg:flex" />
+                <p className="lg:mt-4 text-xl font-semibold md:mb-1">안내</p>
+                <p className="font-normal text-xl text-[#7e7e7e] leading-9">
                   호남고속도로(88번고속도로,남해안고속도로) → 광산 IC진입 → 우회전(광주과학
                   <br />
                   기술원 방향) → 4Km 직진(AMKOR(구아남전자)탑) → 150m 진입 → 좌회전
@@ -53,14 +53,14 @@ export default function DirectionsComponent() {
 
         {/* 서울지점 */}
         <div className="mt-32 flex flex-col p-5">
-          <h2 className="text-[29px] font-medium mb-8">서울지점</h2>
-          <div className="flex flex-col md:flex-row items-center">
+          <h2 className="text-3xl font-medium mb-8">서울지점</h2>
+          <div className="flex flex-col lg:flex-row items-center">
             <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
-            <div className="w-full h-full md:w-[33.85vw] md:h-[33.85vw] bg-[#f1f1f1] text-[13px] ">
+            <div className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm ">
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
                   <AiOutlineCompass className="w-12 h-12 hidden md:flex" />
-                  <p className="md:mt-4 text-xl font-semibold mb-1">주소</p>
+                  <p className="lg:mt-4 text-xl font-semibold mb-1">주소</p>
                   <p className="font-normal mt-1 text-xl text-[#7e7e7e] leading-8">
                     서울특별시 성동구
                     <br />
@@ -73,7 +73,7 @@ export default function DirectionsComponent() {
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
                   <AiOutlinePhone className="w-12 h-12 hidden md:flex" />
-                  <p className="md:mt-4 text-xl font-semibold mb-1">연락처</p>
+                  <p className="lg:mt-4 text-xl font-semibold mb-1">연락처</p>
                   <p className="font-normal mt-1 text-xl text-[#7e7e7e] leading-8">
                     TEL:02-3409-7141 / 02-6965-7975
                     <br />

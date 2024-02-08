@@ -1,6 +1,6 @@
 'use client'
 import { useIntersectionObserver } from '@/context/useIntersectionObserver.client'
-import React, { useState, Dispatch, SetStateAction } from 'react'
+import React, { useState, Dispatch, SetStateAction, useEffect } from 'react'
 
 export default function IntroComponent5(): JSX.Element {
   const [count1, setCount1] = useState(0)
@@ -11,10 +11,38 @@ export default function IntroComponent5(): JSX.Element {
   const [completed, setCompleted] = useState({ count1: false, count2: false, count3: false })
 
   const handleAnimation = (entry: IntersectionObserverEntry) => {
-    if (!completed.count1) countUp(setCount1, 13, 500, 'count1')
-    if (!completed.count2) countUp(setCount2, 23, 500, 'count2')
-    if (!completed.count3) countUp(setCount3, 16, 500, 'count3')
+    if (entry.isIntersecting) {
+      // 요소가 뷰포트 내에 있을 때만 애니메이션을 실행
+      if (!completed.count1) countUp(setCount1, 13, 500, 'count1')
+      if (!completed.count2) countUp(setCount2, 23, 500, 'count2')
+      if (!completed.count3) countUp(setCount3, 16, 500, 'count3')
+    }
   }
+
+  // 사용자가 컴포넌트를 떠났다가 다시 돌아올 때마다 completed 상태를 초기화
+  useEffect(() => {
+    const resetCompleted = () => {
+      if (Object.values(completed).some((value) => value)) {
+        setCompleted({ count1: false, count2: false, count3: false })
+        // 카운트도 초기화
+        setCount1(0)
+        setCount2(0)
+        setCount3(0)
+      }
+    }
+
+    window.addEventListener('visibilitychange', resetCompleted)
+
+    return () => {
+      window.removeEventListener('visibilitychange', resetCompleted)
+    }
+  }, [completed]) // completed가 변경될 때마다 이펙트 실행
+
+  const ref = useIntersectionObserver(handleAnimation, {
+    root: null,
+    rootMargin: '100px',
+    threshold: 0.2,
+  })
 
   function countUp(setCount: Dispatch<SetStateAction<number>>, end: number, duration: number, countKey: string) {
     const start = performance.now()
@@ -36,12 +64,6 @@ export default function IntroComponent5(): JSX.Element {
 
     requestAnimationFrame(update)
   }
-
-  const ref = useIntersectionObserver(handleAnimation, {
-    root: null,
-    rootMargin: '100px',
-    threshold: 0.2,
-  })
 
   return (
     <>

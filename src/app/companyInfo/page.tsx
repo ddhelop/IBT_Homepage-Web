@@ -4,6 +4,7 @@ import FloatingButton from '@/components/companyInfo/Floating'
 
 import TechnicalComponent from '@/components/companyInfo/Technical/TechnicalComponent'
 import HistoryComponent from '@/components/companyInfo/companyHistory/HistoryComponent'
+import LogoComponent from '@/components/intro/LogoComponent'
 
 export const metadata = {
   title: 'Company Info',
@@ -20,6 +21,7 @@ export default function IntroPage(): JSX.Element {
         {/* 2nd company history section */}
         <HistoryComponent />
         {/* 3th partnership section */}
+        <LogoComponent />
         {/* 4th Technical certification section */}
         <TechnicalComponent />
         {/* 5th directions section*/}

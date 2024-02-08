@@ -22,6 +22,11 @@ function GoogleMapComponent(props: ILocationProps) {
         width: '89.71vw',
         height: '89.71vw',
       })
+    } else if (window.innerWidth < 1024) {
+      setContainerStyle({
+        width: '63.85vw', // PC 화면 기준 너비
+        height: '63.85vw', // PC 화면 기준 높이
+      })
     } else {
       setContainerStyle({
         width: '33.85vw', // PC 화면 기준 너비
