@@ -1,6 +1,6 @@
 /* HistoryComponent.css */
 .tab-button1 {
-  font-size: 13.77px;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #555;
   letter-spacing: -0.386px;
@@ -12,7 +12,7 @@
   background-color: white;
 }
 .tab-button2 {
-  font-size: 13.77px;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #555;
   letter-spacing: -0.386px;
@@ -25,7 +25,7 @@
   /* 여기에 패딩, 폰트 크기 등 다른 스타일 추가 */
 }
 .tab-button3 {
-  font-size: 13.77px;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #555;
   letter-spacing: -0.386px;
@@ -48,6 +48,7 @@
   border-top: 1.377px solid #59a833;
   border-left: 1.377px solid #59a833;
   border-right: 1.377px solid #59a833;
+  border-bottom: none;
 
   /* 탭 효과를 위해 아래쪽 테두리는 없음 */
 }
@@ -59,6 +60,7 @@
   border-top: 1.377px solid #59a833;
   border-left: 1.377px solid #59a833;
   border-right: 1.377px solid #59a833;
+  border-bottom: none;
 }
 
 .active-tab3 {
@@ -68,4 +70,5 @@
   border-top: 1.377px solid #59a833;
   border-left: 1.377px solid #59a833;
   border-right: 1.377px solid #59a833;
+  border-bottom: none;
 }

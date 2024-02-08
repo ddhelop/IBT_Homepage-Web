@@ -143,7 +143,7 @@ export const TableData1 = [
     authorization: '환경표지 인증서',
     Institution: '한국환경산업기술원',
     date: '2004.11.09',
-    note: '친환경 우수제품',
+    note: '친환경 축전지',
     color: '#f7f7f7',
   },
   {

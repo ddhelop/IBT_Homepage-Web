@@ -40,29 +40,29 @@ export default function HistoryComponent() {
         </p>
 
         {/* Tabs */}
-        <div className="mt-24 w-2/3 flex items-center justify-center">
+        <div className="mt-24 w-2/3 flex items-center justify-center ">
           <button
-            className={`w-1/3 h-[48px] tab-button1 ${isActive('tab1') ? 'active-tab1' : ''}`}
+            className={`w-1/3 h-12 tab-button1 ${isActive('tab1') ? 'active-tab1' : ''}`}
             value="tab1"
             onClick={onClickButton}
           >
             2015~
           </button>
           <button
-            className={`w-1/3 h-[48px] tab-button2 ${isActive('tab2') ? 'active-tab2' : ''}`}
+            className={`w-1/3 h-12 tab-button2 ${isActive('tab2') ? 'active-tab2' : ''}`}
             onClick={() => setActiveTab('tab2')}
           >
             2003 - 2014
           </button>
           <button
-            className={`w-1/3 h-[48px] tab-button3 ${isActive('tab3') ? 'active-tab3' : ''}`}
+            className={`w-1/3 h-12 tab-button3 ${isActive('tab3') ? 'active-tab3' : ''}`}
             onClick={() => setActiveTab('tab3')}
           >
-            1996 - 2002
+            1986 - 2002
           </button>
         </div>
 
-        <div className="tab-contents">
+        <div className="tab-contents w-full">
           <ViewContents />
         </div>
       </div>

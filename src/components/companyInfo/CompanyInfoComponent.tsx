@@ -12,11 +12,11 @@ export default function CompanyInfoComponent() {
             height={187} // 높이
             // layout="fixed" // 레이아웃 옵션
           />
-          <h2 className="mt-[15px] text-center font-medium text-[30.5px] leading-[67.8px]">
+          <h2 className="mt-4 text-center font-medium text-3xl leading-[3rem]">
             IBT는 혁신적인 배터리 기술을 통해 지속 가능한 에너지 솔루션을 선도하며,
             <br />
           </h2>
-          <p className="mt-[50px] text-center font-thin text-[28.6px] leading-[50.6px]">
+          <p className="mt-[50px] text-center font-thin text-3xl leading-[4.3rem]">
             브랜드 컬러인 IBT 그린은 친환경 이념을,
             <br />
             우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.

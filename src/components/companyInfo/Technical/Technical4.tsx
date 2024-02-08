@@ -14,7 +14,7 @@ export default function Technical4() {
 
   return (
     <>
-      <div className="technical-zoom-container flex flex-col w-full">
+      <div className="technical-zoom-container flex flex-col w-full mt-9 items-center">
         <div className="flex flex-row mt-12">
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/1_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />

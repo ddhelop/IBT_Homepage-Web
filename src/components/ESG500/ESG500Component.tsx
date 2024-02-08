@@ -176,7 +176,7 @@ export default function ESG500Component() {
                 <p className="text-xl leading-9 tracking-wider text-[#7b7b7b] mt-12">
                   광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983
                   <br />
-                  서울 광진구 광나루로 56길 85, 1902호(구의동) 02-3424-1988 재단법인중양장형태기념재단 재단법인 지우장
+                  서울 광진구 광나루로 56길 85, 1902호(구의동) 02-3424-1988 재단법인중앙장형태기념재단 재단법인 지우장
                 </p>
               </div>
             </div>
