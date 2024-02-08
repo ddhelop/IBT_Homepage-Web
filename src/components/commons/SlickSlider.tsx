@@ -29,86 +29,91 @@ const slidesData = [
   { title: '고객문의', description: 'IBT에\n자유롭게 문의하세요', image: '/intro/img4.png', width: 255, height: 223 },
 ]
 
-function NextArrow(props: ArrowProps) {
-  const { onClick } = props
+function PrevArrow(props) {
+  const { className, style, onClick } = props
   return (
-    <div
-      className="absolute top-[13%] md:top-[-6%] left-[105%] md:left-[99%] w-8 md:w-16 h-8 md:h-16"
+    <Image
+      src="/intro/left arrow.svg"
+      alt="nextArrow"
+      width={200}
+      height={400}
+      layout="responsive"
+      className={`${className} max-w-10 `}
+      style={{ ...style, display: 'block', paddingBottom: '50px' }}
       onClick={onClick}
-    >
-      <Image
-        src="/intro/right arrow.svg" // 이미지 경로
-        alt="slidesImages"
-        width={69} // 너비
-        height={287} // 높이
-        // layout="fixed" // 레이아웃 옵션
-        onClick={onClick}
-        className="cursor-pointer block"
-      />
-    </div>
+    />
   )
 }
 
-function PrevArrow(props: ArrowProps) {
-  const { onClick } = props
+function NextArrow(props) {
+  const { className, style, onClick } = props
   return (
-    <div
-      className="absolute top-[13%] md:top-[-6%] left-[-13%] md:left-[-3%] w-8 md:w-16 h-8 md:h-16"
+    <Image
+      src="/intro/right arrow.svg"
+      alt="nextArrow"
+      width={200}
+      height={400}
+      layout="responsive"
+      className={`${className} max-w-10 pb-[50px]`}
+      style={{ ...style, display: 'block', paddingBottom: '50px' }}
       onClick={onClick}
-    >
-      <Image
-        src="/intro/left arrow.svg" // 이미지 경로
-        alt="slidesImages"
-        width={69} // 너비
-        height={287} // 높이
-        // layout="responsive" // 레이아웃 옵션
-        onClick={onClick}
-        className="cursor-pointer block"
-      />
-    </div>
+    />
   )
 }
 
-export default class CustomArrows extends Component {
-  render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
+export default function SlickSlider() {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
 
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2, // 모바일 화면에서 보여줄 슬라이드의 개수
-            slidesToScroll: 1,
-            infinite: true,
-          },
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
         },
-      ],
-    }
-
-    return (
-      <div className="text-center">
-        <div className="m-auto w-full p-20">
-          <Slider {...settings}>
-            {slidesData.map((el) => (
-              <div key={el.title}>
-                <div className="flex justify-center ">
-                  <img src={el.image} alt={el.description} />
-                </div>
-                <div>
-                  <h2>{el.title}</h2>
-                  <p>{el.description}</p>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </div>
-    )
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2, // 모바일 화면에서 보여줄 슬라이드의 개수
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    ],
   }
+  return (
+    <div className="text-center">
+      <div className="m-auto p-20 ">
+        <Slider {...settings}>
+          {slidesData.map((el) => (
+            <div key={el.title}>
+              <div className="flex justify-center ">
+                <img src={el.image} alt={el.description} />
+              </div>
+              <div>
+                <h2>{el.title}</h2>
+                <p>{el.description}</p>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
+  )
 }

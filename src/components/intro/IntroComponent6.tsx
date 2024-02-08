@@ -46,9 +46,9 @@ export default function IntroComponent6(): JSX.Element {
         style={{ backgroundImage: 'url(/intro/intro6.png)' }}
         className="relative w-full text-center flex flex-col items-center justify-center min-h-screen bg-no-repeat bg-cover bg-white bg-opacity-50"
       >
-        <div className="w-full flex flex-col md:flex-row ">
+        <div className="w-full flex flex-col xl:flex-row">
           {/* left container */}
-          <div className="md:w-[50%] flex flex-col justify-center items-center h-full">
+          <div className="xl:w-[50%] flex flex-col justify-center items-center h-full">
             <h1 className="text-white text-3xl md:text-5xl font-bold md:text-left leading-[65.67px] tracking-[0.2px]">
               연료 전지 분야
               <br />
@@ -63,7 +63,7 @@ export default function IntroComponent6(): JSX.Element {
           </div>
 
           {/* right container */}
-          <div className="md:w-[50%]">
+          <div className="mt-12 xl:mt-0 xl:w-[50%]">
             <div className="flex flex-wrap justify-center items-center h-full md:max-w-[600px] md:min-w-[600px] md:mx-auto">
               {Data.map((data, index) => (
                 <div key={index} className="p-2">
