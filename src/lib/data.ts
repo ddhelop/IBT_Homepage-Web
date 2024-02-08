@@ -73,6 +73,11 @@ export const contents = [
     text: '친환경 전지와 안전 관리 시스템을 중심으로,\n차세대를 책임질 에너지 시스템을 만들어가고 있습니다.\nIBT는 미래를 함께합니다.',
     background: '/intro/intro3.png',
   },
+  {
+    title: '함께하는 IBT',
+    text: 'IBT는 신뢰를 바탕으로 국내외 기업들과\n함께 고민하고 해결해나갑니다.',
+    background: '/intro/LogoIntro.png',
+  },
 ]
 ////// 배터리 페이지 데이터 //////
 
