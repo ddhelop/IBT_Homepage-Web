@@ -1,12 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import Slider from '../battery/Slider'
 import SlickSlider from '../commons/SlickSlider'
 
 export default function IntroComponent7(): JSX.Element {
-  const [categoryIndex, setCategoryIndex] = useState(0)
-
   return (
     <>
       <div className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-white ">

@@ -28,6 +28,11 @@ const config: Config = {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.2)' },
         },
+        grow: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.4)' },
+        },
+
         infiniteScroll: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
@@ -42,8 +47,9 @@ const config: Config = {
         fadeIn: 'fadeIn 1s ease-in-out forwards',
         infiniteScroll: 'infiniteScroll 60s linear infinite',
         infiniteScrollLeft: 'infiniteScrollLeft 60s linear infinite',
-        // 다른 애니메이션 이름을 여기에 추가
+
         pulse: 'pulse 3s infinite',
+        growText: 'grow 2s alternate',
       },
       colors: {
         'primary-green': '#79AD4B',

@@ -4,7 +4,7 @@ import { IContentBlockProps } from './IntroComponent.types'
 
 export default function ContentBlock(props: IContentBlockProps) {
   const handleAnimation = (entry: IntersectionObserverEntry) => {
-    entry.target.classList.add('animate-fadeIn')
+    entry.target.classList.add('animate-growText')
   }
 
   const ref = useIntersectionObserver(handleAnimation, {
