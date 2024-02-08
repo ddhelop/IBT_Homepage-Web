@@ -13,13 +13,7 @@ const BatteryDefensePage = () => {
   return (
     <>
       <FloatingButton />
-      <BatteryDetail
-        title={batteryList[0].title}
-        explain1={batteryList[0].explain1}
-        explain2={batteryList[0].explain2}
-        explain3={batteryList[0].explain3}
-        explain4={batteryList[0].explain4}
-      />
+      <BatteryDetail title={batteryList[0].title} explain={batteryList[0].explain} />
       <BatteryItem detailInfo={defenseList} mainCategoryIndex={0} />
     </>
   )

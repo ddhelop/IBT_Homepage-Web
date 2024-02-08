@@ -531,82 +531,99 @@ export const researchData = [
 export const batteryList = [
   {
     title: '방산용 Ni-cd',
-    explain1: 'IBT는 저온 및 고온에서도 고출력의 고효율 제품을 공급하고 있습니다.',
-    explain2: '소량화 및 경량화가 가능하며',
-    explain3: '운용 안정성이 우수하여 혹한기 및 혹서기 등 열악한 환경에서도',
-    explain4: '안전하게 사용할 수 있습니다.',
+    explain: [
+      'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도',
+      '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를',
+      '신뢰를 바탕으로 공급해왔습니다.',
+    ],
   },
   {
     title: '산업용 Ni-cd',
-    explain1: '아이비티는 고객의 니즈에 따라',
-    explain2: '고 에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.',
-    explain3: '우수한 가격 경쟁력을 바탕으로',
-    explain4: '내구성을 가지며 진동, 충격에 강한 특징을 가지고 있습니다.',
+    explain: [
+      'IBT는 고객의 니즈에 따라',
+      '고에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.',
+      '우수한 가격 경쟁력과 진동, 충격에 강한 내구성을 가지고 있습니다.',
+    ],
   },
   {
     title: '동력용 Lithium',
-    explain1: '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.',
-    explain2: '높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.',
-    explain3: '관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.',
-    explain4: '낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+    explain: [
+      '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.',
+      '높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.',
+      '관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.',
+      '낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+    ],
   },
   {
     title: '에너지저장용 Lithium',
-    explain1: '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.',
-    explain2: '높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.',
-    explain3: '관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.',
-    explain4: ' 낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+    explain: [
+      '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.',
+      '높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.',
+      '관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.',
+      '낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+    ],
   },
 ]
 
 export const defenseList = [
   {
     title: '항공',
-    backgroundImage: '/image/320방산용Ni-cd/321.0_방산용 Ni-cd 항공.png',
     itemFile: '/image/320방산용Ni-cd/321.1_방산용 Nicd_항공_제품사진.png',
     itemTitle: 'Ni-Cd battery Sintered Type',
-    itemAdvanced: ['고율 방전 성능 우수', '극저온 출력 특성 우수', '운용 안정성 우수'],
+    itemSubTitle: '',
+    itemAdvanced: [
+      '다양한 항공용 무기 모델에 적용되는 Ni-cd 배터리입니다.',
+      '항공 무기의 에너지 공급원으로서 중요한 진동, 충격 및 고도특성이 우수하여 안전합니다.',
+    ],
   },
   {
     title: '육상',
-    backgroundImage: '/image/320방산용Ni-cd/322.0_방산용 Ni-cd 육상.png',
     itemFile: '/image/320방산용Ni-cd/322.1_방산용 Nicd_육상_제품사진.png',
     itemTitle: 'Ni-Cd battery Sintered Type',
-    itemAdvanced: ['고율 방전 성능 우수', '극저온 출력 특성 우수', '운용 안정성 우수'],
+    itemSubTitle: '',
+    itemAdvanced: [
+      '단거리 유도무기인 천마와 발칸포의 회전 및 발사 시 필요한 에너지를 공급하는 육상 무기용 배터리입니다.',
+      '1차 동력원을 확보하고 체계운용에 따라 엔진 가동없이 탑재 장비에 직전력을 공급하며,',
+      '탑재 장비의 작동 시 과도한 전압 발생을 상쇄시키는 등 체계의 중요한 역할을 수행합니다.',
+      '열악한 주위 환경에서도 원활한 엔진 시동으로 운용 안정성이 우수합니다.',
+    ],
   },
   {
     title: '해상',
-    backgroundImage: '/image/320방산용Ni-cd/323.0_방산용 Ni-cd 해상.png',
     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
     itemTitle: 'Ni-Cd battery Sintered Type',
-    itemAdvanced: ['고율 방전 성능 우수', '극저온 출력 특성 우수', '운용 안정성 우수'],
+    itemSubTitle: '',
+    itemAdvanced: [
+      '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는',
+      '혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.',
+      '고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
+    ],
   },
 ]
 
 export const industryList = [
   {
     title: '철도용',
-    backgroundImage: '/image/330산업용Ni-cd/331.0_산업용 Lithium 철도.png',
     itemFile: '/image/330산업용Ni-cd/331.1_산업용 Lithium_철도_제품.png',
     itemTitle: '철도 지하철용 Ni-cd 배터리',
+    itemSubTitle: '20년 노하우의 철도 지하철 전용 제품',
     itemAdvanced: [
-      '육안으로 내부 상태 확인 가능한 쉬운 유지 보수',
-      '과 충 방전 특성 우수',
-      '온도에 대한 변화가 거의 없어 안정된 변동성',
+      '고품질의 투명한 전조 사용으로 육안으로 내부 상태 확인이 가능해 유지 보수가 쉬우며',
+      '과충전시 활물질 탈락이 없고, 종지 전압 이하까지 방전이 진행되어도',
+      '성능 회복이 가능하여 과충전 방전 특성이 우수합니다. 내산성, 내충격에 강한 설계로',
+      '긴 사이클 수명을 보장하며, 온도에 따른 변화가 거의 없어',
+      '35℃ ~ 50℃에 이르는 광범위한 온도에서도 강력한 성능을 발휘합니다.',
     ],
   },
   {
     title: 'UPS용',
-    backgroundImage: '/image/330산업용Ni-cd/332.0_산업용 Lithium UPS.png',
     itemFile: '/image/330산업용Ni-cd/332.1_산업용 Lithium_UPS_제품.png',
     itemTitle: 'UPS용 Ni-cd 배터리',
+    itemSubTitle: '무정전 예비전원용 배터리',
     itemAdvanced: [
-      '자기 방전의 최소화',
-      '긴수명, 고성능 제품',
-      '환수촉매기능을 적용하여 편리한 유지보수',
-      '우수한 내 충격성',
-      '유해가스 발생해소에 따른 안전성발전소, 수송망, 화학공장, 정유공장, 제철소 및 통제시스템의',
-      '무정전 예비전원용',
+      '발전소, 수송망, 화학공장, 정유공장, 제철소 및 통제시스템의 무정전 예비전원용 배터리입니다.',
+      'IBT의 UPS용 Ni-cd 모델은 내충격성이 우수하고 자기 방전이 최소화되어 수명이 길고 성능이 강력합니다.',
+      '환수촉매기능을 적용하여 유지보수가 편리하며 유해가스 발생 문제를 해소하여 안전한 제품입니다.',
     ],
   },
 ]
@@ -614,63 +631,69 @@ export const industryList = [
 export const powerList = [
   {
     title: '지게차',
-    backgroundImage: '/image/340동력용Lithium/341.0_동력용 Lithium_지게차.png',
     itemFile: '/image/340동력용Lithium/341.1_동력용 Lithium_제품(지게차 배터리).png',
     itemTitle: '지게차용 리튬 배터리',
+    itemSubTitle: '지게차에 강력한 출력을 제공하는 리튬 인산철 축전지',
     itemAdvanced: [
-      '강력한 출력을 제공하는 리튬 인산철 축전지',
-      '연중 무휴 운전',
-      '유지 보수 비용 감소',
-      '수명증대',
-      '모니터링 및 관리를 통한 운영 안전 보장',
+      '지게차용 리튬 배터리는 급속 충전 및 장시간 사용으로 여분의 배터리가 불필요하며',
+      '2&3 Shift 사용처에 적용이 가능합니다. 전해액 보충이 불필요한 효율적인 충전으로 유지비용이 절감되며',
+      '충, 방전 중 유해가스 발생이 없어 쾌적한 작업환경과 건강한 사업장 실현이 가능합니다.',
+      '납산 대비 3배 이상의 수명과 모니터링 관리로, 연중 무휴 운영 안전이 보장됩니다.',
     ],
   },
   {
     title: 'AGV',
-    backgroundImage: '/image/340동력용Lithium/342.0_동력용 Lithium_AGV.png',
     itemFile: '/image/340동력용Lithium/342.1_동력용 Lithium_제품(AGV 배터리).png',
     itemTitle: 'AGV용 리튬 배터리',
+    itemSubTitle: 'AGV (Automatic Guided Vehicle)\n강력한 출력을 제공하는 리튬 인산철 축전지',
     itemAdvanced: [
-      '강력한 출력을 제공하는 리튬 인산철 축전지',
-      '연중 무휴 운전',
-      '유지 보수 비용 감소',
-      '수명증대',
-      '모니터링 및 관리를 통한 운영 안전 보장',
+      '납축전지 4배 장수명, 소형 경량, 급속충전 등의 특징을 가지고 있는 AGV용 리튬 배터리는',
+      '증류수 보충이 필요하지 않아 유지보수가 용이하며 높은 충 방전 효율로 전기세 등 운영비용이 감소합니다.',
+      '전용 BMS를 통해 편리고 안정적인 운영이 가능합니다.',
     ],
   },
   {
     title: '선박',
-    backgroundImage: '/image/340동력용Lithium/343.0_동력용 Lithium_선박.png',
     itemFile: '/image/340동력용Lithium/343.1_동력용 Lithium_제품(선박 배터리).png',
     itemTitle: '선박용 리튬 배터리',
+    itemSubTitle: '강력한 출력을 제공하는 친환경 선박의 동력 시스템 솔루션',
     itemAdvanced: [
-      '강력한 출력을 제공하는 리튬 인산철 축전지',
-      '연중 무휴 운전',
-      '유지 보수 비용 감소',
-      '수명증대',
-      '모니터링 및 관리를 통한 운영 안전 보장',
+      '에너지 밀도와 안정성이 높은 선박용 배터리는\n모듈화를 통해 선박의 다양한 스펙에 맞춤 구현이 가능하며',
+      '자체 냉각 기술과 신뢰성 높은 자사 BMS 기술로 안정적인 관리와 안전이 보장됩니다.',
+      '에너지 절감 효과가 있는 친환경 제품으로, 오염을 방지하여 깨끗한 해양 환경 조성에 기여합니다.',
     ],
   },
   {
     title: '골프카',
-    backgroundImage: '/image/340동력용Lithium/344.0_동력용 Lithium_골프카.png',
     itemFile: '/image/340동력용Lithium/344.1_동력용 Lithium_제품(골프카 배터리).png',
     itemTitle: '지게차용 리튬 배터리',
+    itemSubTitle: '골프카에 강력한 출력과 BMS를 제공하는 운용 솔루션',
     itemAdvanced: [
-      '강력한 출력을 제공하는 리튬 인산철 축전지',
-      '연중 무휴 운전',
-      '유지 보수 비용 감소',
-      '수명증대',
-      '모니터링 및 관리를 통한 운영 안전 보장',
+      '여러 효용으로 기존 사용되던 연축전지가 리튬 전지로 대체되고 있는 변화의 흐름에 따라,',
+      '이 모델 또한 연축전지를 대체하는 모델로서 추가 비용 없이 교체가 가능하며',
+      '무게는 1/2, 출력 및 수명은 2배라는 강력한 특징을 가집니다. 기존 골프카 충전기와 호환이 되며,',
+      '자체보유한 BMS 기술으로  배터리 실시간 모니터링이 가능하여 편리하고 안정적인 운용이 가능합니다.',
+    ],
+  },
+  {
+    title: '청소차',
+    itemFile: '/image/340동력용Lithium/344.1_동력용 Lithium_제품(골프카 배터리).png',
+    itemTitle: '청소용 리튬 배터리',
+    itemSubTitle: 'AM특장차에 강력한 출력을 제공하는 리튬인산철 배터리',
+    itemAdvanced: [
+      '에너지 밀도와 안정성이 높은 선박용 배터리는\n모듈화를 통해 선박의 다양한 스펙에 맞춤 구현이 가능하며',
+      '자체 냉각 기술과 신뢰성 높은 자사 BMS 기술로 안정적인 관리와 안전이 보장됩니다.',
+      '에너지 절감 효과가 있는 친환경 제품으로, 오염을 방지하여 깨끗한 해양 환경 조성에 기여합니다.',
     ],
   },
 ]
+
 export const energySaveList = [
   {
     title: 'UPS용',
-    backgroundImage: '/image/350에너지저장용Lithium/351.0_에너지저장용 Lithium_UPS.png',
     itemFile: '/image/350에너지저장용Lithium/351.1_에너지저장용 Lithium_기술 설명 사진(UPS).png',
     itemTitle: 'IBT in UPS',
+    itemSubTitle: '',
     itemAdvanced: [
       '1. 경량화 소형화:',
       '납축전지 대비 더 가볍고 크기도 더 작아 설치가 쉬움',
@@ -686,9 +709,9 @@ export const energySaveList = [
   },
   {
     title: 'ESS용',
-    backgroundImage: '/image/350에너지저장용Lithium/352.0_에너지저장용 Lithium_ESS.png',
     itemFile: '/image/350에너지저장용Lithium/352.1_에너지저장용 Lithium_기술설명사진(ESS).png',
     itemTitle: 'IBT in ESS',
+    itemSubTitle: '',
     itemAdvanced: [
       '1. 고밀도 에너지 저장 능력:',
       '높은 에너지 밀도로 ESS의 효율성과 용량을 극대화합니다.',
@@ -806,18 +829,86 @@ export const ModelInfo = [
   [
     {
       item: '지게차',
-      itemAdvanced: [],
+      itemAdvanced: [
+        {
+          imagePath: '/image/동력리튬샘플/지게차1.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/지게차2.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/지게차3.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/지게차4.png',
+          name: '',
+        },
+      ],
     },
     {
       item: 'AGV',
-      itemAdvanced: [],
+      itemAdvanced: [
+        {
+          imagePath: '/image/동력리튬샘플/AGV1.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/AGV2.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/AGV3.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/AGV4.png',
+          name: '',
+        },
+      ],
     },
     {
       item: '선박',
-      itemAdvanced: [],
+      itemAdvanced: [
+        {
+          imagePath: '/image/동력리튬샘플/선박1.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/선박2.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/선박3.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/선박4.png',
+          name: '',
+        },
+      ],
     },
     {
       item: '골프카',
+      itemAdvanced: [
+        {
+          imagePath: '/image/동력리튬샘플/골프카1.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/골프카2.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/골프카3.png',
+          name: '',
+        },
+      ],
+    },
+    {
+      item: '청소차',
       itemAdvanced: [],
     },
   ],

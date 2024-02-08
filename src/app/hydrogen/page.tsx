@@ -17,10 +17,12 @@ const HydrogenPage = () => {
       <FloatingButton />
       <BatteryDetail
         title={'HYDROGEN'}
-        explain1={'아이비티는 고객의 니즈에 따라'}
-        explain2={'고 에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.'}
-        explain3={'우수한 가격 경쟁력을 바탕으로'}
-        explain4={'내구성을 가지며 진동, 충격에 강한 특징을 가지고 있습니다.'}
+        explain={[
+          '아이비티는 고객의 니즈에 따라',
+          '고 에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.',
+          '우수한 가격 경쟁력을 바탕으로',
+          '내구성을 가지며 진동, 충격에 강한 특징을 가지고 있습니다.',
+        ]}
       />
       <CheckerBoard
         image1={'/image/Lithium.png'}

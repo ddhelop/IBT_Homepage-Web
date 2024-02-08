@@ -21,7 +21,7 @@ export const Header = () => {
       <nav className="fixed top-0 w-full z-50">
         <nav
           className={`flex items-center flex-wrap lg:px-20 hover:bg-white py-3 shadow-md ${
-            navDown ? 'bg-white' : 'bg-transparent'
+            navDown ? 'bg-white' : active ? 'bg-white ' : 'bg-transparent'
           }`}
           onMouseEnter={() => setNavDown(true)}
           onMouseLeave={() => setNavDown(false)}
@@ -126,7 +126,7 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/battery'}>
-                    <li onClick={() => setActive(false)}>Battery</li>
+                    <li onClick={() => setActive(false)}>BATTERY</li>
                   </Link>
                   {/* navDown animation
                         navDown
@@ -178,7 +178,7 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/hydrogen'}>
-                    <li onClick={() => setActive(false)}>Hydrogen</li>
+                    <li onClick={() => setActive(false)}>HYDROGEN</li>
                   </Link>
                   <motion.ul
                     initial={{ opacity: 0 }}

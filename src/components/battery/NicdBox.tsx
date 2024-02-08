@@ -24,8 +24,8 @@ export default function NicdBox() {
           <div className="z-10">
             <div className="flex flex-row justify-between items-center">
               <div>
-                <div className="lg:text-4xl text-5xl font-medium mb-1.5 lg:mt-0 mt-3">Ni-cd</div>
-                <div className="lg:text-sm text-md lg:font-normal font-medium pl-1.5">니켈카드뮴축전지</div>
+                <div className="lg:text-4xl text-5xl font-bold mb-1.5 lg:mt-0 mt-3">Ni-cd</div>
+                <div className="lg:text-sm text-md font-bold pl-1.5">니켈카드뮴축전지</div>
               </div>
               <Link href="/battery/batteryDetail/defense">
                 <button className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green">
@@ -34,7 +34,7 @@ export default function NicdBox() {
               </Link>
             </div>
             <div className="mt-5">
-              <p className="text-2xl font-normal leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10">
+              <p className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10">
                 방산 분야에서는 무기 시스템의
                 <br />
                 안정적인 작동을 위해,
@@ -50,7 +50,7 @@ export default function NicdBox() {
               <div className="hidden group-hover:flex flex-col gap-5 pt-10">
                 <Link href="/battery/batteryDetail/defense">
                   <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
-                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-noraml">
+                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       방산용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>
@@ -58,7 +58,7 @@ export default function NicdBox() {
                 </Link>
                 <Link href="/battery/batteryDetail/industry">
                   <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
-                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-noraml">
+                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       산업용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>

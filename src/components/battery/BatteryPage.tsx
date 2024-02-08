@@ -26,7 +26,7 @@ export const BatteryPage = () => {
       <BatteryIntro />
       {/* Battery 메인 */}
       <div className="flex w-full min-h-full flex-col items-center mb-20">
-        <h1 className="text-6xl font-medium my-40">BATTERY</h1>
+        <h1 className="text-6xl font-bold my-40">BATTERY</h1>
         {/* Ni-cd */}
         <div id="nicd" className="flex flex-col w-full">
           <NicdBox />
