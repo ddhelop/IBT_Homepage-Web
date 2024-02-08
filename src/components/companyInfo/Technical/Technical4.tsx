@@ -6,7 +6,7 @@ import mediumZoom from 'medium-zoom'
 export default function Technical4() {
   useEffect(() => {
     // 'use client' 키워드를 고려하여 DOM이 준비된 후에 mediumZoom을 적용
-    mediumZoom('img', {
+    mediumZoom('.technical-zoom-container img', {
       background: 'rgba(0, 0, 0, 0.6)', // 어두운 배경으로 설정
       scrollOffset: 0,
     })
@@ -14,7 +14,7 @@ export default function Technical4() {
 
   return (
     <>
-      <div className="flex flex-col w-full">
+      <div className="technical-zoom-container flex flex-col w-full">
         <div className="flex flex-row mt-12">
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/1_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
