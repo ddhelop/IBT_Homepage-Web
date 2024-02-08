@@ -64,7 +64,7 @@ export default function LogoComponent() {
 
   return (
     <>
-      <div className="w-full flex flex-col items-center py-20 overflow-hidden">
+      <div id="collaborate" className="w-full flex flex-col items-center py-20 overflow-hidden">
         <h1 className="text-6xl mb-24 font-medium">협력 / 제휴사</h1>
         <h2 className="text-4xl mb-7 font-bold">함께하는 IBT</h2>
         <p className="text-lg text-center mb-16 font-light">

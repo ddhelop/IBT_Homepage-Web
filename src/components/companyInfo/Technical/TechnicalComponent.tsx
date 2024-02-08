@@ -31,7 +31,10 @@ export default function TechnicalComponent() {
 
   return (
     <>
-      <div className="h-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
+      <div
+        id="technical"
+        className="h-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+      >
         <h1 className="text-[61.1px] font-medium">기술 인증</h1>
 
         {/* Tabs */}

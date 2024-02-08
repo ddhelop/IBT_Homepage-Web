@@ -4,8 +4,8 @@ import Link from 'next/link'
 const FloatingButton = () => {
   return (
     <>
-      <div className="hidden lg:flex lg:w-[100px] lg:sticky lg:float-right lg:top-1/4 lg:mr-[30px] lg:z-50">
-        <div className="lg:w-[100px] lg:rounded-xl lg:overflow-hidden lg:gap-[5px] lg:text-center lg:text-gray-800 lg:z-50 lg:border lg:border-gray-300 lg:drop-shadow-lg">
+      <div className="hidden lg:flex lg:w-full lg:fixed lg:float-right lg:top-1/4 lg:mr-[30px] lg:z-50">
+        <div className="lg:fixed lg:right-[30px] lg:w-[100px] lg:rounded-xl lg:overflow-hidden lg:gap-[5px] lg:text-center lg:text-gray-800 lg:z-50 lg:border lg:border-gray-300 lg:drop-shadow-lg">
           {/* 상단으로 (battery 소개) 이동 */}
           <Link href="/battery">
             <div className="bg-slate-700 text-white px-2 py-3 rounded-t-xl hover:bg-primary-green hover:text-white">
