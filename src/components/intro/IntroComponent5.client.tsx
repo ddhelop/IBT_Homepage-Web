@@ -69,7 +69,7 @@ export default function IntroComponent5(): JSX.Element {
             {/* number */}
             <div
               ref={ref}
-              className="w-full flex flex-row justify-center md:space-x-80 mt-8 md:mt-20 text-4xl md:text-6xl font-bold"
+              className="w-full flex flex-row justify-center space-x-12 md:space-x-40 lg:space-x-80 mt-8 md:mt-20 text-4xl md:text-6xl font-bold"
             >
               <div className="flex flex-col relative z-10 justify-center ">
                 <div className="flex flex-row justify-center">
