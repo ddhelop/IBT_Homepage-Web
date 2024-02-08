@@ -1,10 +1,10 @@
-import FloatingButton from '@/components/Floating'
+import FloatingButton from '@/components/battery/Floating'
 import BatteryDetail from '@/components/battery/BatteryDetail'
 import BatteryItem from '@/components/battery/BatteryItem'
 import { batteryList, defenseList } from '@/lib/data'
-import Image from 'next/image'
+import { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'About Defense Ni-cd',
   description: 'IBT 방산용 Ni-cd 배터리 제품 소개 페이지',
 }
