@@ -28,7 +28,6 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
         }}
         className="w-full flex flex-col items-center justify-center"
       >
-        <div className="text-4xl font-normal py-10">적용 모델</div>
         {data.length > 4 ? (
           // 개수가 5개 이상인 경우
           <>
@@ -107,7 +106,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 className="hidden lg:w-full lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300 lg:gap-3 lg:pl-6 lg:pr-3"
               >
                 {data.map((v, i) => (
-                  <div key={i} className="relative shrink-0 h-full w-1/4 text-center text-4xl font-light my-3">
+                  <div key={i} className="relative shrink-0 h-full w-1/4 text-center text-3xl font-bold my-3">
                     {v.name}
                   </div>
                 ))}
@@ -121,7 +120,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300"
               >
                 {data.map((v, i) => (
-                  <div key={i} className="relative shrink-0 w-full h-full text-center text-4xl font-light my-3">
+                  <div key={i} className="relative shrink-0 w-full h-full text-center text-3xl font-bold my-3">
                     {v.name}
                   </div>
                 ))}
@@ -138,10 +137,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                   <div key={i} className={`relative shrink-0 lg:w-[20rem] w-20 h-40`}>
                     <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
                   </div>
-                  <div
-                    key={i}
-                    className="relative shrink-0 lg:w-[20rem] w-20 h-20 text-center text-4xl font-light my-3"
-                  >
+                  <div key={i} className="relative shrink-0 lg:w-[20rem] w-20 h-20 text-center text-3xl font-bold my-3">
                     {v.name}
                   </div>
                 </div>
@@ -192,7 +188,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300"
               >
                 {data.map((v, i) => (
-                  <div key={i} className="relative shrink-0 w-full h-full text-center text-4xl font-light my-3">
+                  <div key={i} className="relative shrink-0 w-full h-full text-center text-3xl font-bold my-3">
                     {v.name}
                   </div>
                 ))}

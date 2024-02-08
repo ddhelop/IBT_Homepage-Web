@@ -21,8 +21,8 @@ export default function LithiumBox() {
           <div className="z-10">
             <div className="flex flex-row justify-between items-center">
               <div>
-                <div className="lg:text-4xl text-5xl font-medium mb-1.5 lg:mt-0 mt-3">Lithium</div>
-                <div className="lg:text-sm text-md lg:font-normal font-medium pl-1.5">리튬축전지</div>
+                <div className="lg:text-4xl text-5xl font-bold mb-1.5 lg:mt-0 mt-3">Lithium</div>
+                <div className="lg:text-sm text-md font-bold pl-1.5">리튬축전지</div>
               </div>
               <Link href="/battery/batteryDetail/power">
                 <button className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green">
@@ -31,7 +31,7 @@ export default function LithiumBox() {
               </Link>
             </div>
             <div className="mt-5">
-              <p className="text-2xl font-normal leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10">
+              <p className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10">
                 IBT의 LiFePO4 배터리는
                 <br />
                 부피가 작고 가볍고 전력효율이 높으며,
@@ -45,7 +45,7 @@ export default function LithiumBox() {
               <div className="hidden group-hover:flex flex-col gap-5 pt-10">
                 <Link href="/battery/batteryDetail/power">
                   <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
-                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-noraml">
+                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       동력용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>
@@ -53,7 +53,7 @@ export default function LithiumBox() {
                 </Link>
                 <Link href="/battery/batteryDetail/energy-save">
                   <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
-                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-noraml">
+                    <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       에너지저장용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>

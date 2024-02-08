@@ -13,13 +13,7 @@ const BatteryEnergySavePage = () => {
   return (
     <>
       <FloatingButton />
-      <BatteryDetail
-        title={batteryList[3].title}
-        explain1={batteryList[3].explain1}
-        explain2={batteryList[3].explain2}
-        explain3={batteryList[3].explain3}
-        explain4={batteryList[3].explain4}
-      />
+      <BatteryDetail title={batteryList[3].title} explain={batteryList[3].explain} />
       <BatteryItem detailInfo={energySaveList} mainCategoryIndex={3} />
     </>
   )

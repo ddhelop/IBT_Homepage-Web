@@ -13,13 +13,7 @@ const BatteryIndustryPage = () => {
   return (
     <>
       <FloatingButton />
-      <BatteryDetail
-        title={batteryList[1].title}
-        explain1={batteryList[1].explain1}
-        explain2={batteryList[1].explain2}
-        explain3={batteryList[1].explain3}
-        explain4={batteryList[1].explain4}
-      />
+      <BatteryDetail title={batteryList[1].title} explain={batteryList[1].explain} />
       <BatteryItem detailInfo={industryList} mainCategoryIndex={1} />
     </>
   )

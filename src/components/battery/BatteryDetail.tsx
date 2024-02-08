@@ -7,13 +7,10 @@ import { batteryList } from '@/lib/data'
 
 type Props = {
   title: string
-  explain1: string
-  explain2: string
-  explain3: string
-  explain4: string
+  explain: string[]
 }
 
-export default function BatteryDetail({ title, explain1, explain2, explain3, explain4 }: Props) {
+export default function BatteryDetail({ title, explain }: Props) {
   return (
     <>
       <motion.div
@@ -24,15 +21,14 @@ export default function BatteryDetail({ title, explain1, explain2, explain3, exp
           duration: 0.5,
         }}
       >
-        <div className="text-center lg:pt-24 pt-32">
-          <div className="text-6xl font-medium text-primary-green">{title}</div>
+        <div className="text-center lg:pt-28 pt-32">
+          <div className="text-6xl font-bold text-primary-green">{title}</div>
         </div>
-        <div className="relative text-center lg:my-40 my-28 items-center">
-          <div className="text-3xl lg:px-5 px-10 text-center font-normal text-primary-green leading-extra-loose">
-            <p>{explain1}</p>
-            <p>{explain2}</p>
-            <p>{explain3}</p>
-            <p>{explain4}</p>
+        <div className="relative text-center lg:my-28 my-32 items-center">
+          <div className="text-3xl lg:px-5 px-10 text-center font-bold text-primary-green leading-extra-loose">
+            {explain.map((v, i) => {
+              return <p className="w-full">{v}</p>
+            })}
           </div>
         </div>
       </motion.div>
