@@ -29,7 +29,7 @@ const slidesData = [
   { title: '고객문의', description: 'IBT에\n자유롭게 문의하세요', image: '/intro/img4.png', width: 255, height: 223 },
 ]
 
-function PrevArrow(props) {
+function PrevArrow(props: ArrowProps) {
   const { className, style, onClick } = props
   return (
     <Image
@@ -45,7 +45,7 @@ function PrevArrow(props) {
   )
 }
 
-function NextArrow(props) {
+function NextArrow(props: ArrowProps) {
   const { className, style, onClick } = props
   return (
     <Image
