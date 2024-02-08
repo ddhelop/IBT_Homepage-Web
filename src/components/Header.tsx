@@ -142,7 +142,7 @@ export const Header = () => {
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
                   >
-                    <Link href={'/battery'}>
+                    <Link href={'/battery#nicd'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -150,7 +150,7 @@ export const Header = () => {
                         Ni-cd
                       </li>
                     </Link>
-                    <Link href={'/battery'}>
+                    <Link href={'/battery#lithium'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}

@@ -5,7 +5,10 @@ import { AiOutlineCompass, AiOutlinePhone, AiOutlineClockCircle } from 'react-ic
 export default function DirectionsComponent() {
   return (
     <>
-      <div className="h-[2300px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
+      <div
+        id="directions"
+        className="h-[2300px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+      >
         <h1 className="text-6xl font-medium">오시는 길</h1>
         {/* 광주본사 */}
         <div className="mt-32 flex flex-col p-5">

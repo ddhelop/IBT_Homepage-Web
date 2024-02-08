@@ -25,7 +25,7 @@ export default function BatteryDetail({ title, explain1, explain2, explain3, exp
         }}
       >
         <div className="text-center lg:pt-24 pt-32">
-          <div className="text-6xl font-medium text-primary-green lg:translate-x-[65px]">{title}</div>
+          <div className="text-6xl font-medium text-primary-green">{title}</div>
         </div>
         <div className="relative text-center lg:my-40 my-28 items-center">
           <div className="text-3xl lg:px-5 px-10 text-center font-normal text-primary-green leading-extra-loose">

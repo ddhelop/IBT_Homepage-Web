@@ -28,7 +28,10 @@ export default function HistoryComponent() {
 
   return (
     <>
-      <div className="w-full h-[2376px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
+      <div
+        id="history"
+        className="w-full h-[2376px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+      >
         <h1 className="text-[61.1px] font-medium">연혁</h1>
         <p className="mt-12 text-center font-light text-[19.5px]">
           1986년부터 지금까지,
