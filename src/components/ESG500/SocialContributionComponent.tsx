@@ -51,7 +51,7 @@ export default function SocialContributionComponent() {
               className={`w-2/5 lg:w-2/5 h-12  tab-button2 ${isActive('tab2') ? 'active-tab2' : ''}`}
               onClick={() => setActiveTab('tab2')}
             >
-              중양장형태 장학재단
+              중앙장형태 장학재단
             </button>
           </div>
 
