@@ -21,7 +21,7 @@ const LoginPage = () => {
       setLoggedIn(true)
       router.replace('/admin/news')
     } else {
-      setError('아이디나 비밀번호가 일치하지 않습니다.')
+      setError('아이디나 비밀번호가 일치하지 않습니다a.')
     }
   }
   return (
