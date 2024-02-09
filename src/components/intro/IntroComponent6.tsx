@@ -34,7 +34,7 @@ const Data = [
     icon: '/intro/customer.svg',
     width: 45,
     height: 45,
-    path: '/',
+    path: '/customer/contact-us',
   },
 ]
 
