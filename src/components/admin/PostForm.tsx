@@ -1,9 +1,9 @@
 'use client'
 
-import { getNewsData } from '@/app/admin/news/page'
 import { FormEvent, useState } from 'react'
 
 const PostForm = () => {
+  ;``
   const [file, setFile] = useState<File | null>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
