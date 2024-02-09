@@ -3,7 +3,7 @@ import PostForm from '@/components/admin/PostForm'
 import { Suspense } from 'react'
 
 const getNewsData = async () => {
-  const res = await fetch('http://localhost:3000/api/admin/news', {
+  const res = await fetch(`${process.env.URL}/api/admin/news`, {
     cache: 'no-store',
     method: 'GET',
   })

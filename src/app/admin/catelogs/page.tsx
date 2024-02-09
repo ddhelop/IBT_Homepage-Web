@@ -4,7 +4,7 @@ import NewsPosts from '@/components/admin/NewsPosts'
 import { Suspense } from 'react'
 
 const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/admin/catelogs', {
+  const res = await fetch(`${process.env.URL}/api/admin/catelogs`, {
     cache: 'no-store',
     method: 'GET',
   })

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 // FETCH DATA WITH AN API
 const getData = async (slug: string) => {
-  const res = await fetch(`http://localhost:3000/api/admin/news/${slug}`, {
+  const res = await fetch(`${process.env.URL}/api/admin/news/${slug}`, {
     cache: 'no-store',
     method: 'GET',
   })
