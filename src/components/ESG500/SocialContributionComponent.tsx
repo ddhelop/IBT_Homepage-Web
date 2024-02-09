@@ -25,7 +25,7 @@ export default function SocialContributionComponent() {
 
   return (
     <>
-      <div className="md:mt-40 lg:flex lg:flex-col items-center lg:items-end ">
+      <div className="md:mt-40 lg:flex lg:flex-col items-center lg:items-end lg:mr-[8%]">
         <div className="lg:w-3/4 flex flex-col items-center">
           <div className="max-w-[35rem] mt-48 md:mt-0">
             <Image
@@ -34,7 +34,7 @@ export default function SocialContributionComponent() {
               width={646} // 너비
               height={194} // 높이
               // layout="responsive" // 레이아웃 옵션
-              className=" lg:ml-24"
+              className="lg:my-24"
             />
           </div>
 
