@@ -27,7 +27,11 @@ export default function BatteryDetail({ title, explain }: Props) {
         <div className="relative text-center lg:my-28 my-32 items-center">
           <div className="text-3xl lg:px-5 px-10 text-center font-bold text-primary-green leading-extra-loose">
             {explain.map((v, i) => {
-              return <p className="w-full">{v}</p>
+              return (
+                <p key={i} className="w-full">
+                  {v}
+                </p>
+              )
             })}
           </div>
         </div>

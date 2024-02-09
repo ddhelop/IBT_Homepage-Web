@@ -42,6 +42,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             {detailInfo.map((v, i) => {
               return (
                 <div
+                  key={i}
                   className={`${
                     categoryIndex == i
                       ? 'opacity-100 font-semibold bg-primary-green'
@@ -142,8 +143,12 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
               ''
             ) : (
               <>
-                {detailInfo[categoryIndex].itemAdvanced.map((adv) => {
-                  return <div className="w-3/4 text-2xl font-[350] mb-4 text-center">{adv}</div>
+                {detailInfo[categoryIndex].itemAdvanced.map((adv, id) => {
+                  return (
+                    <div key={id} className="w-3/4 text-2xl font-[350] mb-4 text-center">
+                      {adv}
+                    </div>
+                  )
                 })}
               </>
             )}
