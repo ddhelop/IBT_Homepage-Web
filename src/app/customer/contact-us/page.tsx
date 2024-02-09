@@ -1,5 +1,5 @@
-const ContactUsPage = async () => {
-  return <div className="flex flex-col bg-white">ContactUsPage</div>
-}
+import ContactUs from '@/components/customer/contact-us/ContactUs'
 
-export default ContactUsPage
+export default function ContactUsPage() {
+  return <ContactUs />
+}
