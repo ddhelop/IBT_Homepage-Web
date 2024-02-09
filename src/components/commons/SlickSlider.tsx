@@ -106,9 +106,9 @@ export default function SlickSlider() {
               <div className="flex justify-center ">
                 <Image width={260} height={180} src={el.image} alt={el.description} />
               </div>
-              <div>
-                <h2>{el.title}</h2>
-                <p>{el.description}</p>
+              <div className="mt-6">
+                <h2 className="text-base font-bold">{el.title}</h2>
+                <p className="text-base font-light mt-1">{el.description}</p>
               </div>
             </div>
           ))}

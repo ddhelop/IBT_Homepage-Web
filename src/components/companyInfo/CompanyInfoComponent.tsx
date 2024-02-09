@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function CompanyInfoComponent() {
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
+      <div className="w-full lg:mb-40 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
         <div className="flex flex-col align-middle items-center w-2/3 h-full">
           <Image
             src="/info/logo.png" // 이미지 경로
@@ -12,11 +12,13 @@ export default function CompanyInfoComponent() {
             height={187} // 높이
             // layout="fixed" // 레이아웃 옵션
           />
-          <h2 className="mt-4 text-center font-medium text-3xl leading-[3rem]">
+          <h2 className="mt-6 text-center font-medium text-3xl leading-[4rem]">
             IBT는 혁신적인 배터리 기술을 통해 지속 가능한 에너지 솔루션을 선도하며,
             <br />
+            새로운 에너지 라이프스타일을 창조하고 있습니다.
+            <br />
           </h2>
-          <p className="mt-[50px] text-center font-thin text-3xl leading-[4.3rem]">
+          <p className="mt-12 text-center font-thin text-2xl leading-[3rem]">
             브랜드 컬러인 IBT 그린은 친환경 이념을,
             <br />
             우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.

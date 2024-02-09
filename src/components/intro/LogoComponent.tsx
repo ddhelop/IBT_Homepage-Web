@@ -64,10 +64,10 @@ export default function LogoComponent() {
 
   return (
     <>
-      <div id="collaborate" className="w-full flex flex-col items-center py-20 overflow-hidden">
+      <div id="collaborate" className="w-full lg:mb-40 flex flex-col items-center py-20 overflow-hidden">
         <h1 className="text-6xl mb-24 font-medium">협력 / 제휴사</h1>
         <h2 className="text-4xl mb-7 font-bold">함께하는 IBT</h2>
-        <p className="text-lg text-center mb-16 font-light">
+        <p className="text-lg text-center mb-16 font-light leading-7">
           IBT는 신뢰를 바탕으로 국내외 기업들과
           <br />
           함께 고민하고 해결해나갑니다.
@@ -77,7 +77,7 @@ export default function LogoComponent() {
           <div className="inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner1-${index}`} width={350} height={60} />
                 </li>
               ))}
@@ -85,26 +85,27 @@ export default function LogoComponent() {
 
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner1-${index}`} width={320} height={60} />
                 </li>
               ))}
             </ul>
           </div>
+
           {/* 두번째 줄 */}
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="w-full max-h-[110px] inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos2.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt={`Partner2-${index}`} width={350} height={60} />
+                <li key={index} className="min-w-[170px]">
+                  <Image src={logo} alt={`Partner2-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
 
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos2.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
-                  <Image src={logo} alt={`Partner2-${index}`} width={350} height={60} />
+                <li key={index} className="min-w-[170px]">
+                  <Image src={logo} alt={`Partner2-${index}`} width={250} height={60} />
                 </li>
               ))}
             </ul>
@@ -114,7 +115,7 @@ export default function LogoComponent() {
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos3.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner3-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -122,7 +123,7 @@ export default function LogoComponent() {
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos3.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner3-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -133,7 +134,7 @@ export default function LogoComponent() {
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos4.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner4-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -141,7 +142,7 @@ export default function LogoComponent() {
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos4.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner4-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -152,7 +153,7 @@ export default function LogoComponent() {
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos5.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner5-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -160,7 +161,7 @@ export default function LogoComponent() {
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos5.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner5-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -171,7 +172,7 @@ export default function LogoComponent() {
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos6.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner6-${index}`} width={250} height={60} />
                 </li>
               ))}
@@ -179,7 +180,7 @@ export default function LogoComponent() {
 
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos6.map((logo, index) => (
-                <li key={index} className="min-w-[300px]">
+                <li key={index} className="max-w-[220px]">
                   <Image src={logo} alt={`Partner6-${index}`} width={250} height={60} />
                 </li>
               ))}
