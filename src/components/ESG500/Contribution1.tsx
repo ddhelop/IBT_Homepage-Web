@@ -37,8 +37,8 @@ export default function Contribution1() {
         {/* 두번째 단락 */}
         <div className="w-full flex flex-col lg:flex-row p-3 mt-24">
           <div className="lg:w-1/4 flex ">
-            <div className=" h-[80px] border-t-2 text-2xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
-              <p className="lg:pl-6">투명 경영</p>
+            <div className=" h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
+              <p className="lg:pr-28">투명 경영</p>
             </div>
           </div>
           <div className="lg:w-3/4 flex flex-col">
@@ -53,7 +53,7 @@ export default function Contribution1() {
             <div className="overflow-x-auto mt-8 text-[#7b7b7b]">
               <p className="text-right text-xl">(단위:만원)</p>
               <table className="min-w-full">
-                <thead className="bg-green-600 text-white tracking-[-0.1rem] h-[50px]">
+                <thead className="bg-green-600 text-white tracking-[-0.1rem] h-12">
                   <tr>
                     <th className="px-4 py-2"></th>
                     <th className="px-4 py-2">2019년</th>
@@ -125,10 +125,20 @@ export default function Contribution1() {
             >
               지우장학회 19년 기부금모금액 및 활용실적명세.pdf
             </a>
+          </div>
+        </div>
 
-            <p className="text-xl mt-16 leading-9 tracking-wider text-[#7b7b7b]">
+        <div className="w-full flex flex-col lg:flex-row mt-20 p-3">
+          <div className="lg:w-1/4 flex ">
+            <div className="h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
+              <p className="lg:pr-6">기부 및 후원 문의</p>
+            </div>
+          </div>
+          <div className="lg:w-3/4">
+            <p className="text-xl leading-9 tracking-wider text-[#7b7b7b]">
               기부 및 후원은 전액 장학 목적 사업에만 사용되며 문의사항은 아래로 부탁드립니다.
             </p>
+
             <p className="text-xl mt-12 leading-9 tracking-wider text-[#7b7b7b]">
               광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983
               <br />

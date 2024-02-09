@@ -26,7 +26,9 @@ export default function ESG500Component() {
         </div>
 
         {/* 2nd */}
-        <SocialContributionComponent />
+        <div className="lg:flex w-full items-end justify-end">
+          <SocialContributionComponent />
+        </div>
 
         {/* 세번째 단락 */}
 
@@ -82,7 +84,7 @@ export default function ESG500Component() {
                 {/* table */}
                 <div className="overflow-x-auto mt-8 text-[#7b7b7b]">
                   <p className="text-right text-xl">(단위:만원)</p>
-                  <table className="max-w-full">
+                  <table className="min-w-full">
                     <thead className="bg-green-600 text-white tracking-[-0.1rem] h-12">
                       <tr>
                         <th className="px-4 py-2"></th>

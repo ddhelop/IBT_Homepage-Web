@@ -16,7 +16,7 @@ export default function Contribution2() {
         {/* 첫 단락 */}
         <div className="w-full flex flex-col lg:flex-row p-3">
           <div className="lg:w-1/4 flex ">
-            <div className=" h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
+            <div className="h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
               재단소개 및 사업내용
             </div>
           </div>
@@ -37,8 +37,8 @@ export default function Contribution2() {
         {/* 두번째 단락 */}
         <div className="w-full flex flex-col lg:flex-row p-3 mt-24">
           <div className="lg:w-1/4 flex ">
-            <div className=" h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
-              <p className="lg:pl-6">투명 경영</p>
+            <div className="h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start">
+              <p className="lg:pr-28">투명 경영</p>
             </div>
           </div>
           <div className="lg:w-3/4 flex flex-col">
@@ -54,7 +54,7 @@ export default function Contribution2() {
             {/* table */}
             <div className="overflow-x-auto mt-8 text-[#7b7b7b]">
               <p className="text-right text-xl">(단위:만원)</p>
-              <table className="max-w-full">
+              <table className="min-w-full">
                 <thead className="bg-green-600 text-white tracking-[-0.1rem] h-12">
                   <tr>
                     <th className="px-4 py-2"></th>
@@ -104,7 +104,7 @@ export default function Contribution2() {
               className="text-lg hover:text-[#000000] mt-12 tracking-wider text-[#7b7b7b] cursor-pointer"
               target="_blank"
             >
-              앙장형태기념재단 22년 기부금모금액 및 활용실적명세.pdf
+              중앙장형태기념재단 22년 기부금모금액 및 활용실적명세.pdf
             </a>
             <a
               href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_21.pdf"
@@ -133,7 +133,7 @@ export default function Contribution2() {
         <div className="w-full flex flex-col lg:flex-row mt-20 p-3">
           <div className="lg:w-1/4 flex ">
             <div className="h-20 border-t-2 text-xl tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center">
-              <p className="lg:pl-6">재단소개 및 사업내용</p>
+              <p className="lg:pr-6">기부 및 후원 문의</p>
             </div>
           </div>
           <div className="lg:w-3/4">
