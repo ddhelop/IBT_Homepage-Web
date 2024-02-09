@@ -30,10 +30,10 @@ export default function HistoryComponent() {
     <>
       <div
         id="history"
-        className="w-full h-[2376px] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="w-full lg:mb-40 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
-        <h1 className="text-[61.1px] font-medium">연혁</h1>
-        <p className="mt-12 text-center font-light text-[19.5px]">
+        <h1 className="text-6xl font-medium">연혁</h1>
+        <p className="mt-12 text-center font-light text-2xl leading-10">
           1986년부터 지금까지,
           <br />
           도전정신으로 IBT는 성장하고 있습니다.

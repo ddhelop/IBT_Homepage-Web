@@ -37,7 +37,7 @@ export default function ContentBlock(props: IContentBlockProps) {
     >
       {/* contentRef를 적용할 새로운 div 추가 */}
       <div ref={contentRef} className={`${isVisible ? 'animate-fadeIn' : ''}`}>
-        <h1 className={`text-7xl font-bold mb-4 text-white ${isVisible ? 'animate-growText' : ''}`}>{props.title}</h1>
+        <h1 className={`text-5xl font-bold mb-4 text-white ${isVisible ? 'animate-growText' : ''}`}>{props.title}</h1>
         <p className="leading-relaxed whitespace-pre-line text-xl font-light mt-20 text-white">{props.text}</p>
       </div>
     </div>

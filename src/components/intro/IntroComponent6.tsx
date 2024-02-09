@@ -48,7 +48,7 @@ export default function IntroComponent6(): JSX.Element {
       >
         <div className="w-full flex flex-col xl:flex-row">
           {/* left container */}
-          <div className="xl:w-[50%] flex flex-col justify-center items-center h-full">
+          <div className="xl:w-[50%] flex flex-col justify-center items-center">
             <h1 className="text-white text-3xl md:text-5xl font-bold md:text-left leading-[65.67px] tracking-[0.2px]">
               연료 전지 분야
               <br />
@@ -68,7 +68,7 @@ export default function IntroComponent6(): JSX.Element {
               {Data.map((data, index) => (
                 <div key={index} className="p-2">
                   <div
-                    className="w-[274px] md:h-52 rounded-[10px] bg-[#355781] opacity-[0.85] flex flex-col justify-between p-8 text-white"
+                    className="w-[17.18rem] h-52 rounded-[10px] bg-[#355781] opacity-[0.85] flex flex-col justify-between p-8 text-white"
                     style={{ boxShadow: '2px 2px 12px 5px rgba(0, 0, 0, 0.20)' }}
                   >
                     <Image
@@ -80,9 +80,9 @@ export default function IntroComponent6(): JSX.Element {
                       className="hidden md:flex"
                     />
 
-                    <h3 className="font-bold text-left text-[28px] mt-1">{data.title}</h3>
+                    <h3 className="font-bold text-left text-3xl mt-1">{data.title}</h3>
                     <div className="flex flex-row justify-between">
-                      <p className="font-thin text-[14px] text-left whitespace-pre-line mt-1">{data.description}</p>
+                      <p className="font-thin text-sm text-left whitespace-pre-line mt-1">{data.description}</p>
                       <div>
                         <Image
                           src="intro/pointer.svg" // 이미지 경로

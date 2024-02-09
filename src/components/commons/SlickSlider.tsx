@@ -1,4 +1,4 @@
-import React, { Component, MouseEvent } from 'react'
+import React from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -104,11 +104,11 @@ export default function SlickSlider() {
           {slidesData.map((el) => (
             <div key={el.title}>
               <div className="flex justify-center ">
-                <img src={el.image} alt={el.description} />
+                <Image width={260} height={180} src={el.image} alt={el.description} />
               </div>
-              <div>
-                <h2>{el.title}</h2>
-                <p>{el.description}</p>
+              <div className="mt-6">
+                <h2 className="text-base font-bold">{el.title}</h2>
+                <p className="text-base font-light mt-1">{el.description}</p>
               </div>
             </div>
           ))}

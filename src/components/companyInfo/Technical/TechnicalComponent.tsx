@@ -6,7 +6,6 @@ import Technical1 from './Technical1'
 import Technical2 from './Technical2'
 import Technical3 from './Technical3'
 import Technical4 from './Technical4'
-import Image from 'next/image'
 
 export default function TechnicalComponent() {
   const [activeTab, setActiveTab] = useState('tab1')
@@ -33,7 +32,7 @@ export default function TechnicalComponent() {
     <>
       <div
         id="technical"
-        className="h-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
         <h1 className="text-6xl font-medium">기술 인증</h1>
 
