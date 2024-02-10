@@ -6,6 +6,9 @@ import Technical1 from './Technical1'
 import Technical2 from './Technical2'
 import Technical3 from './Technical3'
 import Technical4 from './Technical4'
+import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction/DownMotion'
+import { motion } from 'framer-motion'
+import { NoMotionComponent } from '@/components/commons/FramerMotion/Direction/NoMotion'
 
 export default function TechnicalComponent() {
   const [activeTab, setActiveTab] = useState('tab1')
@@ -34,10 +37,13 @@ export default function TechnicalComponent() {
         id="technical"
         className="flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
-        <h1 className="text-6xl font-medium">기술 인증</h1>
+        <DownMotionComponent component={motion.div}>
+          <h1 className="text-6xl font-medium">기술 인증</h1>
+        </DownMotionComponent>
 
         {/* Tabs */}
-        <div className="w-4/5 mt-16 flex items-center justify-center">
+
+        <NoMotionComponent component={motion.div} className="w-4/5 mt-16 flex items-center justify-center">
           <button
             className={`w-44 h-16 tab-button4 ${isActive('tab1') ? 'active-tab4' : ''}`}
             value="tab1"
@@ -63,11 +69,11 @@ export default function TechnicalComponent() {
           >
             연구개발확인서
           </button>
-        </div>
+        </NoMotionComponent>
 
-        <div className="tab-contents w-full">
+        <NoMotionComponent component={motion.div} className="tab-contents w-full">
           <ViewContents />
-        </div>
+        </NoMotionComponent>
       </div>
     </>
   )

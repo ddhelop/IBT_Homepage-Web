@@ -29,9 +29,32 @@ const config: Config = {
             transform: 'translateY(0)' /* 원래 위치로 이동 완료 */,
           },
         },
+
+        pulse: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.2)' },
+        },
+        zoomIn: {
+          from: { transform: 'scale(0.1)' },
+          to: { transform: 'scale(1)' },
+        },
+
+        infiniteScroll: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+        infiniteScrollLeft: {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0%)' },
+        },
       },
 
       animation: {
+        fadeIn: 'fadeIn 1s ease-in-out forwards',
+        infiniteScroll: 'infiniteScroll 60s linear infinite',
+        infiniteScrollLeft: 'infiniteScrollLeft 60s linear infinite',
+        zoomIn: 'zoomIn 0.8s ease',
+
         // FadeInDown
       },
       colors: {

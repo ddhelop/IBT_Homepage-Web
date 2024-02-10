@@ -1,6 +1,11 @@
+'use client'
 import React from 'react'
 import GoogleMapComponent from './GoogleMapComponent'
 import { AiOutlineCompass, AiOutlinePhone, AiOutlineClockCircle } from 'react-icons/ai'
+import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction/DownMotion'
+import { motion } from 'framer-motion'
+import { RightMotionComponent } from '@/components/commons/FramerMotion/Direction/RightMotion'
+import { LeftMotionComponent } from '@/components/commons/FramerMotion/Direction/LeftMotion'
 
 export default function DirectionsComponent() {
   return (
@@ -9,13 +14,24 @@ export default function DirectionsComponent() {
         id="directions"
         className="h-[120rem] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
-        <h1 className="text-6xl font-medium">오시는 길</h1>
+        <DownMotionComponent component={motion.h1} className="text-6xl font-medium">
+          오시는 길
+        </DownMotionComponent>
+
         {/* 광주본사 */}
         <div className="mt-32 flex flex-col p-5">
-          <h2 className="text-3xl font-medium mb-8">광주본사</h2>
+          <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
+            광주본사
+          </RightMotionComponent>
           <div className="flex flex-col lg:flex-row items-center">
-            <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
-            <div className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1]">
+            <RightMotionComponent component={motion.div}>
+              <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
+            </RightMotionComponent>
+
+            <LeftMotionComponent
+              component={motion.div}
+              className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1]"
+            >
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
                   <AiOutlineCompass className="w-12 h-12 hidden md:flex" />
@@ -47,16 +63,24 @@ export default function DirectionsComponent() {
                   (AMKOR 후문) → 우회전(200m)
                 </p>
               </div>
-            </div>
+            </LeftMotionComponent>
           </div>
         </div>
 
         {/* 서울지점 */}
         <div className="mt-32 flex flex-col p-5">
-          <h2 className="text-3xl font-medium mb-8">서울지점</h2>
+          <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
+            <h2 className="text-3xl font-medium mb-8">서울지점</h2>
+          </RightMotionComponent>
+
           <div className="flex flex-col lg:flex-row items-center">
-            <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
-            <div className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm ">
+            <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
+              <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
+            </RightMotionComponent>
+            <LeftMotionComponent
+              component={motion.div}
+              className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm "
+            >
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
                   <AiOutlineCompass className="w-12 h-12 hidden md:flex" />
@@ -86,7 +110,7 @@ export default function DirectionsComponent() {
                   2호선 | 뚝섬역 4번출구
                 </p>
               </div>
-            </div>
+            </LeftMotionComponent>
           </div>
         </div>
       </div>

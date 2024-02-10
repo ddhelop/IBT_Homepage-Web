@@ -1,6 +1,8 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { DownMotionComponent } from '../commons/FramerMotion/Direction/DownMotion'
+import { motion } from 'framer-motion'
 
 export default function LogoComponent() {
   const [logos, setLogos] = useState([
@@ -62,17 +64,38 @@ export default function LogoComponent() {
   ])
   const doubledLogos6 = [...logos6, ...logos6]
 
+  const scrollRef = useRef(null)
+  const Variants = {
+    offscreen: {
+      opacity: 0,
+    },
+    onscreen: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: [0, 0.4, 0.8, 1.2],
+        delay: 0.2,
+      },
+    },
+  }
+
   return (
     <>
       <div id="collaborate" className="w-full lg:mb-40 flex flex-col items-center py-20 overflow-hidden">
-        <h1 className="text-6xl mb-24 font-medium">협력 / 제휴사</h1>
-        <h2 className="text-4xl mb-7 font-bold">함께하는 IBT</h2>
-        <p className="text-lg text-center mb-16 font-light leading-7">
-          IBT는 신뢰를 바탕으로 국내외 기업들과
-          <br />
-          함께 고민하고 해결해나갑니다.
-        </p>
-        <div>
+        <DownMotionComponent component={motion.div} className="flex flex-col items-center">
+          <h1 className="text-6xl mb-24 font-medium">협력 / 제휴사</h1>
+          <h2 className="text-4xl mb-7 font-bold">함께하는 IBT</h2>
+        </DownMotionComponent>
+
+        <DownMotionComponent component={motion.div} className="flex flex-col items-center">
+          <p className="text-lg text-center mb-16 font-light leading-7">
+            IBT는 신뢰를 바탕으로 국내외 기업들과
+            <br />
+            함께 고민하고 해결해나갑니다.
+          </p>
+        </DownMotionComponent>
+
+        <motion.div viewport={{ root: scrollRef }} initial="offscreen" whileInView="onscreen" variants={Variants}>
           {/* 1번째 줄 */}
           <div className="inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
@@ -186,7 +209,7 @@ export default function LogoComponent() {
               ))}
             </ul>
           </div>
-        </div>
+        </motion.div>
         {/*  */}
       </div>
     </>
