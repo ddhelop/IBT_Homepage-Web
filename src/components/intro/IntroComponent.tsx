@@ -1,8 +1,12 @@
+'use client'
 import { contents } from '@/lib/data'
 import ContentBlock from './IntroContentBlock.client'
 import IntroComponent5 from './IntroComponent5.client'
 import IntroComponent6 from './IntroComponent6'
 import IntroComponent7 from './IntroComponent7'
+import { useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { useEffect } from 'react'
 
 export default function IntroComponent() {
   return (
