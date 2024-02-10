@@ -12,7 +12,7 @@ const getNewsData = async () => {
   }
   return res.json()
 }
-const AdminPage = async () => {
+const AdminNewsPage = async () => {
   const posts = await getNewsData()
   return (
     <div className="flex w-full h-screen pt-80 bg-gray-200">
@@ -35,4 +35,4 @@ const AdminPage = async () => {
   )
 }
 
-export default AdminPage
+export default AdminNewsPage

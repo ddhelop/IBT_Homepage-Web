@@ -3,8 +3,8 @@ import { links_coInfo } from './data'
 export type SectionName = (typeof links_coInfo)[number]['name']
 
 export type NewsProps = {
-  title: string
-  img: any
+  title: String
+  img: String
   postId: Number
   description: String
   createdAt: String
@@ -13,9 +13,9 @@ export type NewsProps = {
 }
 
 export type CatelogProps = {
-  title: string
-  img: any
-  pdf: any
+  title: String
+  img: String
+  pdf: String
   catelogId: Number
   description: String
   createdAt: String
@@ -23,4 +23,4 @@ export type CatelogProps = {
   _id: String
 }
 
-export type ItemTypes = 'news' | 'catelogs'
+export type ItemTypes = 'news' | 'catelog'

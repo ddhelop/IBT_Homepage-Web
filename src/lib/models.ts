@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    img: { type: Buffer, required: true },
+    img: { type: String, required: true },
     postId: {
       type: Number,
       required: true,
@@ -27,11 +27,11 @@ const catelogSchema = new mongoose.Schema(
       required: true,
     },
     img: {
-      type: Buffer,
+      type: String,
       required: true,
     },
     pdf: {
-      type: Buffer,
+      type: String,
       required: true,
     },
     catelogId: {
