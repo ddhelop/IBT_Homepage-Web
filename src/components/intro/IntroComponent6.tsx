@@ -2,6 +2,9 @@
 import Image from 'next/image'
 
 import { useRouter } from 'next/navigation'
+import { Variants, motion } from 'framer-motion'
+import { useScrollAnimation } from '../commons/UseScrollAnimation'
+import { useRef } from 'react'
 
 const Data = [
   {
@@ -11,6 +14,7 @@ const Data = [
     width: 45,
     height: 45,
     path: '/companyInfo',
+    animation: 'animate-fadeInDown1',
   },
   {
     title: 'Battery',
@@ -19,6 +23,7 @@ const Data = [
     width: 23,
     height: 45,
     path: '/battery',
+    animation: 'animate-fadeInDown2',
   },
   {
     title: 'Hydrogen',
@@ -27,6 +32,7 @@ const Data = [
     width: 45,
     height: 45,
     path: '/hydrogen',
+    animation: 'animate-fadeInDown3',
   },
   {
     title: '고객문의',
@@ -35,11 +41,48 @@ const Data = [
     width: 45,
     height: 45,
     path: '/customer/contact-us',
+    animation: 'animate-fadeInDown4',
   },
 ]
 
 export default function IntroComponent6(): JSX.Element {
   const router = useRouter()
+  const scrollRef = useRef(null)
+
+  const Variants: Variants = {
+    rightOffscreen: {
+      opacity: 0,
+      x: 300,
+    },
+    rightOnscreen: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.1,
+        ease: [0, 0.4, 0.8, 1.2],
+
+        bounce: 0.5,
+      },
+    },
+
+    leftOffscreen: {
+      opacity: 0,
+      x: -300,
+    },
+    leftOnscreen: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.1,
+        ease: [0, 0.4, 0.8, 1.2],
+
+        bounce: 0.5,
+      },
+    },
+  }
+
   return (
     <>
       <div
@@ -48,7 +91,13 @@ export default function IntroComponent6(): JSX.Element {
       >
         <div className="w-full flex flex-col xl:flex-row">
           {/* left container */}
-          <div className="xl:w-[50%] flex flex-col justify-center items-center">
+          <motion.div
+            initial="leftOffscreen"
+            whileInView="rightOnscreen"
+            viewport={{ root: scrollRef }}
+            variants={Variants}
+            className="xl:w-[50%] flex flex-col justify-center items-center"
+          >
             <h1 className="text-white text-3xl md:text-5xl font-bold md:text-left leading-[65.67px] tracking-[0.2px]">
               연료 전지 분야
               <br />
@@ -60,13 +109,20 @@ export default function IntroComponent6(): JSX.Element {
               <br />
               수소 에너지 관련 고도화 기업으로 성장하고 있습니다.
             </p>
-          </div>
+          </motion.div>
 
           {/* right container */}
           <div className="mt-12 xl:mt-0 xl:w-[50%]">
             <div className="flex flex-wrap justify-center items-center h-full md:max-w-[600px] md:min-w-[600px] md:mx-auto">
               {Data.map((data, index) => (
-                <div key={index} className="p-2">
+                <motion.div
+                  initial="rightOffscreen"
+                  whileInView="rightOnscreen"
+                  viewport={{ root: scrollRef }}
+                  className="p-2 box"
+                  variants={Variants}
+                  key={index}
+                >
                   <div
                     className="w-[17.18rem] h-52 rounded-[10px] bg-[#355781] opacity-[0.85] flex flex-col justify-between p-8 text-white"
                     style={{ boxShadow: '2px 2px 12px 5px rgba(0, 0, 0, 0.20)' }}
@@ -98,7 +154,7 @@ export default function IntroComponent6(): JSX.Element {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

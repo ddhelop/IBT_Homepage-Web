@@ -1,10 +1,37 @@
+'use client'
 import Image from 'next/image'
+import { Variants, motion } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function CompanyInfoComponent() {
+  const scrollRef = useRef(null)
+
+  const Variants: Variants = {
+    offscreen: {
+      y: -400,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+
+      transition: {
+        duration: 1,
+        ease: [0, 0.4, 0.8, 1.2],
+      },
+    },
+  }
+
   return (
     <>
       <div className="w-full lg:mb-40 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
-        <div className="flex flex-col align-middle items-center w-2/3 h-full">
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ root: scrollRef }}
+          variants={Variants}
+          className="flex flex-col align-middle items-center w-2/3 h-full"
+        >
           <Image
             src="/info/logo.png" // 이미지 경로
             alt="slidesImages"
@@ -27,7 +54,7 @@ export default function CompanyInfoComponent() {
             <br />
             세계를 선도하는 한국의 기업으로 성장할 것입니다.
           </p>
-        </div>
+        </motion.div>
       </div>
     </>
   )

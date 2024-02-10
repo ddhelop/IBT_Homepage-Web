@@ -19,18 +19,24 @@ const config: Config = {
 
       // animation library
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        fadeInDown: {
+          from: {
+            opacity: '0' /* 시작: 투명도 0 (완전히 투명) */,
+            transform: 'translateY(-50px)' /* 위에서 50px 아래로 이동 시작 */,
+          },
+          to: {
+            opacity: '1' /* 끝: 투명도 1 (완전히 불투명) */,
+            transform: 'translateY(0)' /* 원래 위치로 이동 완료 */,
+          },
         },
-        // 다른 애니메이션 키 프레임을 여기에 추가
+
         pulse: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.2)' },
         },
-        grow: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.4)' },
+        zoomIn: {
+          from: { transform: 'scale(0.1)' },
+          to: { transform: 'scale(1)' },
         },
 
         infiniteScroll: {
@@ -47,9 +53,9 @@ const config: Config = {
         fadeIn: 'fadeIn 1s ease-in-out forwards',
         infiniteScroll: 'infiniteScroll 60s linear infinite',
         infiniteScrollLeft: 'infiniteScrollLeft 60s linear infinite',
+        zoomIn: 'zoomIn 0.8s ease',
 
-        pulse: 'pulse 3s infinite',
-        growText: 'grow 2s alternate',
+        // FadeInDown
       },
       colors: {
         'primary-green': '#79AD4B',
