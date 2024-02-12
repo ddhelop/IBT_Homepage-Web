@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import '../globals.css'
 import { cls, notoSansKr, roboto } from '@/lib/fonts'
 import RecoilContextProvider from '@/context/recoil-context'
 import ActiveSectionContextProvider from '@/context/active-section-context'

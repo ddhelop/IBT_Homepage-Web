@@ -13,6 +13,7 @@ const getData = async () => {
   }
   return res.json()
 }
+
 const NewsPage = async () => {
   const posts = await getData()
   console.log(posts)
