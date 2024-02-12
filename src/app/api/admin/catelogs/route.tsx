@@ -1,5 +1,5 @@
-import { Catelog, Post, getId } from '@/lib/models'
-import { connectToDb } from '@/lib/utils'
+import { Catelog, Post } from '@/lib/models'
+import { connectToDb, getId } from '@/lib/utils'
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -40,7 +40,7 @@ export const POST = async (request: NextRequest) => {
 
   try {
     connectToDb()
-    const newId = await getId('catelogs')
+    const newId = await getId('catelog')
     const newCatelog = new Catelog({ title, img: img_buffer, pdf: pdf_buffer, desc, catelogId: newId })
     newCatelog.save()
     console.log('saved to db')

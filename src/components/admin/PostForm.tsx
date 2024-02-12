@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
 type PostTypeProps = {
@@ -11,7 +12,6 @@ const PostForm = ({ postType }: PostTypeProps) => {
   const [tempUrl, setTempUrl] = useState<string | null>(null)
   const [pdf, setPDF] = useState<File | null>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
-
   const showImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (tempUrl) {
       URL.revokeObjectURL(tempUrl)
@@ -40,9 +40,9 @@ const PostForm = ({ postType }: PostTypeProps) => {
         formData.append('pdf', pdf)
       }
 
-      const res = await fetch('/api/admin', { method: 'POST', body: formData }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
+      const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
+      console.log(res.status)
 
-      console.log('uploaForm 결과:', res)
       if (!res.ok) throw new Error(await res.text())
     } catch (e: any) {
       console.log(e)

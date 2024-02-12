@@ -22,7 +22,7 @@ const SingleNewsPage = async ({ params }: any) => {
     <div className="flex flex-col items-center gap-[100px] p-24">
       {post.img && (
         <div className="flex relative h-96 w-full">
-          <Image src={`data:image/png;base64,${toBase64(post.img?.data)}`} alt="" fill className="object-contain" />
+          <Image src={post.img} alt="" fill className="object-contain" />
         </div>
       )}
       <h1 className="text-4xl font-bold">{post.title}</h1>

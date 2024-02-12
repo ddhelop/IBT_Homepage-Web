@@ -4,7 +4,7 @@ import { NewsProps } from '@/lib/types'
 import Link from 'next/link'
 
 const getData = async () => {
-  const res = await fetch(`${process.env.URL}/api/admin/news`, {
+  const res = await fetch(`${process.env.URL}/api/customer/news`, {
     cache: 'no-store',
     method: 'GET',
   })
@@ -15,7 +15,7 @@ const getData = async () => {
 }
 const NewsPage = async () => {
   const posts = await getData()
-
+  console.log(posts)
   return (
     <div className="flex flex-col bg-white px-16">
       <h1 className="text-[#79AD4B] text-6xl text-center my-8">IBT News</h1>

@@ -3,24 +3,24 @@ import { links_coInfo } from './data'
 export type SectionName = (typeof links_coInfo)[number]['name']
 
 export type NewsProps = {
-  title: String
-  img: String
+  title: string
+  img: string
   postId: Number
-  description: String
-  createdAt: String
-  updatedAt: String
-  _id: String
+  description: string
+  createdAt: string
+  updatedAt: string
+  _id: string
 }
 
 export type CatelogProps = {
-  title: String
-  img: String
-  pdf: String
+  title: string
+  img: string
+  pdf: string
   catelogId: Number
-  description: String
-  createdAt: String
-  updatedAt: String
-  _id: String
+  description: string
+  createdAt: string
+  updatedAt: string
+  _id: string
 }
 
 export type ItemTypes = 'news' | 'catelog'

@@ -1,5 +1,7 @@
-import { getSignedFileUrl } from '@/lib/utils'
-import { Catelog, Post, getId } from '@/lib/models'
+'use server'
+
+import { getId, getSignedFileUrl } from '@/lib/utils'
+import { Catelog, Order, Post } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
@@ -7,9 +9,9 @@ import { NextRequest, NextResponse } from 'next/server'
 export const GET = async (request: NextRequest) => {
   try {
     connectToDb()
-    const posts = await Post.find().exec()
-
-    return NextResponse.json(posts)
+    const [posts, order] = await Promise.all([Post.find().exec(), Order.findOne({ id: 0 })])
+    let sortedPosts = order.postOrder.map((item: number) => posts[posts.findIndex((e) => e.postId == item)])
+    return NextResponse.json(sortedPosts)
   } catch (err) {
     console.log(err)
     throw new Error('Failed to fetch posts!')
@@ -61,13 +63,19 @@ export const POST = async (request: NextRequest) => {
     connectToDb()
     if (!pdf) {
       //뉴스 추가
-      const newId = await getId('news')
+      const [newId, order] = await Promise.all([getId('news'), Order.findOne({ id: 0 })])
+      let newOrder = order.postOrder
+      newOrder.push(newId) //order 배열 끝에 방금 생성한 id값 push
       const newPost = new Post({ title, img: signedImgUrl.split('?')[0], desc, postId: newId })
-      newPost.save()
+
+      await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
+
       console.log('News saved to db')
     } else {
       //카탈로그 추가
-      const newId = await getId('catelog')
+      const [newId, order] = await Promise.all([getId('catelog'), Order.findOne({ id: 0 })])
+      let newOrder = order.catelogOrder
+      newOrder.push(newId) //order 배열 끝에 방금 생성한 id값 push
       const newCatelog = new Catelog({
         title,
         img: signedImgUrl.split('?')[0],
@@ -75,10 +83,11 @@ export const POST = async (request: NextRequest) => {
         desc,
         catelogId: newId,
       })
-      newCatelog.save()
+      await Promise.all([newCatelog.save(), Order.updateOne({ id: 0 }, { catelogOrder: newOrder })])
       console.log('Catalog saved to db')
     }
-    revalidatePath('/admin')
+    // revalidatePath('/admin')
+    // revalidatePath('/api/admin')
     return NextResponse.json({ success: true })
   } catch (e) {
     return NextResponse.json({ success: false, message: e })

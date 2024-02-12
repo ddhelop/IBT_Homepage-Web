@@ -1,6 +1,6 @@
 import CatelogForm from '@/components/admin/CatelogForm'
 import CatelogPosts from '@/components/admin/CatelogPosts'
-import NewsPosts from '@/components/admin/NewsPosts'
+import NewsPosts from '@/components/admin/PostEditList'
 import { Suspense } from 'react'
 
 const getData = async () => {
@@ -15,7 +15,6 @@ const getData = async () => {
 }
 const AdminPage = async () => {
   const posts = await getData()
-  console.log(posts)
   return (
     <div className="flex w-full h-screen pt-80 bg-gray-200">
       <div className="bg-white basis-1/4 px-16">
