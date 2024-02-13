@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Footer from '@/components/Footer'
+
 import '../../globals.css'
-import Link from 'next/link'
 import { cls, notoSansKr, roboto } from '@/lib/fonts'
+import AdminHeader from '@/components/admin/AdminHeader'
 
 export const metadata: Metadata = {
   title: 'IBT Admin',
@@ -16,16 +16,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
-      <div>
-        <ul className="text-lg">
-          <li>
-            <Link href="/admin/catelogs">News</Link>
-          </li>
-          <li>Catalogs</li>
-        </ul>
-      </div>
-      {children}
-    </div>
+    <html lang="en">
+      <body className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
+        <AdminHeader />
+        {children}
+      </body>
+    </html>
   )
 }

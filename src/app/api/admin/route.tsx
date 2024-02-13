@@ -3,20 +3,7 @@
 import { getId, getSignedFileUrl } from '@/lib/utils'
 import { Catelog, Order, Post } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
-import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
-
-export const GET = async (request: NextRequest) => {
-  try {
-    connectToDb()
-    const [posts, order] = await Promise.all([Post.find().exec(), Order.findOne({ id: 0 })])
-    let sortedPosts = order.postOrder.map((item: number) => posts[posts.findIndex((e) => e.postId == item)])
-    return NextResponse.json(sortedPosts)
-  } catch (err) {
-    console.log(err)
-    throw new Error('Failed to fetch posts!')
-  }
-}
 
 export const POST = async (request: NextRequest) => {
   const data = await request.formData() //Server에게 완전히 도달했고, 그 후에 data라는 변수로 들어왔는지 대기
@@ -70,10 +57,10 @@ export const POST = async (request: NextRequest) => {
 
       await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
 
-      console.log('News saved to db')
+      console.log('News saved to db\nNewsOrder:', newOrder)
     } else {
       //카탈로그 추가
-      const [newId, order] = await Promise.all([getId('catelog'), Order.findOne({ id: 0 })])
+      const [newId, order] = await Promise.all([getId('catelogs'), Order.findOne({ id: 0 })])
       let newOrder = order.catelogOrder
       newOrder.push(newId) //order 배열 끝에 방금 생성한 id값 push
       const newCatelog = new Catelog({
@@ -81,10 +68,10 @@ export const POST = async (request: NextRequest) => {
         img: signedImgUrl.split('?')[0],
         pdf: signedPDFUrl?.split('?')[0],
         desc,
-        catelogId: newId,
+        postId: newId,
       })
       await Promise.all([newCatelog.save(), Order.updateOne({ id: 0 }, { catelogOrder: newOrder })])
-      console.log('Catalog saved to db')
+      console.log('Catalog saved to db\nCatelogOrder:', newOrder)
     }
     // revalidatePath('/admin')
     // revalidatePath('/api/admin')

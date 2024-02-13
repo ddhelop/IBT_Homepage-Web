@@ -16,11 +16,11 @@ export type CatelogProps = {
   title: string
   img: string
   pdf: string
-  catelogId: Number
+  postId: Number
   description: string
   createdAt: string
   updatedAt: string
   _id: string
 }
 
-export type ItemTypes = 'news' | 'catelog'
+export type ItemTypes = 'news' | 'catelogs'

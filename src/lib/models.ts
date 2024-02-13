@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import { ItemTypes } from './types'
 
-const postSchema = new mongoose.Schema(
+const newsSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -34,7 +34,7 @@ const catelogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    catelogId: {
+    postId: {
       type: Number,
       required: true,
     },
@@ -71,5 +71,5 @@ const orderSchema = new mongoose.Schema({
 export const Order = mongoose.models?.Order || mongoose.model('Order', orderSchema)
 export const Counter = mongoose.models?.Counter || mongoose.model('Counter', counterSchema)
 
-export const Post = mongoose.models?.Post || mongoose.model('Post', postSchema)
+export const Post = mongoose.models?.Post || mongoose.model('Post', newsSchema)
 export const Catelog = mongoose.models?.Catelog || mongoose.model('Catelog', catelogSchema)
