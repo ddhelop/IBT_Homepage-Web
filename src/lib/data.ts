@@ -897,7 +897,20 @@ export const ModelInfo = [
     },
     {
       item: '청소차',
-      itemAdvanced: [],
+      itemAdvanced: [
+        {
+          imagePath: '/image/동력리튬샘플/골프카1.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/골프카2.png',
+          name: '',
+        },
+        {
+          imagePath: '/image/동력리튬샘플/골프카3.png',
+          name: '',
+        },
+      ],
     },
   ],
   [

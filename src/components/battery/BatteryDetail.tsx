@@ -9,7 +9,7 @@ type Props = {
   title: string
   explain: string[]
 }
-// pull test
+
 export default function BatteryDetail({ title, explain }: Props) {
   return (
     <>

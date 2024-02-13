@@ -21,6 +21,7 @@ type Props = {
 
 export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
   const [categoryIndex, setCategoryIndex] = useState(0)
+  const categoryLength = detailInfo.length
 
   return (
     <>
@@ -36,7 +37,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
         >
           <div
             className={`${
-              detailInfo.length == 5 ? 'mx-10' : detailInfo.length == 3 ? 'lg:mx-40 mx-5' : 'lg:mx-64 mx-5'
+              categoryLength === 5 ? 'lg:mx-10 mx-5' : categoryLength === 3 ? 'lg:mx-40 mx-5' : 'lg:mx-64 mx-5'
             } flex flex-row items-center mb-40`}
           >
             {detailInfo.map((v, i) => {
@@ -47,7 +48,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                     categoryIndex == i
                       ? 'opacity-100 font-semibold bg-primary-green'
                       : 'opacity-40 font-semibold bg-category-back hover:bg-gray-700'
-                  } relative w-1/${detailInfo.length} h-20 text-white z-0`}
+                  } relative w-1/${categoryLength} h-20 text-white z-0`}
                   onClick={() => setCategoryIndex(i)}
                 >
                   <div className="absolute flex justify-center items-center z-10 h-full w-full text-3xl">{v.title}</div>
