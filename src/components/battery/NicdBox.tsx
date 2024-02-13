@@ -8,6 +8,7 @@ import Link from 'next/link'
 export default function NicdBox() {
   return (
     <>
+      {/* 왼쪽에서 오른쪽으로 이동하는 애니메이션 */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -30,7 +31,7 @@ export default function NicdBox() {
               <Link href="/battery/batteryDetail/defense">
                 <motion.button
                   initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   transition={{
                     duration: 0.3,
                   }}
