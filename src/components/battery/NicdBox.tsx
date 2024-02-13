@@ -28,13 +28,27 @@ export default function NicdBox() {
                 <div className="lg:text-sm text-md font-bold pl-1.5">니켈카드뮴축전지</div>
               </div>
               <Link href="/battery/batteryDetail/defense">
-                <button className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green">
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.3,
+                  }}
+                  className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green"
+                >
                   <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
-                </button>
+                </motion.button>
               </Link>
             </div>
             <div className="mt-5">
-              <p className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.3,
+                }}
+                className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10"
+              >
                 방산 분야에서는 무기 시스템의
                 <br />
                 안정적인 작동을 위해,
@@ -46,31 +60,52 @@ export default function NicdBox() {
                 IBT의 Ni-cd 배터리가 필수적으로
                 <br />
                 사용되고 있습니다.
-              </p>
+              </motion.p>
               <div className="hidden group-hover:flex flex-col gap-5 pt-10">
                 <Link href="/battery/batteryDetail/defense">
-                  <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className="w-full hover:bg-gray-300 hover:text-black rounded-2xl"
+                  >
                     <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       방산용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>
-                  </button>
+                  </motion.button>
                 </Link>
                 <Link href="/battery/batteryDetail/industry">
-                  <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.3,
+                    }}
+                    className="w-full hover:bg-gray-300 hover:text-black rounded-2xl"
+                  >
                     <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       산업용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
             </div>
           </div>
           <div className="flex justify-end group-hover:hidden">
-            <button className="flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green z-10">
+            <motion.button
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.3,
+              }}
+              className="flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green z-10"
+            >
               <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
-            </button>
+            </motion.button>
           </div>
           <Image alt="Ni-cd" src={'/image/310인트로/312_메인(Ni-cd).png'} fill className="lg:hidden z-0 opacity-40" />
         </div>

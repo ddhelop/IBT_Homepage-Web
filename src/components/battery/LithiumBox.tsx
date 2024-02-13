@@ -25,13 +25,27 @@ export default function LithiumBox() {
                 <div className="lg:text-sm text-md font-bold pl-1.5">리튬축전지</div>
               </div>
               <Link href="/battery/batteryDetail/power">
-                <button className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green">
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.3,
+                  }}
+                  className="hidden transition-all group-hover:flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green"
+                >
                   <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
-                </button>
+                </motion.button>
               </Link>
             </div>
             <div className="mt-5">
-              <p className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.3,
+                }}
+                className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10"
+              >
                 IBT의 LiFePO4 배터리는
                 <br />
                 부피가 작고 가볍고 전력효율이 높으며,
@@ -41,31 +55,52 @@ export default function LithiumBox() {
                 골프카, 지게차, AGV, 선박, 통신, UPS, 특수용 등
                 <br />
                 다양한 영역의 고객에게 사랑받고 있습니다.
-              </p>
+              </motion.p>
               <div className="hidden group-hover:flex flex-col gap-5 pt-10">
                 <Link href="/battery/batteryDetail/power">
-                  <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.3,
+                    }}
+                    className="w-full hover:bg-gray-300 hover:text-black rounded-2xl"
+                  >
                     <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       동력용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>
-                  </button>
+                  </motion.button>
                 </Link>
                 <Link href="/battery/batteryDetail/energy-save">
-                  <button className="w-full hover:bg-gray-300 hover:text-black rounded-2xl">
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.3,
+                    }}
+                    className="w-full hover:bg-gray-300 hover:text-black rounded-2xl"
+                  >
                     <div className="flex flex-row justify-between items-center px-10 my-5 lg:text-lg text-2xl font-bold">
                       에너지저장용
                       <Image alt="arrow" src={'/image/arrow_green.svg'} width={30} height={10} />
                     </div>
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
             </div>
           </div>
           <div className="flex justify-end group-hover:hidden">
-            <button className="flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green z-10">
+            <motion.button
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.3,
+              }}
+              className="flex rounded-xl w-30 lg:py-0 p-7 h-10 items-center justify-center bg-primary-green z-10"
+            >
               <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
-            </button>
+            </motion.button>
           </div>
           <Image
             alt="Lithium"
