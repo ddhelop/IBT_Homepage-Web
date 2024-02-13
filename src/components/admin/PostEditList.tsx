@@ -23,7 +23,7 @@ const reorderPosts = (posts: any, startIndex: number, endIndex: number) => {
 const PostEditList = ({ datas, postType }: any) => {
   const [state, formAction] = useFormState(postType == 'news' ? handlePostListEdit : handleCatelogListEdit, undefined)
 
-  const [temp, setTemp] = postType == 'news' ? useState<NewsProps[]>(datas) : useState<CatelogProps[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
+  const [temp, setTemp] = useState<any[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
   const [posts, setPosts] = useState<any[]>(datas)
   const onDragEnd = (result: any) => {
     const { source, destination } = result
