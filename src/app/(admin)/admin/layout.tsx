@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import '../../globals.css'
 import { cls, notoSansKr, roboto } from '@/lib/fonts'
 import AdminHeader from '@/components/admin/AdminHeader'
+import RecoilContextProvider from '@/context/recoil-context'
 
 export const metadata: Metadata = {
   title: 'IBT Admin',
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
-        <AdminHeader />
+        <RecoilContextProvider>
+          <AdminHeader />
+        </RecoilContextProvider>
         {children}
       </body>
     </html>
