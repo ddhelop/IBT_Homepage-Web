@@ -8,12 +8,15 @@ import { useEffect, useRef } from 'react'
 
 export const BatteryPage = () => {
   useEffect(() => {
+    // URL의 해시 부분(#ㅇㅇㅇ) 가져옴
     const hash = window.location.hash
 
     if (hash) {
+      // 변수 hash에서 #을 제외한 값을 이용하여 해당 ID를 가진 요소를 찾음
       const element = document.getElementById(hash.substring(1))
 
       if (element) {
+        // 해당 요소가 중간에 오도록 스크롤
         element.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }
     }
@@ -21,8 +24,9 @@ export const BatteryPage = () => {
 
   return (
     <>
+      {/* 오른쪽 플로팅 버튼 */}
       <FloatingButton />
-      {/* Battery 소개 */}
+      {/* Battery 인트로 이미지 */}
       <BatteryIntro />
       {/* Battery 메인 */}
       <div className="flex w-full min-h-full flex-col items-center mb-20">
