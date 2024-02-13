@@ -6,7 +6,7 @@ const getNewsData = async () => {
     method: 'GET',
   })
   if (!res.ok) {
-    throw new Error('Something went wrong')
+    throw new Error('Something went wrong', await res.text())
   }
   return res.json()
 }
@@ -35,6 +35,7 @@ const AdminPage = async () => {
   //       postId: 3,
   //     },
   //   ]
+  console.log(posts)
   return (
     <div className="flex flex-col flex-1 h-screen bg-gray-100">
       <PostEditList datas={posts} postType="news" />
