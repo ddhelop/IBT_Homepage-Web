@@ -7,7 +7,6 @@ const getData = async () => {
   const res = await fetch(`${process.env.URL}/api/admin/news`, {
     method: 'GET',
     cache: 'no-store',
-    // next: { revalidate: 60 },
   })
   if (!res.ok) {
     throw new Error('Something went wrong')
