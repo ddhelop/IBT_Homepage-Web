@@ -6,10 +6,15 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 export const Header = () => {
-  const [active, setActive] = useState(false)
-  const [navDown, setNavDown] = useState(false)
+  const [active, setActive] = useState(false) // 모바일 화면에서 햄버거 버튼을 클릭했는지
+  // 모바일버전 상세 메뉴 관리 -> active 사용
+  // PC버전의 헤더 상단에 가로로 나열되는 기본 메뉴 컴포넌트가 세로로 나열 되도록 구현
 
-  const [isKorean, setIsKorean] = useState(true)
+  const [navDown, setNavDown] = useState(false) // PC 화면에서 상세 navigation이 내려와야하는지
+  // PC버전 상세 메뉴 관리 -> navDown 사용
+  // 상세 메뉴 컨텐츠가 hidden -> visible 되도록 구현
+
+  const [isKorean, setIsKorean] = useState(true) // 언어 버전 관리
   // 전역 변수 연결 필요
 
   const handleClick = () => {
@@ -19,13 +24,16 @@ export const Header = () => {
   return (
     <>
       <nav className="fixed top-0 w-full z-50">
+        {/* 상세 메뉴가 열릴 때는 흰색 배경, 이외에는 투명 배경 */}
         <nav
           className={`flex items-center flex-wrap lg:px-20 hover:bg-white py-3 shadow-md ${
             navDown ? 'bg-white' : active ? 'bg-white ' : 'bg-transparent'
           }`}
-          onMouseEnter={() => setNavDown(true)}
-          onMouseLeave={() => setNavDown(false)}
+          onMouseEnter={() => setNavDown(true)} // 마우스가 영역에 들어오면 상세 메뉴 열기
+          onMouseLeave={() => setNavDown(false)} // 마우스가 영역 벗어나면 상세 메뉴 닫기
         >
+          {/* 반응형 -> 모바일의 경우, 헤더에 로고와 햄버거바만 존재 */}
+          {/* 로고 */}
           <div className="inline-flex items-center p-2 ml-5 lg:hidden">
             <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
           </div>
@@ -52,8 +60,10 @@ export const Header = () => {
                 <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
               </Link>
               <ul className={`${active ? 'w-full' : 'flex w-3/4 justify-between'}`}>
-                {/* 1. 회사정보 */}
+                {/* ----- 1. 회사정보 ----- */}
+                {/* 헤더 기본 메뉴 */}
                 <div
+                  // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
                   className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
               ${
                 active
@@ -64,12 +74,15 @@ export const Header = () => {
                   <Link href={'/companyInfo'}>
                     <li onClick={() => setActive(false)}>회사정보</li>
                   </Link>
+                  {/* PC버전 상세 메뉴 */}
                   <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
                       duration: 0.5,
                     }}
+                    // navDown에 따라 visible <-> hidden
+                    // active의 경우에도 hidden 조건 추가해주어야 모바일 버전에서 가려짐
                     className={`${navDown ? '' : 'hidden'} ${
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
@@ -116,8 +129,10 @@ export const Header = () => {
                     </Link>
                   </motion.ul>
                 </div>
-                {/* 2. battery */}
+                {/* ----- 2. battery ----- */}
+                {/* 헤더 기본 메뉴 */}
                 <div
+                  // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
                   className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
@@ -128,16 +143,15 @@ export const Header = () => {
                   <Link href={'/battery'}>
                     <li onClick={() => setActive(false)}>BATTERY</li>
                   </Link>
-                  {/* navDown animation
-                        navDown
-                        ? 'transition-opacity duration-300 ease-in transform opacity-100'
-                        : 'transition-opacity duration-300 ease-out transform opacity-0' */}
+                  {/* PC버전 상세 메뉴 */}
                   <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
                       duration: 0.5,
                     }}
+                    // navDown에 따라 visible <-> hidden
+                    // active의 경우에도 hidden 조건 추가해주어야 모바일 버전에서 가려짐
                     className={`${navDown ? '' : 'hidden'} ${
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
@@ -168,8 +182,10 @@ export const Header = () => {
                     </Link>
                   </motion.ul>
                 </div>
-                {/* 3. hydrogen */}
+                {/* ----- 3. hydrogen ----- */}
+                {/* 헤더 기본 메뉴 */}
                 <div
+                  // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
                   className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
@@ -180,12 +196,15 @@ export const Header = () => {
                   <Link href={'/hydrogen'}>
                     <li onClick={() => setActive(false)}>HYDROGEN</li>
                   </Link>
+                  {/* PC버전 상세 메뉴 */}
                   <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
                       duration: 0.5,
                     }}
+                    // navDown에 따라 visible <-> hidden
+                    // active의 경우에도 hidden 조건 추가해주어야 모바일 버전에서 가려짐
                     className={`${navDown ? '' : 'hidden'} ${
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
@@ -208,8 +227,10 @@ export const Header = () => {
                     </Link>
                   </motion.ul>
                 </div>
-                {/* 4. 고객지원 */}
+                {/* ----- 4. 고객지원 ----- */}
+                {/* 헤더 기본 메뉴 */}
                 <div
+                  // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
                   className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
@@ -220,12 +241,15 @@ export const Header = () => {
                   <Link href={'/customer/news'}>
                     <li onClick={() => setActive(false)}>고객지원</li>
                   </Link>
+                  {/* PC버전 상세 메뉴 */}
                   <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
                       duration: 0.5,
                     }}
+                    // navDown에 따라 visible <-> hidden
+                    // active의 경우에도 hidden 조건 추가해주어야 모바일 버전에서 가려짐
                     className={`${navDown ? '' : 'hidden'} ${
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
@@ -256,8 +280,10 @@ export const Header = () => {
                     </Link>
                   </motion.ul>
                 </div>
-                {/* 5. ESG */}
+                {/* ----- 5. ESG ----- */}
+                {/* 헤더 기본 메뉴 */}
                 <div
+                  // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
                   className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
               ${
                 active
@@ -268,12 +294,15 @@ export const Header = () => {
                   <Link href={'/ESG_500'}>
                     <li onClick={() => setActive(false)}>ESG</li>
                   </Link>
+                  {/* PC버전 상세 메뉴 */}
                   <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
                       duration: 0.5,
                     }}
+                    // navDown에 따라 visible <-> hidden
+                    // active의 경우에도 hidden 조건 추가해주어야 모바일 버전에서 가려짐
                     className={`${navDown ? '' : 'hidden'} ${
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
@@ -289,7 +318,7 @@ export const Header = () => {
                   </motion.ul>
                 </div>
               </ul>
-              {/* 언어 선택 버튼 */}
+              {/* ----- 언어 선택 버튼 ----- */}
               <button
                 className={`lg:w-auto w-full px-3 py-2 rounded text-black items-center justify-center ${
                   active ? 'hidden' : ''
@@ -312,13 +341,13 @@ export const Header = () => {
             </div>
           </div>
         </nav>
-        {/* 네비게이션 dropdown 배경 */}
+        {/* PC버전 상세 메뉴 dropdown 배경 */}
         <div
           className={`${
             navDown ? '' : 'hidden'
           } lg:flex-col lg:flex-grow lg:w-full lg:bg-white lg:h-[250px] lg:z-0 shadow-sm`}
-          onMouseEnter={() => setNavDown(true)}
-          onMouseLeave={() => setNavDown(false)}
+          onMouseEnter={() => setNavDown(true)} // 마우스가 영역에 들어오면 상세 메뉴 열기
+          onMouseLeave={() => setNavDown(false)} // 마우스가 영역 벗어나면 상세 메뉴 닫기
         />
       </nav>
     </>

@@ -4,6 +4,8 @@ import Link from 'next/link'
 const FloatingButton = () => {
   return (
     <>
+      {/* 모바일 버전 -> 숨기기 */}
+      {/* PC 버전 -> fixed, float-right를 이용하여 고정 */}
       <div className="hidden lg:flex lg:w-full lg:fixed lg:float-right lg:top-1/4 lg:mr-[30px] lg:z-50">
         <div className="lg:fixed lg:right-[30px] lg:w-[110px] lg:rounded-xl lg:overflow-hidden lg:gap-[5px] lg:text-center lg:text-gray-800 lg:z-50 lg:border lg:border-gray-300 lg:drop-shadow-lg">
           {/* 상단으로 (battery 소개) 이동 */}
@@ -13,6 +15,7 @@ const FloatingButton = () => {
             </div>
           </Link>
           {/* 대분류 Ni-cd 부분으로 이동 */}
+          {/* 해시태그를 이용하여 해당 ID를 가진 요소 위치로 이동 */}
           <Link href="/battery#nicd">
             <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">Ni-cd</div>
           </Link>
@@ -25,6 +28,7 @@ const FloatingButton = () => {
             <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">산업</div>
           </Link>
           {/* 대분류 Lithium 부분으로 이동 */}
+          {/* 해시태그를 이용하여 해당 ID를 가진 요소 위치로 이동 */}
           <Link href="/battery#lithium">
             <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">Lithium</div>
           </Link>

@@ -20,9 +20,11 @@ export default function BatteryIntro() {
         <div className="flex justify-center">
           <div className="absolute text-center z-10 h-4/5 w-full top-1/2 -translate-y-1/2">
             <div className="h-1/2 translate-y-1/2 flex flex-col jusify-center items-center">
+              {/* 로고 */}
               <div className="relative w-[18rem] h-[12rem]">
                 <Image alt="logo" src={'/image/Logo.png'} fill className="object-contain" />
               </div>
+              {/* 이미지 위 텍스트 */}
               <h1 className="font-bold text-5xl text-white mb-8">IBT는 다릅니다</h1>
               <div className="font-bold text-lg text-white leading-6">
                 <p>IBT는 자체 보유한 BMS 기술을 바탕으로 개별화된 A/S 서비스와</p>
@@ -30,6 +32,7 @@ export default function BatteryIntro() {
               </div>
             </div>
           </div>
+          {/* 배경이미지 */}
           <div className="relative w-[100rem] h-[45rem]">
             <Image alt="" className="flex-shrink-0 z-0 object-cover" src={'/image/310인트로/311_소개_배경.png'} fill />
           </div>

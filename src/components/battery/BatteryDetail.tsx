@@ -6,8 +6,8 @@ import { motion } from 'framer-motion'
 import { batteryList } from '@/lib/data'
 
 type Props = {
-  title: string
-  explain: string[]
+  title: string // 중분류 title
+  explain: string[] // 배터리 설명
 }
 
 export default function BatteryDetail({ title, explain }: Props) {
@@ -21,9 +21,11 @@ export default function BatteryDetail({ title, explain }: Props) {
           duration: 0.5,
         }}
       >
+        {/* 배터리 중분류 title */}
         <div className="text-center lg:pt-28 pt-32">
           <div className="text-6xl font-bold text-primary-green">{title}</div>
         </div>
+        {/* 배터리 설명 */}
         <div className="relative text-center lg:my-28 my-32 items-center">
           <div className="text-3xl lg:px-5 px-10 text-center font-bold text-primary-green leading-extra-loose">
             {explain.map((v, i) => {
