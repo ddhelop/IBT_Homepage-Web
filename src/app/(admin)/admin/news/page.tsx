@@ -6,7 +6,7 @@ const getNewsData = async () => {
     method: 'GET',
   })
   if (!res.ok) {
-    throw new Error('Something went wrong', await res.text())
+    throw new Error('Something went wrong')
   }
   return res.json()
 }
