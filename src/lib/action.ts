@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { Catelog, Order, Post } from './models'
+import { connectToDb } from './utils'
 
 export const compare = async (username: string, password: string) => {
   if (
@@ -14,6 +15,7 @@ export const compare = async (username: string, password: string) => {
   }
 }
 export const handlePostListEdit = async (prevState: any, formData: any) => {
+  connectToDb()
   const { _postOrder } = Object.fromEntries(formData)
   let postOrder = JSON.parse(_postOrder)
   try {
@@ -34,6 +36,7 @@ export const handlePostListEdit = async (prevState: any, formData: any) => {
 }
 
 export const handleCatelogListEdit = async (prevState: any, formData: any) => {
+  connectToDb()
   const { _postOrder } = Object.fromEntries(formData)
   let catelogOrder = JSON.parse(_postOrder)
   try {
