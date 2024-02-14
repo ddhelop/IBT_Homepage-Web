@@ -7,6 +7,7 @@ import BatteryIntro from '@/components/battery/BatteryIntro'
 import { useEffect, useRef } from 'react'
 
 export const BatteryPage = () => {
+  // header, floating button를 통한 페이지 이동시 필요
   useEffect(() => {
     // URL의 해시 부분(#ㅇㅇㅇ) 가져옴
     const hash = window.location.hash
