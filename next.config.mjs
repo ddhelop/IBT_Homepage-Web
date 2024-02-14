@@ -8,6 +8,7 @@ const nextConfig = {
       },
     ],
   },
+  experimental: { serverComponentsExternalPackages: ['@aws-sdk'] },
   webpack: (config) => {
     config.resolve.fallback = {
       'mongodb-client-encryption': false,
