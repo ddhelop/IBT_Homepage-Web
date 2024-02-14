@@ -6,7 +6,7 @@ import Link from 'next/link'
 const getData = async () => {
   const res = await fetch(`${process.env.URL}/api/admin/news`, {
     method: 'GET',
-    next: { revalidate: 60 },
+    cache: 'no-store',
   })
   if (!res.ok) {
     throw new Error('Something went wrong')

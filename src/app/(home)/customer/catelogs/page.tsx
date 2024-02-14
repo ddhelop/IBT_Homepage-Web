@@ -5,7 +5,7 @@ import { CatelogProps } from '@/lib/types'
 const getData = async () => {
   const res = await fetch(`${process.env.URL}/api/admin/catelogs`, {
     method: 'GET',
-    next: { revalidate: 60 },
+    cache: 'no-store',
   })
   if (!res.ok) {
     throw new Error('Something went wrong')
