@@ -27,7 +27,7 @@ export const handlePostListEdit = async (prevState: any, formData: any) => {
       }
     })
     revalidatePath('/')
-    console.log('EdittingPostListEdit Done')
+    console.log('EdittingPostListEdit Done', postOrder)
     return { success: true, message: '글이 성공적으로 수정되었습니다' }
   } catch (e) {
     console.log(e)
