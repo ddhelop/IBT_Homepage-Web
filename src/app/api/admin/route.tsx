@@ -10,7 +10,6 @@ export const POST = async (request: NextRequest) => {
   const title: string | null = data.get('title') as unknown as string
   const desc: string | null = data.get('description') as unknown as string
   const image: File = data.get('image') as unknown as File //이미지 데이터
-  console.log('heelo')
   const pdf: File | null = data.get('pdf') as unknown as File | null //이미지 데이터
   //get이라는 함수를 사용하는 상황에서, 가져오는 객체의 타입이 불분명함, File, null, string 등등.
   let signedPDFUrl = null
@@ -48,6 +47,7 @@ export const POST = async (request: NextRequest) => {
     if (uploadImg.status != 200) return NextResponse.json({ success: false, message: 'uploadImage failed' })
 
     connectToDb()
+    console.log('data:', data)
     if (!pdf) {
       //뉴스 추가
       const [newId, order] = await Promise.all([getId('news'), Order.findOne({ id: 0 })])
