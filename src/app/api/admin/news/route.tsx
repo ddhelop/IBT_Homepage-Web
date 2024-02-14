@@ -2,6 +2,7 @@ import { Order, Post } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
 import { NextRequest, NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
 export const GET = async (request: NextRequest) => {
   try {
     connectToDb()
