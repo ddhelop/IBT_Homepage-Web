@@ -20,8 +20,8 @@ export default function Footer() {
           {/* 반응형 -> PC 버전에서 가운데 정렬, 모바일 버전에서 왼쪽 정렬 */}
           <div className="flex flex-col lg:w-2/5 lg:items-center text-gray-200 pt-3 pb-6">
             <div className="font-bold mb-3">TELEPHONE</div>
-            <div>서울지점: 02-3409-7141 / 02-6965-7975</div>
-            <div>광주본사: 062-971-7983</div>
+            <div>{'서울지점 : 02-3409-7141 / (02)3409-7144 (FAX)'}</div>
+            <div>{'광주본사 : 062-971-7983 / 062-971-7987 (FAX)'}</div>
           </div>
         </div>
       </div>
