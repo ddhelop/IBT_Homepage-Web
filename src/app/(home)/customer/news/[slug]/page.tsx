@@ -20,11 +20,10 @@ const SingleNewsPage = async ({ params }: any) => {
   const post = await getData(slug)
   return (
     <div className="flex flex-col items-center gap-[100px] p-24">
-      {post.img && (
-        <div className="flex relative h-96 w-full">
-          <Image src={post.img} alt="" fill className="object-contain" />
-        </div>
-      )}
+      <div className="flex relative h-96 w-full">
+        <Image src={post.img} alt="" fill className="object-contain" />
+      </div>
+
       <h1 className="text-4xl font-bold">{post.title}</h1>
 
       <span className="font-medium text-gray-400 self-end">{post.createdAt.toString().slice(0, 10)}</span>

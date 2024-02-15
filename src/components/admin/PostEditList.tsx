@@ -59,7 +59,7 @@ const PostEditList = ({ datas, postType }: any) => {
                         ref={draggableProvided.innerRef}
                         {...draggableProvided.draggableProps}
                         {...draggableProvided.dragHandleProps}
-                        className={`flex px-4 h-12 items-center bg-white border-t`}
+                        className="flex px-4 h-12 items-center bg-white border-t"
                       >
                         <h1 className="font-bold text-md basis-1/4">{post.title}</h1>
                         <div className="relative w-8 h-8">

@@ -27,7 +27,7 @@ const NewsPage = async () => {
       </div>
       <div className="flex flex-wrap gap-8 mt-8">
         {posts.map((post: NewsProps) => (
-          <Link key={post.postId.toString()} href={`/customer/news/${post.postId}`}>
+          <Link prefetch key={post.postId.toString()} href={`/customer/news/${post.postId}`}>
             <NewsCard key={post.postId.toString()} {...post} />
           </Link>
         ))}

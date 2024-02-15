@@ -217,7 +217,7 @@ export const Header = () => {
                   : ''
               }`}
                 >
-                  <Link href={'/customer/news'}>
+                  <Link prefetch href={'/customer/news'}>
                     <li onClick={() => setActive(false)}>고객지원</li>
                   </Link>
                   <motion.ul
@@ -230,7 +230,7 @@ export const Header = () => {
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
                   >
-                    <Link href={'/customer/catelogs'}>
+                    <Link prefetch href={'/customer/catelogs'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
