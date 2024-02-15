@@ -27,7 +27,7 @@ export default function SocialContributionComponent() {
 
   return (
     <>
-      <div className="md:mt-40 lg:flex lg:flex-col items-center lg:items-end lg:mr-[8%]">
+      <div className="md:mt-40 lg:flex lg:flex-col items-center lg:items-end lg:mr-[8%] overflow-hidden">
         <div className="lg:w-3/4 flex flex-col items-center">
           <div className="max-w-[35rem] mt-48 md:mt-0">
             <LeftMotionComponent component={motion.div}>
