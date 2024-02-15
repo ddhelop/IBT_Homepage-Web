@@ -6,11 +6,11 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 export const Header = () => {
-  const [active, setActive] = useState(false) // 모바일 화면에서 햄버거 버튼을 클릭했는지
+  const [active, setActive] = useState(false) // 모바일 화면에서 상세 navigation이 내려오는지 여부를 저장
   // 모바일버전 상세 메뉴 관리 -> active 사용
   // PC버전의 헤더 상단에 가로로 나열되는 기본 메뉴 컴포넌트가 세로로 나열 되도록 구현
 
-  const [navDown, setNavDown] = useState(false) // PC 화면에서 상세 navigation이 내려와야하는지
+  const [navDown, setNavDown] = useState(false) // PC 화면에서 상세 navigation이 내려오는지 여부를 저장
   // PC버전 상세 메뉴 관리 -> navDown 사용
   // 상세 메뉴 컨텐츠가 hidden -> visible 되도록 구현
 
