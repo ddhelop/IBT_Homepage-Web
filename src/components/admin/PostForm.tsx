@@ -84,6 +84,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
           </div>
         )}
         <input
+          required
           type="file"
           name="image"
           accept="image/*"
@@ -94,6 +95,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
           <>
             <h2 className="block text-gray-700 font-bold mb-2">PDF:</h2>
             <input
+              required
               type="file"
               name="pdf"
               accept="application/pdf"
@@ -104,15 +106,10 @@ const PostForm = ({ postType }: PostTypeProps) => {
         )}
 
         <h2 className="block text-gray-700 font-bold mb-2">글 제목:</h2>
-        <input type="text" name="title" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
+        <input required type="text" name="title" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
 
         <h2 className="block text-gray-700 font-bold mb-2">글:</h2>
-        <textarea
-          name="description"
-          className="bg-gray-100 rounded-md py-2 px-3 w-full mb-8"
-          rows={5}
-          cols={33}
-        ></textarea>
+        <textarea name="description" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-8" rows={5} cols={33} />
         <h1 className="text-red-400 mb-2">{error}</h1>
         <button
           className={`p-4 w-32 rounded-lg transition

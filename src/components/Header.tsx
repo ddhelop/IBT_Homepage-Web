@@ -246,7 +246,7 @@ export const Header = () => {
                         IBT News
                       </li>
                     </Link>
-                    <Link href={'/customer/news'}>
+                    <Link href={'/customer/contact-us'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}

@@ -14,10 +14,10 @@ export const compare = async (username: string, password: string) => {
     return false
   }
 }
-export const handlePostListEdit = async (prevState: any, formData: any) => {
+export const handlePostListEdit = async (prevState: any, formData: FormData) => {
   connectToDb()
   const { _postOrder } = Object.fromEntries(formData)
-  let postOrder = JSON.parse(_postOrder)
+  let postOrder = JSON.parse(_postOrder as string)
   try {
     const [posts, _] = await Promise.all([Post.find().exec(), Order.updateOne({ id: 0 }, { postOrder })])
     posts.map(async (item: any) => {
@@ -35,10 +35,10 @@ export const handlePostListEdit = async (prevState: any, formData: any) => {
   }
 }
 
-export const handleCatelogListEdit = async (prevState: any, formData: any) => {
+export const handleCatelogListEdit = async (prevState: any, formData: FormData) => {
   connectToDb()
   const { _postOrder } = Object.fromEntries(formData)
-  let catelogOrder = JSON.parse(_postOrder)
+  let catelogOrder = JSON.parse(_postOrder as string)
   try {
     const [catelogs, _] = await Promise.all([Catelog.find().exec(), Order.updateOne({ id: 0 }, { catelogOrder })])
     catelogs.map(async (item: any) => {
@@ -53,5 +53,17 @@ export const handleCatelogListEdit = async (prevState: any, formData: any) => {
   } catch (e) {
     console.log(e)
     return { success: false, message: '뉴스글 수정간 오류 발생' }
+  }
+}
+
+export const sendEmail = async (formData: FormData) => {
+  const { category, name, email, number0, number1, number2, title, desc } = Object.fromEntries(formData)
+  console.log(category, name, email, number0, number1, number2, title, desc)
+  try {
+    return { error: false }
+  } catch (e) {
+    return {
+      error: e,
+    }
   }
 }

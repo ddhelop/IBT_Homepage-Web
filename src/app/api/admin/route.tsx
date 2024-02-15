@@ -47,7 +47,6 @@ export const POST = async (request: NextRequest) => {
     if (uploadImg.status != 200) return NextResponse.json({ success: false, message: 'uploadImage failed' })
 
     connectToDb()
-    console.log('data:', data)
     if (!pdf) {
       //뉴스 추가
       const [newId, order] = await Promise.all([getId('news'), Order.findOne({ id: 0 })])

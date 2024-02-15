@@ -1,40 +1,16 @@
 'use client'
-import { ChangeEvent, useState } from 'react'
+import { sendEmail } from '@/lib/action'
+import { useRef, useState } from 'react'
+import Button from './Button'
 
 export default function ContactUs() {
   // 상태를 사용하여 입력된 텍스트의 길이를 추적합니다.
-  const [category, setCategory] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [contact, setContact] = useState(['', '', '']) // 연락처를 배열로 관리
-  const [title, setTitle] = useState('')
-  const [message, setMessage] = useState('')
-
-  // 각 입력 필드의 변경을 처리하는 핸들러들
-  const onChangeCategory = (event: ChangeEvent<HTMLSelectElement>) => setCategory(event.target.value)
-  const onChangeName = (event: ChangeEvent<HTMLInputElement>) => setName(event.target.value)
-  const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)
-  const onChangeContact = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
-    const newContacts = [...contact]
-    newContacts[index] = event.target.value
-    setContact(newContacts)
-  }
-  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value)
-  const onChangeMessage = (event: ChangeEvent<HTMLTextAreaElement>) => setMessage(event.target.value)
-
+  const ref = useRef<HTMLFormElement>(null)
+  const [desc, setDesc] = useState('')
   const onClearText = () => {
     // 사용자에게 경고창을 띄우고, "예"를 선택한 경우에만 텍스트를 지웁니다.
-    const isConfirmed = window.confirm('모든 입력 내용을 지우시겠습니까?')
-    if (isConfirmed) {
-      setCategory('')
-      setName('')
-      setEmail('')
-      setContact(['', '', ''])
-      setTitle('')
-      setMessage('')
-    }
   }
-
+  const products = ['제품문의', '견적문의', 'asdf', 'asdf', 'asdf', 'asdf']
   return (
     <>
       {/* Wrapper */}
@@ -49,20 +25,31 @@ export default function ContactUs() {
           <h2 className="text-7xl font-semibold">How Can We help</h2>
           <p className="text-center text-xl font-light py-6">Our Power, Your Business</p>
 
-          {/* Input Form */}
-          <div className="w-[95%] lg:w-[50%] flex flex-col pt-20">
+          <form
+            ref={ref}
+            action={async (formData) => {
+              ref.current?.reset()
+              const { error } = await sendEmail(formData)
+              if (error) alert(error)
+            }}
+            className="w-[min(92%,72rem)] flex flex-col pt-20"
+          >
+            {/* Input Form */}
             {/* 분류 */}
             <div className="w-full flex flex-row border-b border-gray-[#cdcdcd] border-t-2 border-t-black">
               <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
                 <p className="text-sm">분류</p>
               </div>
               <div className="w-[80%] h-12 flex items-center px-5">
-                <select value={category} className="h-8 border border-[#cdcdcd] bg-[#f6f6f6] rounded">
+                <select value="none" name="category" className="h-8 border border-[#cdcdcd] bg-[#f6f6f6] rounded">
                   <option value="option1" disabled selected>
                     선택해주세요
                   </option>
-                  <option value="option2">제품문의</option>
-                  <option value="option3">견적문의</option>
+                  {products.map((item, id) => (
+                    <option key={id} value={item}>
+                      {item}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -74,8 +61,7 @@ export default function ContactUs() {
               <div className="w-[80%] h-12 flex items-center px-5">
                 <input
                   type="text"
-                  value={name}
-                  onChange={onChangeName}
+                  name="name"
                   className="w-full h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
                 />
               </div>
@@ -88,8 +74,7 @@ export default function ContactUs() {
               <div className="w-[80%] h-12 flex items-center px-5">
                 <input
                   type="email"
-                  value={email}
-                  onChange={onChangeEmail}
+                  name="email"
                   className="w-full h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
                 />
               </div>
@@ -102,22 +87,19 @@ export default function ContactUs() {
               <div className="w-[80%] h-12 flex items-center px-5">
                 <input
                   type="number"
-                  onChange={onChangeContact(0)}
-                  value={contact[0]}
-                  className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
-                />
-                <p className="px-1">-</p>
-                <input
-                  onChange={onChangeContact(1)}
-                  type="number"
-                  value={contact[1]}
+                  name="number0"
                   className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
                 />
                 <p className="px-1">-</p>
                 <input
                   type="number"
-                  value={contact[2]}
-                  onChange={onChangeContact(2)}
+                  name="number1"
+                  className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
+                />
+                <p className="px-1">-</p>
+                <input
+                  type="number"
+                  name="number2"
                   className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
                 />
               </div>
@@ -130,8 +112,7 @@ export default function ContactUs() {
               <div className="w-[80%] h-12 flex items-center px-5">
                 <input
                   type="text"
-                  value={title}
-                  onChange={onChangeTitle}
+                  name="title"
                   className="w-full h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
                 />
               </div>
@@ -143,24 +124,25 @@ export default function ContactUs() {
               </div>
               <div className="w-[80%] h-60 flex items-center px-5">
                 <textarea
-                  value={message}
-                  onChange={onChangeMessage}
+                  value={desc}
+                  name="desc"
+                  onChange={(e) => setDesc(e.target.value)}
                   maxLength={500}
                   className="p-2 resize-none w-full h-56 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
                 />
                 <div className="absolute bottom-3 right-9 font-semibold text-base text-[#8d8d8d]">
-                  {message.length} / 500자
+                  {desc.length} / 500자
                 </div>
               </div>
             </div>
-          </div>
-          {/* 버튼 */}
-          <div className="flex flex-row items-center py-10 space-x-2">
-            <button className="w-32 h-8 bg-[#069729] text-white rounded">작성완료</button>
-            <button onClick={onClearText} className="w-32 h-8 border border-black rounded">
-              지우기
-            </button>
-          </div>
+
+            {/* 버튼 */}
+            {/* <div className="flex flex-row items-center py-10 space-x-2"> */}
+            <Button />
+          </form>
+          <button onClick={onClearText} className="w-32 h-8 border border-black rounded">
+            지우기
+          </button>
         </div>
       </div>
     </>

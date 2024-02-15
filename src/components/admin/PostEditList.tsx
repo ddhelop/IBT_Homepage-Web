@@ -96,7 +96,7 @@ const PostEditList = ({ datas, postType }: any) => {
       </div>
       <h3 className="mx-8 my-2 text-green-800">{state?.message}</h3>
       <Link
-        href={postType == 'news' ? '/admin/news/add' : '/admin/catelogs/add'}
+        href={postType == 'news' ? '/admin/add' : '/admin/catelogs/add'}
         className=" absolute bottom-12 right-12 p-4 rounded-full
        bg-[#04BF7B] text-white shadow-lg"
       >
