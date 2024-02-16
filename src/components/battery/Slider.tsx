@@ -1,21 +1,20 @@
 'use client'
 import { ModelInfo } from '@/lib/data'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 type Props = {
-  categoryIndex: number
-  mainCategoryIndex: number
+  categoryIndex: number // 소분류 카테고리 Index
+  mainCategoryIndex: number // 중분류 카테고리 Index
 }
 
 const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
-  const [imagesPerPage, setImagesPerPage] = useState(4)
-  const [currentImg, setCurrentImg] = useState(0)
-  const [carouselSize, setCarouselSize] = useState({ width: 0, height: 0 })
+  const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
+  const [currentImg, setCurrentImg] = useState(0) // 현재 보고 있는 carousel 페이지 번호
   const carouselRef = useRef(null)
 
-  const data = ModelInfo[mainCategoryIndex][categoryIndex].itemAdvanced
+  const data = ModelInfo[mainCategoryIndex][categoryIndex].itemAdvanced // 적용분야 Data -> name, imagePath
 
   return (
     <>
@@ -34,7 +33,9 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
             <div className="flex felx-row justify-center items-center">
               {/* 왼쪽 화살표 */}
               <button
+                // 첫 페이지에서는 왼쪽 화살표 disabled 처리
                 disabled={currentImg === 0}
+                // 누르면 currentImg 번호 - 1
                 onClick={() => setCurrentImg((prev) => prev - 1)}
                 className={`relative lg:px-20 pl-10 pr-20 w-[3rem] h-[3rem] ${currentImg === 0 && 'opacity-50'}`}
               >
@@ -42,11 +43,12 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               </button>
               <div>
                 <div className="lg:w-[60rem] lg:h-40 w-[20rem] h-[10rem] overflow-hidden relative">
-                  {/* 제품 이미지 */}
-                  {/* 큰화면: 4개 carousel */}
+                  {/* ----- 적용 분야 이미지 ----- */}
+                  {/* PC버전 큰화면: 4개 carousel*/}
                   <div
                     ref={carouselRef}
                     style={{
+                      // translateX로 currentImg 번호에 따라 이동 거리 조정, 3은 이미지 사이 gap 고려
                       transform: `translateX(-${(100 / imagesPerPage) * currentImg + 3}%)`,
                     }}
                     className={`hidden lg:w-full lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300 lg:gap-3 lg:pl-6 lg:pr-3`}
@@ -57,10 +59,11 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                       </div>
                     ))}
                   </div>
-                  {/* 작은화면: 1개 carousel */}
+                  {/* 모바일버전 작은화면: 1개 carousel */}
                   <div
                     ref={carouselRef}
                     style={{
+                      // translateX로 currentImg 번호에 따라 이동 거리 조정
                       transform: `translateX(-${100 * currentImg}%)`,
                     }}
                     className={`lg:hidden w-full h-full absolute flex transition-all duration-300`}
@@ -74,9 +77,11 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 </div>
               </div>
               {/* 오른쪽 화살표 */}
-              {/* 큰화면: 4개 carousel */}
+              {/* PC버전 큰화면: 4개 carousel */}
               <button
-                disabled={currentImg === data.length - 4}
+                // 마지막 페이지에서는 오른쪽 화살표 disabled 처리
+                disabled={currentImg === data.length - imagesPerPage}
+                // 누르면 currentImg 번호 + 1
                 onClick={() => setCurrentImg((prev) => prev + 1)}
                 className={`hidden lg:flex lg:relative lg:px-20 lg:w-[3rem] lg:h-[3rem] ${
                   currentImg === data.length - 4 && 'opacity-50'
@@ -84,7 +89,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               >
                 <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
               </button>
-              {/* 작은화면: 1개 carousel */}
+              {/* 모바일버전 작은화면: 1개 carousel */}
               <button
                 disabled={currentImg === data.length - 1}
                 onClick={() => setCurrentImg((prev) => prev + 1)}
@@ -96,11 +101,12 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               </button>
             </div>
             <div className="lg:w-[60rem] lg:h-40 w-[20rem] h-20 overflow-hidden relative flex">
-              {/* 제품명 */}
-              {/* 큰화면: 4개 carousel */}
+              {/* ----- 적용 분야 이름 ----- */}
+              {/* PC버전 큰화면: 4개 carousel */}
               <div
                 ref={carouselRef}
                 style={{
+                  // 제품 이미지와 같게 이동
                   transform: `translateX(-${(100 / imagesPerPage) * currentImg + 3}%)`,
                 }}
                 className="hidden lg:w-full lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300 lg:gap-3 lg:pl-6 lg:pr-3"
@@ -111,10 +117,11 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                   </div>
                 ))}
               </div>
-              {/* 작은화면: 1개 carousel */}
+              {/* 모바일버전 작은화면: 1개 carousel */}
               <div
                 ref={carouselRef}
                 style={{
+                  // 제품 이미지와 같게 이동
                   transform: `translateX(-${100 * currentImg}%)`,
                 }}
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300"
@@ -130,7 +137,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
         ) : (
           // 개수가 4개 이하인 경우
           <>
-            {/* 큰화면: carousel 제거 */}
+            {/* PC버전 큰화면: carousel 제거하고 가운데 정렬 */}
             <div className={'hidden lg:relative lg:w-full lg:flex lg:flex-row lg:justify-center lg:gap-3'}>
               {data.map((v, i) => (
                 <div key={i} className={'relative flex flex-col justify-center items-center'}>
@@ -143,8 +150,9 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 </div>
               ))}
             </div>
-            {/* 작은화면: 1개 carousel */}
+            {/* 모바일버전 작은화면: 1개 carousel */}
             <div className="flex felx-row justify-center items-center">
+              {/* 왼쪽 화살표 버튼 */}
               <button
                 disabled={currentImg === 0}
                 onClick={() => setCurrentImg((prev) => prev - 1)}
@@ -152,6 +160,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               >
                 <Image alt="arrow" src={'/image/leftArrow.svg'} fill />
               </button>
+              {/* 적용 분야 이미지 */}
               <div>
                 <div className="lg:hidden w-[20rem] h-[10rem] overflow-hidden relative">
                   <div
@@ -169,6 +178,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                   </div>
                 </div>
               </div>
+              {/* 오른쪽 화살표 버튼 */}
               <button
                 disabled={currentImg === data.length - 1}
                 onClick={() => setCurrentImg((prev) => prev + 1)}
@@ -179,6 +189,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                 <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
               </button>
             </div>
+            {/* 적용 분야 이름 */}
             <div className="lg:hidden w-[20rem] h-20 overflow-hidden relative flex">
               <div
                 ref={carouselRef}

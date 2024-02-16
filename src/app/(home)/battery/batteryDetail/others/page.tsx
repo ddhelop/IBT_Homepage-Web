@@ -10,10 +10,12 @@ export const metadata: Metadata = {
 const BatteryOthersPage = () => {
   return (
     <>
+      {/* 오른쪽 플로팅 버튼 */}
       <FloatingButton />
-      <div className="text-center lg:pt-24">
-        <div className="text-6xl font-medium mb-32 text-primary-green lg:translate-x-[65px]">기타</div>
+      <div className="text-center lg:pt-28">
+        <div className="text-6xl font-bold mb-32 text-primary-green">기타</div>
       </div>
+      {/* 이미지-설명 박스 */}
       <CheckerBoard
         image1={'/image/Lithium.png'}
         title1={'항공장애등용'}
