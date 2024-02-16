@@ -7,40 +7,40 @@ import { motion } from 'framer-motion'
 export default function LogoComponent() {
   const [logos, setLogos] = useState([
     '/intro/logo/KORAIL.png',
-    '/intro/logo/서울교통공사.png',
-    '/intro/logo/인천광역시 도시철도건설본부.png',
-    '/intro/logo/부산교통공사.png',
-    '/intro/logo/대구도시철도공사.png',
-    '/intro/logo/광주철도건설본부.png',
+    '/intro/logo/seoul humetro.png',
+    '/intro/logo/incheon iurail.png',
+    '/intro/logo/busan humetro.png',
+    '/intro/logo/Daegu Metropolitan Railway Corporation.png',
+    '/intro/logo/Gwangju Railway Construction.png',
   ])
   const doubledLogos = [...logos, ...logos]
 
   const [logos2, setLogs2] = useState([
     '/intro/logo/TOVICA.png',
-    '/intro/logo/LIG넥스원.png',
+    '/intro/logo/lignex1.png',
     '/intro/logo/plug.png',
     '/intro/logo/SK E&S.png',
     '/intro/logo/Sk plug hyverse.png',
-    '/intro/logo/LG 화학.png',
+    '/intro/logo/lg chem.png',
   ])
   const doubledLogos2 = [...logos2, ...logos2]
 
   const [logos3, setLogs3] = useState([
     '/intro/logo/TOTAL.png',
     '/intro/logo/posco.png',
-    '/intro/logo/한국전력공사.png',
+    '/intro/logo/kepco.png',
     '/intro/logo/Hanhwa.png',
-    '/intro/logo/한화솔루션.png',
+    '/intro/logo/hanhwa solution.png',
   ])
   const doubledLogos3 = [...logos3, ...logos3]
 
   const [logos4, setLogs4] = useState([
     '/intro/logo/DAEATI.png',
-    '/intro/logo/포스코케미칼.png',
-    '/intro/logo/국방기술품질원.png',
-    '/intro/logo/KAI 한국항공우주산업.png',
-    '/intro/logo/한화디펜스.png',
-    '/intro/logo/한화시스템.png',
+    '/intro/logo/poscofuturem.png',
+    '/intro/logo/Defense Agency for Technology.png',
+    '/intro/logo/KAI.png',
+    '/intro/logo/hanhwa defense.png',
+    '/intro/logo/hanhwa system.png',
   ])
   const doubledLogos4 = [...logos4, ...logos4]
 
@@ -49,16 +49,16 @@ export default function LogoComponent() {
     '/intro/logo/HYUNDAI STEEL.png',
     '/intro/logo/HYUNDAI.png',
     '/intro/logo/stx Corporation.png',
-    '/intro/logo/롯데케미칼.png',
-    '/intro/logo/한화오션.png',
+    '/intro/logo/lottechem.png',
+    '/intro/logo/hanhwa ocean.png',
   ])
   const doubledLogos5 = [...logos5, ...logos5]
 
   const [logos6, setLogs6] = useState([
-    '/intro/logo/퍼스텍.png',
+    '/intro/logo/firsteccom.png',
     '/intro/logo/HYUNDAI Rotem.png',
-    '/intro/logo/현대중공업.png',
-    '/intro/logo/롯데정보통신.png',
+    '/intro/logo/hhi.png',
+    '/intro/logo/LOTTE DATA COMMUNICATION.png',
     '/intro/logo/LS ELECTRIC.png',
     '/intro/logo/VINSSEN.png',
   ])

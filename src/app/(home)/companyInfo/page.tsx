@@ -1,10 +1,10 @@
 import CompanyInfoComponent from '@/components/companyInfo/CompanyInfoComponent'
 import DirectionsComponent from '@/components/companyInfo/Directions/DirectionsComponent'
 import FloatingButton from '@/components/companyInfo/Floating'
+import LogoComponent from '@/components/companyInfo/LogoComponent'
 
 import TechnicalComponent from '@/components/companyInfo/Technical/TechnicalComponent'
 import HistoryComponent from '@/components/companyInfo/companyHistory/HistoryComponent'
-import LogoComponent from '@/components/intro/LogoComponent'
 
 export const metadata = {
   title: 'Company Info',
