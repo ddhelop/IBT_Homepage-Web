@@ -15,7 +15,7 @@ export default function NicdBox() {
           delay: 0.1,
           duration: 0.5,
         }}
-        className="inline-flex h-[30rem] lg:mx-40"
+        className="inline-flex h-[30rem] lg:mx-[17%]"
       >
         {/* 배터리 이미지 영역 */}
         <div className="lg:relative lg:flex lg:w-2/3 lg:h-full lg:justify-center lg:items-center hidden">

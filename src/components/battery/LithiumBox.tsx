@@ -15,7 +15,7 @@ export default function LithiumBox() {
           delay: 0.1,
           duration: 0.5,
         }}
-        className="inline-flex h-[30rem] lg:mx-40"
+        className="inline-flex h-[30rem] lg:mx-[17%]"
       >
         {/* 회색 컨텐츠 영역 -> group이라는 이름을 붙여, 해당 요소에 hover할 때 다른 이벤트 발생하도록 */}
         {/* 반응형 - 모바일 버전에서는 우측 이미지가 배경으로 들어가므로, 글자가 잘보이도록 background black으로 깔아줌 */}

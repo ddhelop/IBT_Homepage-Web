@@ -15,11 +15,11 @@ export default function BatteryIntro() {
           delay: 0.1,
           duration: 0.5,
         }}
-        className="relative lg:mx-40 bg-white"
+        className="relative bg-white"
       >
-        <div className="flex justify-center">
+        <div className="flex justify-center w-screen">
           <div className="absolute text-center z-10 h-4/5 w-full top-1/2 -translate-y-1/2">
-            <div className="h-1/2 translate-y-1/2 flex flex-col jusify-center items-center">
+            <div className="h-[50%] translate-y-1/2 flex flex-col jusify-center items-center">
               {/* 로고 */}
               <div className="relative w-[18rem] h-[12rem]">
                 <Image alt="logo" src={'/image/Logo.png'} fill className="object-contain" />
@@ -33,8 +33,8 @@ export default function BatteryIntro() {
             </div>
           </div>
           {/* 배경이미지 */}
-          <div className="relative w-[100rem] h-[45rem]">
-            <Image alt="" className="flex-shrink-0 z-0 object-cover" src={'/image/310인트로/311_소개_배경.png'} fill />
+          <div className="relative w-screen h-[65rem]">
+            <Image alt="" className="flex-shrink-0 z-0 object-fit" src={'/image/310인트로/311_소개_배경.png'} fill />
           </div>
         </div>
       </motion.div>
