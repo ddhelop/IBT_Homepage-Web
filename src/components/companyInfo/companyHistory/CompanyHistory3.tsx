@@ -114,7 +114,7 @@ export default function CompanyHistory3() {
             </LeftMotionComponent>
           </div>
 
-          <div className="hidden lg:flex absolute left-[2%]">
+          <div className="hidden lg:flex absolute left-[10%]">
             <RightMotionComponent component={motion.div}>
               <p className="text-[#2B6434] font-bold tracking-[1.059px] text-3xl leading-[3rem]">
                 배터리 산업의 개척자,
