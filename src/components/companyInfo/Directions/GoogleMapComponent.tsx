@@ -19,13 +19,13 @@ function GoogleMapComponent(props: ILocationProps) {
     if (window.innerWidth < 768) {
       // 모바일 화면으로 가정 (768px 기준)
       setContainerStyle({
-        width: '89.71vw',
-        height: '89.71vw',
+        width: '290px',
+        height: '290px',
       })
     } else if (window.innerWidth < 1024) {
       setContainerStyle({
-        width: '63.85vw', // PC 화면 기준 너비
-        height: '63.85vw', // PC 화면 기준 높이
+        width: '460px', // PC 화면 기준 너비
+        height: '460px', // PC 화면 기준 높이
       })
     } else {
       setContainerStyle({

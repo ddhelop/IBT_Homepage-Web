@@ -15,7 +15,7 @@ export default function IntroPage(): JSX.Element {
   return (
     <>
       <FloatingButton />
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full overflow-hidden">
         {/* 1st company info section */}
         <CompanyInfoComponent />
         {/* 2nd company history section */}
