@@ -12,7 +12,7 @@ export default function DirectionsComponent() {
     <>
       <div
         id="directions"
-        className="h-[120rem] flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="py-32 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden"
       >
         <DownMotionComponent component={motion.h1} className="text-6xl font-medium">
           오시는 길
