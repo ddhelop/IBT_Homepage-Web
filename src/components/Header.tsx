@@ -82,7 +82,7 @@ export const Header = () => {
                         비전
                       </li>
                     </Link>
-                    <Link href={'/companyInfo'}>
+                    <Link href={'/companyInfo#history'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -90,7 +90,7 @@ export const Header = () => {
                         연혁
                       </li>
                     </Link>
-                    <Link href={'/companyInfo'}>
+                    <Link href={'/companyInfo#collaborate'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -98,7 +98,7 @@ export const Header = () => {
                         협력/제휴사
                       </li>
                     </Link>
-                    <Link href={'/companyInfo'}>
+                    <Link href={'/companyInfo#technical'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -106,7 +106,7 @@ export const Header = () => {
                         기술인증
                       </li>
                     </Link>
-                    <Link href={'/companyInfo'}>
+                    <Link href={'/companyInfo#directions'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
