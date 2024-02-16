@@ -23,6 +23,7 @@ export default function DirectionsComponent() {
           <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
             광주본사
           </RightMotionComponent>
+
           <div className="flex flex-col lg:flex-row items-center">
             <RightMotionComponent component={motion.div}>
               <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
@@ -70,13 +71,14 @@ export default function DirectionsComponent() {
         {/* 서울지점 */}
         <div className="mt-32 flex flex-col p-5">
           <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
-            <h2 className="text-3xl font-medium mb-8">서울지점</h2>
+            서울지점
           </RightMotionComponent>
 
           <div className="flex flex-col lg:flex-row items-center">
-            <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
+            <RightMotionComponent component={motion.div}>
               <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
             </RightMotionComponent>
+
             <LeftMotionComponent
               component={motion.div}
               className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm "

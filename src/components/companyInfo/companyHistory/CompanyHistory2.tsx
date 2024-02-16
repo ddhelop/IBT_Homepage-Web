@@ -98,7 +98,7 @@ export default function CompanyHistory2() {
               </p>
             </LeftMotionComponent>
           </div>
-          <div className="hidden lg:flex absolute left-[5%]">
+          <div className="hidden lg:flex absolute left-[10%]">
             <RightMotionComponent component={motion.div}>
               <p className="text-[#2B6434] font-bold tracking-[1.059px] text-3xl leading-[3.3rem]">
                 국산화의 선두주자,
