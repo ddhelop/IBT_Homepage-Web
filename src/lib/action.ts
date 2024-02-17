@@ -14,6 +14,7 @@ export const compare = async (username: string, password: string) => {
     return false
   }
 }
+
 export const handlePostListEdit = async (prevState: any, formData: FormData) => {
   connectToDb()
   const { _postOrder } = Object.fromEntries(formData)
@@ -66,4 +67,12 @@ export const sendEmail = async (formData: FormData) => {
       error: e,
     }
   }
+}
+
+export const createESGPDF = () => {
+  connectToDb()
+}
+
+export const createBatteryPage = () => {
+  connectToDb()
 }

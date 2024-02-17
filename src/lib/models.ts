@@ -67,6 +67,26 @@ const orderSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  // ESGPDFOrder: {
+  //   type: Array,
+  //   default: [],
+  // },
+  // defensePageOrder: {
+  //   type: Array,
+  //   default: [],
+  // },
+  // industryPageOrder: {
+  //   type: Array,
+  //   default: [],
+  // },
+  // powerPageOrder: {
+  //   type: Array,
+  //   default: [],
+  // },
+  // energySavePageOrder: {
+  //   type: Array,
+  //   default: [],
+  // },
 })
 export const Order = mongoose.models?.Order || mongoose.model('Order', orderSchema)
 export const Counter = mongoose.models?.Counter || mongoose.model('Counter', counterSchema)
