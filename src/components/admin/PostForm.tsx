@@ -1,4 +1,5 @@
 'use client'
+import { createPost } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
@@ -36,7 +37,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
         return false
       }
 
-      if (postType == 'catelogs') {
+      if (postType == 'catelog') {
         if (!pdf) {
           setError('PDF파일을 추가하지 않았습니다.')
           return false
@@ -53,16 +54,18 @@ const PostForm = ({ postType }: PostTypeProps) => {
         setError('내용을 작성하지 않았습니다.')
         return false
       }
-
+      formData.append('postType', postType)
       formData.append('title', title)
       formData.append('description', description)
-      formData.append('image', image)
-      const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
-      postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
-      if (!res.ok) {
-        setError(await res.text())
-        throw new Error(await res.text())
+      formData.append('img', image)
+
+      /////////const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
+      const { success, message } = await createPost(formData)
+      // postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
+      if (!success) {
+        setError(message)
       }
+      console.log(message)
     } catch (e: any) {
       console.log(e)
     } finally {

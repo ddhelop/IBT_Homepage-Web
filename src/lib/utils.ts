@@ -41,11 +41,11 @@ export const getId = async (type: string) => {
     let up = counter.postIdCounter + 1
     await Counter.updateOne({ id: 0 }, { postIdCounter: up })
     return up
-  } else if (type == 'catelogs') {
+  } else if (type == 'catelog') {
     let up = counter.catelogIdCounter + 1
     await Counter.updateOne({ id: 0 }, { catelogIdCounter: up })
     return up
-  } else if (type == 'ESGPdf') {
+  } else if (type == 'esg-pdf') {
     let up = counter.esgPdfIdCounter + 1
     await Counter.updateOne({ id: 0 }, { esgPdfIdCounter: up })
     return up

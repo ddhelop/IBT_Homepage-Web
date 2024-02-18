@@ -18,43 +18,108 @@ export const compare = async (username: string, password: string) => {
     return false
   }
 }
-export const postESGPdf = async (formData: FormData) => {
-  const title: string = formData.get('title') as unknown as string
-  const pdf: File = formData.get('pdf') as unknown as File
+export const createPost = async (formData: FormData) => {
+  const postType: string = formData.get('postType') as unknown as string
+  const title: string | null = formData.get('title') as unknown as string
+  const desc: string | null = formData.get('description') as unknown as string
+  const img: File = formData.get('img') as unknown as File //이미지 데이터
+  const pdf: File | null = formData.get('pdf') as unknown as File | null //이미지 데이터
+
   try {
+    const keyString = Math.random().toString(36).substring(0, 12)
     //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
-    const pdfParams = {
-      name: 'esg/' + Math.random().toString(36).substring(0, 8) + pdf.name,
-      type: pdf.type,
+    let signedUrl_pdf, signedUrl_img
+    switch (postType) {
+      case 'news':
+        if (!img) return { success: false, message: '이미지 파일을 찾을 수 없습니다.(News)' }
+        signedUrl_img = await getSignedFileUrl({ name: 'news/' + keyString, type: img.type })
+        //prettier-ignore
+        const uploadImg_news = await fetch(signedUrl_img, {method: 'PUT',body: img,headers: {'Content-type': img.type}})
+        if (uploadImg_news.status != 200) return { success: false, message: 'uploadImg failed (News)' }
+        break
+      case 'catelog':
+        if (!img) return { success: false, message: '이미지 파일을 찾을 수 없습니다.(Catelog)' }
+        if (!pdf) return { success: false, message: 'PDF파일을 찾을 수 없습니다.(Catelog)' }
+        signedUrl_img = await getSignedFileUrl({ name: 'catelog/' + keyString + '/img', type: img.type })
+        signedUrl_pdf = await getSignedFileUrl({ name: 'catelog/' + keyString + '/pdf', type: pdf.type })
+        const [uploadImg_catelog, uploadPDF_catelog] = await Promise.all([
+          fetch(signedUrl_img, { method: 'PUT', body: img, headers: { 'Content-type': img.type } }),
+          //prettier-ignore
+          fetch(signedUrl_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
+        ])
+        if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200)
+          return { success: false, message: 'uploadPDF or uploadImg failed (Catelog)' }
+        break
+      case 'esg-pdf':
+        if (!pdf) return { success: false, message: 'PDF파일을 찾을 수 없습니다.(ESG)' }
+        signedUrl_pdf = await getSignedFileUrl({ name: 'esg/' + keyString, type: pdf.type })
+        //prettier-ignore
+        const uploadPdf_esg= await fetch(signedUrl_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type,'Content-Disposition': 'inline' }})
+        if (uploadPdf_esg.status != 200) return { success: false, message: 'uploadPDF failed' }
     }
-    const signedPDFUrl = await getSignedFileUrl(pdfParams)
-    const uploadPDF = await fetch(signedPDFUrl, {
-      method: 'PUT',
-      body: pdf,
-      headers: {
-        'Content-type': pdf.type,
-        'Content-Disposition': 'inline',
-      },
-    })
-    if (uploadPDF.status != 200) return { success: false, message: 'uploadPDF failed' }
 
     //MongoDB에 연결
     connectToDb()
+    let newId, newOrder
+    const order = await Order.findOne({ id: 0 })
+
     //1. counter모델에서의 esgPdfIdCounter를 MongoDB로부터 불러와 기존값 +1를 newId 변수에 저장
     //2. order모델에서의 ESGPDFOrder를 newOrder에 저장한 후, 방금 생성한 newId를 newOrder 배열에 저장
-    const [newId, order] = await Promise.all([getId('ESGPdf'), Order.findOne({ id: 0 })])
-    let newOrder = order.ESGPDFOrder
-    newOrder.push(newId) //order 배열 끝에 방금 생성한 id값 push
-    const newESGPdf = new ESGPdf({
-      title,
-      pdf: signedPDFUrl?.split('?')[0],
-      id: newId,
-    })
+    switch (postType) {
+      case 'news':
+        newId = await getId('news')
+        newOrder = order.postOrder
+        break
+      case 'catelog':
+        newId = await getId('catelog')
+        newOrder = order.catelogOrder
+        break
+      case 'esg-pdf':
+        newId = await getId('esg-pdf')
+        newOrder = order.ESGPDFOrder
+    }
+
+    //order 배열 끝에 방금 생성한 id값 push
+    newOrder.push(newId)
+
     //3. 방금 추가한 객체가 반영된 최신 order 배열을 ESGPDFOrder 필드에 덮어쓰기하여 추후 배열순서 변경에 참고할 수 있도록 저장
     //4. pre-signed URL과 기존에 입력한 Title 두 정보를 활용해 MongoDB에 저장
-    await Promise.all([newESGPdf.save(), Order.updateOne({ id: 0 }, { ESGPDFOrder: newOrder })])
-    console.log('ESGPdf saved to db\nESGPdf Order:', newOrder)
-    return { success: true, message: 'uploadESGPDF success' }
+    switch (postType) {
+      case 'news':
+        if (!signedUrl_img) {
+          return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
+        }
+        const newPost = new Post({ title, img: signedUrl_img.split('?')[0], desc, id: newId })
+        await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
+        break
+      case 'catelog':
+        if (!signedUrl_pdf || !signedUrl_img) {
+          return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
+        }
+        const newCatelog = new Catelog({
+          title,
+          img: signedUrl_img.split('?')[0],
+          pdf: signedUrl_pdf?.split('?')[0],
+          desc,
+          id: newId,
+        })
+        await Promise.all([newCatelog.save(), Order.updateOne({ id: 0 }, { catelogOrder: newOrder })])
+      case 'esg-pdf':
+        if (!signedUrl_pdf) {
+          return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
+        }
+        const newESGPdf = new ESGPdf({
+          title,
+          pdf: signedUrl_pdf?.split('?')[0],
+          id: newId,
+        })
+        await Promise.all([newESGPdf.save(), Order.updateOne({ id: 0 }, { ESGPDFOrder: newOrder })])
+    }
+    console.log(postType, 'Post saved to db\nNew Order:', newOrder)
+
+    revalidatePath('/admin')
+    revalidatePath('/api/admin')
+    return { success: true, message: 'createPost success' }
   } catch (error) {
     return { success: false, message: getErrorMessage(error) }
   }
@@ -175,12 +240,4 @@ export const sendEmail = async (formData: FormData) => {
   return {
     data,
   }
-}
-
-export const createESGPDF = () => {
-  connectToDb()
-}
-
-export const createBatteryPage = () => {
-  connectToDb()
 }
