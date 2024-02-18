@@ -3,6 +3,7 @@ import { createPost } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
+import SubmitButton from './SubmitButton'
 
 type PostTypeProps = {
   postType: string
@@ -61,7 +62,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
 
       /////////const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
       const { success, message } = await createPost(formData)
-      // postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
+      postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
       if (!success) {
         setError(message)
       }
@@ -92,7 +93,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
           className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4"
           onChange={showImage}
         />
-        {postType == 'catelogs' && (
+        {postType == 'catelog' && (
           <>
             <h2 className="block text-gray-700 font-bold mb-2">PDF:</h2>
             <input
@@ -116,7 +117,18 @@ const PostForm = ({ postType }: PostTypeProps) => {
           className={`p-4 w-32 rounded-lg transition
         bg-[#04BF7B] text-white font-bold`}
         >
-          {isLoading ? '저장중...' : `작성하기`}
+          {isLoading ? (
+            <div
+              className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              role="status"
+            >
+              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                Loading...
+              </span>
+            </div>
+          ) : (
+            `추가하기`
+          )}
         </button>
       </form>
     </div>

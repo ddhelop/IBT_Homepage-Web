@@ -151,7 +151,7 @@ export const handleListEdit = async (prevState: any, formData: FormData) => {
       let key_img, key_pdf
       switch (postType) {
         case 'news':
-          key_img = datas[0][0].img.replace(S3BucketUrl, '')
+          key_img = datas[0][0].img.replace(S3BucketUrl + '/', '')
           await Promise.all([Post.deleteMany({}), deleteS3Object(key_img)])
           break
         case 'catelog':
@@ -161,7 +161,7 @@ export const handleListEdit = async (prevState: any, formData: FormData) => {
           await Promise.all([Catelog.deleteMany({}), deleteS3Object(key_img), deleteS3Object(key_pdf)])
           break
         case 'esg-pdf':
-          key_pdf = datas[0][0].pdf.replace(S3BucketUrl, '')
+          key_pdf = datas[0][0].pdf.replace(S3BucketUrl + '/', '')
           await Promise.all([ESGPdf.deleteMany({}), deleteS3Object(key_pdf)])
       }
     }

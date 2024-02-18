@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { CatelogProps, NewsProps } from '@/lib/types'
 import { FaPlus } from 'react-icons/fa6'
 
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
@@ -12,6 +11,7 @@ import { handleListEdit } from '@/lib/action'
 import { useFormState } from 'react-dom'
 import Link from 'next/link'
 import { postData_admin } from '@/lib/data'
+import SubmitButton from './SubmitButton'
 
 const reorderPosts = (posts: any, startIndex: number, endIndex: number) => {
   const newPostList = Array.from(posts)
@@ -52,32 +52,40 @@ const PostEditList = ({ datas, postTypeID }: any) => {
           <StrictModeDroppable droppableId="droppable">
             {(droppableProvided) => (
               <div {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
-                {posts?.map((post: any, id: number) => (
-                  <Draggable key={post?.id} draggableId={post?.id.toString()} index={id}>
-                    {(draggableProvided) => (
-                      <div
-                        ref={draggableProvided.innerRef}
-                        {...draggableProvided.draggableProps}
-                        {...draggableProvided.dragHandleProps}
-                        className="flex px-4 h-12 items-center bg-white border-t"
-                      >
-                        <h1 className="truncate font-bold text-md basis-1/4">{post.title}</h1>
+                {datas.length ? (
+                  posts?.map((post: any, id: number) => (
+                    <Draggable key={post?.id} draggableId={post?.id.toString()} index={id}>
+                      {(draggableProvided) => (
+                        <div
+                          ref={draggableProvided.innerRef}
+                          {...draggableProvided.draggableProps}
+                          {...draggableProvided.dragHandleProps}
+                          className="flex px-4 h-12 items-center bg-white border-t"
+                        >
+                          <h1 className="truncate font-bold text-md basis-1/4">{post.title}</h1>
 
-                        <div className="relative w-8 h-8">
-                          {postTypeID !== 2 && <Image alt="img" className="object-cover" src={post.img} fill />}
+                          <div className="relative w-8 h-8">
+                            {postTypeID !== 2 && <Image alt="img" className="object-cover" src={post.img} fill />}
+                          </div>
+
+                          <h3 className="text-gray-700 font-medium ml-4 basis-1/4">
+                            {post.createdAt.substring(0, 10)}
+                          </h3>
+
+                          <h3 className="ml-4 basis-1/2 font-light w-48 truncate">{post.desc}</h3>
+
+                          <button onClick={() => handleDelete(post?.id)}>
+                            <IoIosClose size={32} color="#747474" />
+                          </button>
                         </div>
-
-                        <h3 className="text-gray-700 font-medium ml-4 basis-1/4">{post.createdAt.substring(0, 10)}</h3>
-
-                        <h3 className="ml-4 basis-1/2 font-light w-48 truncate">{post.desc}</h3>
-
-                        <button onClick={() => handleDelete(post?.id)}>
-                          <IoIosClose size={32} color="#747474" />
-                        </button>
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
+                      )}
+                    </Draggable>
+                  ))
+                ) : (
+                  <div className="w-full h-40 flex items-center justify-center">
+                    <h1 className="text-gray-300">게시글이 존재하지 않습니다.</h1>
+                  </div>
+                )}
                 {droppableProvided.placeholder}
               </div>
             )}
@@ -88,13 +96,7 @@ const PostEditList = ({ datas, postTypeID }: any) => {
         <form action={formAction}>
           <input type="hidden" name="postType" value={postData_admin[postTypeID].postType} />
           <input type="hidden" name="modifiedOrder" value={JSON.stringify(posts.map((item: any) => item.id))} />
-          <button
-            className={`p-4 w-32 rounded-lg transition
-        ${temp === posts ? 'bg-gray-200 shadow-none text-gray-400' : 'bg-[#04BF7B] text-white shadow-lg'}`}
-            disabled={temp == posts}
-          >
-            글 수정하기
-          </button>
+          <SubmitButton isActive={temp === posts} />
         </form>
       </div>
       <h3 className="mx-8 my-2 text-green-800">{state?.message}</h3>

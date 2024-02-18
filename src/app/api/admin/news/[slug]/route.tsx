@@ -7,7 +7,6 @@ export const GET = async (request: NextRequest, { params }: any) => {
   console.log(slug)
   try {
     connectToDb()
-
     const post = await Post.findOne({ id: slug })
     return NextResponse.json(post)
   } catch (err) {
@@ -15,17 +14,3 @@ export const GET = async (request: NextRequest, { params }: any) => {
     throw new Error('Failed to fetch post!')
   }
 }
-
-// export const DELETE = async (request, { params }) => {
-//   const { slug } = params;
-
-//   try {
-//     connectToDb();
-
-//     await Post.deleteOne({ slug });
-//     return NextResponse.json("Post deleted");
-//   } catch (err) {
-//     console.log(err);
-//     throw new Error("Failed to delete post!");
-//   }
-// };
