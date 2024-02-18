@@ -19,7 +19,7 @@ const NewsPage = async () => {
 
   return (
     <div className="flex flex-col bg-white px-16">
-      <h1 className="text-[#79AD4B] text-6xl text-center my-8">IBT News</h1>
+      <h1 className="text-[#79AD4B] text-6xl text-center">IBT News</h1>
       <div className="w-full flex justify-start mt-2">
         <h3>전체</h3>
         <h3 className="w-8 text-center text-[#FFB400]">{posts.length}</h3>
@@ -27,8 +27,8 @@ const NewsPage = async () => {
       </div>
       <div className="flex flex-wrap gap-8 mt-8">
         {posts.map((post: NewsProps) => (
-          <Link prefetch key={post.postId.toString()} href={`/customer/news/${post.postId}`}>
-            <NewsCard key={post.postId.toString()} {...post} />
+          <Link prefetch key={post.id.toString()} href={`/customer/news/${post.id}`}>
+            <NewsCard key={post.id.toString()} {...post} />
           </Link>
         ))}
       </div>

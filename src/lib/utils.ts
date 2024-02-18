@@ -1,8 +1,7 @@
 import mongoose from 'mongoose'
-import { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3'
+import { S3Client, PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3'
 // presigned url 이용하기 위해 불러옴
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
-import { ItemTypes } from './types'
 import { Counter } from './models'
 
 interface Connection {
@@ -35,16 +34,29 @@ export const reorderPosts = (posts: any, startIndex: number, endIndex: number) =
   newPostList.splice(endIndex, 0, removed)
   return newPostList as unknown as any
 }
-export const getId = async (type: ItemTypes) => {
+
+export const getId = async (type: string) => {
   const counter = await Counter.findOne({ id: 0 })
   if (type == 'news') {
     let up = counter.postIdCounter + 1
     await Counter.updateOne({ id: 0 }, { postIdCounter: up })
     return up
-  } else {
+  } else if (type == 'catelogs') {
     let up = counter.catelogIdCounter + 1
     await Counter.updateOne({ id: 0 }, { catelogIdCounter: up })
     return up
+  } else if (type == 'ESGPdf') {
+    let up = counter.esgPdfIdCounter + 1
+    await Counter.updateOne({ id: 0 }, { esgPdfIdCounter: up })
+    return up
+  } else if (!!Number(type)) {
+    //문자열이 숫자일경우
+    let tempArr = [...counter.batteryPageIdCounter]
+    tempArr[Number(type)]++
+    await Counter.updateOne({ id: 0 }, { batteryPageIdCounter: tempArr })
+    return tempArr[Number(type)]
+  } else {
+    console.log('getId Failed', type)
   }
   //await를 하지 않아서, Counter 모델의 데이터가 변경되는 것을 기다리지 않고, 바로 값을 리턴했기 때문이다. async-await의 개념을 더 확실히 하자!
 }
@@ -64,7 +76,7 @@ const s3 = new S3Client({
   region: awsS3BucketRegion as string,
 })
 // file signedUrl 가져오기
-export async function getSignedFileUrl(data: any) {
+export async function getSignedFileUrl(data: { name: string; type: string }) {
   const params = {
     Bucket: awsS3Bucket,
     Key: data.name,
@@ -74,6 +86,18 @@ export async function getSignedFileUrl(data: any) {
     expiresIn: 360,
   })
   return url
+}
+export async function deleteS3Object(key: string) {
+  const command = new DeleteObjectCommand({
+    Bucket: awsS3Bucket,
+    Key: key,
+  })
+  try {
+    const response = await s3.send(command)
+    console.log('S3객체 삭제:', response)
+  } catch (error) {
+    console.log('S3객체 삭제 실패:', error)
+  }
 }
 
 export const validateString = (value: unknown, maxLength: number): value is string => {

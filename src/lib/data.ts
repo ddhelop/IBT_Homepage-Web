@@ -1,61 +1,54 @@
-export const links_coInfo = [
-  {
-    name: 'Vision',
-    hash: '#vision',
-  },
-  {
-    name: 'History',
-    hash: '#history',
-  },
-  {
-    name: 'Coop',
-    hash: '#coop',
-  },
-  {
-    name: 'TechAuth',
-    hash: '#techauth',
-  },
-  {
-    name: 'Location',
-    hash: '#location',
-  },
-] as const
+import React from 'react'
+import { GrCatalogOption } from 'react-icons/gr'
+import { RiNewspaperFill } from 'react-icons/ri'
+import { FaFilePdf, FaPager } from 'react-icons/fa6'
 
-export const links_battery = [
+export const links_admin = [
   {
-    name: 'Ni-cd',
-    hash: '#ni-cd',
-  },
-  {
-    name: '방산',
-    hash: '#defense',
-  },
-  {
-    name: 'Industry',
-    hash: '#industry',
-  },
-  {
-    name: 'Lithium',
-    hash: '#lithium',
-  },
-  {
-    name: '동력',
-    hash: '#power',
-  },
-  {
-    name: '에너지저장',
-    hash: '#energy-save',
+    name: '뉴스',
+    icon: React.createElement(RiNewspaperFill),
+    path: '/admin',
   },
   {
     name: '카탈로그',
-    hash: '#catelog',
+    icon: React.createElement(GrCatalogOption),
+    path: '/admin/catelogs',
   },
   {
-    name: 'Contact Us',
-    hash: '#contact-us',
+    name: '배터리페이지 관리',
+    icon: React.createElement(FaPager),
+    path: '/admin/batteries',
+  },
+  {
+    name: '지우장학회 PDF',
+    icon: React.createElement(FaFilePdf),
+    path: '/admin/esg-pdf',
   },
 ] as const
-
+export const S3BucketUrl = 'https://ibt-bucket.s3.ap-northeast-2.amazonaws.com'
+export const postData_admin = [
+  {
+    id: 0,
+    postType: 'news',
+    title: '뉴스 게시글',
+    name: '뉴스',
+    href: '/admin/add',
+  },
+  {
+    id: 1,
+    postType: 'catelog',
+    title: '카탈로그 글',
+    name: '카탈로그',
+    href: '/admin/catelogs/add',
+  },
+  {
+    id: 2,
+    postType: 'esg-pdf',
+    title: '지우장학회 활용실적명세',
+    name: 'PDF',
+    href: '/admin/esg-pdf/add',
+  },
+]
 // intro_data
 export const contents = [
   {

@@ -52,7 +52,7 @@ export const POST = async (request: NextRequest) => {
       const [newId, order] = await Promise.all([getId('news'), Order.findOne({ id: 0 })])
       let newOrder = order.postOrder
       newOrder.push(newId) //order 배열 끝에 방금 생성한 id값 push
-      const newPost = new Post({ title, img: signedImgUrl.split('?')[0], desc, postId: newId })
+      const newPost = new Post({ title, img: signedImgUrl.split('?')[0], desc, id: newId })
 
       await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
 
@@ -67,7 +67,7 @@ export const POST = async (request: NextRequest) => {
         img: signedImgUrl.split('?')[0],
         pdf: signedPDFUrl?.split('?')[0],
         desc,
-        postId: newId,
+        id: newId,
       })
       await Promise.all([newCatelog.save(), Order.updateOne({ id: 0 }, { catelogOrder: newOrder })])
       console.log('Catalog saved to db\nCatelogOrder:', newOrder)
@@ -76,6 +76,7 @@ export const POST = async (request: NextRequest) => {
     // revalidatePath('/api/admin')
     return NextResponse.json({ success: true })
   } catch (e) {
+    console.log(e)
     return NextResponse.json({ success: false, message: e })
   }
 }

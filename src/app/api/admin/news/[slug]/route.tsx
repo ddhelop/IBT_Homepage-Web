@@ -8,7 +8,7 @@ export const GET = async (request: NextRequest, { params }: any) => {
   try {
     connectToDb()
 
-    const post = await Post.findOne({ postId: slug })
+    const post = await Post.findOne({ id: slug })
     return NextResponse.json(post)
   } catch (err) {
     console.log(err)

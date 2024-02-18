@@ -1,12 +1,10 @@
 'use client'
-
-import { ItemTypes } from '@/lib/types'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
 type PostTypeProps = {
-  postType: ItemTypes
+  postType: string
 }
 const PostForm = ({ postType }: PostTypeProps) => {
   const [error, setError] = useState<string | null>(null)
@@ -60,7 +58,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
       formData.append('description', description)
       formData.append('image', image)
       const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
-      router.push(`/admin/${postType}`)
+      postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
       if (!res.ok) {
         setError(await res.text())
         throw new Error(await res.text())

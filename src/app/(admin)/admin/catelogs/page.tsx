@@ -15,7 +15,7 @@ const AdminPage = async () => {
 
   return (
     <div className="flex flex-col flex-1 h-screen bg-gray-100">
-      <PostEditList datas={posts} postType="catelogs" />
+      <PostEditList datas={posts} postTypeID={1} />
     </div>
   )
 }

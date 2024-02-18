@@ -12,7 +12,7 @@ const BatteryOthersPage = () => {
     <>
       {/* 오른쪽 플로팅 버튼 */}
       <FloatingButton />
-      <div className="text-center lg:pt-28">
+      <div className="text-center">
         <div className="text-6xl font-bold mb-32 text-primary-green">기타</div>
       </div>
       {/* 이미지-설명 박스 */}

@@ -7,7 +7,7 @@ export const GET = async (request: NextRequest) => {
   try {
     connectToDb()
     const [catelogs, order] = await Promise.all([Catelog.find().exec(), Order.findOne({ id: 0 })])
-    let sortedCatelogs = order.catelogOrder.map((item: number) => catelogs[catelogs.findIndex((e) => e.postId == item)])
+    let sortedCatelogs = order.catelogOrder.map((item: number) => catelogs[catelogs.findIndex((e) => e.id == item)])
     return NextResponse.json(sortedCatelogs)
   } catch (err) {
     console.log(err)

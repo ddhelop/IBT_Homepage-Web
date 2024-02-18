@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useSectionInView } from '@/lib/hooks'
 import { motion } from 'framer-motion'
 import { batteryList } from '@/lib/data'
 
@@ -22,7 +21,7 @@ export default function BatteryDetail({ title, explain }: Props) {
         }}
       >
         {/* 배터리 중분류 title */}
-        <div className="text-center lg:pt-28 pt-32">
+        <div className="text-center ">
           <div className="text-6xl font-bold text-primary-green">{title}</div>
         </div>
         {/* 배터리 설명 */}

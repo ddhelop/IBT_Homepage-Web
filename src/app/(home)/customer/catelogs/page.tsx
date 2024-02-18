@@ -20,7 +20,7 @@ const CatelogPage = async () => {
       <h1 className="text-[#79AD4B] text-6xl text-center my-8">CATALOG</h1>
       <div className="flex flex-wrap gap-8 mt-8">
         {catelogs.map((catelog: CatelogProps) => (
-          <CatelogCard key={catelog.postId.toString()} {...catelog} />
+          <CatelogCard key={catelog.id.toString()} {...catelog} />
         ))}
       </div>
     </div>
