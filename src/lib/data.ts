@@ -958,3 +958,4 @@ export const ModelInfo = [
     },
   ],
 ]
+export const companyEmail = 'sales2@ibteng.co.kr'

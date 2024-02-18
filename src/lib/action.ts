@@ -1,8 +1,11 @@
 'use server'
 
+import { Resend } from 'resend'
 import { revalidatePath } from 'next/cache'
 import { Catelog, Order, Post } from './models'
-import { connectToDb } from './utils'
+import { connectToDb, getErrorMessage, validateString } from './utils'
+import React from 'react'
+import ContactFormEmail from '@/components/customer/contact-us/ContactForm'
 
 export const compare = async (username: string, password: string) => {
   if (
@@ -56,16 +59,51 @@ export const handleCatelogListEdit = async (prevState: any, formData: FormData) 
     return { success: false, message: '뉴스글 수정간 오류 발생' }
   }
 }
+const resend = new Resend(process.env.RESEND)
 
 export const sendEmail = async (formData: FormData) => {
   const { category, name, email, number0, number1, number2, title, desc } = Object.fromEntries(formData)
   console.log(category, name, email, number0, number1, number2, title, desc)
-  try {
-    return { error: false }
-  } catch (e) {
+
+  // simple server-side validation
+  if (!validateString(email, 500)) {
     return {
-      error: e,
+      error: 'Invalid sender email',
     }
+  }
+  if (!validateString(title, 200)) {
+    return {
+      error: 'Invalid title',
+    }
+  }
+  if (!validateString(desc, 5000)) {
+    return {
+      error: 'Invalid message',
+    }
+  }
+
+  let data
+  try {
+    data = await resend.emails.send({
+      from: '(주)아이비티 <onboarding@resend.dev>',
+      to: 'neoself1105@gmail.com',
+      subject: `${category}에 대한 견적문의: ${title}`,
+      reply_to: email,
+      react: React.createElement(ContactFormEmail, {
+        message: desc,
+        senderEmail: email,
+        title,
+        phone: [number0 as string, number1 as string, number2 as string],
+      }),
+    })
+  } catch (error: unknown) {
+    return {
+      error: getErrorMessage(error),
+    }
+  }
+
+  return {
+    data,
   }
 }
 
