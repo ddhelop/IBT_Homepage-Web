@@ -68,17 +68,17 @@ export const sendEmail = async (formData: FormData) => {
   // simple server-side validation
   if (!validateString(email, 500)) {
     return {
-      error: 'Invalid sender email',
+      error: '이메일 정보가 정확하지 않습니다',
     }
   }
   if (!validateString(title, 200)) {
     return {
-      error: 'Invalid title',
+      error: '제목 정보가 정확하지 않습니다',
     }
   }
   if (!validateString(desc, 5000)) {
     return {
-      error: 'Invalid message',
+      error: '내용 정보가 정확하지 않습니다',
     }
   }
 

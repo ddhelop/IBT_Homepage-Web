@@ -8,8 +8,10 @@ export default function ContactUs() {
   // 상태를 사용하여 입력된 텍스트의 길이를 추적합니다.
   const ref = useRef<HTMLFormElement>(null)
   const [desc, setDesc] = useState('')
+  const [error, setError] = useState<string>('')
   const onClearText = () => {
-    // 사용자에게 경고창을 띄우고, "예"를 선택한 경우에만 텍스트를 지웁니다.
+    const isConfirmed = window.confirm('모든 입력 내용을 지우시겠습니까?')
+    if (isConfirmed) ref.current?.reset()
   }
   const products = ['제품문의', '견적문의', 'asdf', 'asdf', 'asdf', 'asdf']
   return (
@@ -30,7 +32,7 @@ export default function ContactUs() {
             ref.current?.reset()
             const { data, error } = await sendEmail(formData)
             if (error) {
-              console.log(error)
+              setError(error)
             }
           }}
           className="w-[min(92%,72rem)] flex flex-col pt-20"
@@ -62,6 +64,7 @@ export default function ContactUs() {
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
+                required
                 type="text"
                 name="name"
                 className="w-full h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
@@ -75,6 +78,7 @@ export default function ContactUs() {
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
+                required
                 type="email"
                 name="email"
                 className="w-full h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
@@ -88,19 +92,22 @@ export default function ContactUs() {
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
-                type="number"
+                required
+                type="tel"
                 name="number0"
                 className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
               />
               <p className="px-1">-</p>
               <input
-                type="number"
+                required
+                type="tel"
                 name="number1"
                 className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
               />
               <p className="px-1">-</p>
               <input
-                type="number"
+                required
+                type="tel"
                 name="number2"
                 className="w-16 h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
               />
@@ -113,6 +120,7 @@ export default function ContactUs() {
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
+                required
                 type="text"
                 name="title"
                 className="w-full h-8 border-[1.5px] border-[#cdcdcd] rounded bg-[#fafafa] text-sm px-2"
@@ -126,6 +134,7 @@ export default function ContactUs() {
             </div>
             <div className="w-[80%] h-60 flex items-center px-5">
               <textarea
+                required
                 name="desc"
                 onChange={(e) => setDesc(e.target.value)}
                 maxLength={500}
@@ -138,12 +147,14 @@ export default function ContactUs() {
           </div>
 
           {/* 버튼 */}
-          {/* <div className="flex flex-row items-center py-10 space-x-2"> */}
-          <Button />
+          <h1 className="text-red-700">{error}</h1>
+          <div className="flex flex-row justify-center mt-10 space-x-2">
+            <Button />
+            <button type="button" onClick={onClearText} className="w-32 h-8 border border-black rounded">
+              지우기
+            </button>
+          </div>
         </form>
-        <button onClick={onClearText} className="w-32 h-8 border border-black rounded">
-          지우기
-        </button>
       </div>
     </div>
   )
