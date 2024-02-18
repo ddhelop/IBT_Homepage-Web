@@ -16,9 +16,10 @@ export const POST = async (request: NextRequest) => {
   let signedImgUrl = null
   try {
     if (pdf) {
+      const keyString = Math.random().toString(36).substring(0, 12)
       const pdfParams = {
-        name: 'client/' + Math.random().toString(36).substring(0, 8) + image.name,
-        type: image.type,
+        name: 'catelog/' + keyString + '/pdf',
+        type: pdf.type,
       }
       signedPDFUrl = await getSignedFileUrl(pdfParams)
       const uploadPDF = await fetch(signedPDFUrl, {
@@ -30,21 +31,35 @@ export const POST = async (request: NextRequest) => {
         },
       })
       if (uploadPDF.status != 200) return NextResponse.json({ success: false, message: 'uploadPDF failed' })
+      const imgParams = {
+        name: 'catelog/' + keyString + '/img',
+        type: image.type,
+      }
+      signedImgUrl = await getSignedFileUrl(imgParams)
+      const uploadImg = await fetch(signedImgUrl, {
+        method: 'PUT',
+        body: image,
+        headers: {
+          'Content-type': image.type,
+        },
+      })
+      if (uploadImg.status != 200) return NextResponse.json({ success: false, message: 'uploadImage failed' })
+    } else {
+      const keyString = Math.random().toString(36).substring(0, 12)
+      const imgParams = {
+        name: 'news/' + keyString + '/img',
+        type: image.type,
+      }
+      signedImgUrl = await getSignedFileUrl(imgParams)
+      const uploadImg = await fetch(signedImgUrl, {
+        method: 'PUT',
+        body: image,
+        headers: {
+          'Content-type': image.type,
+        },
+      })
+      if (uploadImg.status != 200) return NextResponse.json({ success: false, message: 'uploadImage failed' })
     }
-
-    const imgParams = {
-      name: 'client/' + Math.random().toString(36).substring(0, 8) + image.name,
-      type: image.type,
-    }
-    signedImgUrl = await getSignedFileUrl(imgParams)
-    const uploadImg = await fetch(signedImgUrl, {
-      method: 'PUT',
-      body: image,
-      headers: {
-        'Content-type': image.type,
-      },
-    })
-    if (uploadImg.status != 200) return NextResponse.json({ success: false, message: 'uploadImage failed' })
 
     connectToDb()
     if (!pdf) {

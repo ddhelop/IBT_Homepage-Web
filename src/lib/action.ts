@@ -84,28 +84,15 @@ export const handleListEdit = async (prevState: any, formData: FormData) => {
     if (!newOrder.length) {
       console.log('전체 삭제 시작')
       let key_img, key_pdf
-      //datas=[
-      //   {
-      //     _id: new ObjectId('65d25a6bf5ccccd09d62dc41'),
-      //     title: 'afaf',
-      //     img: 'https://ibt-bucket.s3.ap-northeast-2.amazonaws.com/client/0.zncst8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-02-13%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.15.07.png',
-      //     pdf: 'https://ibt-bucket.s3.ap-northeast-2.amazonaws.com/client/0.os5xuc%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-02-13%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.15.07.png',
-      //     id: 11,
-      //     desc: 'fafa',
-      //     createdAt: 2024-02-18T19:28:43.868Z,
-      //     updatedAt: 2024-02-18T19:28:43.868Z,
-      //     __v: 0
-      //   }
-      // ]
       switch (postType) {
         case 'news':
           key_img = datas[0][0].img.replace(S3BucketUrl, '')
           await Promise.all([Post.deleteMany({}), deleteS3Object(key_img)])
           break
         case 'catelog':
-          console.log(datas[0])
-          key_img = datas[0][0].img.replace(S3BucketUrl, '')
-          key_pdf = datas[0][0].pdf.replace(S3BucketUrl, '')
+          key_img = datas[0][0].img.replace(S3BucketUrl + '/', '')
+          key_pdf = datas[0][0].pdf.replace(S3BucketUrl + '/', '')
+          console.log(key_img, key_pdf)
           await Promise.all([Catelog.deleteMany({}), deleteS3Object(key_img), deleteS3Object(key_pdf)])
           break
         case 'esg-pdf':
@@ -117,6 +104,8 @@ export const handleListEdit = async (prevState: any, formData: FormData) => {
       if (!datas[0].length) return { success: false, message: '순서정보와 다큐먼트 정보가 일치하지 않습니다' }
       datas[0].map(async (item: any) => {
         if (newOrder.indexOf(item.id) == -1) {
+          if (item.pdf) deleteS3Object(item.pdf.replace(S3BucketUrl + '/', ''))
+          if (item.img) deleteS3Object(item.img.replace(S3BucketUrl + '/', ''))
           console.log('배열들 중 일부가 삭제되어야함. 일부 삭제 시작')
           //만약 새로받은 Order 배열에서 id가 사라진 객체가 있으면, MongoDB 컬렉션에서도 동일하게 처리
           switch (postType) {
