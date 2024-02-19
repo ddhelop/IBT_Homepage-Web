@@ -22,8 +22,7 @@ type Props = {
 export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
   const [categoryIndex, setCategoryIndex] = useState(0) // 선택한 소분류 카테고리를 저장, 가장 왼쪽 0번이 default
   const categoryLength = detailInfo.length // detailInfo의 길이로 소분류 카테고리 개수 저장
-  // const categoryWidth = Math.round((1 / 5) * 100) // rem 단위
-
+  const categoryWidth = Math.round((1 / categoryLength) * 100) // % 단위
   return (
     <>
       <section className="w-full min-h-screen">
@@ -45,7 +44,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             {detailInfo.map((v, i) => {
               return (
                 // 소분류 카테고리 박스
-                // 넓이는 { 1 / 소분류 카테고리 개수 }로 계산
+                // 넓이는 {( 1 / 소분류 카테고리 개수 ) * 100}% 로 계산
                 // 클릭하면 categoryIndex 변경
                 <div
                   key={i}
@@ -53,7 +52,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                     categoryIndex == i
                       ? 'opacity-100 font-semibold bg-primary-green'
                       : 'opacity-40 font-semibold bg-category-back hover:bg-gray-700'
-                  } relative w-1/${categoryLength} h-20 text-white z-0`}
+                  } relative w-[${categoryWidth}%] h-20 text-white z-0`}
                   onClick={() => setCategoryIndex(i)}
                 >
                   <div className="absolute flex justify-center items-center z-10 h-full w-full text-3xl">{v.title}</div>
