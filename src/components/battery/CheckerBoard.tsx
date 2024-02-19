@@ -30,7 +30,7 @@ export default function CheckerBoard({
 }: Props) {
   return (
     <>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full gap-36">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -41,16 +41,16 @@ export default function CheckerBoard({
         >
           {/* 1-1 이미지 */}
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
-            <Image alt="" src={image1} fill />
+            <Image alt="" src={image1} fill className="object-contain" />
           </div>
           {/* 1-2 설명 */}
-          <div className="relative flex flex-col flex-shrink-0 justify-between lg:w-1/2 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
-            <div className="z-10">
+          <div className="relative flex flex-col flex-shrink-0 items-center justify-between lg:w-1/2 w-full lg:bg-white lg:text-black bg-black text-white px-9 py-8">
+            <div className="z-10 text-xl font-bold mt-20">
               <div>{title1}</div>
               <div>{explain1}</div>
             </div>
             {/* 반응형 -> 모바일 버전에서는 1-1 이미지가 배경으로 들어감 */}
-            <Image alt="" src={image1} fill className="lg:hidden z-0 opacity-40" />
+            <Image alt="" src={image1} fill className="lg:hidden z-0 opacity-40 object-contain" />
           </div>
         </motion.div>
         <motion.div
@@ -63,17 +63,17 @@ export default function CheckerBoard({
           className="inline-flex h-[30rem] lg:mx-40"
         >
           {/* 2-1 설명 */}
-          <div className="relative flex flex-col flex-shrink-0 justify-between lg:w-1/2 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
-            <div className="z-10">
+          <div className="relative flex flex-col flex-shrink-0 items-center justify-between lg:w-1/2 w-full lg:bg-white lg:text-black bg-black text-white px-9 py-8">
+            <div className="z-10 text-xl font-bold mt-20">
               <div>{title2}</div>
               <div>{explain2}</div>
             </div>
             {/* 반응형 -> 모바일 버전에서는 2-2 이미지가 배경으로 들어감 */}
-            <Image alt="" src={image2} fill className="lg:hidden z-0 opacity-40" />
+            <Image alt="" src={image2} fill className="lg:hidden z-0 opacity-40 object-contain" />
           </div>
           {/* 2-2 이미지 */}
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
-            <Image alt="" src={image2} fill />
+            <Image alt="" src={image2} fill className="object-contain" />
           </div>
         </motion.div>
         <motion.div
@@ -87,16 +87,16 @@ export default function CheckerBoard({
         >
           {/* 3-1 이미지 */}
           <div className="lg:relative lg:flex lg:w-1/2 lg:h-full lg:justify-center lg:items-center hidden">
-            <Image alt="" src={image3} fill />
+            <Image alt="" src={image3} fill className="object-contain" />
           </div>
           {/* 3-2 설명 */}
-          <div className="relative flex flex-col flex-shrink-0 justify-between lg:w-1/2 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">
-            <div className="z-10">
+          <div className="relative flex flex-col flex-shrink-0 items-center justify-between lg:w-1/2 w-full lg:bg-white lg:text-black bg-black text-white px-9 py-8">
+            <div className="z-10 text-xl font-bold mt-20">
               <div>{title3}</div>
               <div>{explain3}</div>
             </div>
             {/* 반응형 -> 모바일 버전에서는 3-1 이미지가 배경으로 들어감 */}
-            <Image alt="" src={image3} fill className="lg:hidden z-0 opacity-40" />
+            <Image alt="" src={image3} fill className="lg:hidden z-0 opacity-40 object-contain" />
           </div>
         </motion.div>
       </div>

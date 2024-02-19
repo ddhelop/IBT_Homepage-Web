@@ -689,7 +689,7 @@ export const powerList = [
   },
   {
     title: '골프카',
-    itemFile: '/image/340동력용Lithium/344.1_동력용 Lithium_제품(골프카 배터리).png',
+    itemFile: '/image/340동력용Lithium/344.1_동력용 Lithium_제품(골프카 배터리).jpg',
     itemTitle: '지게차용 리튬 배터리',
     itemSubTitle: '골프카에 강력한 출력과 BMS를 제공하는 운용 솔루션',
     itemAdvanced: [
@@ -701,7 +701,7 @@ export const powerList = [
   },
   {
     title: '청소차',
-    itemFile: '/image/340동력용Lithium/344.1_동력용 Lithium_제품(골프카 배터리).png',
+    itemFile: '/image/340동력용Lithium/344.1_동력용 Lithium_제품(골프카 배터리).jpg',
     itemTitle: '청소용 리튬 배터리',
     itemSubTitle: 'AM특장차에 강력한 출력을 제공하는 리튬인산철 배터리',
     itemAdvanced: [
