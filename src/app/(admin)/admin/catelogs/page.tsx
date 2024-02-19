@@ -15,6 +15,7 @@ const AdminPage = async () => {
 
   return (
     <div className="flex flex-col flex-1 h-screen bg-gray-100">
+      <h1 className="text-2xl font-bold mb-4 bg-white p-8">카탈로그 글</h1>
       <PostEditList datas={posts} postTypeID={1} />
     </div>
   )

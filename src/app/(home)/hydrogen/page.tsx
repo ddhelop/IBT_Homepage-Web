@@ -1,9 +1,6 @@
 import FloatingButton from '@/components/battery/Floating'
 import BatteryDetail from '@/components/battery/BatteryDetail'
-import BatteryItem from '@/components/battery/BatteryItem'
 import CheckerBoard from '@/components/battery/CheckerBoard'
-import { batteryList, industryList } from '@/lib/data'
-import Image from 'next/image'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

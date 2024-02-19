@@ -12,14 +12,7 @@ import { useFormState } from 'react-dom'
 import Link from 'next/link'
 import { postData_admin } from '@/lib/data'
 import SubmitButton from './SubmitButton'
-
-const reorderPosts = (posts: any, startIndex: number, endIndex: number) => {
-  const newPostList = Array.from(posts)
-
-  const [removed] = newPostList.splice(startIndex, 1)
-  newPostList.splice(endIndex, 0, removed)
-  return newPostList as unknown as any
-}
+import { reorderPosts } from '@/lib/utils'
 
 const PostEditList = ({ datas, postTypeID }: any) => {
   const [state, formAction] = useFormState(handleListEdit, undefined)
@@ -41,7 +34,6 @@ const PostEditList = ({ datas, postTypeID }: any) => {
   }, [state])
   return (
     <div className="flex flex-col">
-      <h1 className="text-2xl font-bold mb-4 bg-white p-8">{postData_admin[postTypeID].title}</h1>
       <div className="mx-8 pb-2 bg-white rounded-lg">
         <div className="flex p-4 font-medium text-gray-400">
           <h3 className="basis-1/4">{postData_admin[postTypeID].name} 제목</h3>
