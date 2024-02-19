@@ -34,9 +34,9 @@ export const Header = () => {
         >
           {/* 반응형 -> 모바일의 경우, 헤더에 로고와 햄버거바만 존재 */}
           {/* 로고 */}
-          <div className="inline-flex items-center p-2 ml-5 lg:hidden">
+          <Link href={'/'} className="inline-flex items-center p-2 ml-5 lg:hidden">
             <Image alt="logo" src={'/image/Logo.png'} width={100} height={50} />
-          </div>
+          </Link>
           {/* 햄버거 바 */}
           <button
             className="inline-flex p-3 rounded lg:hidden text-black mr-5 ml-auto hover:text-black outline-none"
