@@ -221,7 +221,8 @@ export const sendEmail = async (formData: FormData) => {
   try {
     data = await resend.emails.send({
       from: '(주)아이비티 <onboarding@resend.dev>',
-      to: 'neoself1105@gmail.com',
+      // to: 'neoself1105@gmail.com',
+      to: 'sales2@ibteng.co.kr',
       subject: `${category}에 대한 견적문의: ${title}`,
       reply_to: email,
       react: React.createElement(ContactFormEmail, {
