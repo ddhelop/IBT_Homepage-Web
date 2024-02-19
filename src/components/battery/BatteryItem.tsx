@@ -73,8 +73,13 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             className="w-full flex flex-col items-center justify-center"
           >
             {/* 배터리 제품 이미지 */}
-            <div className="relative lg:w-1/2 w-full flex justify-center items-center mb-20 lg:px-0 px-10">
-              <Image alt="배터리 제품 이미지" src={detailInfo[categoryIndex].itemFile} width={1000} height={700} />
+            <div className="relative flex lg:w-[1000px] lg:h-[700px] w-[600px] h-[400px] justify-center items-center mb-20 lg:px-0 px-10">
+              <Image
+                alt="배터리 제품 이미지"
+                src={detailInfo[categoryIndex].itemFile}
+                fill
+                className="object-contain"
+              />
             </div>
 
             {/* 제품 소개 */}
@@ -102,7 +107,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                   {/* 제품명 */}
                   {detailInfo[categoryIndex].itemTitle}
                 </div>
-                <div className="lg:text-2xl text-xl text-center font-bold mb-10">
+                <div className="lg:text-2xl text-xl text-center font-[350] mb-10">
                   {/* 제품 추가 설명 */}
                   {detailInfo[categoryIndex].itemSubTitle}
                 </div>
