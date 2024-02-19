@@ -45,11 +45,11 @@ const FloatingButton = () => {
             <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">기타</div>
           </Link>
           {/* 카탈로그 페이지로 이동 */}
-          <Link href="/admin/catelogs">
+          <Link href="/customer/catelogs">
             <div className="bg-slate-300 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">카탈로그</div>
           </Link>
           {/* Contact Us 페이지로 이동 */}
-          <Link href="/about-corp">
+          <Link href="/customer/contact-us">
             <div className="bg-slate-300 px-2 pt-2 pb-3 rounded-b-xl hover:bg-primary-green hover:text-white font-bold">
               Contact Us
             </div>
