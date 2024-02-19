@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useSectionInView } from '@/lib/hooks'
 import { motion } from 'framer-motion'
 import { batteryList } from '@/lib/data'
 import Image from 'next/image'
