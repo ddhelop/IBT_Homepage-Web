@@ -21,7 +21,7 @@ export default function BatteryDetail({ title, explain }: Props) {
         }}
       >
         {/* 배터리 중분류 title */}
-        <div className="text-center ">
+        <div className="text-center mt-48">
           <div className="text-6xl font-bold text-primary-green">{title}</div>
         </div>
         {/* 배터리 설명 */}

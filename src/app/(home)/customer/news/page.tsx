@@ -17,7 +17,7 @@ const getData = async () => {
 const NewsPage = async () => {
   const posts = await getData()
   return (
-    <div className="flex flex-col bg-white px-16">
+    <div className="flex flex-col bg-white px-16  mt-48">
       <h1 className="text-[#79AD4B] text-6xl text-center">IBT News</h1>
       <div className="w-full flex justify-start mt-2">
         <h3>전체</h3>
