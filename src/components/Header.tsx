@@ -27,7 +27,7 @@ export const Header = () => {
   }
   useEffect(() => {
     window.addEventListener('scroll', updateScroll)
-  })
+  }, [location, scrollPosition])
 
   return (
     <>
