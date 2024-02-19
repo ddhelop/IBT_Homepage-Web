@@ -2,8 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 export const Header = () => {
   const [active, setActive] = useState(false) // 모바일 화면에서 상세 navigation이 내려오는지 여부를 저장
@@ -325,14 +326,14 @@ export const Header = () => {
                 }`}
               >
                 <div
-                  className={`${isKorean ? 'text-gray-700' : 'text-gray-300'} px-3`}
+                  className={`${isKorean ? 'text-black' : 'text-gray-400/30'} px-3`}
                   onClick={() => setIsKorean(true)}
                 >
                   KOR
                 </div>
-                <div className="h-[1px] bg-gray-200" />
+                <div className="h-[1px] bg-gray-400/30" />
                 <div
-                  className={`${isKorean ? 'text-gray-200' : 'text-gray-700'} px-3`}
+                  className={`${isKorean ? 'text-gray-400/30' : 'text-black'} px-3`}
                   onClick={() => setIsKorean(false)}
                 >
                   ENG
