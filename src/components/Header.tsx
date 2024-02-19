@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 export const Header = () => {
@@ -20,6 +20,14 @@ export const Header = () => {
   const handleClick = () => {
     setActive(!active)
   }
+  const location = window.location.pathname
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop)
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', updateScroll)
+  }, [location, scrollPosition])
 
   return (
     <>
@@ -68,7 +76,8 @@ export const Header = () => {
               ${
                 active
                   ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
-                  : ''
+                  : // 첫페이지 최상단에서는 폰트 흰색으로 설정
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
                   <Link href={'/companyInfo'}>
@@ -133,11 +142,12 @@ export const Header = () => {
                 {/* 헤더 기본 메뉴 */}
                 <div
                   // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
-                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
+                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
               ${
                 active
                   ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
-                  : ''
+                  : // 첫페이지 최상단에서는 폰트 흰색으로 설정
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
                   <Link href={'/battery'}>
@@ -186,11 +196,12 @@ export const Header = () => {
                 {/* 헤더 기본 메뉴 */}
                 <div
                   // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
-                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
+                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
               ${
                 active
                   ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
-                  : ''
+                  : // 첫페이지 최상단에서는 폰트 흰색으로 설정
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
                   <Link href={'/hydrogen'}>
@@ -231,11 +242,12 @@ export const Header = () => {
                 {/* 헤더 기본 메뉴 */}
                 <div
                   // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
-                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
+                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
               ${
                 active
                   ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
-                  : ''
+                  : // 첫페이지 최상단에서는 폰트 흰색으로 설정
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
                   <Link prefetch href={'/customer/news'}>
@@ -284,11 +296,12 @@ export const Header = () => {
                 {/* 헤더 기본 메뉴 */}
                 <div
                   // 모바일 버전에서는 세로 정렬, PC 버전에서는 가로 정렬(inline-flex)
-                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black items-center justify-center
+                  className={`lg:relative lg:inline-flex lg:w-full w-full px-3 py-2 rounded text-black justify-center items-center
               ${
                 active
-                  ? 'text-3xl mt-3 mb-6 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
-                  : ''
+                  ? 'text-3xl mt-3 hover:bg-gray-200 hover:scale-110 hover:transition-transform ease-in-out duration-400 active:bg-gray-200'
+                  : // 첫페이지 최상단에서는 폰트 흰색으로 설정
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
                   <Link href={'/ESG_500'}>
@@ -325,14 +338,18 @@ export const Header = () => {
                 }`}
               >
                 <div
-                  className={`${isKorean ? 'text-gray-700' : 'text-gray-300'} px-3`}
+                  className={`${isKorean ? 'text-black' : 'text-gray-400/30'} px-3 ${
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
+                  }`}
                   onClick={() => setIsKorean(true)}
                 >
                   KOR
                 </div>
-                <div className="h-[1px] bg-gray-200" />
+                <div className="h-[1px] bg-gray-400/30" />
                 <div
-                  className={`${isKorean ? 'text-gray-200' : 'text-gray-700'} px-3`}
+                  className={`${isKorean ? 'text-gray-400/30' : 'text-black'} px-3 ${
+                    location === '/' && scrollPosition < 120 && !navDown && 'text-white'
+                  }`}
                   onClick={() => setIsKorean(false)}
                 >
                   ENG
