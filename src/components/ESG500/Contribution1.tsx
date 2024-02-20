@@ -25,7 +25,7 @@ export default function Contribution1() {
           <div className="lg:w-1/4 flex">
             <RightMotionComponent
               component={motion.div}
-              className=" h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center"
+              className=" h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-center"
             >
               재단소개 및 사업내용
             </RightMotionComponent>
@@ -53,7 +53,7 @@ export default function Contribution1() {
           <div className="lg:w-1/4 flex ">
             <RightMotionComponent
               component={motion.div}
-              className=" h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start"
+              className=" h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-start"
             >
               <p className="lg:pr-28">투명 경영</p>
             </RightMotionComponent>
@@ -74,7 +74,7 @@ export default function Contribution1() {
                 (단위:만원)
               </LeftMotionComponent>
               <LeftMotionComponent component={motion.table} className="min-w-full">
-                <thead className="bg-green-600 text-white tracking-[-0.1rem] h-12 text-sm">
+                <thead className="bg-[#84ac58] text-white tracking-[-0.1rem] h-12 text-sm">
                   <tr>
                     <th className="px-4 py-2"></th>
                     <th className="px-4 py-2">2019년</th>
@@ -157,7 +157,7 @@ export default function Contribution1() {
           <div className="lg:w-1/4 flex ">
             <RightMotionComponent
               component={motion.div}
-              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center"
+              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-center"
             >
               <div className="lg:pr-6">기부 및 후원 문의</div>
             </RightMotionComponent>
@@ -170,7 +170,7 @@ export default function Contribution1() {
             <p className="text-base mt-12 leading-9 tracking-wider text-[#7b7b7b]">
               광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983
               <br />
-              서울 광진구 광나루토 56길 85, 1902호(구의동) 02-3424-1988 재단법인 중앙장형태기념재단 재단법인 지우장학회
+              서울 광진구 광나루토 56길 85, 1902호(구의동) 02-3424-1988 재단법인 중양장형태기념재단 재단법인 지우장학회
               고객지원센터
             </p>
           </LeftMotionComponent>
