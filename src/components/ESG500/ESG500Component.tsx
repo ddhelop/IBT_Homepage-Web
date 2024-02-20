@@ -19,7 +19,7 @@ export default function ESG500Component() {
               width={407} // 너비
               height={194} // 높이
               // layout="fixed" // 레이아웃 옵션
-              className="mb-32 lg:ml-16"
+              className="mb-32 lg:ml-16 mt-12"
             />
           </RightMotionComponent>
           <RightMotionComponent component={motion.div}>
