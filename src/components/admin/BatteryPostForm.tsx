@@ -7,7 +7,7 @@ import AddButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
-import { getSignedFileUrl, postMultipleImgs, reorderPosts } from '@/lib/utils'
+import { reorderPosts } from '@/lib/utils'
 import { IoIosClose } from 'react-icons/io'
 import { useFormState } from 'react-dom'
 
