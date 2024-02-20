@@ -112,6 +112,7 @@ const pageSchema = new mongoose.Schema({
   data: {
     type: [ListSchema],
     required: true,
+    default: [],
   },
 })
 export const Order = mongoose.models?.Order || mongoose.model('Order', orderSchema)

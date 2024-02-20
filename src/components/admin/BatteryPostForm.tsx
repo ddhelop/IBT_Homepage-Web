@@ -1,5 +1,5 @@
 'use client'
-import { createBatteryPage } from '@/lib/batteryAction'
+import { createBatteryPage } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
@@ -59,6 +59,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
     }
     const newId = productList.length ? Math.max(...productList.map((item) => item.id)) + 1 : 0
     setProductList([...productList, { id: newId, name: prodName, img: prodImg }])
+    console.log('새로운 ProductList:', [...productList, { id: newId, name: prodName, img: prodImg }])
     setProdName('')
     setProdTmpUrl(null)
     setProdImg(null)
@@ -169,7 +170,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                   type="text"
                   className=" text-gray-400 bg-gray-50 h-6 rounded-md px-2 py-4 border"
                 />
-                <input type="file" accept="image/*" onChange={(e) => showImage(e, 'product')} />
+                <input type="file" required accept="image/*" onChange={(e) => showImage(e, 'product')} />
                 <AddButton
                   isForSubmit={false}
                   isActive={prodTmpUrl != null && prodName.length > 0}
