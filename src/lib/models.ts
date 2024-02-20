@@ -94,15 +94,16 @@ const orderSchema = new mongoose.Schema({
     default: [],
   },
 })
+//소분류 내용 저장용 스키마 - 항공/육상/해상...
 const ListSchema = new mongoose.Schema({
-  id: { type: Number, default: 0 },
   title: { type: String, required: true },
   itemFile: { type: String, required: true },
   itemTitle: { type: String, required: true },
-  itemSubTitle: { type: String, default: '' },
-  itemAdvanced: { type: [String], required: true },
+  itemSubtitle: { type: String, default: '' },
+  itemAdvanced: { type: String, required: true },
+  products: { type: Array, required: true },
 })
-
+//중분류 내용 저장용 스키마 - 방산용 Ni-cd, 산업용 Ni-cd ...
 const pageSchema = new mongoose.Schema({
   id: {
     type: Number,

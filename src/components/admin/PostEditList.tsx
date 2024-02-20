@@ -12,7 +12,7 @@ import { useFormState } from 'react-dom'
 import Link from 'next/link'
 import { postData_admin } from '@/lib/data'
 import { reorderPosts } from '@/lib/utils'
-import SubmitButton from './SubmitButton'
+import { SubmitButton } from './SubmitButton'
 
 const PostEditList = ({ datas, postTypeID }: any) => {
   const [state, formAction] = useFormState(handleListEdit, undefined)
