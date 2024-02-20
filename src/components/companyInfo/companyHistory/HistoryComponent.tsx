@@ -79,7 +79,7 @@ export default function HistoryComponent() {
             className={`w-1/3 h-12 tab-button3 ${isActive('tab3') ? 'active-tab3' : ''}`}
             onClick={() => setActiveTab('tab3')}
           >
-            1986 - 2002
+            1986 - 2005
           </button>
         </DownMotionComponent>
 
