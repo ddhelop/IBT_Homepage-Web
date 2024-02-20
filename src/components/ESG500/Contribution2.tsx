@@ -25,7 +25,7 @@ export default function Contribution2() {
           <div className="lg:w-1/4 flex ">
             <RightMotionComponent
               component={motion.div}
-              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center"
+              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-center"
             >
               재단소개 및 사업내용
             </RightMotionComponent>
@@ -34,9 +34,9 @@ export default function Contribution2() {
             component={motion.p}
             className="lg:w-3/4 text-base leading-9 tracking-wider text-[#7b7b7b]"
           >
-            안녕하세요. 앙장형태기념재단 이사장 허상만입니다.
+            안녕하세요. 중양장 형태기념재단 이사장 허상만입니다.
             <br />
-            중앙장형태기념재단은 2013년 작고하신 중앙장형태 전 전남도지사님의 뜻을 이어 받아 젊은 인재들을 지원,
+            중양 장형태기념재단은 2013년 작고하신 중양 장형태 전 전남도지사님의 뜻을 이어 받아 젊은 인재들을 지원,
             육성하여 사회에 기여하고자 설립 되었습니다.
             <br />
             재단 이사회는 사회 각계의 명망 있는 분들로 구성 되어 있으며 장학생 선발과 장학금 지급을 공정히 하기 위해
@@ -52,15 +52,15 @@ export default function Contribution2() {
           <div className="lg:w-1/4 flex ">
             <RightMotionComponent
               component={motion.div}
-              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-start"
+              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-start"
             >
               <p className="lg:pr-28">투명 경영</p>
             </RightMotionComponent>
           </div>
           <div className="lg:w-3/4 flex flex-col">
             <LeftMotionComponent component={motion.p} className="text-base leading-9 tracking-wider text-[#7b7b7b]">
-              중앙장형태기념재단은 운영과 관련한 모든 법률과 규정을 준수 하고 있으며, 회계법인을 통해 철저한 감사를 실시
-              하고 있습니다.
+              중양 장형태기념재단은 운영과 관련한 모든 법률과 규정을 준수 하고 있으며, 회계법인을 통해 철저한 감사를
+              실시 하고 있습니다.
               <br />
               기부 및 후원은 ‘기부금품의 모집 및 사용에 관한 법률’ 등 관련 법률을 따르고 있으며, 운영 내용은 국세청
               ‘공익법인 결산서류 등 공시시스템’에 매년 공시 하고 있습니다.
@@ -73,7 +73,7 @@ export default function Contribution2() {
             <LeftMotionComponent component={motion.div} className="overflow-x-auto mt-8 text-[#7b7b7b]">
               <p className="text-right text-base">(단위:만원)</p>
               <table className="min-w-full">
-                <thead className="bg-green-600 text-white tracking-[-0.1rem] h-12 text-base">
+                <thead className="bg-[#84ac58] text-white tracking-[-0.1rem] h-12 text-base">
                   <tr>
                     <th className="px-4 py-2"></th>
                     <th className="px-4 py-2">2019년</th>
@@ -125,28 +125,28 @@ export default function Contribution2() {
                 className="text-base hover:text-[#000000] mt-12 tracking-wider text-[#7b7b7b] cursor-pointer"
                 target="_blank"
               >
-                중앙장형태기념재단 22년 기부금모금액 및 활용실적명세.pdf
+                중양 장형태기념재단 22년 기부금모금액 및 활용실적명세.pdf
               </a>
               <a
                 href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_21.pdf"
                 target="_blank"
                 className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
               >
-                중앙장형태기념재단 21년 기부금모금액 및 활용실적명세.pdf
+                중양 장형태기념재단 21년 기부금모금액 및 활용실적명세.pdf
               </a>
               <a
                 href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_20.pdf"
                 target="_blank"
                 className="text-base mt-2 hover:text-[#000000] tracking-wider text-[#7b7b7b] cursor-pointer"
               >
-                중앙장형태기념재단 20년 기부금모금액 및 활용실적명세.pdf
+                중양 장형태기념재단 20년 기부금모금액 및 활용실적명세.pdf
               </a>
               <a
                 href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_19.pdf"
                 target="_blank"
                 className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
               >
-                중앙장형태기념재단 19년 기부금모금액 및 활용실적명세.pdf
+                중양 장형태기념재단 19년 기부금모금액 및 활용실적명세.pdf
               </a>
             </NoMotionComponent>
           </div>
@@ -156,7 +156,7 @@ export default function Contribution2() {
           <div className="lg:w-1/4 flex ">
             <RightMotionComponent
               component={motion.div}
-              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#4be7ff] flex items-center justify-center"
+              className="h-20 border-t-2 text-base tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-center"
             >
               <p className="lg:pr-6">기부 및 후원 문의</p>
             </RightMotionComponent>
@@ -169,7 +169,7 @@ export default function Contribution2() {
             <p className="text-base mt-12 leading-9 tracking-wider text-[#7b7b7b]">
               광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983
               <br />
-              서울 광진구 광나루토 56길 85, 1902호(구의동) 02-3424-1988 재단법인 중앙장형태기념재단 재단법인 지우장학회
+              서울 광진구 광나루토 56길 85, 1902호(구의동) 02-3424-1988 재단법인 중양 장형태기념재단 재단법인 지우장학회
               고객지원센터
             </p>
           </LeftMotionComponent>
