@@ -2,7 +2,6 @@
 import { sendEmail } from '@/lib/action'
 import { useRef, useState } from 'react'
 import Button from './Button'
-import ContactFormEmail from './ContactForm'
 
 export default function ContactUs() {
   // 상태를 사용하여 입력된 텍스트의 길이를 추적합니다.

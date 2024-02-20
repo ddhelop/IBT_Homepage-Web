@@ -6,7 +6,7 @@ import { Catelog, ESGPdf, Order, Post } from './models'
 import { connectToDb, deleteS3Object, getErrorMessage, getId, getSignedFileUrl, validateString } from './utils'
 import React from 'react'
 import ContactFormEmail from '@/components/customer/contact-us/ContactForm'
-import { S3BucketUrl } from './data'
+import { S3BucketUrl, batteriesData_admin } from './data'
 
 export const compare = async (username: string, password: string) => {
   if (
@@ -18,6 +18,7 @@ export const compare = async (username: string, password: string) => {
     return false
   }
 }
+
 export const createPost = async (formData: FormData) => {
   const postType: string = formData.get('postType') as unknown as string
   const title: string | null = formData.get('title') as unknown as string

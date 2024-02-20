@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
         <RecoilContextProvider>
           <AdminHeader />
+          <div className="ml-64"></div>
           {children}
         </RecoilContextProvider>
       </body>
