@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Variants, motion } from 'framer-motion'
 import { useScrollAnimation } from '../commons/UseScrollAnimation'
 import { useRef } from 'react'
+import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
 
 const Data = [
   {
@@ -61,8 +62,6 @@ export default function IntroComponent6(): JSX.Element {
         duration: 0.7,
         delay: 0.1,
         ease: [0, 0.4, 0.8, 1.2],
-
-        bounce: 0.5,
       },
     },
 
@@ -112,17 +111,10 @@ export default function IntroComponent6(): JSX.Element {
           </motion.div>
 
           {/* right container */}
-          <div className="mt-12 xl:mt-0 xl:w-[50%]">
+          <div className="mt-12 xl:mt-0 xl:w-[50%] overflow-hidden">
             <div className="flex flex-wrap justify-center items-center h-full md:max-w-[600px] md:min-w-[600px] md:mx-auto">
               {Data.map((data, index) => (
-                <motion.div
-                  initial="rightOffscreen"
-                  whileInView="rightOnscreen"
-                  viewport={{ root: scrollRef }}
-                  className="p-2 box"
-                  variants={Variants}
-                  key={index}
-                >
+                <RightMotionComponent component={motion.div} key={data.path} className="p-2 box">
                   <div
                     className="w-[17.18rem] h-52 rounded-[10px] bg-[#355781] opacity-[0.85] flex flex-col justify-between p-8 text-white"
                     style={{ boxShadow: '2px 2px 12px 5px rgba(0, 0, 0, 0.20)' }}
@@ -154,7 +146,7 @@ export default function IntroComponent6(): JSX.Element {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </RightMotionComponent>
               ))}
             </div>
           </div>
