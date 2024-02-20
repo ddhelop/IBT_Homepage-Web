@@ -172,7 +172,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                   type="text"
                   className=" text-gray-400 bg-gray-50 h-6 rounded-md px-2 py-4 border"
                 />
-                <input type="file" accept="image/*" onChange={(e) => showImage(e, 'product')} />
+                <input type="file" required accept="image/*" onChange={(e) => showImage(e, 'product')} />
                 <AddButton
                   text="제품 추가"
                   isForSubmit={false}
