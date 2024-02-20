@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 import { Counter } from './models'
-import { batteriesData_admin } from './data'
-import { Product } from '@/components/admin/BatteryPostForm'
 
 interface Connection {
   isConnected?: any
@@ -82,29 +80,4 @@ export const getErrorMessage = (error: unknown): string => {
   }
 
   return message
-}
-
-export const postMultipleImgs = async (batteryId: number, title: string, productList: Product[]) => {
-  let imgUrls: string[] = []
-  for (let i = 0; i < productList.length; i++) {
-    const signedUrl = await getSignedFileUrl({
-      name: `batteries/${batteriesData_admin[batteryId].title}/${title}/${productList[i].name}`,
-      type: productList[i].img.type,
-    })
-    const uploadImg = await fetch(signedUrl, {
-      method: 'PUT',
-      body: productList[i].img,
-      headers: { 'Content-type': productList[i].img.type },
-    })
-    if (uploadImg.status != 200) {
-      console.log('엥 여기오면 안되는데.?')
-      return { succes: false, message: '적용제품들의 이미지를 저장하는 데에 실패했습니다.' }
-    } else {
-      imgUrls.push(signedUrl)
-    }
-  }
-  let newProductList = productList.map(function (obj: Product, id: number) {
-    return { id: obj.id, name: obj.name, img: imgUrls[id] }
-  })
-  return newProductList
 }
