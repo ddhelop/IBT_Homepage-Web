@@ -6,17 +6,38 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function LithiumBox() {
+  let boxLeftVariants = {}
+  if (typeof window !== 'undefined') {
+    const isMobile = window.innerWidth < 768
+    {
+      isMobile
+        ? (boxLeftVariants = {
+            initial: {
+              opacity: 0,
+            },
+            whileInView: { opacity: 1 },
+            transition: {
+              delay: 0.1,
+              duration: 0.5,
+            },
+          })
+        : (boxLeftVariants = {
+            initial: {
+              opacity: 0,
+              x: +100,
+            },
+            whileInView: { opacity: 1, x: 0 },
+            transition: {
+              delay: 0.1,
+              duration: 0.5,
+            },
+          })
+    }
+  }
+
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, x: +100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{
-          delay: 0.1,
-          duration: 0.5,
-        }}
-        className="inline-flex h-[30rem] lg:mx-[17%]"
-      >
+      <motion.div {...boxLeftVariants} className="inline-flex h-[30rem] lg:mx-[17%]">
         {/* 회색 컨텐츠 영역 -> group이라는 이름을 붙여, 해당 요소에 hover할 때 다른 이벤트 발생하도록 */}
         {/* 반응형 - 모바일 버전에서는 우측 이미지가 배경으로 들어가므로, 글자가 잘보이도록 background black으로 깔아줌 */}
         <div className="group relative flex flex-col flex-shrink-0 justify-between lg:w-1/3 w-full lg:bg-battery-back lg:text-black bg-black text-white px-9 py-8">

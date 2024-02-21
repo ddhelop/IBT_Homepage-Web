@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'About Defense Ni-cd',
   description: 'IBT 방산용 Ni-cd 배터리 제품 소개 페이지',
 }
+// const data = await fetchPageData(0)
 
 const BatteryDefensePage = () => {
   return (
