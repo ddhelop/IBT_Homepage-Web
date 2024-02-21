@@ -29,8 +29,20 @@ const slidesData = [
   { title: '고객문의', description: 'IBT에\n자유롭게 문의하세요', image: '/intro/img4.png', width: 255, height: 223 },
 ]
 
+const getData = async () => {
+  const res = await fetch(`${process.env.URL}/api/admin/news`, {
+    method: 'GET',
+    cache: 'no-store',
+  })
+  if (!res.ok) {
+    throw new Error('Something went wrong')
+  }
+  return res.json()
+}
+
 function PrevArrow(props: ArrowProps) {
   const { className, style, onClick } = props
+
   return (
     <Image
       src="/intro/left arrow.svg"
@@ -47,6 +59,7 @@ function PrevArrow(props: ArrowProps) {
 
 function NextArrow(props: ArrowProps) {
   const { className, style, onClick } = props
+
   return (
     <Image
       src="/intro/right arrow.svg"
@@ -61,7 +74,9 @@ function NextArrow(props: ArrowProps) {
   )
 }
 
-export default function SlickSlider() {
+const SlickSlider = async () => {
+  const data = await getData()
+
   const settings = {
     dots: false,
     infinite: true,
@@ -101,14 +116,14 @@ export default function SlickSlider() {
     <div className="text-center">
       <div className="m-auto p-20 ">
         <Slider {...settings}>
-          {slidesData.map((el) => (
-            <div key={el.title}>
+          {data.map((el) => (
+            <div key={el.id}>
               <div className="flex justify-center ">
-                <Image width={260} height={180} src={el.image} alt={el.description} />
+                <Image width={260} height={180} src={el.img} alt={el.description} />
               </div>
               <div className="mt-6">
                 <h2 className="text-base font-bold">{el.title}</h2>
-                <p className="text-base font-light mt-1">{el.description}</p>
+                <p className="text-base font-light mt-1">{el.desc}</p>
               </div>
             </div>
           ))}
@@ -117,3 +132,5 @@ export default function SlickSlider() {
     </div>
   )
 }
+
+export default SlickSlider
