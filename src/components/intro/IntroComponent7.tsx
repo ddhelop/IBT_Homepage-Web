@@ -1,13 +1,23 @@
-'use client'
+import IntroSlider from './IntroSlider'
 
-import { useState } from 'react'
-import SlickSlider from '../commons/SlickSlider'
+const getData = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/admin/news`, {
+    method: 'GET',
+    cache: 'no-store',
+  })
+  if (!res.ok) {
+    throw new Error('Something went wrong')
+  }
+  return res.json()
+}
 
-export default function IntroComponent7(): JSX.Element {
+const IntroComponent7 = async () => {
+  const data = await getData()
+
   return (
     <>
       <div className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-white ">
-        <div className="flex flex-col h-full text-center align-middle justify-center">
+        <div className="w-full h-full flex flex-col text-center align-middle justify-center">
           {/* top container */}
           <div className="min-h-[300px] flex flex-col justify-center align-middle">
             <p className="font-light text-sm tracking-[0.2px]">Dynamic Growth</p>
@@ -16,9 +26,14 @@ export default function IntroComponent7(): JSX.Element {
           </div>
 
           {/* below container */}
-          <SlickSlider />
+          <div className="min-h-[350px] flex align-middle items-center pt-48">
+            <IntroSlider data={data} />
+          </div>
+          {/* <SlickSlider /> */}
         </div>
       </div>
     </>
   )
 }
+
+export default IntroComponent7
