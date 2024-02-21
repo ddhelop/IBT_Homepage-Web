@@ -62,7 +62,7 @@ export default function IntroComponent5(): JSX.Element {
       {/* 5th */}
       <div
         style={{ backgroundImage: 'url(/intro/intro5.png)' }}
-        className="w-full text-center flex flex-col items-center justify-center min-h-[540px] lg:min-h-screen bg-no-repeat bg-cover"
+        className="w-full text-center flex flex-col items-center justify-center min-h-[540px] md:min-h-screen bg-no-repeat bg-cover"
       >
         <div
           className="w-full flex-col flex justify-center items-center h-[32rem]"
@@ -76,8 +76,8 @@ export default function IntroComponent5(): JSX.Element {
               variants={Variants}
               className="w-full"
             >
-              <h1 className="text-6xl lg:text-7xl text-white font-bold">Since 1986 IBT</h1>
-              <p className="mt-12 text-white leading-7 text-balance text-xl font-medium lg:font-light tracking-wide">
+              <h1 className="text-6xl md:text-7xl text-white font-bold">Since 1986 IBT</h1>
+              <p className="mt-12 text-white leading-7 text-balance text-xl font-medium md:font-light tracking-wide">
                 높은 수준의 기술을 바탕으로 방산·산업용 배터리 전문 기업으로 출발한 IBT는 차세대 연료 전지 수소 에너지
                 관련 고도화 기업으로 성장하고 있습니다.
                 <br />
@@ -88,7 +88,7 @@ export default function IntroComponent5(): JSX.Element {
             {/* number */}
             <div
               ref={ref}
-              className="w-full flex flex-row justify-center space-x-12 md:space-x-40 lg:space-x-80 mt-16 lg:mt-20 text-5xl lg:text-6xl font-bold"
+              className="w-full flex flex-row justify-center space-x-12 md:space-x-40 lg:space-x-80 mt-16 md:mt-20 text-5xl md:text-6xl font-bold"
             >
               <div className="flex flex-col relative z-10 justify-center ">
                 <div className="flex flex-row justify-center">

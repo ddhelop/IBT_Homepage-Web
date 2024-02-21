@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div className="flex flex-col bg-white px-16">
+    <div className="flex flex-col bg-white pt-48">
       <h1 className="text-[#79AD4B] text-6xl text-center my-8">IBT News</h1>
       <div className="w-full flex justify-start mt-2">
         <span
