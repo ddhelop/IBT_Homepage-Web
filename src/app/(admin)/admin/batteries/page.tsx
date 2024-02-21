@@ -16,6 +16,7 @@ const getData = async () => {
 }
 const AdminPage = async () => {
   const res = await getData()
+  console.log(res)
   return (
     <div className="flex flex-col flex-1 min-h-screen bg-gray-100">
       <h1 className="text-2xl font-bold mb-4 bg-white p-8">배터리 상세페이지</h1>
