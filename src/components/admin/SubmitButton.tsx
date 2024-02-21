@@ -28,17 +28,18 @@ ${isActive || pending ? 'bg-gray-200 shadow-none text-gray-400' : 'bg-[#04BF7B] 
 }
 
 type ButtonProps = {
+  text: string
   isForSubmit: boolean
   isActive: boolean
   func?: any
   isLoading: boolean
 }
 
-export default function AddButton({ isForSubmit, isActive, func = null, isLoading }: ButtonProps) {
+export default function AddButton({ text, isForSubmit, isActive, func = null, isLoading }: ButtonProps) {
   return (
     <button
       type={isForSubmit ? 'submit' : 'button'}
-      className={`p-4 w-32 rounded-lg transition self-end font-bold
+      className={`p-4 w-32 rounded-lg transition font-bold
             ${isActive ? 'bg-[#04BF7B] text-white shadow-md' : 'bg-gray-200 shadow-none text-gray-400'}`}
       disabled={!isActive}
       onClick={isForSubmit ? null : func}
@@ -53,7 +54,7 @@ export default function AddButton({ isForSubmit, isActive, func = null, isLoadin
           </span>
         </div>
       ) : (
-        `추가하기`
+        <h1>{text}</h1>
       )}
     </button>
   )

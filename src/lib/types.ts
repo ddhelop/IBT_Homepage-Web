@@ -18,3 +18,17 @@ export type CatelogProps = {
   updatedAt: string
   _id: string
 }
+
+export type Category = {
+  id: number
+  title: string
+  itemFile: string
+  itemTitle: string
+  itemSubtitle: string | null
+  itemAdvanced: string[]
+  products?: Product[]
+}
+export type Product = {
+  name: string
+  img: string
+}

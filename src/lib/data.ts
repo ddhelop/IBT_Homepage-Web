@@ -56,28 +56,24 @@ export const batteriesData_admin = [
     postType: 'defense',
     title: '방산',
     name: '적용제품',
-    href: '/admin/esg-pdf/add',
   },
   {
     id: 1,
     postType: 'industry',
     title: '산업',
     name: '적용제품',
-    href: '/admin/esg-pdf/add',
   },
   {
     id: 2,
     postType: 'power',
     title: '동력',
     name: '적용제품',
-    href: '/admin/esg-pdf/add',
   },
   {
     id: 3,
     postType: 'energy',
     title: '에너지 저장',
     name: '적용제품',
-    href: '/admin/esg-pdf/add',
   },
 ]
 // intro_data
