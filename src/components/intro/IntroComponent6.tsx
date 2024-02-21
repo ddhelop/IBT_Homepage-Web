@@ -88,14 +88,14 @@ export default function IntroComponent6(): JSX.Element {
         style={{ backgroundImage: 'url(/intro/intro6.png)' }}
         className="relative w-full text-center flex flex-col items-center justify-center min-h-screen bg-no-repeat bg-cover bg-white bg-opacity-50"
       >
-        <div className="w-full flex flex-col xl:flex-row">
+        <div className="w-full flex flex-col xl:flex-row items-center">
           {/* left container */}
           <motion.div
             initial="leftOffscreen"
             whileInView="rightOnscreen"
             viewport={{ root: scrollRef }}
             variants={Variants}
-            className="xl:w-[50%] flex flex-col justify-center items-center"
+            className="w-[90%] xl:w-[50%] flex flex-col justify-center items-center"
           >
             <h1 className="text-white text-3xl md:text-5xl font-bold md:text-left leading-[65.67px] tracking-[0.2px]">
               연료 전지 분야
@@ -103,7 +103,7 @@ export default function IntroComponent6(): JSX.Element {
               All in One Solution 공급
             </h1>
 
-            <p className="text-white text-[19.5px] font-light md:text-left leading-[29.8px] tracking-[0.23px] mt-6 md:mt-[38px] md:mr-[114px]">
+            <p className="text-white text-[19.5px] font-medium lg:font-light md:text-left leading-[29.8px] tracking-[0.23px] mt-6 md:mt-[38px] md:mr-[114px]">
               연료전지 개발 생산 기업 IBT는
               <br />
               수소 에너지 관련 고도화 기업으로 성장하고 있습니다.
@@ -116,7 +116,7 @@ export default function IntroComponent6(): JSX.Element {
               {Data.map((data, index) => (
                 <RightMotionComponent component={motion.div} key={data.path} className="p-2 box">
                   <div
-                    className="w-[17.18rem] h-52 rounded-[10px] bg-[#355781] opacity-[0.85] flex flex-col justify-between p-8 text-white"
+                    className="w-[17.18rem] h-52 rounded-[10px] bg-[#355781] opacity-[0.85] flex flex-col justify-between p-4 xl:p-8 text-white"
                     style={{ boxShadow: '2px 2px 12px 5px rgba(0, 0, 0, 0.20)' }}
                   >
                     <Image
@@ -129,15 +129,15 @@ export default function IntroComponent6(): JSX.Element {
                     />
 
                     <h3 className="font-bold text-left text-3xl mt-1">{data.title}</h3>
-                    <div className="flex flex-row justify-between">
-                      <p className="font-thin text-sm text-left whitespace-pre-line mt-1">{data.description}</p>
-                      <div>
+                    <div className="flex justify-between">
+                      <p className="font-medium lg:font-thin text-lg lg:text-sm text-left text-pretty mt-1 flex-1 mr-4">
+                        {data.description}
+                      </p>
+                      <div className="w-16 lg:w-12 flex aspect-square relative">
                         <Image
                           src="intro/pointer.svg" // 이미지 경로
                           alt="바로가기"
-                          width={40} // 너비
-                          height={40} // 높이
-                          // layout="fixed" // 레이아웃 옵션
+                          fill
                           className="mt-1 cursor-pointer"
                           onClick={() => {
                             router.push(data.path)
