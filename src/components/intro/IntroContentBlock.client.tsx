@@ -24,7 +24,7 @@ export default function ContentBlock(props: IContentBlockProps) {
   return (
     <div
       style={{ backgroundImage: `url(${props.background})` }}
-      className="text-center flex flex-col items-center justify-center p-8 min-h-screen bg-no-repeat bg-cover bg-white bg-opacity-50"
+      className="text-center flex flex-col items-center justify-center p-8 min-h-[540px] lg:min-h-screen bg-no-repeat bg-cover bg-white bg-opacity-50"
     >
       {/* contentRef를 적용할 새로운 div 추가 */}
       <div>
@@ -42,7 +42,7 @@ export default function ContentBlock(props: IContentBlockProps) {
           variants={boxVariant}
           initial="hidden"
           animate={control}
-          className="leading-relaxed whitespace-pre-line text-xl font-light mt-20 text-white"
+          className="leading-relaxed whitespace-pre-line text-xl px-8 font-bold lg:font-light mt-20 text-white"
         >
           {props.text}
         </motion.p>
