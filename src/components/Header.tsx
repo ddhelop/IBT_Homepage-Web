@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 export const Header = () => {
   const [active, setActive] = useState(false) // 모바일 화면에서 상세 navigation이 내려오는지 여부를 저장
@@ -20,7 +21,7 @@ export const Header = () => {
   const handleClick = () => {
     setActive(!active)
   }
-  const location = window.location.pathname
+  const location = usePathname()
   const [scrollPosition, setScrollPosition] = useState(0)
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop)
