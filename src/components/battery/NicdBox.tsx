@@ -6,17 +6,38 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function NicdBox() {
+  let boxRightVariants = {}
+  if (typeof window !== 'undefined') {
+    const isMobile = window.innerWidth < 768
+    {
+      isMobile
+        ? (boxRightVariants = {
+            initial: {
+              opacity: 0,
+            },
+            whileInView: { opacity: 1 },
+            transition: {
+              delay: 0.1,
+              duration: 0.5,
+            },
+          })
+        : (boxRightVariants = {
+            initial: {
+              opacity: 0,
+              x: -100,
+            },
+            whileInView: { opacity: 1, x: 0 },
+            transition: {
+              delay: 0.1,
+              duration: 0.5,
+            },
+          })
+    }
+  }
+
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{
-          delay: 0.1,
-          duration: 0.5,
-        }}
-        className="inline-flex h-[30rem] lg:mx-[17%]"
-      >
+      <motion.div {...boxRightVariants} className="inline-flex h-[30rem] lg:mx-[17%]">
         {/* 배터리 이미지 영역 */}
         <div className="lg:relative lg:flex lg:w-2/3 lg:h-full lg:justify-center lg:items-center hidden">
           <Image alt="Ni-cd" src={'/image/310인트로/312_메인(Ni-cd).png'} fill />
