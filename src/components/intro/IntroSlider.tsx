@@ -1,22 +1,35 @@
 'use client'
 import { IntroItemData, ModelInfo } from '@/lib/data'
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-type Props = {
-  categoryIndex: number // 소분류 카테고리 Index
-  mainCategoryIndex: number // 중분류 카테고리 Index
+interface ISliderProps {
+  data: { img: string; title: string; desc: string }[]
 }
 
-const IntroSlider = () => {
+const IntroSlider = (props: ISliderProps) => {
   const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
   const [currentImg, setCurrentImg] = useState(0) // 현재 보고 있는 carousel 페이지 번호
   const carouselRef = useRef(null)
+  const [screenWidth, setScreenWidth] = useState(0)
 
   const data = IntroItemData[0][0].itemAdvanced // 적용분야 Data -> name, imagePath
 
-  const screenWidth = window.innerWidth // 화면의 너비를 가져옵니다.
+  useEffect(() => {
+    // 컴포넌트가 마운트된 후에 window 객체를 사용합니다.
+    setScreenWidth(window.innerWidth)
+
+    // 화면 크기가 변경될 때마다 screenWidth 상태를 업데이트합니다.
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // 클린업 함수로 이벤트 리스너를 제거합니다.
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   let transformValue
 
   if (screenWidth > 1024) {
@@ -33,6 +46,7 @@ const IntroSlider = () => {
     transformValue = `translateX(-${(399 / imagesPerPage) * currentImg}%)`
   }
 
+  console.log(props.data.length)
   return (
     <>
       <motion.div
@@ -44,7 +58,7 @@ const IntroSlider = () => {
         }}
         className="w-full h-full flex flex-col items-center justify-center"
       >
-        {data.length > 4 ? (
+        {props.data.length > 3 ? (
           // 개수가 5개 이상인 경우
           <>
             <div className="w-full flex flex-row justify-center items-center">
@@ -70,9 +84,9 @@ const IntroSlider = () => {
                     }}
                     className={`hidden lg:w-full lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300  `}
                   >
-                    {data.map((v, i) => (
+                    {props.data.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-56 h-56 mx-4`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
                   </div>
@@ -85,9 +99,9 @@ const IntroSlider = () => {
                     }}
                     className={`lg:hidden w-full h-full absolute flex transition-all duration-300 lg:gap-5`}
                   >
-                    {data.map((v, i) => (
+                    {props.data.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
                   </div>
@@ -129,10 +143,10 @@ const IntroSlider = () => {
                 }}
                 className="hidden lg:w-56 lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300 "
               >
-                {data.map((v, i) => (
+                {props.data.map((v, i) => (
                   <div key={i} className="flex flex-col mx-4 mt-3">
-                    <div className="relative shrink-0 w-56 text-base font-bold ">{v.name}</div>
-                    <div className="relative shrink-0   text-base font-medium mt-2">{v.explanation}</div>
+                    <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
+                    <div className="relative shrink-0   text-base font-medium mt-2">{v.desc}</div>
                   </div>
                 ))}
               </div>
@@ -145,28 +159,27 @@ const IntroSlider = () => {
                 }}
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300"
               >
-                {data.map((v, i) => (
+                {props.data.map((v, i) => (
                   <div key={i} className="flex flex-col mt-3 mx-2">
-                    <div className="relative shrink-0 w-64 text-base font-bold ">{v.name}</div>
-                    <div className="relative shrink-0  text-base font-medium mt-2">{v.explanation}</div>
+                    <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
+                    <div className="relative shrink-0  text-base font-medium mt-2">{v.desc}</div>
                   </div>
                 ))}
               </div>
             </div>
           </>
         ) : (
-          // 개수가 4개 이하인 경우
+          // 개수가 3개 이하인 경우
           <>
             {/* PC버전 큰화면: carousel 제거하고 가운데 정렬 */}
             <div className={'hidden lg:relative lg:w-full lg:flex lg:flex-row lg:justify-center lg:gap-3'}>
-              {data.map((v, i) => (
-                <div key={i} className={'relative flex flex-col justify-center items-center'}>
-                  <div key={i} className={`relative shrink-0 lg:w-[20rem] w-20 h-40`}>
-                    <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+              {props.data.map((v, i) => (
+                <div key={i} className={'w-48 h-48 relative flex flex-col justify-center items-center'}>
+                  <div key={i} className={`relative shrink-0 w-56 h-56 mx-4`}>
+                    <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                   </div>
-                  <div key={i} className="relative shrink-0 lg:w-[20rem] w-20 h-20 text-center text-3xl font-bold my-3">
-                    {v.name}
-                  </div>
+                  <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
+                  <div className="relative shrink-0   text-base font-medium mt-2">{v.desc}</div>
                 </div>
               ))}
             </div>
@@ -184,17 +197,18 @@ const IntroSlider = () => {
               </button>
               {/* 적용 분야 이미지 */}
               <div>
-                <div className="lg:hidden w-[20rem] h-[10rem] overflow-hidden relative">
+                <div className="w-[17rem] sm:w-[34rem] lg:w-[48rem] h-[14rem] overflow-hidden relative">
                   <div
                     ref={carouselRef}
                     style={{
-                      transform: `translateX(-${50 * currentImg}%)`,
+                      // translateX로 currentImg 번호에 따라 이동 거리 조정
+                      transform: transformValue,
                     }}
-                    className={`lg:hidden w-full h-full absolute flex transition-all duration-300`}
+                    className={`lg:hidden w-full h-full absolute flex transition-all duration-300 lg:gap-5`}
                   >
-                    {data.map((v, i) => (
-                      <div key={i} className={`relative shrink-0 w-48 h-48`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                    {props.data.map((v, i) => (
+                      <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
+                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
                   </div>
@@ -202,27 +216,29 @@ const IntroSlider = () => {
               </div>
               {/* 오른쪽 화살표 버튼 */}
               <button
-                disabled={currentImg === data.length - 1}
                 onClick={() => setCurrentImg((prev) => prev + 1)}
+                disabled={currentImg === data.length - 6}
                 className={`lg:hidden relative pl-20 pr-10 w-[3rem] h-[3rem] ${
-                  currentImg === data.length - 1 && 'opacity-50'
+                  currentImg === props.data.length - 1 && 'opacity-50 '
                 }`}
               >
                 <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
               </button>
             </div>
             {/* 적용 분야 이름 */}
-            <div className="lg:hidden w-[20rem] h-20 overflow-hidden relative flex">
+            <div className="lg:w-[48rem] lg:h-40 sm:w-[34rem] w-[17rem] h-20 overflow-hidden relative flex">
               <div
                 ref={carouselRef}
                 style={{
-                  transform: `translateX(-${100 * currentImg}%)`,
+                  // 제품 이미지와 같게 이동
+                  transform: transformValue,
                 }}
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300"
               >
-                {data.map((v, i) => (
-                  <div key={i} className="relative shrink-0 w-full h-full text-center text-3xl font-bold my-3">
-                    {v.name}
+                {props.data.map((v, i) => (
+                  <div key={i} className="flex flex-col mt-3 mx-2">
+                    <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
+                    <div className="relative shrink-0  text-base font-medium mt-2">{v.desc}</div>
                   </div>
                 ))}
               </div>
