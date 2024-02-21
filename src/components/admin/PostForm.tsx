@@ -3,7 +3,6 @@ import { createPost } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
-import SubmitButton from './SubmitButton'
 
 type PostTypeProps = {
   postType: string
