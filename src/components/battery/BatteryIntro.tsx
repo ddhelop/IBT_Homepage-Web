@@ -17,7 +17,7 @@ export default function BatteryIntro() {
         }}
         className="relative bg-white"
       >
-        <div className="flex justify-center w-full h-full">
+        <div className="flex justify-center w-full h-[540px] lg:h-full">
           <div className="absolute text-center z-10 h-full w-full top-[50%] -translate-y-1/2">
             <div className="h-[50%] translate-y-1/2 flex flex-col justify-center items-center">
               {/* 로고 */}
@@ -33,7 +33,7 @@ export default function BatteryIntro() {
             </div>
           </div>
           {/* 배경이미지 */}
-          <div className="relative w-[100%] h-screen">
+          <div className="relative w-[100%]  lg:h-screen">
             <Image alt="" className="flex-shrink-0 z-0 object-cover" src={'/image/310인트로/311_소개_배경.png'} fill />
           </div>
         </div>

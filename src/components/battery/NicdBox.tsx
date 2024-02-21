@@ -56,17 +56,8 @@ export default function NicdBox() {
                 }}
                 className="text-2xl font-bold leading-10 pl-1 group-hover:hidden lg:text-base lg:leading-10"
               >
-                방산 분야에서는 무기 시스템의
-                <br />
-                안정적인 작동을 위해,
-                <br />
-                UPS 분야에서는 전력 공급의 연속성을 위해,
-                <br />
-                철도 분야에서는 안전한 운행을 위해
-                <br />
-                IBT의 Ni-cd 배터리가 필수적으로
-                <br />
-                사용되고 있습니다.
+                방산 분야에서는 무기 시스템의 안정적인 작동을 위해, UPS 분야에서는 전력 공급의 연속성을 위해, <br />
+                철도 분야에서는 안전한 운행을 위해 IBT의 Ni-cd 배터리가 필수적으로 사용되고 있습니다.
               </motion.p>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="hidden group-hover:flex flex-col gap-5 pt-10">

@@ -6,5 +6,11 @@ export const metadata = {
 }
 
 export default function ESG500Page() {
-  return <ESG500Component />
+  return (
+    <div className="flex justify-center">
+      <div className="w-[min(96%,1200px)]">
+        <ESG500Component />
+      </div>
+    </div>
+  )
 }
