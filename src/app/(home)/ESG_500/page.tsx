@@ -19,6 +19,13 @@ export const metadata = {
 const ESG500Page = async () => {
   // const data = await getData()
   // console.log(data)
-  return <ESG500Component />
+  return (
+    <div className="flex justify-center">
+      <div className="w-[min(96%,1200px)]">
+        <ESG500Component />
+      </div>
+    </div>
+  )
 }
+
 export default ESG500Page
