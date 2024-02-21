@@ -72,34 +72,33 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
       const { title, itemTitle, itemAdvanced, cateImg } = Object.fromEntries(formData)
       if (!cateImg) {
         setError('이미지 파일을 추가하지 않았습니다.')
+        setIsLoading(false)
         return false
       }
-      if (!productList.length) {
-        setError('적용제품을 최소 1개 추가해야합니다.')
-        return false
-      }
-      if (!title || !itemTitle || !itemAdvanced) {
+      if (!title || !itemAdvanced) {
         setError('내용이 모두 입력되지 않았습니다.')
+        setIsLoading(false)
         return false
       }
       formData.append('batteryId', batteryId.toString())
       formData.append('cateImg', cateImg)
-      for (let i = 0; i < productList.length; i++) {
-        formData.append('productName', productList[i].name)
-        formData.append('productImg', productList[i].img)
+      if (productList.length) {
+        for (let i = 0; i < productList.length; i++) {
+          formData.append('productName', productList[i].name)
+          formData.append('productImg', productList[i].img)
+        }
       }
-
-      /////////const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
       const { success, message } = await createBatteryPage(formData)
-
       if (!success) {
         setError(message)
+        setIsLoading(false)
+      } else {
+        setIsLoading(false)
+        router.push('/admin/batteries')
+        console.log(message)
       }
-      console.log(message)
     } catch (e: any) {
       console.log(e)
-    } finally {
-      setIsLoading(false)
     }
   }
   const handleDelete = (id: number) => {
@@ -108,8 +107,10 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
+    // if (source.index !== destination.index) {
     const newOrderList = reorderPosts(productList, source.index, destination.index)
     setProductList(newOrderList)
+    // }
   }
   return (
     <div className="flex flex-col">
@@ -140,7 +141,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
               />
             </div>
             <h2 className="mb-2">{`배터리명 (ex:Ni-cd battery Sintered Type)`}</h2>
-            <input required type="text" name="itemTitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
+            <input type="text" name="itemTitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
             <h2 className="mb-2">{`배터리 부제목(필수아님)`}</h2>
             <input type="text" name="itemSubtitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
 
@@ -170,8 +171,9 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                   type="text"
                   className=" text-gray-400 bg-gray-50 h-6 rounded-md px-2 py-4 border"
                 />
-                <input type="file" required accept="image/*" onChange={(e) => showImage(e, 'product')} />
+                <input type="file" accept="image/*" onChange={(e) => showImage(e, 'product')} />
                 <AddButton
+                  text="제품 추가"
                   isForSubmit={false}
                   isActive={prodTmpUrl != null && prodName.length > 0}
                   func={() => addProduct()}
@@ -215,7 +217,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
           </div>
         </div>
         <h1 className="text-red-400 mb-2">{error}</h1>
-        <AddButton isForSubmit={true} isActive={true} isLoading={isLoading} />
+        <AddButton text="완료" isForSubmit={true} isActive={true} isLoading={isLoading} />
       </form>
     </div>
   )
