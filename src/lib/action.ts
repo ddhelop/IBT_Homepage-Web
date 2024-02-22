@@ -20,6 +20,16 @@ export const compare = async (username: string, password: string) => {
     return false
   }
 }
+export const fetchPageData = async (id: number) => {
+  try {
+    connectToDb()
+    const batteryPageData = await BatteryPage.findOne({ id })
+    return batteryPageData
+  } catch (err) {
+    console.log(err)
+    throw new Error('Failed to fetch data!')
+  }
+}
 
 export const createPost = async (formData: FormData) => {
   const postType: string = formData.get('postType') as unknown as string
