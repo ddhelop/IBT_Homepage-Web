@@ -24,7 +24,7 @@ export default function CompanyInfoComponent() {
 
   return (
     <>
-      <div className="w-full lg:mb-40 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
+      <div className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white">
         <motion.div
           initial="offscreen"
           whileInView="onscreen"
