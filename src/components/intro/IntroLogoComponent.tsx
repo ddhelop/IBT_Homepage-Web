@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { DownMotionComponent } from '../commons/FramerMotion/Direction/DownMotion'
 import { motion } from 'framer-motion'
 
-export default function LogoComponent() {
+export default function IntroLogoComponent() {
   const [logos, setLogos] = useState([
     '/intro/logo/KORAIL.png',
     '/intro/logo/seoul humetro.png',
@@ -95,9 +95,9 @@ export default function LogoComponent() {
           </p>
         </DownMotionComponent> */}
 
-        <motion.div viewport={{ root: scrollRef }} initial="offscreen" whileInView="onscreen" variants={Variants}>
+        <motion.div initial="offscreen" whileInView="onscreen" variants={Variants}>
           {/* 1번째 줄 */}
-          <div className="inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="my-10 inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos.map((logo, index) => (
                 <li key={index} className="max-w-[220px]">
@@ -116,7 +116,7 @@ export default function LogoComponent() {
           </div>
 
           {/* 두번째 줄 */}
-          <div className="w-full max-h-[110px] inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="my-10 w-full max-h-[110px] inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="w-full flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos2.map((logo, index) => (
                 <li key={index} className="min-w-[170px]">
@@ -135,7 +135,7 @@ export default function LogoComponent() {
           </div>
 
           {/* 세번째 줄 */}
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="my-10 w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos3.map((logo, index) => (
                 <li key={index} className="max-w-[220px]">
@@ -154,7 +154,7 @@ export default function LogoComponent() {
           </div>
 
           {/* 네번째 줄 */}
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="my-10 w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos4.map((logo, index) => (
                 <li key={index} className="max-w-[220px]">
@@ -173,7 +173,7 @@ export default function LogoComponent() {
           </div>
 
           {/* 다섯번째 줄 */}
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="my-10 w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScroll">
               {doubledLogos5.map((logo, index) => (
                 <li key={index} className="max-w-[220px]">
@@ -192,7 +192,7 @@ export default function LogoComponent() {
           </div>
 
           {/* 여섯번째 줄 */}
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="my-10 w-full inline-flex flex-nowrap overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_128px,_black_calc(100%-200px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&>li]:mx-8 [&>img]:max-w-none animate-infiniteScrollLeft">
               {doubledLogos6.map((logo, index) => (
                 <li key={index} className="max-w-[220px]">

@@ -8,8 +8,8 @@ export default function CompanyHistory3() {
     <>
       <div className="mt-20 w-full flex flex-col lg:items-end">
         {/* top */}
-        <div className="ml-8 lg:ml-0 lg:w-[99%] flex flex-col lg:items-center">
-          <div>
+        <div className="ml-8 lg:ml-0 lg:w-[91.5%] flex flex-col items-center ">
+          <div className="w-[50%] lg:w-[18%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-2xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2005</h3>
               <p className="font-light text-sm mb-10">ISO14001 인증 획득</p>
@@ -48,8 +48,8 @@ export default function CompanyHistory3() {
         </div>
 
         {/* middle */}
-        <div className="ml-8 lg:ml-0 lg:w-[91.5%] flex flex-col lg:items-center relative">
-          <div>
+        <div className="ml-8 lg:ml-0 lg:w-[91.5%] flex flex-col items-center relative">
+          <div className="w-[50%] lg:w-[18%]">
             <LeftMotionComponent component={motion.div}>
               <Image
                 src="/info/2003.png" // 이미지 경로
@@ -114,9 +114,9 @@ export default function CompanyHistory3() {
             </LeftMotionComponent>
           </div>
 
-          <div className="hidden lg:flex absolute left-[10%]">
+          <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[13%] 2xl:left-[17%]">
             <RightMotionComponent component={motion.div}>
-              <p className="text-[#2B6434] font-bold tracking-[1.059px] text-3xl leading-[3rem]">
+              <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl xl:text-2xl leading-[3.3rem]">
                 배터리 산업의 개척자,
                 <br />
                 기술력으로 초석을 다지다

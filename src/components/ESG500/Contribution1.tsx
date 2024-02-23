@@ -1,12 +1,29 @@
 'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotion'
-import { m, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
 import { NoMotionComponent } from '../commons/FramerMotion/Direction/NoMotion'
+import axios from 'axios'
 
 export default function Contribution1() {
+  const [pdf, setPdf] = useState<{ pdf: string; title: string }[]>([])
+
+  useEffect(() => {
+    async function fetchPDF(): Promise<void> {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/admin/esg-pdf`)
+        setPdf(response.data)
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error:', error)
+      }
+    }
+
+    void fetchPDF()
+  }, []) // 빈 의존성 배열로 마운트 시에만 실행
+
   return (
     <>
       <div className="w-full flex flex-col justify-center align-middle items-center">
@@ -118,37 +135,20 @@ export default function Contribution1() {
             </div>
             <NoMotionComponent component={motion.div} className="flex flex-col">
               {/* table end*/}
-              <p className="text-base leading-9 tracking-wider text-[#7b7b7b]">
+              <p className="text-base leading-9 tracking-wider text-[#7b7b7b] mb-12">
                 기부금은 장학 목적 사업에만 사용 됩니다.
               </p>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_22.pdf"
-                className="text-base hover:text-[#000000] mt-12 tracking-wider text-[#7b7b7b] cursor-pointer"
-                target="_blank"
-              >
-                지우장학회 22년 기부금모금액 및 활용실적명세.pdf
-              </a>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_21.pdf"
-                target="_blank"
-                className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
-              >
-                지우장학회 21년 기부금모금액 및 활용실적명세.pdf
-              </a>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_20.pdf"
-                target="_blank"
-                className="text-base mt-2 hover:text-[#000000] tracking-wider text-[#7b7b7b] cursor-pointer"
-              >
-                지우장학회 20년 기부금모금액 및 활용실적명세.pdf
-              </a>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_19.pdf"
-                target="_blank"
-                className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
-              >
-                지우장학회 19년 기부금모금액 및 활용실적명세.pdf
-              </a>
+
+              {pdf.map((el, index) => (
+                <a
+                  key={index}
+                  href={el.pdf}
+                  className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
+                  target="_blank"
+                >
+                  {el.title}
+                </a>
+              ))}
             </NoMotionComponent>
           </div>
         </div>

@@ -4,6 +4,7 @@ import FloatingButton from '@/components/companyInfo/Floating'
 import LogoComponent from '@/components/companyInfo/LogoComponent'
 
 import TechnicalComponent from '@/components/companyInfo/Technical/TechnicalComponent'
+import CooperativeComponent from '@/components/companyInfo/companyHistory/CooperativeComponent'
 import HistoryComponent from '@/components/companyInfo/companyHistory/HistoryComponent'
 
 export const metadata = {
@@ -15,13 +16,14 @@ export default function IntroPage(): JSX.Element {
   return (
     <>
       <FloatingButton />
-      <div className="flex flex-col w-full overflow-hidden">
+      <div className="flex flex-col w-full overflow-hidden gap-y-72">
         {/* 1st company info section */}
         <CompanyInfoComponent />
         {/* 2nd company history section */}
         <HistoryComponent />
         {/* 3th partnership section */}
-        <LogoComponent />
+        <CooperativeComponent />
+        {/* <LogoComponent /> */}
         {/* 4th Technical certification section */}
         <TechnicalComponent />
         {/* 5th directions section*/}

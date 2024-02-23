@@ -10,7 +10,7 @@ export default function CompanyHistory1() {
       <div className="mt-20 w-full flex flex-col lg:items-end">
         {/* top */}
         <div className="lg:w-[82%] flex flex-col items-center">
-          <div>
+          <div className="w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-5">2023</h3>
               <p className="font-light text-sm mb-16">수소발전 통합 제어 / 관제 시스템 개발</p>
@@ -36,7 +36,7 @@ export default function CompanyHistory1() {
 
         {/* middle */}
         <div className="lg:w-[81.5%] flex flex-col items-center relative">
-          <div className="p-8 lg:p-0">
+          <div className="w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-3">2020</h3>
               <p className="font-light text-sm leading-8 mb-7">
@@ -81,9 +81,9 @@ export default function CompanyHistory1() {
             </LeftMotionComponent>
           </div>
 
-          <div className="hidden lg:flex absolute left-[-3%]">
+          <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[13%] 2xl:left-[14%]">
             <RightMotionComponent component={motion.div}>
-              <p className="text-[#2B6434] font-bold tracking-wide text-3xl leading-[3.3rem]">
+              <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl xl:text-2xl leading-[3.3rem]">
                 친환경 에너지의 리더,
                 <br />
                 지속 가능한 미래를 열다

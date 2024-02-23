@@ -9,6 +9,7 @@ interface ILocationProps {
 }
 
 function GoogleMapComponent(props: ILocationProps) {
+  const [loading, setLoading] = useState(true) // 로딩 상태 추가
   const [containerStyle, setContainerStyle] = useState({
     width: '33.85vw', // PC 화면 기준 너비
     height: '33.85vw', // PC 화면 기준 높이
@@ -51,15 +52,35 @@ function GoogleMapComponent(props: ILocationProps) {
     lat: props.lat,
     lng: props.lng,
   }
+
+  // 로딩 스켈레톤 스타일
+  const skeletonStyle = {
+    ...containerStyle,
+    backgroundColor: 'grey',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '1rem',
+    color: 'white',
+  }
+
   return (
-    // google Map
-    <LoadScript googleMapsApiKey="AIzaSyCaDpdV3yidXTBE2CfjfGEpYw9zwdq_aGc">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17}>
-        <MarkerF
-          position={center}
-          icon={'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
-        ></MarkerF>
-      </GoogleMap>
+    <LoadScript
+      googleMapsApiKey="AIzaSyCaDpdV3yidXTBE2CfjfGEpYw9zwdq_aGc"
+      onLoad={() => setLoading(false)} // API 로드 완료 시 로딩 상태 변경
+    >
+      {loading ? (
+        // 로딩 중 스켈레톤 표시
+        <div style={skeletonStyle}>loading...</div>
+      ) : (
+        // 로딩 완료 시 GoogleMap 표시
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17}>
+          <MarkerF
+            position={center}
+            icon={'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
+          ></MarkerF>
+        </GoogleMap>
+      )}
     </LoadScript>
   )
 }
