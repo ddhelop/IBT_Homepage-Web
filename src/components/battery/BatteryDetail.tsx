@@ -1,8 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { batteryList } from '@/lib/data'
 
 type Props = {
   title: string // 중분류 title
