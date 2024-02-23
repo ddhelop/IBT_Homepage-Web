@@ -5,7 +5,7 @@ import { NewsProps } from '@/lib/types'
 const IntroComponent7 = (props: NewsData) => {
   return (
     <>
-      <div className="flex flex-col md:min-h-screen bg-no-repeat bg-cover bg-white ">
+      <div className="flex flex-col  bg-no-repeat bg-cover bg-white ">
         <div className="w-full h-full flex flex-col text-center align-middle justify-center">
           {/* top container */}
           <div className="min-h-[300px] flex flex-col justify-center align-middle">
