@@ -2,16 +2,6 @@ import { useEffect, useState } from 'react'
 import IntroSlider from './IntroSlider'
 import axios from 'axios'
 
-// const getData = async () => {
-//   const res = await fetch(`${process.env.URL}/api/admin/news`, {
-//     method: 'GET',
-//     cache: 'no-store',
-//   })
-//   if (!res.ok) {
-//     throw new Error('Something went wrong')
-//   }
-//   return res.json()
-// }
 export interface ApiResponse {
   isSuccess: boolean
   code: number
