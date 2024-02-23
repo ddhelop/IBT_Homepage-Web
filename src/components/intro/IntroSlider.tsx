@@ -2,12 +2,9 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { NewsData } from '@/lib/types'
 
-export interface ISliderProps {
-  news: { img: string; title: string; desc: string }[]
-}
-
-const IntroSlider = (props: ISliderProps) => {
+const IntroSlider = ({ data }: NewsData) => {
   const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
   const [currentImg, setCurrentImg] = useState(0) // 현재 보고 있는 carousel 페이지 번호
   const carouselRef = useRef(null)
@@ -54,7 +51,7 @@ const IntroSlider = (props: ISliderProps) => {
         }}
         className="w-full lg:h-full flex flex-col items-center justify-center gap-y-10"
       >
-        {props.news.length > 3 ? (
+        {data?.length > 3 ? (
           // 개수가 4개 이상인 경우
           <>
             <div className="w-full flex flex-row justify-center items-center">
@@ -80,7 +77,7 @@ const IntroSlider = (props: ISliderProps) => {
                     }}
                     className={`hidden lg:w-full lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300  `}
                   >
-                    {props.news.map((v, i) => (
+                    {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-56 h-56 mx-4`}>
                         <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
@@ -95,7 +92,7 @@ const IntroSlider = (props: ISliderProps) => {
                     }}
                     className={`lg:hidden w-full h-full absolute flex transition-all duration-300 lg:gap-5`}
                   >
-                    {props.news.map((v, i) => (
+                    {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
                         <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
@@ -107,21 +104,21 @@ const IntroSlider = (props: ISliderProps) => {
               {/* PC버전 큰화면: 4개 carousel */}
               <button
                 // 마지막 페이지에서는 오른쪽 화살표 disabled 처리
-                disabled={currentImg === props.news.length - 3}
+                disabled={currentImg === data?.length - 3}
                 // 누르면 currentImg 번호 + 1
                 onClick={() => setCurrentImg((prev) => prev + 1)}
                 className={`hidden lg:flex lg:relative lg:px-20 lg:w-[3rem] lg:h-[3rem] ${
-                  currentImg === props.news.length - 3 && 'opacity-50'
+                  currentImg === data?.length - 3 && 'opacity-50'
                 }`}
               >
                 <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
               </button>
               {/* 모바일버전 작은화면: 1개 carousel */}
               <button
-                disabled={currentImg === props.news.length - 1}
+                disabled={currentImg === data?.length - 1}
                 onClick={() => setCurrentImg((prev) => prev + 1)}
                 className={`lg:hidden relative pl-20 pr-10 w-[3rem] h-[3rem] ${
-                  currentImg === props.news.length - 1 && 'opacity-50'
+                  currentImg === data?.length - 1 && 'opacity-50'
                 }`}
               >
                 <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
@@ -139,7 +136,7 @@ const IntroSlider = (props: ISliderProps) => {
                 }}
                 className="hidden lg:w-56 lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300 "
               >
-                {props.news.map((v, i) => (
+                {data?.map((v, i) => (
                   <div key={i} className="flex flex-col mx-4 mt-3">
                     <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
                     <div className="relative shrink-0   text-base font-medium mt-2">{v.desc}</div>
@@ -155,7 +152,7 @@ const IntroSlider = (props: ISliderProps) => {
                 }}
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300"
               >
-                {props.news.map((v, i) => (
+                {data?.map((v, i) => (
                   <div key={i} className="flex flex-col h-40 mt-3 mx-2 ">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
                     <div className="relative shrink-0 text-base font-medium mt-2">{v.desc}</div>
@@ -169,7 +166,7 @@ const IntroSlider = (props: ISliderProps) => {
           <>
             {/* PC버전 큰화면: carousel 제거하고 가운데 정렬 */}
             <div className={'hidden lg:relative lg:w-full lg:flex lg:flex-row lg:justify-center lg:gap-28'}>
-              {props.news.map((v, i) => (
+              {data?.map((v, i) => (
                 <div
                   key={i}
                   className={'w-48 h-full relative flex flex-col justify-center items-center overflow-hidden'}
@@ -205,7 +202,7 @@ const IntroSlider = (props: ISliderProps) => {
                     }}
                     className={`lg:hidden w-full h-full absolute flex transition-all duration-300 lg:gap-5`}
                   >
-                    {props.news.map((v, i) => (
+                    {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
                         <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
@@ -216,9 +213,9 @@ const IntroSlider = (props: ISliderProps) => {
               {/* 오른쪽 화살표 버튼 */}
               <button
                 onClick={() => setCurrentImg((prev) => prev + 1)}
-                disabled={currentImg === props.news.length - 1}
+                disabled={currentImg === data?.length - 1}
                 className={`lg:hidden relative pl-20 top-[20px] pr-10 w-[3rem] h-[3rem] ${
-                  currentImg === props.news.length - 1 && 'opacity-50 '
+                  currentImg === data?.length - 1 && 'opacity-50 '
                 }`}
               >
                 <Image alt="arrow" src={'/image/rightArrow.svg'} fill />
@@ -234,7 +231,7 @@ const IntroSlider = (props: ISliderProps) => {
                 }}
                 className="lg:hidden w-full h-full absolute flex transition-all duration-300 "
               >
-                {props.news.map((v, i) => (
+                {data?.map((v, i) => (
                   <div key={i} className="flex flex-col mt-3 mx-2">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
                     <div className="relative shrink-0 text-base font-medium mt-2 ">{v.desc}</div>

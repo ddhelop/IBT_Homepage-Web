@@ -23,16 +23,13 @@ const getData = async () => {
 
 const IntroPage = async () => {
   const res = await getData()
-  console.log(res)
+
   return (
     <div className="flex flex-col w-full">
       {/* 1 ~ 4 */}
       {contents.map((content, index) => (
         <ContentBlock key={index} title={content.title} text={content.text} background={content.background} />
       ))}
-
-      {/* 4th Logo */}
-      {/* <LogoComponent /> */}
 
       {/* 5th */}
       <IntroComponent5 />
