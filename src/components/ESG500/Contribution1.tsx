@@ -5,11 +5,9 @@ import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotio
 import { motion } from 'framer-motion'
 import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
 import { NoMotionComponent } from '../commons/FramerMotion/Direction/NoMotion'
-import { CatelogProps } from '@/lib/types'
+import { CatalogProps, SocialProps } from '@/lib/types'
 
-export default function Contribution1({ pdfs }: { pdfs: CatelogProps[] }) {
-  const [pdf, setPdf] = useState<CatelogProps[]>(pdfs)
-
+export default function Contribution1({ data }: { data: CatalogProps[] }) {
   return (
     <>
       <div className="w-full flex flex-col justify-center align-middle items-center">
@@ -125,7 +123,7 @@ export default function Contribution1({ pdfs }: { pdfs: CatelogProps[] }) {
                 기부금은 장학 목적 사업에만 사용 됩니다.
               </p>
 
-              {pdf.map((el, index) => (
+              {data.map((el, index) => (
                 <a
                   key={index}
                   href={el.pdf}

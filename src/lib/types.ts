@@ -8,7 +8,11 @@ export type NewsProps = {
   updatedAt: string
 }
 
-export type CatelogProps = {
+export type NewsData = {
+  data: NewsProps[]
+}
+
+export type CatalogProps = {
   title: string
   img: string
   pdf: string
@@ -17,6 +21,10 @@ export type CatelogProps = {
   createdAt: string
   updatedAt: string
   _id: string
+}
+
+export type SocialProps = {
+  data: CatalogProps[]
 }
 
 export type Category = {

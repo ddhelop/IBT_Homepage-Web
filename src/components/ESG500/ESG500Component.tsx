@@ -6,9 +6,9 @@ import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMot
 import { motion } from 'framer-motion'
 import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotion'
 import { NoMotionComponent } from '../commons/FramerMotion/Direction/NoMotion'
-import { CatelogProps } from '@/lib/types'
+import { CatalogProps } from '@/lib/types'
 
-export default function ESG500Component({ pdfs }: { pdfs: CatelogProps[] }) {
+export default function ESG500Component({ data }: { data: CatalogProps[] }) {
   return (
     <>
       <div className="w-full p-5 md:p-20 flex flex-col items-center lg:items-start min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden">
@@ -37,7 +37,7 @@ export default function ESG500Component({ pdfs }: { pdfs: CatelogProps[] }) {
 
         {/* 2nd */}
         <div className="lg:flex w-full items-end justify-end">
-          <SocialContributionComponent pdfs={pdfs} />
+          <SocialContributionComponent data={data} />
         </div>
 
         {/* 세번째 단락 */}

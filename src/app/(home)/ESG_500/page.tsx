@@ -18,10 +18,11 @@ const getData = async () => {
 
 const ESG500Page = async () => {
   const data = await getData()
+  console.log(data)
   return (
     <div className="flex justify-center">
       <div className="w-[min(96%,1200px)]">
-        <ESG500Component pdfs={data} />
+        <ESG500Component data={data} />
       </div>
     </div>
   )
