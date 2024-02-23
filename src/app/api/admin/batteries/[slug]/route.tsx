@@ -1,16 +1,16 @@
-import { Post } from '@/lib/models'
+import { BatteryPage } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
 import { NextRequest, NextResponse } from 'next/server'
 
 export const GET = async (request: NextRequest, { params }: any) => {
   const { slug } = params
-  console.log(slug)
   try {
     connectToDb()
-    const post = await Post.findOne({ id: slug })
-    return NextResponse.json(post)
+    const batteryPage = await BatteryPage.findOne({ id: slug })
+    console.log('FetchBatteryPage:', batteryPage)
+    return NextResponse.json(batteryPage)
   } catch (err) {
     console.log(err)
-    throw new Error('Failed to fetch dd!')
+    throw new Error('Failed to fetch post!')
   }
 }

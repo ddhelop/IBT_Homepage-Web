@@ -3,14 +3,16 @@ import BatteryDetail from '@/components/battery/BatteryDetail'
 import BatteryItem from '@/components/battery/BatteryItem'
 import { batteryList, defenseList } from '@/lib/data'
 import { Metadata } from 'next'
+import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
   title: 'About Defense Ni-cd',
   description: 'IBT 방산용 Ni-cd 배터리 제품 소개 페이지',
 }
-// const data = await fetchPageData(0)
 
-const BatteryDefensePage = () => {
+const BatteryDefensePage = async () => {
+  const data = await fetchPageData(0)
+  console.log(data)
   return (
     <>
       {/* 오른쪽 플로팅 버튼 */}

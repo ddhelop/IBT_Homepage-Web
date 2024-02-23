@@ -3,13 +3,16 @@ import BatteryDetail from '@/components/battery/BatteryDetail'
 import BatteryItem from '@/components/battery/BatteryItem'
 import { batteryList, energySaveList } from '@/lib/data'
 import { Metadata } from 'next'
+import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
   title: 'About Energy Save Lithium',
   description: 'IBT 에너지 저장용 리튬 배터리 제품 소개 페이지',
 }
 
-const BatteryEnergySavePage = () => {
+const BatteryEnergySavePage = async () => {
+  const data = await fetchPageData(3)
+  console.log(data)
   return (
     <>
       {/* 오른쪽 플로팅 버튼 */}
