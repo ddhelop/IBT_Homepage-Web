@@ -6,6 +6,7 @@ import IntroComponent6 from './IntroComponent6'
 import IntroComponent7 from './IntroComponent7'
 import LogoComponent from '../companyInfo/LogoComponent'
 import { motion } from 'framer-motion'
+import IntroLogoComponent from './IntroLogoComponent'
 
 export default function IntroComponent() {
   return (
@@ -16,7 +17,7 @@ export default function IntroComponent() {
       ))}
 
       {/* 4th Logo */}
-      <div className="relative">
+      <div className="relative flex min-h-screen align-middle justify-center overflow-hidden">
         {/* 배경을 위한 div */}
         <div className="w-full h-full absolute inset-0 bg-black bg-opacity-30 z-10">
           <div className="h-full flex flex-col z-30 align-middle justify-center text-center">
@@ -47,9 +48,8 @@ export default function IntroComponent() {
             </motion.p>
           </div>
         </div>
-
-        <div className="relative">
-          <LogoComponent />
+        <div className="absolute inset-0 flex items-center justify-center ">
+          <IntroLogoComponent />
         </div>
       </div>
 
