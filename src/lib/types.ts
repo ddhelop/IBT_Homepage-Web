@@ -1,11 +1,11 @@
 export type NewsProps = {
+  _id: string
   title: string
   img: string
   id: Number
-  description: string
+  desc: string
   createdAt: string
   updatedAt: string
-  _id: string
 }
 
 export type CatelogProps = {
@@ -31,4 +31,10 @@ export type Category = {
 export type Product = {
   name: string
   img: string
+}
+
+export interface IContentBlockProps {
+  title: string
+  text: string
+  background: string
 }

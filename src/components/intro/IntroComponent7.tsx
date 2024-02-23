@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import IntroSlider from './IntroSlider'
+import { NewsProps } from '@/lib/types'
 
 export interface ApiResponse {
-  isSuccess: boolean
-  code: number
-  message: string
-  result: { img: string; title: string; desc: string }[] // API 응답 형식을 명시
+  data: NewsProps[]
 }
 
-const IntroComponent7 = (data: any) => {
+const IntroComponent7 = (props: ApiResponse) => {
   return (
     <>
       <div className="flex flex-col md:min-h-screen bg-no-repeat bg-cover bg-white ">
@@ -21,7 +19,7 @@ const IntroComponent7 = (data: any) => {
           </div>
           {/* below container */}
           <div className="min-h-[350px] flex align-middle items-center pt-36">
-            <IntroSlider news={data} />
+            <IntroSlider news={props.data} />
           </div>
         </div>
       </div>
