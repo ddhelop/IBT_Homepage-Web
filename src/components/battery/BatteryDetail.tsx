@@ -8,18 +8,9 @@ import { fetchPageData } from '@/lib/action'
 type Props = {
   title: string // 중분류 title
   explain: string[] // 배터리 설명
-  id: number
 }
 
-export default async function BatteryDetail({ title, explain, id }: Props) {
-  // const [componentData, setComponentData] = useState([])
-
-  // useEffect(() => {
-  //   fetchPageData(id).then((res) => {
-  //     setComponentData(res.data)
-  //   })
-  // }, [])
-
+export default function BatteryDetail({ title, explain }: Props) {
   return (
     <>
       <motion.div
@@ -30,7 +21,6 @@ export default async function BatteryDetail({ title, explain, id }: Props) {
           duration: 0.5,
         }}
       >
-        {/* <div>{componentData}</div> */}
         {/* 배터리 중분류 title */}
         <div className="text-center mt-48">
           <div className="text-6xl font-bold text-primary-green">{title}</div>

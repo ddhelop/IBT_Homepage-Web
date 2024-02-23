@@ -7,11 +7,13 @@ import { ModelInfo, energySaveList } from '@/lib/data'
 import { motion } from 'framer-motion'
 
 interface DetailInfo {
+  id: number
   title: string // 소분류카테고리명
   itemFile: string // 제품이미지
   itemTitle: string // 제품명
-  itemSubTitle: string // 제품추가설명
-  itemAdvanced: string[] // 제품적용분야
+  itemSubtitle: string // 제품추가설명
+  itemAdvanced: string // 제품소개
+  products: string[] // 제품적용모델
 }
 
 type Props = {
@@ -23,6 +25,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
   const [categoryIndex, setCategoryIndex] = useState(0) // 선택한 소분류 카테고리를 저장, 가장 왼쪽 0번이 default
   const categoryLength = detailInfo.length // detailInfo의 길이로 소분류 카테고리 개수 저장
   const categoryWidth = Math.round((1 / categoryLength) * 100) // % 단위
+  console.log(categoryWidth)
   return (
     <>
       <section className="w-full min-h-screen">
@@ -38,7 +41,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
           {/* 소분류 카테고리 개수에 따라 margin 조절 */}
           <div
             className={`${
-              categoryLength === 5 ? 'lg:mx-10 mx-5' : categoryLength === 3 ? 'lg:mx-40 mx-5' : 'lg:mx-64 mx-5'
+              categoryLength > 3 ? 'lg:mx-10 mx-5' : categoryLength === 3 ? 'lg:mx-40 mx-5' : 'lg:mx-64 mx-5'
             } flex flex-row items-center mb-40`}
           >
             {detailInfo.map((v, i) => {
@@ -108,7 +111,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                 </div>
                 <div className="lg:text-2xl text-xl text-center font-[350] mb-10">
                   {/* 제품 추가 설명 */}
-                  {detailInfo[categoryIndex].itemSubTitle}
+                  {detailInfo[categoryIndex].itemSubtitle}
                 </div>
               </>
             )}
@@ -128,13 +131,16 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
               ''
             ) : (
               <>
-                {detailInfo[categoryIndex].itemAdvanced.map((adv, id) => {
+                <div className="w-3/4 text-2xl font-[350] mb-4 text-center whitespace-pre-line basis-1/2">
+                  {detailInfo[categoryIndex].itemAdvanced}
+                </div>
+                {/* {detailInfo[categoryIndex].itemAdvanced.map((adv, id) => {
                   return (
                     <div key={id} className="w-3/4 text-2xl font-[350] mb-4 text-center">
                       {adv}
                     </div>
                   )
-                })}
+                })} */}
               </>
             )}
           </motion.div>
@@ -168,7 +174,11 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                 {/* 산업용Nicd(1), 에너지저장용Lithium(3)의 경우 "Apply" */}
                 <div className="text-3xl font-bold py-10">Apply</div>
                 {/* 적용되는 분야 슬라이드 Carousel */}
-                <Slider categoryIndex={categoryIndex} mainCategoryIndex={mainCategoryIndex} />
+                <Slider
+                  array={detailInfo[categoryIndex].products}
+                  categoryIndex={categoryIndex}
+                  mainCategoryIndex={mainCategoryIndex}
+                />
               </>
             ) : (
               <>
@@ -176,7 +186,11 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                 {/* 방산용Nicd(0), 동력용Lithium(2)의 경우 "적용 모델" */}
                 <div className="text-3xl font-bold py-10">적용 모델</div>
                 {/* 적용되는 분야 슬라이드 Carousel */}
-                <Slider categoryIndex={categoryIndex} mainCategoryIndex={mainCategoryIndex} />
+                <Slider
+                  array={detailInfo[categoryIndex].products}
+                  categoryIndex={categoryIndex}
+                  mainCategoryIndex={mainCategoryIndex}
+                />
               </>
             )}
           </motion.div>

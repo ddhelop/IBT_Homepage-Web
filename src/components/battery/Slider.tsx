@@ -4,17 +4,24 @@ import Image from 'next/image'
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
+interface ModelInfo {
+  id: number
+  name: string
+  img: string
+}
+
 type Props = {
+  array: ModelInfo[]
   categoryIndex: number // 소분류 카테고리 Index
   mainCategoryIndex: number // 중분류 카테고리 Index
 }
 
-const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
+const Slider = ({ array, categoryIndex }: Props) => {
   const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
   const [currentImg, setCurrentImg] = useState(0) // 현재 보고 있는 carousel 페이지 번호
   const carouselRef = useRef(null)
 
-  const data = ModelInfo[mainCategoryIndex][categoryIndex].itemAdvanced // 적용분야 Data -> name, imagePath
+  const data = array // 적용분야 Data -> name, img
 
   return (
     <>
@@ -55,7 +62,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                   >
                     {data.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-1/4 h-full`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
                   </div>
@@ -70,7 +77,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                   >
                     {data.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-full h-full`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
                   </div>
@@ -142,7 +149,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
               {data.map((v, i) => (
                 <div key={i} className={'relative flex flex-col justify-center items-center'}>
                   <div key={i} className={`relative shrink-0 lg:w-[20rem] w-20 h-40`}>
-                    <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                    <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                   </div>
                   <div key={i} className="relative shrink-0 lg:w-[20rem] w-20 h-20 text-center text-3xl font-bold my-3">
                     {v.name}
@@ -172,7 +179,7 @@ const Slider = ({ categoryIndex, mainCategoryIndex }: Props) => {
                   >
                     {data.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-full h-full`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.imagePath} />
+                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
                   </div>
