@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import React from 'react'
-import { CatelogProps } from '@/lib/types'
-const CatelogCard = (post: CatelogProps) => {
+import { CatalogProps } from '@/lib/types'
+const CatelogCard = (post: CatalogProps) => {
   return (
     <a className="w-64 mx-4" href={post.pdf} target="_blank">
       <div className="relative h-80 border border-black-400 rounded-md">
