@@ -9,7 +9,7 @@ export default function CompanyHistory2() {
       <div className="mt-20 w-full flex flex-col lg:items-end">
         {/* top */}
         <div className="mr-32 lg:mr-0 lg:w-[87%] flex flex-col items-center">
-          <div>
+          <div className="w-[50%] lg:w-[26%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-2xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2014</h3>
               <p className="font-light text-sm mb-7">UPS, ESS 리튬인산철 전지시스템 개발</p>
@@ -39,8 +39,8 @@ export default function CompanyHistory2() {
           </div>
         </div>
         {/* middle */}
-        <div className="ml-8 lg:m-0 lg:w-[92.5%] flex flex-col lg:items-center relative">
-          <div>
+        <div className="mr-48 lg:m-0 lg:w-[92.5%] flex flex-col items-center relative">
+          <div className="w-[50%] lg:w-[18%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-2xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2011</h3>
               <p className="font-light text-sm leading-8 mb-7">
@@ -98,9 +98,9 @@ export default function CompanyHistory2() {
               </p>
             </LeftMotionComponent>
           </div>
-          <div className="hidden lg:flex absolute left-[10%]">
+          <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[13%] 2xl:left-[19%]">
             <RightMotionComponent component={motion.div}>
-              <p className="text-[#2B6434] font-bold tracking-[1.059px] text-3xl leading-[3.3rem]">
+              <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl xl:text-2xl leading-[3.3rem]">
                 국산화의 선두주자,
                 <br />
                 글로벌 경쟁력을 강화하다

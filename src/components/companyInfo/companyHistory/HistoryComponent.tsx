@@ -29,27 +29,11 @@ export default function HistoryComponent() {
     setActiveTab(event.currentTarget.value)
   }
 
-  // const Variants: Variants = {
-  //   offscreen: {
-  //     y: -200,
-  //     opacity: 0,
-  //   },
-  //   onscreen: (custom) => ({
-  //     y: 0,
-  //     opacity: 1,
-
-  //     transition: {
-  //       duration: 0.9,
-  //       ease: [0, 0.4, 0.8, 1.2],
-  //     },
-  //   }),
-  // }
-
   return (
     <>
       <div
         id="history"
-        className="w-full lg:mb-40 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
         <DownMotionComponent component={motion.h1} className="text-6xl font-medium">
           연혁
