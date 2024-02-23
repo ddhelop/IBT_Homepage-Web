@@ -14,9 +14,9 @@ export const metadata = {
 
 export default function IntroPage(): JSX.Element {
   return (
-    <>
+    <div className="flex flex-col items-center">
       <FloatingButton />
-      <div className="flex flex-col w-full overflow-hidden gap-y-72">
+      <div className="w-[min(92%,48rem)] overflow-hidden gap-y-72">
         {/* 1st company info section */}
         <CompanyInfoComponent />
         {/* 2nd company history section */}
@@ -29,6 +29,6 @@ export default function IntroPage(): JSX.Element {
         {/* 5th directions section*/}
         <DirectionsComponent />
       </div>
-    </>
+    </div>
   )
 }

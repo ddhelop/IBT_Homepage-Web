@@ -21,7 +21,7 @@ const ESG500Page = async () => {
   console.log(data)
   return (
     <div className="flex justify-center">
-      <div className="w-[min(96%,1200px)]">
+      <div className="w-[min(96%,48rem)]">
         <ESG500Component data={data} />
       </div>
     </div>
