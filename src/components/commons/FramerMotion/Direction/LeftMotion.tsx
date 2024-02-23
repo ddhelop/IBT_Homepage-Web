@@ -11,14 +11,14 @@ export const LeftMotionComponent: React.FC<MotionComponentProps> = ({ component:
   const scrollRef = useRef(null)
   const Variants = {
     offscreen: {
-      x: 170,
+      x: 150,
       opacity: 0,
     },
     onscreen: {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: [0, 0.4, 0.8, 1.2],
         delay: 0.2,
       },
