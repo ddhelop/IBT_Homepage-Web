@@ -1,15 +1,25 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { batteryList } from '@/lib/data'
+import { fetchPageData } from '@/lib/action'
 
 type Props = {
   title: string // 중분류 title
   explain: string[] // 배터리 설명
+  id: number
 }
 
-export default function BatteryDetail({ title, explain }: Props) {
+export default async function BatteryDetail({ title, explain, id }: Props) {
+  // const [componentData, setComponentData] = useState([])
+
+  // useEffect(() => {
+  //   fetchPageData(id).then((res) => {
+  //     setComponentData(res.data)
+  //   })
+  // }, [])
+
   return (
     <>
       <motion.div
@@ -20,6 +30,7 @@ export default function BatteryDetail({ title, explain }: Props) {
           duration: 0.5,
         }}
       >
+        {/* <div>{componentData}</div> */}
         {/* 배터리 중분류 title */}
         <div className="text-center mt-48">
           <div className="text-6xl font-bold text-primary-green">{title}</div>
