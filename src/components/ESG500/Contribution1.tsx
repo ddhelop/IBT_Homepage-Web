@@ -5,24 +5,10 @@ import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotio
 import { motion } from 'framer-motion'
 import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
 import { NoMotionComponent } from '../commons/FramerMotion/Direction/NoMotion'
-import axios from 'axios'
+import { CatelogProps } from '@/lib/types'
 
-export default function Contribution1() {
-  const [pdf, setPdf] = useState<{ pdf: string; title: string }[]>([])
-
-  useEffect(() => {
-    async function fetchPDF(): Promise<void> {
-      try {
-        const response = await axios.get(`http://localhost:3000/api/admin/esg-pdf`)
-        setPdf(response.data)
-        console.log(response.data)
-      } catch (error) {
-        console.error('Error:', error)
-      }
-    }
-
-    void fetchPDF()
-  }, []) // 빈 의존성 배열로 마운트 시에만 실행
+export default function Contribution1({ pdfs }: { pdfs: CatelogProps[] }) {
+  const [pdf, setPdf] = useState<CatelogProps[]>(pdfs)
 
   return (
     <>

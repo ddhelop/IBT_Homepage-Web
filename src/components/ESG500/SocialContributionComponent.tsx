@@ -7,18 +7,18 @@ import './Contribution.css'
 import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotion'
 import { motion } from 'framer-motion'
 
-export default function SocialContributionComponent() {
+export default function SocialContributionComponent({ pdfs }: any) {
   const [activeTab, setActiveTab] = useState('tab1')
   const isActive = (tabName: string) => activeTab === tabName
 
   const ViewContents = () => {
     switch (activeTab) {
       case 'tab1':
-        return <Contribution1 />
+        return <Contribution1 pdfs={pdfs} />
       case 'tab2':
         return <Contribution2 />
       default:
-        return <Contribution1 />
+        return <Contribution1 pdfs={pdfs} />
     }
   }
   const onClickButton = (event: MouseEvent<HTMLButtonElement>) => {

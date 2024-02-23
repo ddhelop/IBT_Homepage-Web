@@ -22,7 +22,8 @@ const getData = async () => {
 }
 
 const IntroPage = async () => {
-  const data = await getData()
+  const res = await getData()
+  console.log(res)
   return (
     <div className="flex flex-col w-full">
       {/* 1 ~ 4 */}
@@ -40,7 +41,7 @@ const IntroPage = async () => {
       <IntroComponent6 />
 
       {/* 7th */}
-      <IntroComponent7 data={data} />
+      <IntroComponent7 data={res} />
     </div>
   )
 }

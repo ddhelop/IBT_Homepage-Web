@@ -1,7 +1,7 @@
 'use client'
 
+import { IContentBlockProps } from '@/lib/types'
 import { motion } from 'framer-motion'
-import { IContentBlockProps } from './IntroComponent.types'
 
 export default function ContentBlock(props: IContentBlockProps) {
   return (
