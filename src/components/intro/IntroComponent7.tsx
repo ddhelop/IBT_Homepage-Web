@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react'
+import { NewsData } from '@/lib/types'
 import IntroSlider from './IntroSlider'
 import { NewsProps } from '@/lib/types'
 
-export interface ApiResponse {
-  data: NewsProps[]
-}
-
-const IntroComponent7 = (props: ApiResponse) => {
+const IntroComponent7 = (props: NewsData) => {
   return (
     <>
       <div className="flex flex-col md:min-h-screen bg-no-repeat bg-cover bg-white ">
@@ -19,7 +15,7 @@ const IntroComponent7 = (props: ApiResponse) => {
           </div>
           {/* below container */}
           <div className="min-h-[350px] flex align-middle items-center pt-36">
-            <IntroSlider news={props.data} />
+            <IntroSlider data={props.data} />
           </div>
         </div>
       </div>

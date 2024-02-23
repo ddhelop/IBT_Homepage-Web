@@ -1,9 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { batteryList } from '@/lib/data'
-import { fetchPageData } from '@/lib/action'
 
 type Props = {
   title: string // 중분류 title

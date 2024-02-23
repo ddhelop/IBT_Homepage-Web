@@ -4,8 +4,7 @@ import FloatingButton from '@/components/battery/Floating'
 import LithiumBox from '@/components/battery/LithiumBox'
 import NicdBox from '@/components/battery/NicdBox'
 import BatteryIntro from '@/components/battery/BatteryIntro'
-import { useEffect, useRef } from 'react'
-import { fetchPageData } from '@/lib/action'
+import { useEffect } from 'react'
 
 export const BatteryPage = async () => {
   // header, floating button를 통한 페이지 이동시 필요
@@ -35,12 +34,12 @@ export const BatteryPage = async () => {
         <h1 className="text-6xl font-bold my-40">BATTERY</h1>
         {/* Ni-cd */}
         {/* Ni-cd 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
-        <div id="nicd" className="flex flex-col w-[min(92%,720px)]">
+        <div id="nicd" className="flex flex-col w-[min(92%,720px)] mb-8">
           <NicdBox />
         </div>
         {/* Lithium */}
         {/* Lithium 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
-        <div id="lithium" className="flex flex-col w-[min(92%,1080px)]">
+        <div id="lithium" className="flex flex-col w-[min(92%,720px)]">
           <LithiumBox />
         </div>
       </div>

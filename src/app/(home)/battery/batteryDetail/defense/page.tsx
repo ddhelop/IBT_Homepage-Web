@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const BatteryDefensePage = async () => {
   const data = await fetchPageData(0)
+  
   return (
     <>
       {/* 오른쪽 플로팅 버튼 */}

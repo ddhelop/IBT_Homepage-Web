@@ -6,19 +6,20 @@ import Contribution2 from './Contribution2'
 import './Contribution.css'
 import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotion'
 import { motion } from 'framer-motion'
+import { SocialProps } from '@/lib/types'
 
-export default function SocialContributionComponent({ pdfs }: any) {
+export default function SocialContributionComponent({ data }: SocialProps) {
   const [activeTab, setActiveTab] = useState('tab1')
   const isActive = (tabName: string) => activeTab === tabName
 
   const ViewContents = () => {
     switch (activeTab) {
       case 'tab1':
-        return <Contribution1 pdfs={pdfs} />
+        return <Contribution1 data={data} />
       case 'tab2':
-        return <Contribution2 />
+        return <Contribution2 data={data} />
       default:
-        return <Contribution1 pdfs={pdfs} />
+        return <Contribution1 data={data} />
     }
   }
   const onClickButton = (event: MouseEvent<HTMLButtonElement>) => {

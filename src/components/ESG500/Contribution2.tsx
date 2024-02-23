@@ -5,8 +5,9 @@ import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotio
 import { motion } from 'framer-motion'
 import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
 import { NoMotionComponent } from '../commons/FramerMotion/Direction/NoMotion'
+import { CatalogProps } from '@/lib/types'
 
-export default function Contribution2() {
+export default function Contribution2({ data }: { data: CatalogProps[] }) {
   return (
     <>
       <div className="w-full flex flex-col justify-center align-middle items-center">
@@ -120,34 +121,16 @@ export default function Contribution2() {
               <p className="text-base leading-9 tracking-wider text-[#7b7b7b]">
                 기부금은 장학 목적 사업에만 사용 됩니다.
               </p>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_22.pdf"
-                className="text-base hover:text-[#000000] mt-12 tracking-wider text-[#7b7b7b] cursor-pointer"
-                target="_blank"
-              >
-                중양 장형태기념재단 22년 기부금모금액 및 활용실적명세.pdf
-              </a>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_21.pdf"
-                target="_blank"
-                className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
-              >
-                중양 장형태기념재단 21년 기부금모금액 및 활용실적명세.pdf
-              </a>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_20.pdf"
-                target="_blank"
-                className="text-base mt-2 hover:text-[#000000] tracking-wider text-[#7b7b7b] cursor-pointer"
-              >
-                중양 장형태기념재단 20년 기부금모금액 및 활용실적명세.pdf
-              </a>
-              <a
-                href="http://rocketibt.cafe24.com/bizdemo101303/img/images/ibt_pdf_19.pdf"
-                target="_blank"
-                className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
-              >
-                중양 장형태기념재단 19년 기부금모금액 및 활용실적명세.pdf
-              </a>
+              {data?.map((el, index) => (
+                <a
+                  key={index}
+                  href={el.pdf}
+                  className="text-base hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
+                  target="_blank"
+                >
+                  {el.title}
+                </a>
+              ))}
             </NoMotionComponent>
           </div>
         </div>

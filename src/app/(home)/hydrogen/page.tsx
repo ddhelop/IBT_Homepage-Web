@@ -8,8 +8,10 @@ export const metadata: Metadata = {
 
 export default function pagHydrogenPage() {
   return (
-    <div>
-      <Hydrogen />
+    <div className="flex justify-center min-h-[90vh]">
+      <div className="w-[min(92%,48rem)]">
+        <Hydrogen />
+      </div>
     </div>
   )
 }
