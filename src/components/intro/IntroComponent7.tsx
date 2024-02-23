@@ -1,5 +1,6 @@
 import { NewsData } from '@/lib/types'
 import IntroSlider from './IntroSlider'
+import { NewsProps } from '@/lib/types'
 
 const IntroComponent7 = (props: NewsData) => {
   return (

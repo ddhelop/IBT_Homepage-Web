@@ -112,6 +112,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
     setProductList(newOrderList)
     // }
   }
+
   return (
     <div className="flex flex-col">
       <h1 className="text-2xl font-bold bg-white p-8">

@@ -23,7 +23,6 @@ const getData = async () => {
 
 const IntroPage = async () => {
   const res = await getData()
-
   return (
     <div className="flex flex-col w-full">
       {/* 1 ~ 4 */}

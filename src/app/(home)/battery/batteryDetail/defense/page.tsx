@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const BatteryDefensePage = async () => {
   const data = await fetchPageData(0)
-  console.log(data)
+  
   return (
     <>
       {/* 오른쪽 플로팅 버튼 */}
@@ -21,7 +21,7 @@ const BatteryDefensePage = async () => {
       <BatteryDetail title={batteryList[0].title} explain={batteryList[0].explain} />
       {/* 소분류 컴포넌트 */}
       {/* mainCategoryIndex는 중분류를 구분하기 위해 사용 -> 방산용 Nicd:0, 산업용 Nicd:1, 동력용 Lithium:2, 에너지저장용 Lithium:3 */}
-      <BatteryItem detailInfo={defenseList} mainCategoryIndex={0} />
+      <BatteryItem detailInfo={data.data} mainCategoryIndex={0} />
     </>
   )
 }
