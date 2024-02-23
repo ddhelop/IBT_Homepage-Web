@@ -20,15 +20,16 @@ export const compare = async (username: string, password: string) => {
     return false
   }
 }
+
 export const fetchPageData = async (id: number) => {
-  try {
-    connectToDb()
-    const batteryPageData = await BatteryPage.findOne({ id })
-    return batteryPageData
-  } catch (err) {
-    console.log(err)
-    throw new Error('Failed to fetch data!')
+  const res = await fetch(`${process.env.URL}/api/admin/batteries/${id}`, {
+    method: 'GET',
+    cache: 'no-store',
+  })
+  if (!res.ok) {
+    throw new Error('Something went wrong')
   }
+  return res.json()
 }
 
 export const createPost = async (formData: FormData) => {
