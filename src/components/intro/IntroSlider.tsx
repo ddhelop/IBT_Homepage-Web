@@ -4,17 +4,18 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-interface ISliderProps {
-  data: { img: string; title: string; desc: string }[]
-}
+// interface ISliderProps {
+//   data: { img: string; title: string; desc: string }[]
+// }
 
-const IntroSlider = (props: ISliderProps) => {
+const IntroSlider = (props: any) => {
   const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
   const [currentImg, setCurrentImg] = useState(0) // 현재 보고 있는 carousel 페이지 번호
   const carouselRef = useRef(null)
   const [screenWidth, setScreenWidth] = useState(0)
 
-  const data = IntroItemData[0][0].itemAdvanced // 적용분야 Data -> name, imagePath
+  const data = props.data.itemAdvanced // 적용분야 Data -> name, imagePath
+  console.log(data)
 
   useEffect(() => {
     // 컴포넌트가 마운트된 후에 window 객체를 사용합니다.
@@ -46,7 +47,6 @@ const IntroSlider = (props: ISliderProps) => {
     transformValue = `translateX(-${(399 / imagesPerPage) * currentImg}%)`
   }
 
-  console.log(props.data.length)
   return (
     <>
       <motion.div

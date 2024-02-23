@@ -1,7 +1,7 @@
 import IntroSlider from './IntroSlider'
 
 const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/admin/news`, {
+  const res = await fetch(`${process.env.URL}/api/admin/news`, {
     method: 'GET',
     cache: 'no-store',
   })
@@ -26,9 +26,7 @@ const IntroComponent7 = async () => {
           </div>
 
           {/* below container */}
-          <div className="min-h-[350px] flex align-middle items-center pt-48">
-            <IntroSlider data={data} />
-          </div>
+          <div className="min-h-[350px] flex align-middle items-center pt-48">{/* <IntroSlider data={data} /> */}</div>
           {/* <SlickSlider /> */}
         </div>
       </div>
