@@ -6,7 +6,7 @@ import LogoComponent from '../LogoComponent'
 
 export default function CooperativeComponent() {
   return (
-    <div>
+    <div className="mb-72">
       <DownMotionComponent component={motion.div} className="flex flex-col items-center">
         <h1 className="text-6xl mb-24 font-medium">협력 / 제휴사</h1>
         <h2 className="text-4xl mb-7 font-bold">함께하는 IBT</h2>

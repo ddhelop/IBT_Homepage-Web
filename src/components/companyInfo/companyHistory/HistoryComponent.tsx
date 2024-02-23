@@ -33,7 +33,7 @@ export default function HistoryComponent() {
     <>
       <div
         id="history"
-        className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white mb-72"
       >
         <DownMotionComponent component={motion.h1} className="text-6xl font-medium">
           연혁

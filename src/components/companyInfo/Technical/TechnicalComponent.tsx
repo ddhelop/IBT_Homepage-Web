@@ -35,7 +35,7 @@ export default function TechnicalComponent() {
     <>
       <div
         id="technical"
-        className="flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="flex flex-col mb-72 justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
       >
         <DownMotionComponent component={motion.div}>
           <h1 className="text-6xl font-medium">기술 인증</h1>
