@@ -81,8 +81,8 @@ export default function LogoComponent() {
 
   return (
     <>
-      <div id="collaborate" className="w-full lg:mb-40 flex flex-col items-center py-20 overflow-hidden">
-        <DownMotionComponent component={motion.div} className="flex flex-col items-center">
+      <div id="collaborate" className="w-full flex flex-col items-center py-20 overflow-hidden">
+        {/* <DownMotionComponent component={motion.div} className="flex flex-col items-center">
           <h1 className="text-6xl mb-24 font-medium">협력 / 제휴사</h1>
           <h2 className="text-4xl mb-7 font-bold">함께하는 IBT</h2>
         </DownMotionComponent>
@@ -93,7 +93,7 @@ export default function LogoComponent() {
             <br />
             함께 고민하고 해결해나갑니다.
           </p>
-        </DownMotionComponent>
+        </DownMotionComponent> */}
 
         <motion.div viewport={{ root: scrollRef }} initial="offscreen" whileInView="onscreen" variants={Variants}>
           {/* 1번째 줄 */}
