@@ -112,7 +112,7 @@ export default function IntroComponent6(): JSX.Element {
 
           {/* right container */}
           <div className="mt-12 lg:mt-0 lg:w-[50%] overflow-hidden">
-            <div className="flex flex-wrap justify-center items-center h-full w-[600px] lg:mx-auto">
+            <div className="flex flex-wrap justify-center items-center h-full md:max-w-[600px] md:min-w-[600px] md:mx-auto">
               {Data.map((data, index) => (
                 <RightMotionComponent component={motion.div} key={data.path} className="p-2 box">
                   <div

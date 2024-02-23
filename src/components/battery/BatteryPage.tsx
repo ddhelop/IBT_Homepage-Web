@@ -34,12 +34,12 @@ export const BatteryPage = () => {
         <h1 className="text-6xl font-bold my-40">BATTERY</h1>
         {/* Ni-cd */}
         {/* Ni-cd 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
-        <div id="nicd" className="flex flex-col w-full">
+        <div id="nicd" className="flex flex-col w-[min(92%,1080px)]">
           <NicdBox />
         </div>
         {/* Lithium */}
         {/* Lithium 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
-        <div id="lithium" className="flex flex-col w-full">
+        <div id="lithium" className="flex flex-col w-[min(92%,1080px)]">
           <LithiumBox />
         </div>
       </div>

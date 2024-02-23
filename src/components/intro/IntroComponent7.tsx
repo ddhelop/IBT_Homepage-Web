@@ -12,7 +12,7 @@ const getData = async () => {
 }
 
 const IntroComponent7 = async () => {
-  const data = await getData()
+  // const data = await getData()
 
   return (
     <>
@@ -24,7 +24,6 @@ const IntroComponent7 = async () => {
             <h2 className="font-bold text-6xl lg:text-4xl mt-2">News</h2>
             <p className="font-light text-4xl lg:text-2xl mt-6">IBT Road</p>
           </div>
-
           {/* below container */}
           <div className="min-h-[350px] flex align-middle items-center pt-48">{/* <IntroSlider data={data} /> */}</div>
           {/* <SlickSlider /> */}
