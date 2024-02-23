@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import IntroSlider from './IntroSlider'
-import axios from 'axios'
 
 export interface ApiResponse {
   isSuccess: boolean
@@ -9,23 +8,7 @@ export interface ApiResponse {
   result: { img: string; title: string; desc: string }[] // API 응답 형식을 명시
 }
 
-const IntroComponent7 = () => {
-  const [news, setNews] = useState<{ img: string; title: string; desc: string }[]>([])
-
-  useEffect(() => {
-    async function fetchNews(): Promise<void> {
-      try {
-        const response = await axios.get(`http://localhost:3000/api/admin/news`)
-        setNews(response.data)
-        console.log(response.data)
-      } catch (error) {
-        console.error('Error:', error)
-      }
-    }
-
-    void fetchNews()
-  }, []) // 빈 의존성 배열로 마운트 시에만 실행
-
+const IntroComponent7 = (data: any) => {
   return (
     <>
       <div className="flex flex-col md:min-h-screen bg-no-repeat bg-cover bg-white ">
@@ -38,7 +21,7 @@ const IntroComponent7 = () => {
           </div>
           {/* below container */}
           <div className="min-h-[350px] flex align-middle items-center pt-36">
-            <IntroSlider news={news} />
+            <IntroSlider news={data} />
           </div>
         </div>
       </div>
