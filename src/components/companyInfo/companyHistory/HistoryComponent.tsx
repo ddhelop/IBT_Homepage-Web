@@ -35,17 +35,17 @@ export default function HistoryComponent() {
         id="history"
         className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white mb-72"
       >
-        <DownMotionComponent component={motion.h1} className="text-6xl font-medium">
+        <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
           연혁
         </DownMotionComponent>
-        <DownMotionComponent component={motion.p} className="mt-12 text-center font-light text-2xl leading-10">
+        <DownMotionComponent component={motion.p} className="mt-12 text-center font-light text-xl leading-10">
           1986년부터 지금까지,
           <br />
           도전정신으로 IBT는 성장하고 있습니다.
         </DownMotionComponent>
 
         {/* Tabs */}
-        <DownMotionComponent component={motion.div} className="mt-24 w-2/3 flex items-center justify-center ">
+        <DownMotionComponent component={motion.div} className="mt-24 w-1/2 flex items-center justify-center ">
           <button
             className={`w-1/3 h-12 tab-button1 ${isActive('tab1') ? 'active-tab1' : ''}`}
             value="tab1"
