@@ -38,7 +38,7 @@ export const createPost = async (formData: FormData) => {
   const desc: string | null = formData.get('description') as unknown as string
   const img: File = formData.get('img') as unknown as File //이미지 데이터
   const pdf: File | null = formData.get('pdf') as unknown as File | null //이미지 데이터
-
+  console.log('CreatePost Start Time :', new Date().getSeconds())
   try {
     const keyString = Math.random().toString(36).substring(0, 12)
     //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
@@ -71,7 +71,7 @@ export const createPost = async (formData: FormData) => {
         const uploadPdf_esg= await fetch(signedUrl_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type,'Content-Disposition': 'inline' }})
         if (uploadPdf_esg.status != 200) return { success: false, message: 'uploadPDF failed' }
     }
-
+    console.log('Time after uploading Files  :', new Date().getSeconds())
     //MongoDB에 연결
     connectToDb()
     let newId, newOrder
@@ -92,7 +92,7 @@ export const createPost = async (formData: FormData) => {
         newId = await getId('esg-pdf')
         newOrder = order.ESGPDFOrder
     }
-
+    console.log('Time after importing Order model & Counter Model  :', new Date().getSeconds())
     //order 배열 끝에 방금 생성한 id값 push
     newOrder.push(newId)
 

@@ -16,6 +16,7 @@
     "@react-google-maps/api": "^2.19.2",
     "@types/mongoose": "^5.11.97",
     "@types/react-beautiful-dnd": "^13.1.8",
+    "@vercel/speed-insights": "^1.0.10",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.7",
     "dotenv": "^16.4.5",

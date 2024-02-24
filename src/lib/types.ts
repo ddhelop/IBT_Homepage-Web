@@ -37,6 +37,7 @@ export type Category = {
   products?: Product[]
 }
 export type Product = {
+  id: number
   name: string
   img: string
 }
