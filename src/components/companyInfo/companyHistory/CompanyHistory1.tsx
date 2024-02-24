@@ -12,12 +12,12 @@ export default function CompanyHistory1() {
         <div className="lg:w-[82%] flex flex-col items-center">
           <div className="w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-5">2023</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-5">2023</h3>
               <p className="font-light text-sm mb-16">수소발전 통합 제어 / 관제 시스템 개발</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
               <p className="font-light text-sm ">
                 KAI(한국항공우주산업㈜) 의 LCH(소형민수헬기) 및 LAH(소형무장헬기) 개발사업 참여
               </p>
@@ -38,7 +38,7 @@ export default function CompanyHistory1() {
         <div className="lg:w-[81.5%] flex flex-col items-center relative">
           <div className="w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-3">2020</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-3">2020</h3>
               <p className="font-light text-sm leading-8 mb-7">
                 청소차용 리튬팩 개발
                 <br />
@@ -47,12 +47,12 @@ export default function CompanyHistory1() {
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-4">2019</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-4">2019</h3>
               <p className="font-light text-sm mb-7">AGV 및 지게차용 리튬인산철 전지개발</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-4">2018</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-4">2018</h3>
               <p className="font-light text-sm mb-7">AS9100 항공우주 품질경영시스템 인증 획득</p>
               <Image
                 src="/info/2018.png" // 이미지 경로
@@ -65,7 +65,7 @@ export default function CompanyHistory1() {
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-4">2017</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-4">2017</h3>
               <p className="font-light text-sm leading-8 mb-7">
                 도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등
                 <br />
@@ -74,7 +74,7 @@ export default function CompanyHistory1() {
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-2xl font-bold tracking-normal text-[#59A833] mb-4">2015</h3>
+              <h3 className="text-xl font-bold tracking-normal text-[#59A833] mb-4">2015</h3>
               <p className="font-light text-sm mb-7">
                 광주광역시 강소기업 선정한전 배전지능화용 리튬인산철 전지팩 개발
               </p>
@@ -83,7 +83,7 @@ export default function CompanyHistory1() {
 
           <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[13%] 2xl:left-[14%]">
             <RightMotionComponent component={motion.div}>
-              <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl xl:text-2xl leading-[3.3rem]">
+              <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl  leading-[3.3rem]">
                 친환경 에너지의 리더,
                 <br />
                 지속 가능한 미래를 열다

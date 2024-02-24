@@ -25,8 +25,8 @@ function GoogleMapComponent(props: ILocationProps) {
       })
     } else if (window.innerWidth < 1024) {
       setContainerStyle({
-        width: '460px', // PC 화면 기준 너비
-        height: '460px', // PC 화면 기준 높이
+        width: '380px', // PC 화면 기준 너비
+        height: '380px', // PC 화면 기준 높이
       })
     } else {
       setContainerStyle({

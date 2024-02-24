@@ -14,13 +14,13 @@ export default function DirectionsComponent() {
         id="directions"
         className="py-32 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden"
       >
-        <DownMotionComponent component={motion.h1} className="text-6xl font-medium">
+        <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
           오시는 길
         </DownMotionComponent>
 
         {/* 광주본사 */}
         <div className="mt-32 flex flex-col p-5">
-          <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
+          <RightMotionComponent component={motion.h2} className="text-2xl font-medium mb-8">
             광주본사
           </RightMotionComponent>
 
@@ -31,22 +31,22 @@ export default function DirectionsComponent() {
 
             <LeftMotionComponent
               component={motion.div}
-              className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1]"
+              className="w-[290px] h-[290px] md:w-[380px] md:h-[380px] lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1]"
             >
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
-                  <AiOutlineCompass className="w-12 h-12 hidden md:flex" />
-                  <p className="lg:mt-4 text-base font-semibold mb-1">주소</p>
-                  <p className="font-normal mt-1 text-base text-[#7e7e7e] leading-8">
+                  <AiOutlineCompass className="w-12 h-12 mb-3" />
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">주소</p>
+                  <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-6">
                     광주시 북구 첨단벤처
                     <br />
                     소로 38번길 2
                   </p>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
-                  <AiOutlinePhone className="w-12 h-12 hidden md:flex" />
-                  <p className="lg:mt-4 text-base font-semibold mb-1">연락처</p>
-                  <p className="font-normal text-base mt-1 text-[#7e7e7e] leading-8">
+                  <AiOutlinePhone className="w-12 h-12 mb-3" />
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">연락처</p>
+                  <p className="font-normal text-xs mt-1 text-[#7e7e7e] leading-6">
                     TEL:062-971-7983~6
                     <br />
                     Fax:062-971-7989
@@ -56,7 +56,7 @@ export default function DirectionsComponent() {
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
                 <AiOutlineClockCircle className="w-12 h-12 hidden lg:flex" />
                 <p className="lg:mt-4 text-base font-semibold md:mb-1">안내</p>
-                <p className="font-normal text-sm text-[#7e7e7e] leading-9">
+                <p className="font-normal text-xs text-[#7e7e7e] leading-6 px-4">
                   호남고속도로(88번고속도로,남해안고속도로) → 광산 IC진입 → 우회전(광주과학
                   <br />
                   기술원 방향) → 4Km 직진(AMKOR(구아남전자)탑) → 150m 진입 → 좌회전
@@ -70,7 +70,7 @@ export default function DirectionsComponent() {
 
         {/* 서울지점 */}
         <div className="mt-32 flex flex-col p-5">
-          <RightMotionComponent component={motion.h2} className="text-3xl font-medium mb-8">
+          <RightMotionComponent component={motion.h2} className="text-xl font-medium mb-8">
             서울지점
           </RightMotionComponent>
 
@@ -81,22 +81,22 @@ export default function DirectionsComponent() {
 
             <LeftMotionComponent
               component={motion.div}
-              className="w-full h-full lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm "
+              className="w-[290px] h-[290px] md:w-[380px] md:h-[380px] lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm "
             >
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
-                  <AiOutlineCompass className="w-12 h-12 hidden md:flex" />
-                  <p className="lg:mt-4 text-base font-semibold mb-1">주소</p>
-                  <p className="font-normal mt-1 text-sm text-[#7e7e7e] leading-8">
+                  <AiOutlineCompass className="w-12 h-12 mb-3" />
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">주소</p>
+                  <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-6">
                     서울특별시 성동구 성수일로 99
                     <br />
                     서울숲 AK 벨리 1103호,1104호
                   </p>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
-                  <AiOutlinePhone className="w-12 h-12 hidden md:flex" />
-                  <p className="lg:mt-4 text-base font-semibold mb-1">연락처</p>
-                  <p className="font-normal mt-1 text-sm text-[#7e7e7e] leading-8">
+                  <AiOutlinePhone className="w-12 h-12 mb-3" />
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">연락처</p>
+                  <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-5">
                     TEL:02-3409-7141 / 02-6965-7975
                     <br />
                     Fax:02-3436-9127
@@ -104,9 +104,9 @@ export default function DirectionsComponent() {
                 </div>
               </div>
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
-                <AiOutlineClockCircle className="w-12 h-12 hidden md:flex" />
-                <p className="md:mt-4 text-base font-semibold mb-1">안내</p>
-                <p className="font-normal mt-1 text-sm text-[#7e7e7e] leading-8">
+                <AiOutlineClockCircle className="w-12 h-12 mb-3" />
+                <p className="md:mt-4 text-sm font-semibold mb-1">안내</p>
+                <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-8">
                   - 지하철 -
                   <br />
                   2호선 | 뚝섬역 4번출구

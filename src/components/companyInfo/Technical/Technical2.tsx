@@ -7,24 +7,24 @@ export default function Technical2() {
       <div className="w-full mt-9 flex justify-center">
         <div className="w-[95%] lg:w-3/5">
           <table className="w-full">
-            <thead className="l bg-green-600">
+            <thead className="bg-[#59b646]">
               <tr className="">
-                <th scope="col" className="w-[10.6rem] text-base font-semibold text-white py-4">
+                <th scope="col" className="w-[10.6rem] text-sm font-semibold text-white py-3">
                   구분
                 </th>
-                <th scope="col" className="w-[21.3rem] text-base font-semibold text-white">
+                <th scope="col" className="w-[21.3rem] text-sm font-semibold text-white">
                   발명의 명칭
                 </th>
-                <th scope="col" className="w-[10.6rem] text-base font-semibold text-white">
+                <th scope="col" className="w-[10.6rem] text-sm font-semibold text-white">
                   출원일
                 </th>
-                <th scope="col" className="w-[10.6rem] text-base font-semibold text-white">
+                <th scope="col" className="w-[10.6rem] text-sm font-semibold text-white">
                   출원번호
                 </th>
-                <th scope="col" className="w-[10.6rem] text-base font-semibold text-white">
+                <th scope="col" className="w-[10.6rem] text-sm font-semibold text-white">
                   등록일
                 </th>
-                <th scope="col" className="w-[10.6rem] text-base font-semibold text-white">
+                <th scope="col" className="w-[10.6rem] text-sm font-semibold text-white">
                   특허번호
                 </th>
               </tr>
@@ -34,21 +34,21 @@ export default function Technical2() {
               {intellectualData.map((el, index) => (
                 <tr className={`text-center bg-[${el.color}]`} key={index}>
                   {el.rowSpan ? (
-                    <td className="text-base font-normal border-2 border-[#e2e2e2]" rowSpan={el.rowSpan}>
+                    <td className="text-sm font-normal border-2 border-[#e2e2e2]" rowSpan={el.rowSpan}>
                       {el.check}
                     </td>
                   ) : null}
-                  <td className="py-2 px-3 text-base font-normal border-2 border-[#e2e2e2]">{el.name}</td>
+                  <td className="py-2 px-3 text-sm font-normal border-2 border-[#e2e2e2]">{el.name}</td>
                   {el.totalRowSpan ? (
-                    <td className="text-base font-normal border-2 border-[#e2e2e2]" rowSpan={el.totalRowSpan}>
+                    <td className="text-sm font-normal border-2 border-[#e2e2e2]" rowSpan={el.totalRowSpan}>
                       {el.applicant}
                     </td>
                   ) : null}
-                  <td className="text-base font-normal border-2 border-[#e2e2e2]">{el.applicationNumber}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.applicationNumber}</td>
 
-                  <td className="text-base font-normal border-2 border-[#e2e2e2]">{el.registrationDate}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.registrationDate}</td>
 
-                  <td className="text-base font-normal border-2 border-[#e2e2e2]">{el.patentNumber}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.patentNumber}</td>
                 </tr>
               ))}
             </tbody>
