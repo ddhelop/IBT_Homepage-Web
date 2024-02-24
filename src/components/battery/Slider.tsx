@@ -1,17 +1,11 @@
 'use client'
-import { ModelInfo } from '@/lib/data'
 import Image from 'next/image'
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-
-interface ModelInfo {
-  id: number
-  name: string
-  img: string
-}
+import { Product } from '@/lib/types'
 
 type Props = {
-  array: ModelInfo[]
+  array: Product[]
   categoryIndex: number // 소분류 카테고리 Index
   mainCategoryIndex: number // 중분류 카테고리 Index
 }

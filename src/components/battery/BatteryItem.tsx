@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Slider from './Slider'
 import { ModelInfo, energySaveList } from '@/lib/data'
 import { motion } from 'framer-motion'
+import { Product } from '@/lib/types'
 
 interface DetailInfo {
   id: number
@@ -13,7 +14,7 @@ interface DetailInfo {
   itemTitle: string // 제품명
   itemSubtitle: string // 제품추가설명
   itemAdvanced: string // 제품소개
-  products: string[] // 제품적용모델
+  products: Product[] // 제품적용모델
 }
 
 type Props = {

@@ -4,6 +4,7 @@ import '../../globals.css'
 import { cls, notoSansKr, roboto } from '@/lib/fonts'
 import AdminHeader from '@/components/admin/AdminHeader'
 import RecoilContextProvider from '@/context/recoil-context'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: 'IBT Admin',
@@ -21,8 +22,8 @@ export default function RootLayout({
       <body className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
         <RecoilContextProvider>
           <AdminHeader />
-          <div className="ml-64"></div>
           {children}
+          <SpeedInsights />
         </RecoilContextProvider>
       </body>
     </html>
