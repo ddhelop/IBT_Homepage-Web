@@ -59,15 +59,18 @@ const PostForm = ({ postType }: PostTypeProps) => {
           setError('PDF 파일을 추가하지 않았습니다.')
           return false
         }
+        console.log('Starting Upload', new Date().getTime())
         const [presigned_img, presigned_pdf] = await Promise.all([
           getSignedFileUrl({ name: `catelog/` + keyString + '/img', type: image.type }),
           getSignedFileUrl({ name: `catelog/` + keyString + '/pdf', type: pdf.type }),
         ])
+        console.log('got PresignedURL', new Date().getTime())
         const [uploadImg_catelog, uploadPDF_catelog] = await Promise.all([
           fetch(presigned_img, { method: 'PUT', body: image, headers: { 'Content-type': image.type } }),
           //prettier-ignore
           fetch(presigned_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
         ])
+        console.log('Uploaded To S3', new Date().getTime())
         if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200) {
           setError('파일 업로드 실패')
           return false
