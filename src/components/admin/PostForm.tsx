@@ -70,7 +70,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
           //prettier-ignore
           fetch(presigned_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
         ])
-        console.log('Uploaded To S3', new Date().getTime())
+        console.log('Uploaded To S3', new Date().getTime(), uploadImg_catelog)
         if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200) {
           setError('파일 업로드 실패')
           return false
