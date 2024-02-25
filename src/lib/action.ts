@@ -67,7 +67,7 @@ export const createPost = async (formData: FormData) => {
         if (!img) {
           return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
         }
-        const newPost = new Post({ title, img: img.split('?')[0], desc, id: newId })
+        const newPost = new Post({ title, img: img, desc, id: newId })
         await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
         break
       case 'catelog':
@@ -76,8 +76,8 @@ export const createPost = async (formData: FormData) => {
         }
         const newCatelog = new Catelog({
           title,
-          img: img.split('?')[0],
-          pdf: pdf.split('?')[0],
+          img: img,
+          pdf: pdf,
           desc,
           id: newId,
         })
@@ -88,7 +88,7 @@ export const createPost = async (formData: FormData) => {
         }
         const newESGPdf = new ESGPdf({
           title,
-          pdf: pdf.split('?')[0],
+          pdf: pdf,
           id: newId,
         })
         await Promise.all([newESGPdf.save(), Order.updateOne({ id: 0 }, { ESGPDFOrder: newOrder })])
