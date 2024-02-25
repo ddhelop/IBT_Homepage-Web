@@ -126,7 +126,7 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
             <h2 className="block text-gray-700 font-bold mb-2">글:</h2>
             <textarea
               required
-              name="description"
+              name="desc"
               className="bg-gray-100 rounded-md py-2 px-3 w-full mb-8"
               rows={5}
               cols={33}
