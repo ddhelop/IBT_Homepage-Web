@@ -68,8 +68,10 @@ const PostForm = ({ postType }: PostTypeProps) => {
           //prettier-ignore
           fetch(presigned_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
         ])
-        if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200) return false
-
+        if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200) {
+          setError('파일 업로드 실패')
+          return false
+        }
         formData.append('img', presigned_img as string)
         formData.append('pdf', presigned_pdf as string)
       } else {

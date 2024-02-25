@@ -34,9 +34,11 @@ export const fetchPageData = async (id: number) => {
 
 export const createPost = async (formData: FormData) => {
   const { postType, title, desc, img, pdf }: { [k: string]: any } = Object.fromEntries(formData)
+  console.log('createPost Entered', img, pdf)
   try {
     //MongoDB에 연결
     connectToDb()
+    console.log('Connected To DB')
     let newId, newOrder
     const order = await Order.findOne({ id: 0 })
 
@@ -57,7 +59,7 @@ export const createPost = async (formData: FormData) => {
     }
     //order 배열 끝에 방금 생성한 id값 push
     newOrder.push(newId)
-
+    console.log('Order Received')
     //3. 방금 추가한 객체가 반영된 최신 order 배열을 ESGPDFOrder 필드에 덮어쓰기하여 추후 배열순서 변경에 참고할 수 있도록 저장
     //4. pre-signed URL과 기존에 입력한 Title 두 정보를 활용해 MongoDB에 저장
     switch (postType) {

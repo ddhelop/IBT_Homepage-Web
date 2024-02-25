@@ -19,7 +19,6 @@ const PostEditList = ({ datas, postTypeID }: any) => {
 
   const [temp, setTemp] = useState<any[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
   const [posts, setPosts] = useState<any[]>(datas)
-  console.log(datas)
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
