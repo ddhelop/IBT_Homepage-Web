@@ -26,7 +26,7 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
       setCategoryList(tmpList)
     }
   }
-  const handleDelete = (id: number, type: 'category' | 'product') => {
+  const handleDelete = (id: number) => {
     const tmpArr = [...categoryList]
     setCategoryList(tmpArr.filter((item) => item.id != id))
   }
