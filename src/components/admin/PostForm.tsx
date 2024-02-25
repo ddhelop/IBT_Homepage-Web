@@ -79,7 +79,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
         formData.append('img', JSON.stringify([presigned_img as string, image.type]))
       }
       const { success, message } = await createPost(formData)
-      // postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
+      postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
       if (!success) {
         setError(message)
       }
