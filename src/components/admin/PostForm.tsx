@@ -1,5 +1,6 @@
 'use client'
 import { createPost } from '@/lib/action'
+import { getSignedFileUrl } from '@/lib/awsUtils'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
@@ -29,6 +30,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault() //브라우저의 기본 액션인 Post, Get 액션을 막아 재로드 되는 것을 방지
     setIsLoading(true)
+
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
       const { title, description } = Object.fromEntries(formData)
@@ -36,36 +38,49 @@ const PostForm = ({ postType }: PostTypeProps) => {
         setError('이미지 파일을 추가하지 않았습니다.')
         return false
       }
-
-      if (postType == 'catelog') {
-        if (!pdf) {
-          setError('PDF파일을 추가하지 않았습니다.')
-          return false
-        }
-        formData.append('pdf', pdf)
-      }
-
       if (!title) {
         setError('제목을 작성하지 않았습니다.')
         return false
       }
-
       if (!description) {
         setError('내용을 작성하지 않았습니다.')
         return false
       }
+
       formData.append('postType', postType)
       formData.append('title', title)
-      formData.append('description', description)
-      formData.append('img', image)
+      formData.append('desc', description)
 
       /////////const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
+      const keyString = Math.random().toString(36).substring(0, 12)
+      //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
+      if (postType == 'catelog') {
+        if (!pdf) {
+          setError('PDF 파일을 추가하지 않았습니다.')
+          return false
+        }
+        const [presigned_img, presigned_pdf] = await Promise.all([
+          getSignedFileUrl({ name: `catelog/` + keyString + '/img', type: image.type }),
+          getSignedFileUrl({ name: `catelog/` + keyString + '/pdf', type: pdf.type }),
+        ])
+        const [uploadImg_catelog, uploadPDF_catelog] = await Promise.all([
+          fetch(presigned_img, { method: 'PUT', body: image, headers: { 'Content-type': image.type } }),
+          //prettier-ignore
+          fetch(presigned_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
+        ])
+        if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200) return false
+
+        formData.append('img', presigned_img as string)
+        formData.append('pdf', presigned_pdf as string)
+      } else {
+        const presigned_img = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
+        formData.append('img', JSON.stringify([presigned_img as string, image.type]))
+      }
       const { success, message } = await createPost(formData)
-      postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
+      // postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
       if (!success) {
         setError(message)
       }
-      console.log(message)
     } catch (e: any) {
       console.log(e)
     } finally {
