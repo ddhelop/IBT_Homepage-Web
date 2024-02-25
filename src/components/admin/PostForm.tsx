@@ -72,20 +72,18 @@ const PostForm = ({ postType }: PostTypeProps) => {
           setError('파일 업로드 실패')
           return false
         }
-        formData.append('img', presigned_img as string)
-        formData.append('pdf', presigned_pdf as string)
+        formData.append('img', presigned_img.split('?')[0])
+        formData.append('pdf', presigned_pdf.split('?')[0])
         console.log(Object.fromEntries(formData))
       } else {
         const presigned_img = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
         formData.append('img', JSON.stringify([presigned_img as string, image.type]))
       }
-      const response = new Response(formData)
-      response.blob().then((a) => console.log(a.size))
-      // const { success, message } = await createPost(formData)
+      const { success, message } = await createPost(formData)
       // postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
-      // if (!success) {
-      //   setError(message)
-      // }
+      if (!success) {
+        setError(message)
+      }
     } catch (e: any) {
       console.log(e)
     } finally {
@@ -117,7 +115,6 @@ const PostForm = ({ postType }: PostTypeProps) => {
             <input
               required
               type="file"
-              name="pdf"
               accept="application/pdf"
               className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4"
               onChange={(e) => setPDF(e.target.files?.[0])}
