@@ -21,6 +21,7 @@ const s3 = new S3Client({
 })
 // file signedUrl 가져오기
 export async function getSignedFileUrl(data: { name: string; type: string }) {
+  console.log(awsS3Bucket)
   const params = {
     Bucket: awsS3Bucket,
     Key: data.name,

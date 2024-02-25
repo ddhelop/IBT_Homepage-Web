@@ -33,45 +33,8 @@ export const fetchPageData = async (id: number) => {
 }
 
 export const createPost = async (formData: FormData) => {
-  const postType: string = formData.get('postType') as unknown as string
-  const title: string | null = formData.get('title') as unknown as string
-  const desc: string | null = formData.get('description') as unknown as string
-  const img: File = formData.get('img') as unknown as File //이미지 데이터
-  const pdf: File | null = formData.get('pdf') as unknown as File | null //이미지 데이터
-  console.log('CreatePost Start Time :', new Date().getSeconds())
+  const { postType, title, desc, img, pdf }: { [k: string]: any } = Object.fromEntries(formData)
   try {
-    const keyString = Math.random().toString(36).substring(0, 12)
-    //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
-    let signedUrl_pdf, signedUrl_img
-    switch (postType) {
-      case 'news':
-        if (!img) return { success: false, message: '이미지 파일을 찾을 수 없습니다.(News)' }
-        signedUrl_img = await getSignedFileUrl({ name: 'news/' + keyString, type: img.type })
-        //prettier-ignore
-        const uploadImg_news = await fetch(signedUrl_img, {method: 'PUT',body: img,headers: {'Content-type': img.type}})
-        if (uploadImg_news.status != 200) return { success: false, message: 'uploadImg failed (News)' }
-        break
-      case 'catelog':
-        if (!img) return { success: false, message: '이미지 파일을 찾을 수 없습니다.(Catelog)' }
-        if (!pdf) return { success: false, message: 'PDF파일을 찾을 수 없습니다.(Catelog)' }
-        signedUrl_img = await getSignedFileUrl({ name: 'catelog/' + keyString + '/img', type: img.type })
-        signedUrl_pdf = await getSignedFileUrl({ name: 'catelog/' + keyString + '/pdf', type: pdf.type })
-        const [uploadImg_catelog, uploadPDF_catelog] = await Promise.all([
-          fetch(signedUrl_img, { method: 'PUT', body: img, headers: { 'Content-type': img.type } }),
-          //prettier-ignore
-          fetch(signedUrl_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
-        ])
-        if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200)
-          return { success: false, message: 'uploadPDF or uploadImg failed (Catelog)' }
-        break
-      case 'esg-pdf':
-        if (!pdf) return { success: false, message: 'PDF파일을 찾을 수 없습니다.(ESG)' }
-        signedUrl_pdf = await getSignedFileUrl({ name: 'esg/' + keyString, type: pdf.type })
-        //prettier-ignore
-        const uploadPdf_esg= await fetch(signedUrl_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type,'Content-Disposition': 'inline' }})
-        if (uploadPdf_esg.status != 200) return { success: false, message: 'uploadPDF failed' }
-    }
-    console.log('Time after uploading Files  :', new Date().getSeconds())
     //MongoDB에 연결
     connectToDb()
     let newId, newOrder
@@ -92,7 +55,6 @@ export const createPost = async (formData: FormData) => {
         newId = await getId('esg-pdf')
         newOrder = order.ESGPDFOrder
     }
-    console.log('Time after importing Order model & Counter Model  :', new Date().getSeconds())
     //order 배열 끝에 방금 생성한 id값 push
     newOrder.push(newId)
 
@@ -100,31 +62,31 @@ export const createPost = async (formData: FormData) => {
     //4. pre-signed URL과 기존에 입력한 Title 두 정보를 활용해 MongoDB에 저장
     switch (postType) {
       case 'news':
-        if (!signedUrl_img) {
+        if (!img) {
           return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
         }
-        const newPost = new Post({ title, img: signedUrl_img.split('?')[0], desc, id: newId })
+        const newPost = new Post({ title, img: img.split('?')[0], desc, id: newId })
         await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
         break
       case 'catelog':
-        if (!signedUrl_pdf || !signedUrl_img) {
+        if (!img || !pdf) {
           return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
         }
         const newCatelog = new Catelog({
           title,
-          img: signedUrl_img.split('?')[0],
-          pdf: signedUrl_pdf?.split('?')[0],
+          img: img.split('?')[0],
+          pdf: pdf.split('?')[0],
           desc,
           id: newId,
         })
         await Promise.all([newCatelog.save(), Order.updateOne({ id: 0 }, { catelogOrder: newOrder })])
       case 'esg-pdf':
-        if (!signedUrl_pdf) {
+        if (!pdf) {
           return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
         }
         const newESGPdf = new ESGPdf({
           title,
-          pdf: signedUrl_pdf?.split('?')[0],
+          pdf: pdf.split('?')[0],
           id: newId,
         })
         await Promise.all([newESGPdf.save(), Order.updateOne({ id: 0 }, { ESGPDFOrder: newOrder })])
