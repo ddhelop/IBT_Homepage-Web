@@ -10,6 +10,7 @@ import { StrictModeDroppable } from './StrictModeDroppable'
 import { reorderPosts } from '@/lib/utils'
 import { IoIosClose } from 'react-icons/io'
 import { useFormState } from 'react-dom'
+import { getSignedFileUrl } from '@/lib/awsUtils'
 
 type PostFormProp = {
   batteryId: number
@@ -28,6 +29,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
 
   //cateImg는 form 제출시에 serverAction으로 보낼때 빼고는 데이터 전송이 없으므로 별도로 useState로 저장할 필요없음 -> 이미 input에 담겨있음
   //허나 prodImg는 별개의 함수로 배열에 추가되는 로직이 있기에 useState에 담고 있어야함.
+  const [cateImg, setCateImg] = useState<File | null>(null)
   const [prodImg, setProdImg] = useState<File | null>(null)
 
   const [prodName, setProdName] = useState<string>('')
@@ -45,6 +47,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
     if (e.target.files && e.target.files[0]) {
       let file = e.target.files[0]
       if (type == 'catelog') {
+        setCateImg(file)
         setCateTmpUrl(URL.createObjectURL(file))
       } else {
         setProdImg(file)
@@ -59,35 +62,49 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
     }
     const newId = productList.length ? Math.max(...productList.map((item) => item.id)) + 1 : 0
     setProductList([...productList, { id: newId, name: prodName, img: prodImg }])
-    console.log('새로운 ProductList:', [...productList, { id: newId, name: prodName, img: prodImg }])
     setProdName('')
     setProdTmpUrl(null)
     setProdImg(null)
   }
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault() //브라우저의 기본 액션인 Post, Get 액션을 막아 재로드 되는 것을 방지
+
     setIsLoading(true)
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
-      const { title, itemTitle, itemAdvanced, cateImg } = Object.fromEntries(formData)
-      if (!cateImg) {
-        setError('이미지 파일을 추가하지 않았습니다.')
-        setIsLoading(false)
-        return false
-      }
-      if (!title || !itemAdvanced) {
-        setError('내용이 모두 입력되지 않았습니다.')
-        setIsLoading(false)
-        return false
-      }
+      const { title } = Object.fromEntries(formData)
+      const keyString = Math.random().toString(36).substring(0, 4)
+      if (!cateImg) return false
       formData.append('batteryId', batteryId.toString())
-      formData.append('cateImg', cateImg)
+
+      const preImg_cate = await getSignedFileUrl({
+        name: `batteries/${batteriesData_admin[batteryId].title}/${title + keyString}-category.png`,
+        type: cateImg.type,
+      })
+      await fetch(preImg_cate, { method: 'PUT', body: cateImg, headers: { 'Content-type': cateImg.type } })
+      formData.append('cateImg', preImg_cate.split('?')[0])
+
+      let presignedPromises: Promise<string>[] = []
       if (productList.length) {
-        for (let i = 0; i < productList.length; i++) {
-          formData.append('productName', productList[i].name)
-          formData.append('productImg', productList[i].img)
-        }
+        productList.forEach((item) => {
+          formData.append('productName', item.name)
+          presignedPromises.push(
+            //prettier-ignore
+            getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId].title}/${title}/${item.name+keyString}`, type: item.img.type, }),
+          )
+        })
+        const productImg = await Promise.all(presignedPromises)
+        let uploadPromises: Promise<any>[] = []
+        productList.forEach((item, id) => {
+          formData.append('productImg', productImg[id].split('?')[0] as string)
+          uploadPromises.push(
+            // prettier-ignore
+            fetch(productImg[id].split('?')[0] as string, { method: 'PUT', body: item.img, headers: { 'Content-type': item.img.type }}),
+          )
+        })
+        await Promise.all(uploadPromises)
       }
+
       const { success, message } = await createBatteryPage(formData)
       if (!success) {
         setError(message)
@@ -121,9 +138,9 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
       <form className="m-8 p-8 bg-white rounded-lg flex-col" onSubmit={onSubmit}>
         <div className="2xl:flex">
           <div className="flex-1 text-gray-700 font-bold">
-            <h2 className="mb-2">{`중분류 제목 (ex:항공,육상)`}</h2>
+            <h2 className="mb-2">{`*중분류 제목 (ex:항공,육상)`}</h2>
             <input required type="text" name="title" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
-            <h2 className="mb-2">이미지</h2>
+            <h2 className="mb-2">*이미지</h2>
             <div className="flex mb-4">
               <div className="h-40 w-64 relative flex border rounded-md ">
                 {cateTmpUrl ? (
@@ -135,7 +152,6 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
               <input
                 required
                 type="file"
-                name="cateImg"
                 accept="image/*"
                 className="bg-gray-100 rounded-md p-4 ml-4"
                 onChange={(e) => showImage(e, 'catelog')}
@@ -143,12 +159,13 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
             </div>
             <h2 className="mb-2">{`배터리명 (ex:Ni-cd battery Sintered Type)`}</h2>
             <input type="text" name="itemTitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
-            <h2 className="mb-2">{`배터리 부제목(필수아님)`}</h2>
+            <h2 className="mb-2">배터리 부제목</h2>
             <input type="text" name="itemSubtitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
 
-            <h2 className="mb-2">배터리 설명 / 내용 형식 미리보기:</h2>
+            <h2 className="mb-2">*배터리 설명 / 내용 형식 미리보기:</h2>
             <div className="flex">
               <textarea
+                required
                 name="itemAdvanced"
                 onChange={(e) => setDesc(e.target.value)}
                 className="bg-gray-100 rounded-md py-2 px-3 mb-8 basis-1/2"

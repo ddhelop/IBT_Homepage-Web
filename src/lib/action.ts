@@ -3,10 +3,10 @@
 import { Resend } from 'resend'
 import { revalidatePath } from 'next/cache'
 import { BatteryPage, Post } from './models'
-import { connectToDb, getErrorMessage, getId, validateString } from './utils'
+import { connectToDb, getErrorMessage, validateString } from './utils'
 import React from 'react'
 import ContactFormEmail from '@/components/customer/contact-us/ContactForm'
-import { S3BucketUrl, batteriesData_admin, postData_admin } from './data'
+import { batteriesData_admin, postData_admin } from './data'
 import { deleteS3Object, getSignedFileUrl } from './awsUtils'
 import { Category, PostType } from './types'
 
@@ -113,7 +113,6 @@ export const handleListEdit = async (posts: PostType[], postTypeId: number) => {
 export const sendEmail = async (formData: FormData) => {
   const resend = new Resend(process.env.RESEND)
   const { category, name, email, number0, number1, number2, title, desc } = Object.fromEntries(formData)
-  console.log(category, name, email, number0, number1, number2, title, desc)
 
   // simple server-side validation
   if (!validateString(email, 500)) {
@@ -159,61 +158,23 @@ export const sendEmail = async (formData: FormData) => {
 }
 
 export const createBatteryPage = async (formData: FormData) => {
-  const { title, itemTitle, itemSubtitle, itemAdvanced, batteryId } = Object.fromEntries(formData)
+  const { title, itemTitle, itemSubtitle, itemAdvanced, batteryId, cateImg } = Object.fromEntries(formData)
   const newBatteryId = parseInt(batteryId as string)
-  const cateImg: File = formData.get('cateImg') as unknown as File //이미지 데이터
-  const productImgs: File[] | null = formData.getAll('productImg') as unknown as File[] //항공 ...
-  const productNames: string[] | null = formData.getAll('productName') as unknown as string[] //항공 ...
+  const productImgs: string[] | null = formData.getAll('productImg') as unknown as string[]
+  const productNames: string[] | null = formData.getAll('productName') as unknown as string[]
   //데이터는 잘 받아옴
-  let imgUrls: string[] = []
-  let signedUrl_cateImg, signedUrl_prodImg
   try {
-    if (!cateImg) return { success: false, message: '이미지 파일을 찾을 수 없습니다' }
-    signedUrl_cateImg = await getSignedFileUrl({
-      name: `batteries/${batteriesData_admin[newBatteryId].title}/${title}-category.png`,
-      type: cateImg.type,
+    const products = productImgs.map(function (img: string, id: number) {
+      return { id, name: productNames[id], img }
     })
-    const uploadImg = await fetch(signedUrl_cateImg, {
-      method: 'PUT',
-      body: cateImg,
-      headers: { 'Content-type': cateImg.type },
-    })
-    if (uploadImg.status != 200) {
-      return { succes: false, message: '대표 이미지를 저장하는 데에 실패했습니다.' }
-    }
-    let products: { id: number; name: string; img: string }[] | [] = []
-    if (productImgs) {
-      for (let i = 0; i < productImgs.length; i++) {
-        signedUrl_prodImg = await getSignedFileUrl({
-          name: `batteries/${batteriesData_admin[newBatteryId].title}/${title}/${productNames[i]}`,
-          type: productImgs[i].type,
-        })
-        const uploadImg = await fetch(signedUrl_prodImg, {
-          method: 'PUT',
-          body: productImgs[i],
-          headers: { 'Content-type': productImgs[i].type },
-        })
-        if (uploadImg.status != 200) {
-          return { succes: false, message: '적용제품들의 이미지를 저장하는 데에 실패했습니다.' }
-        } else {
-          imgUrls.push(signedUrl_prodImg.split('?')[0])
-        }
-      }
-      products = productImgs.map(function (img: File, id: number) {
-        return { id, name: productNames[id], img: imgUrls[id] }
-      })
-    }
     connectToDb() //MongoDB에 연결
-    if (!signedUrl_cateImg) {
-      return { success: false, message: '대표이미지에 대한 SignedURL 생성을 실패했습니다.' }
-    }
     const prevData: { id: number; data: Category[] } | null = await BatteryPage.findOne({ id: newBatteryId })
     if (!prevData) return { success: false, message: '이전 배터리페이지 데이터를 불러오는데 실패했습니다.' }
     const newId = prevData.data.length ? Math.max(...prevData.data.map((item) => item.id)) + 1 : 0
     const data = {
       id: newId,
       title,
-      itemFile: signedUrl_cateImg.split('?')[0],
+      itemFile: cateImg,
       itemTitle,
       itemSubtitle,
       itemAdvanced,
@@ -222,7 +183,6 @@ export const createBatteryPage = async (formData: FormData) => {
     const res = await BatteryPage.updateOne({ id: newBatteryId }, { data: [...prevData.data, data] })
     console.log(batteriesData_admin[newBatteryId].title, 'BatteryPage successfully updated!\nresponse:', res)
     revalidatePath('/admin/batteries')
-    // revalidatePath('/api/admin/batteries')
     return { success: true, message: 'createBatteryPage success' }
   } catch (error) {
     return { success: false, message: getErrorMessage(error) }
