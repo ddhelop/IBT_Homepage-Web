@@ -82,11 +82,11 @@ const PostForm = ({ postType }: PostTypeProps) => {
         const presigned_img = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
         formData.append('img', JSON.stringify([presigned_img as string, image.type]))
       }
-      const { success, message } = await createPost(formData)
+      // const { success, message } = await createPost(formData)
       postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
-      if (!success) {
-        setError(message)
-      }
+      // if (!success) {
+      //   setError(message)
+      // }
     } catch (e: any) {
       console.log(e)
     } finally {
