@@ -34,40 +34,25 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
 
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
-      const { title, description } = Object.fromEntries(formData)
-      if (!title) {
-        setError('제목을 작성하지 않았습니다.')
-        return false
-      }
-      if (!description) {
-        setError('내용을 작성하지 않았습니다.')
-        return false
-      }
+      const { title } = Object.fromEntries(formData)
+      if (!title) return false
       formData.append('postType', postTypeId.toString())
-      formData.append('title', title)
-      formData.append('desc', description)
-
       const keyString = Math.random().toString(36).substring(0, 12)
       //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
       switch (postTypeId) {
         case 0:
           if (!image) return false
           const preImg_news = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
-          const uploadImg_news = await fetch(preImg_news, {
-            method: 'PUT',
-            body: image,
-            headers: { 'Content-type': image.type },
-          })
+          await fetch(preImg_news, { method: 'PUT', body: image, headers: { 'Content-type': image.type } })
           formData.append('img', preImg_news.split('?')[0])
           break
         case 1:
-          if (!image) return false
-          if (!pdf) return false
+          if (!image || !pdf) return false
           const [preImg_cate, prePdf_cate] = await Promise.all([
             getSignedFileUrl({ name: `catelog/` + keyString + '/img', type: image.type }),
             getSignedFileUrl({ name: `catelog/` + keyString + '/pdf', type: pdf.type }),
           ])
-          const [uploadImg_cate, uploadPDF_cate] = await Promise.all([
+          await Promise.all([
             fetch(preImg_cate, { method: 'PUT', body: image, headers: { 'Content-type': image.type } }),
             //prettier-ignore
             fetch(prePdf_cate, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
@@ -78,16 +63,12 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
         case 2:
           if (!pdf) return false
           const prePdf_esg = await getSignedFileUrl({ name: `esg-pdf/` + keyString, type: pdf.type })
-          const uploadPdf_esg = await fetch(prePdf_esg, {
-            method: 'PUT',
-            body: pdf,
-            headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' },
-          })
+          //prettier-ignore
+          await fetch(prePdf_esg, {method: 'PUT',body: pdf,headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' },})
           formData.append('pdf', prePdf_esg.split('?')[0])
       }
       const { success, message } = await createPost(formData)
       if (!success) setError(message)
-
       switch (postTypeId) {
         case 0:
           router.push(`/admin`)
@@ -140,9 +121,18 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
 
         <h2 className="block text-gray-700 font-bold mb-2">글 제목:</h2>
         <input required type="text" name="title" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
-
-        <h2 className="block text-gray-700 font-bold mb-2">글:</h2>
-        <textarea name="description" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-8" rows={5} cols={33} />
+        {postTypeId === 0 && (
+          <>
+            <h2 className="block text-gray-700 font-bold mb-2">글:</h2>
+            <textarea
+              required
+              name="description"
+              className="bg-gray-100 rounded-md py-2 px-3 w-full mb-8"
+              rows={5}
+              cols={33}
+            />
+          </>
+        )}
         <h1 className="text-red-400 mb-2">{error}</h1>
         <button
           className={`p-4 w-32 rounded-lg transition
