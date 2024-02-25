@@ -1,11 +1,9 @@
-import ESGPdfPostForm from '@/components/admin/ESGPdfPostForm'
-import { Counter, Order } from '@/lib/models'
-import { connectToDb } from '@/lib/utils'
+import PostForm from '@/components/admin/PostForm'
 
 const AddNewsPage = async () => {
   return (
     <div className="flex flex-col flex-1 h-screen bg-gray-100">
-      <ESGPdfPostForm />
+      <PostForm postTypeId={2} />
     </div>
   )
 }
