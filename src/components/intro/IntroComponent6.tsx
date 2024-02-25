@@ -103,7 +103,7 @@ export default function IntroComponent6(): JSX.Element {
               All in One Solution 공급
             </h1>
 
-            <p className="text-white text-[19.5px] font-medium lg:font-light lg:text-left leading-[29.8px] tracking-[0.23px] mt-6 md:mt-[38px] md:mr-[114px]">
+            <p className="text-white text-[19.5px] font-medium lg:font-light lg:text-left leading-[29.8px] tracking-[0.23px] mt-6 md:mt-[38px] lg:mr-[114px]">
               연료전지 개발 생산 기업 IBT는
               <br />
               수소 에너지 관련 고도화 기업으로 성장하고 있습니다.
