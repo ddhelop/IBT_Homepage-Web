@@ -6,7 +6,7 @@ import { BatteryPage, Catelog, ESGPdf, Order, Post } from './models'
 import { connectToDb, getErrorMessage, getId, validateString } from './utils'
 import React from 'react'
 import ContactFormEmail from '@/components/customer/contact-us/ContactForm'
-import { S3BucketUrl, batteriesData_admin } from './data'
+import { S3BucketUrl, batteriesData_admin, postData_admin } from './data'
 import { deleteS3Object, getSignedFileUrl } from './awsUtils'
 import { Category } from './types'
 
@@ -45,58 +45,42 @@ export const createPost = async (formData: FormData) => {
     //1. counter모델에서의 esgPdfIdCounter를 MongoDB로부터 불러와 기존값 +1를 newId 변수에 저장
     //2. order모델에서의 ESGPDFOrder를 newOrder에 저장한 후, 방금 생성한 newId를 newOrder 배열에 저장
     switch (postType) {
-      case 'news':
+      case '0':
         newId = await getId('news')
         newOrder = order.postOrder
         break
-      case 'catelog':
+      case '1':
         newId = await getId('catelog')
         newOrder = order.catelogOrder
         break
-      case 'esg-pdf':
+      case '2':
         newId = await getId('esg-pdf')
         newOrder = order.ESGPDFOrder
     }
     //order 배열 끝에 방금 생성한 id값 push
     newOrder.push(newId)
-    console.log('Order Received')
     //3. 방금 추가한 객체가 반영된 최신 order 배열을 ESGPDFOrder 필드에 덮어쓰기하여 추후 배열순서 변경에 참고할 수 있도록 저장
     //4. pre-signed URL과 기존에 입력한 Title 두 정보를 활용해 MongoDB에 저장
-    switch (postType) {
-      case 'news':
-        if (!img) {
-          return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        }
-        const newPost = new Post({ title, img: img, desc, id: newId })
+    switch (+postType) {
+      case 0:
+        if (!img) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
+        const newPost = new Post({ title, img, desc, id: newId })
         await Promise.all([newPost.save(), Order.updateOne({ id: 0 }, { postOrder: newOrder })])
+        revalidatePath('/admin')
         break
-      case 'catelog':
-        if (!img || !pdf) {
-          return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        }
-        const newCatelog = new Catelog({
-          title,
-          img: img,
-          pdf: pdf,
-          desc,
-          id: newId,
-        })
+      case 1:
+        if (!img || !pdf) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
+        const newCatelog = new Catelog({ title, img, pdf, desc, id: newId })
         await Promise.all([newCatelog.save(), Order.updateOne({ id: 0 }, { catelogOrder: newOrder })])
-      case 'esg-pdf':
-        if (!pdf) {
-          return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        }
-        const newESGPdf = new ESGPdf({
-          title,
-          pdf: pdf,
-          id: newId,
-        })
+        revalidatePath('/admin/catelog')
+        break
+      case 2:
+        if (!pdf) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
+        const newESGPdf = new ESGPdf({ title, pdf, id: newId })
         await Promise.all([newESGPdf.save(), Order.updateOne({ id: 0 }, { ESGPDFOrder: newOrder })])
+        revalidatePath('/admin/esg-pdf')
     }
-    console.log(postType, 'Post saved to db\nNew Order:', newOrder)
-
-    revalidatePath('/admin')
-    revalidatePath('/api/admin')
+    console.log(postData_admin[+postType].title, 'saved to db\nNew Order:', newOrder)
     return { success: true, message: 'createPost success' }
   } catch (error) {
     return { success: false, message: getErrorMessage(error) }

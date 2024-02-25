@@ -1,14 +1,15 @@
 'use client'
 import { createPost } from '@/lib/action'
 import { getSignedFileUrl } from '@/lib/awsUtils'
+import { postData_admin } from '@/lib/data'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
 type PostTypeProps = {
-  postType: string
+  postTypeId: number
 }
-const PostForm = ({ postType }: PostTypeProps) => {
+const PostForm = ({ postTypeId }: PostTypeProps) => {
   const [error, setError] = useState<string | null>(null)
   const [tempUrl, setTempUrl] = useState<string | null>(null)
 
@@ -34,10 +35,6 @@ const PostForm = ({ postType }: PostTypeProps) => {
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
       const { title, description } = Object.fromEntries(formData)
-      if (!image) {
-        setError('이미지 파일을 추가하지 않았습니다.')
-        return false
-      }
       if (!title) {
         setError('제목을 작성하지 않았습니다.')
         return false
@@ -46,70 +43,89 @@ const PostForm = ({ postType }: PostTypeProps) => {
         setError('내용을 작성하지 않았습니다.')
         return false
       }
-
-      formData.append('postType', postType)
+      formData.append('postType', postTypeId.toString())
       formData.append('title', title)
       formData.append('desc', description)
 
-      /////////const res = await fetch('/api/admin', { method: 'POST', body: formData, cache: 'no-store' }) //fetch request 실행 -> body를 Formdata로 지정해놓으면, multi-part contentType, handler등의 설정을 다 해줌
       const keyString = Math.random().toString(36).substring(0, 12)
       //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
-      if (postType == 'catelog') {
-        if (!pdf) {
-          setError('PDF 파일을 추가하지 않았습니다.')
-          return false
-        }
-        const [presigned_img, presigned_pdf] = await Promise.all([
-          getSignedFileUrl({ name: `catelog/` + keyString + '/img', type: image.type }),
-          getSignedFileUrl({ name: `catelog/` + keyString + '/pdf', type: pdf.type }),
-        ])
-        const [uploadImg_catelog, uploadPDF_catelog] = await Promise.all([
-          fetch(presigned_img, { method: 'PUT', body: image, headers: { 'Content-type': image.type } }),
-          //prettier-ignore
-          fetch(presigned_pdf, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
-        ])
-        if (uploadPDF_catelog.status != 200 || uploadImg_catelog.status != 200) {
-          setError('파일 업로드 실패')
-          return false
-        }
-        formData.append('img', presigned_img.split('?')[0])
-        formData.append('pdf', presigned_pdf.split('?')[0])
-        console.log(Object.fromEntries(formData))
-      } else {
-        const presigned_img = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
-        formData.append('img', JSON.stringify([presigned_img as string, image.type]))
+      switch (postTypeId) {
+        case 0:
+          if (!image) return false
+          const preImg_news = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
+          const uploadImg_news = await fetch(preImg_news, {
+            method: 'PUT',
+            body: image,
+            headers: { 'Content-type': image.type },
+          })
+          formData.append('img', preImg_news.split('?')[0])
+          break
+        case 1:
+          if (!image) return false
+          if (!pdf) return false
+          const [preImg_cate, prePdf_cate] = await Promise.all([
+            getSignedFileUrl({ name: `catelog/` + keyString + '/img', type: image.type }),
+            getSignedFileUrl({ name: `catelog/` + keyString + '/pdf', type: pdf.type }),
+          ])
+          const [uploadImg_cate, uploadPDF_cate] = await Promise.all([
+            fetch(preImg_cate, { method: 'PUT', body: image, headers: { 'Content-type': image.type } }),
+            //prettier-ignore
+            fetch(prePdf_cate, { method: 'PUT', body: pdf, headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' }}),
+          ])
+          formData.append('img', preImg_cate.split('?')[0])
+          formData.append('pdf', prePdf_cate.split('?')[0])
+          break
+        case 2:
+          if (!pdf) return false
+          const prePdf_esg = await getSignedFileUrl({ name: `esg-pdf/` + keyString, type: pdf.type })
+          const uploadPdf_esg = await fetch(prePdf_esg, {
+            method: 'PUT',
+            body: pdf,
+            headers: { 'Content-type': pdf.type, 'Content-Disposition': 'inline' },
+          })
+          formData.append('pdf', prePdf_esg.split('?')[0])
       }
       const { success, message } = await createPost(formData)
-      // postType == 'news' ? router.push(`/admin`) : router.push(`/admin/catelogs`)
-      if (!success) {
-        setError(message)
+      if (!success) setError(message)
+
+      switch (postTypeId) {
+        case 0:
+          router.push(`/admin`)
+          break
+        case 1:
+          router.push(`/admin/catelogs`)
+          break
+        case 2:
+          router.push(`/admin/esg-pdf`)
       }
     } catch (e: any) {
-      console.log(e)
+      setError(e)
     } finally {
       setIsLoading(false)
     }
   }
   return (
     <div className="flex flex-col">
-      <h1 className="text-2xl font-bold mb-12 bg-white p-8">
-        {postType == 'news' ? '새 뉴스 추가' : '새 카탈로그 추가'}
-      </h1>
+      <h1 className="text-2xl font-bold mb-12 bg-white p-8">새 {postData_admin[postTypeId].name} 추가</h1>
       <form className="mx-8 p-8 bg-white rounded-lg" onSubmit={onSubmit}>
-        <h2 className="block text-gray-700 font-bold mb-2">이미지:</h2>
-        {tempUrl && (
-          <div className="w-64 h-64 relative">
-            <Image src={tempUrl} alt="tempImg" fill className="object-contain" />
-          </div>
+        {postTypeId !== 2 && (
+          <>
+            <h2 className="block text-gray-700 font-bold mb-2">이미지:</h2>
+            {tempUrl && (
+              <div className="w-64 h-64 relative">
+                <Image src={tempUrl} alt="tempImg" fill className="object-contain" />
+              </div>
+            )}
+            <input
+              required
+              type="file"
+              accept="image/*"
+              className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4"
+              onChange={showImage}
+            />
+          </>
         )}
-        <input
-          required
-          type="file"
-          accept="image/*"
-          className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4"
-          onChange={showImage}
-        />
-        {postType == 'catelog' && (
+        {postTypeId !== 0 && (
           <>
             <h2 className="block text-gray-700 font-bold mb-2">PDF:</h2>
             <input
