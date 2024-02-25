@@ -77,6 +77,7 @@ const PostForm = ({ postType }: PostTypeProps) => {
         }
         formData.append('img', presigned_img as string)
         formData.append('pdf', presigned_pdf as string)
+        console.log(formData)
       } else {
         const presigned_img = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
         formData.append('img', JSON.stringify([presigned_img as string, image.type]))
