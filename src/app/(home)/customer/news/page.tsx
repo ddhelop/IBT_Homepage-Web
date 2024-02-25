@@ -1,22 +1,12 @@
 import NewsCard from '@/components/customer/NewsCard'
+import { fetchPostData } from '@/lib/action'
 
 import { NewsProps } from '@/lib/types'
 import Link from 'next/link'
 
-const getData = async () => {
-  const res = await fetch(`${process.env.URL}/api/admin/news`, {
-    method: 'GET',
-    cache: 'no-store',
-  })
-  if (!res.ok) {
-    throw new Error('Something went wrong')
-  }
-  return res.json()
-}
-
 const NewsPage = async () => {
-  const posts = await getData()
-  console.log(posts)
+  const res = await fetchPostData(0) //데이터 불러오는 딜레이가 아님
+  const posts = res.data
   return (
     <div className="flex justify-center w-full pt-48 min-h-[64vh] lg:min-h-[80vh]">
       <div className="flex flex-col sm:w-auto w-[92%]">

@@ -1,4 +1,4 @@
-import { BatteryPage, Catelog, Order } from '@/lib/models'
+import { BatteryPage } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
 import { NextRequest, NextResponse } from 'next/server'
 

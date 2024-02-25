@@ -6,10 +6,11 @@ export const GET = async (request: NextRequest, { params }: any) => {
   const { slug } = params
   try {
     connectToDb()
-    const newsList = await Post.findOne({ id: 0 })
-    return NextResponse.json(newsList[slug])
+    const posts = await Post.findOne({ id: slug })
+    console.log('Fetching PostList:', posts)
+    return NextResponse.json(posts)
   } catch (err) {
     console.log(err)
-    throw new Error('Failed to fetch dd!')
+    throw new Error('Failed to fetch post!')
   }
 }

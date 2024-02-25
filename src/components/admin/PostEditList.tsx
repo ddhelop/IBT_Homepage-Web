@@ -8,17 +8,17 @@ import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
 import { IoIosClose } from 'react-icons/io'
 import { handleListEdit } from '@/lib/action'
-import { useFormState } from 'react-dom'
 import Link from 'next/link'
 import { postData_admin } from '@/lib/data'
-import { reorderPosts } from '@/lib/utils'
-import { SubmitButton } from './SubmitButton'
+import { getErrorMessage, reorderPosts } from '@/lib/utils'
+import AddButton from './SubmitButton'
 
 const PostEditList = ({ datas, postTypeID }: any) => {
-  const [state, formAction] = useFormState(handleListEdit, undefined)
-
-  const [temp, setTemp] = useState<any[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
+  const [message, setMessage] = useState<string>('')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [posts, setPosts] = useState<any[]>(datas)
+  const [temp, setTemp] = useState<any[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
+
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
@@ -29,9 +29,25 @@ const PostEditList = ({ datas, postTypeID }: any) => {
     const tempposts = Array.from(posts)
     setPosts(tempposts.filter((item) => item.id != id))
   }
+  const onSubmit = async () => {
+    setMessage('')
+    const isConfirmed = window.confirm(`${postData_admin[postTypeID].title} 리스트를 수정하시겠습니까?`)
+    if (isConfirmed) {
+      setIsLoading(true)
+      try {
+        const { success, message } = await handleListEdit(posts, postTypeID)
+        setMessage(message)
+      } catch (e) {
+        setMessage(getErrorMessage(e))
+      } finally {
+        setIsLoading(false)
+      }
+    }
+  }
   useEffect(() => {
     setTemp(posts)
-  }, [state])
+  }, [isLoading])
+
   return (
     <div className="flex flex-col">
       <div className="mx-8 pb-2 bg-white rounded-lg">
@@ -84,14 +100,16 @@ const PostEditList = ({ datas, postTypeID }: any) => {
           </StrictModeDroppable>
         </DragDropContext>
       </div>
-      <div className="flex flex-1 justify-between mx-8 mt-8">
-        <form action={formAction}>
-          <input type="hidden" name="postType" value={postData_admin[postTypeID].postType} />
-          <input type="hidden" name="modifiedOrder" value={JSON.stringify(posts.map((item: any) => item.id))} />
-          <SubmitButton isActive={temp === posts} />
-        </form>
+      <div className="flex mx-8 mt-4">
+        <AddButton
+          text="순서 변경하기"
+          isLoading={isLoading}
+          isForSubmit={false}
+          func={() => onSubmit()}
+          isActive={temp !== posts}
+        />
+        <h1 className="text-gray-600 text-sm px-6 mt-4">{message}</h1>
       </div>
-      <h3 className="mx-8 my-2 text-green-800">{state?.message}</h3>
       <Link
         href={postData_admin[postTypeID].href}
         className=" absolute bottom-12 right-12 p-4 rounded-full

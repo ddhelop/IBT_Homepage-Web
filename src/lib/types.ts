@@ -36,6 +36,13 @@ export type Category = {
   itemAdvanced: string[]
   products?: Product[]
 }
+export type PostType = {
+  id: number
+  title: string
+  desc?: string
+  img?: string
+  pdf?: string
+}
 export type Product = {
   id: number
   name: string
