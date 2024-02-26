@@ -79,8 +79,12 @@ export const batteriesData_admin = [
 // intro_data
 export const contents = [
   {
-    title: '친환경 에너지',
-    text: '지속 가능한 미래를 만들어 가고 있는 IBT의 그린 에코 기술은 \n지구 온난화와 기후 위기를 해결하고 인류의 삶의 질을 높이는 데에 기여할 것입니다.',
+    title: ['친환경 에너지', 'Green Energy'],
+    text: [
+      '지속 가능한 미래를 만들어 가고 있는 IBT의 그린 에코 기술은 \n지구 온난화와 기후 위기를 해결하고 인류의 삶의 질을 높이는 데에 기여할 것입니다.',
+      `IBT's Green Eco Technology is contributing to a sustainable future,
+    solving climate crisis, and enhancing the quality of life for humanity.`,
+    ],
     background: '/intro/intro1.png',
   },
   {

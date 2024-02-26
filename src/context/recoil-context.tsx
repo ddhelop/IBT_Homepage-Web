@@ -5,15 +5,9 @@ import { recoilPersist } from 'recoil-persist'
 
 const { persistAtom } = recoilPersist()
 
-export const isKoreanState = atom({
-  key: 'isKorean',
-  default: true,
-  effects: [persistAtom],
-})
-
-export const loggedInState = atom({
-  key: 'loggedIn',
-  default: false,
+export const isEnglishState = atom({
+  key: 'isEnglish',
+  default: +0,
   effects: [persistAtom],
 })
 

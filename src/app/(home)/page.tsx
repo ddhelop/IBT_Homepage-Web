@@ -1,10 +1,9 @@
-import { contents } from '@/lib/data'
 import { Metadata } from 'next'
 import IntroComponent5 from '@/components/intro/IntroComponent5.client'
 import IntroComponent6 from '@/components/intro/IntroComponent6'
 import IntroComponent7 from '@/components/intro/IntroComponent7'
-import ContentBlock from '@/components/intro/IntroContentBlock.client'
 import { fetchPostData } from '@/lib/action'
+import ContentBlocks from '@/components/intro/IntroContentBlock.client'
 
 export const metadata: Metadata = {
   title: 'IBT intro',
@@ -13,12 +12,11 @@ export const metadata: Metadata = {
 
 const IntroPage = async () => {
   const res = await fetchPostData(0) //데이터 불러오는 딜레이가 아님
+
   return (
     <div className="flex flex-col w-full">
       {/* 1 ~ 4 */}
-      {contents.map((content, index) => (
-        <ContentBlock key={index} title={content.title} text={content.text} background={content.background} />
-      ))}
+      <ContentBlocks />
 
       {/* 5th */}
       <IntroComponent5 />
