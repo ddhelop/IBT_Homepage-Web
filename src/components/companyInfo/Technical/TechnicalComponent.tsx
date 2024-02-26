@@ -9,10 +9,14 @@ import Technical4 from './Technical4'
 import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction/DownMotion'
 import { motion } from 'framer-motion'
 import { NoMotionComponent } from '@/components/commons/FramerMotion/Direction/NoMotion'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+import { CompanyInfoData } from '@/lib/data'
 
 export default function TechnicalComponent() {
   const [activeTab, setActiveTab] = useState('tab1')
   const isActive = (tabName: string) => activeTab === tabName
+  const isEnglish = useRecoilValue(isEnglishState)
 
   const ViewContents = () => {
     switch (activeTab) {
@@ -35,10 +39,10 @@ export default function TechnicalComponent() {
     <>
       <div
         id="technical"
-        className="flex flex-col mb-72 justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white"
+        className="flex flex-col mb-72 justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white whitespace-pre-wrap"
       >
         <DownMotionComponent component={motion.div}>
-          <h1 className="text-4xl font-medium">기술 인증</h1>
+          <h1 className="text-4xl font-medium">{CompanyInfoData?.[4].title?.[isEnglish]}</h1>
         </DownMotionComponent>
 
         {/* Tabs */}
@@ -49,25 +53,25 @@ export default function TechnicalComponent() {
             value="tab1"
             onClick={onClickButton}
           >
-            인증서
+            {CompanyInfoData?.[4].tab1?.[isEnglish]}
           </button>
           <button
             className={`w-32 h-12 tab-button5 ${isActive('tab2') ? 'active-tab5' : ''}`}
             onClick={() => setActiveTab('tab2')}
           >
-            지식 재산권
+            {CompanyInfoData?.[4].tab2?.[isEnglish]}
           </button>
           <button
             className={`w-32 h-12 tab-button6 ${isActive('tab3') ? 'active-tab6' : ''}`}
             onClick={() => setActiveTab('tab3')}
           >
-            연구개발
+            {CompanyInfoData?.[4].tab3?.[isEnglish]}
           </button>
           <button
             className={`w-32 h-12 tab-button7 ${isActive('tab4') ? 'active-tab7' : ''}`}
             onClick={() => setActiveTab('tab4')}
           >
-            연구개발확인서
+            {CompanyInfoData?.[4].tab4?.[isEnglish]}
           </button>
         </NoMotionComponent>
 

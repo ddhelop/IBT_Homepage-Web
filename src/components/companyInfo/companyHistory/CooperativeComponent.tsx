@@ -3,21 +3,22 @@ import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction
 import { motion } from 'framer-motion'
 import React from 'react'
 import LogoComponent from '../LogoComponent'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+import { CompanyInfoData } from '@/lib/data'
 
 export default function CooperativeComponent() {
+  const isEnglish = useRecoilValue(isEnglishState)
+
   return (
     <div className="mb-72">
       <DownMotionComponent component={motion.div} className="flex flex-col items-center">
-        <h1 className="text-4xl mb-24 font-medium">협력 / 제휴사</h1>
-        <h2 className="text-2xl mb-7 font-bold">함께하는 IBT</h2>
+        <h1 className="text-4xl mb-12 font-medium">{CompanyInfoData?.[3].title?.[isEnglish]}</h1>
+        <h2 className="text-2xl mb-7 font-bold">{CompanyInfoData?.[3].contents?.[isEnglish]}</h2>
       </DownMotionComponent>
 
       <DownMotionComponent component={motion.div} className="flex flex-col items-center">
-        <p className="text-base text-center mb-16 font-light leading-7">
-          IBT는 신뢰를 바탕으로 국내외 기업들과
-          <br />
-          함께 고민하고 해결해나갑니다.
-        </p>
+        <p className="text-base text-center mb-16 font-light leading-7">{CompanyInfoData?.[3].desc?.[isEnglish]}</p>
       </DownMotionComponent>
 
       <LogoComponent />
