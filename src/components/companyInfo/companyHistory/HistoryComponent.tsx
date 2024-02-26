@@ -6,11 +6,14 @@ import CompanyHistory2 from './CompanyHistory2'
 import { motion } from 'framer-motion'
 import './HistoryComponent.css'
 import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction/DownMotion'
+import { isEnglishState } from '@/context/recoil-context'
+import { useRecoilValue } from 'recoil'
+import { CompanyInfoData } from '@/lib/data'
 
 export default function HistoryComponent() {
   const [activeTab, setActiveTab] = useState('tab1')
   const isActive = (tabName: string) => activeTab === tabName
-  const scrollRef = useRef(null)
+  const isEnglish = useRecoilValue(isEnglishState)
 
   const ViewContents = () => {
     switch (activeTab) {
@@ -36,12 +39,13 @@ export default function HistoryComponent() {
         className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white mb-72"
       >
         <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
-          연혁
+          {CompanyInfoData[1].title[isEnglish]}
         </DownMotionComponent>
-        <DownMotionComponent component={motion.p} className="mt-12 text-center font-light text-xl leading-10">
-          1986년부터 지금까지,
-          <br />
-          도전정신으로 IBT는 성장하고 있습니다.
+        <DownMotionComponent
+          component={motion.p}
+          className="mt-12 text-center font-light text-xl leading-4 whitespace-pre-wrap"
+        >
+          {CompanyInfoData[1].contents[isEnglish]}
         </DownMotionComponent>
 
         {/* Tabs */}
