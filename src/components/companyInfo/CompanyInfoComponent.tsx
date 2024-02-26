@@ -2,9 +2,13 @@
 import Image from 'next/image'
 import { Variants, motion } from 'framer-motion'
 import { useRef } from 'react'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+import { CompanyInfoData } from '@/lib/data'
 
 export default function CompanyInfoComponent() {
   const scrollRef = useRef(null)
+  const isEnglish = useRecoilValue(isEnglishState)
 
   const Variants: Variants = {
     offscreen: {
@@ -39,20 +43,12 @@ export default function CompanyInfoComponent() {
             height={120} // 높이
             // layout="fixed" // 레이아웃 옵션
           />
-          <h2 className="mt-6 text-center font-medium text-2xl leading-[4rem]">
-            IBT는 혁신적인 배터리 기술을 통해 지속 가능한 에너지 솔루션을 선도하며,
-            <br />
-            새로운 에너지 라이프스타일을 창조하고 있습니다.
+          <h2 className="mt-6 text-center font-medium text-2xl leading-[4rem] ">
+            {CompanyInfoData?.[0].title?.[isEnglish]}
             <br />
           </h2>
-          <p className="mt-12 text-center font-thin text-xl leading-[3rem]">
-            브랜드 컬러인 IBT 그린은 친환경 이념을,
-            <br />
-            우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.
-            <br />
-            ‘International Battery Technology’의 약자인 IBT는,
-            <br />
-            세계를 선도하는 한국의 기업으로 성장할 것입니다.
+          <p className="mt-12 text-center font-thin text-xl leading-[3rem] whitespace-pre-wrap">
+            {CompanyInfoData?.[0].contents?.[isEnglish]}
           </p>
         </motion.div>
       </div>

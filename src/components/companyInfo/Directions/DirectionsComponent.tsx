@@ -6,22 +6,26 @@ import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction
 import { motion } from 'framer-motion'
 import { RightMotionComponent } from '@/components/commons/FramerMotion/Direction/RightMotion'
 import { LeftMotionComponent } from '@/components/commons/FramerMotion/Direction/LeftMotion'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+import { CompanyInfoData } from '@/lib/data'
 
 export default function DirectionsComponent() {
+  const isEnglish = useRecoilValue(isEnglishState)
   return (
     <>
       <div
         id="directions"
-        className="py-32 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden"
+        className="whitespace-pre-wrap py-32 flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden"
       >
         <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
-          오시는 길
+          {CompanyInfoData?.[9].direction?.[isEnglish]}
         </DownMotionComponent>
 
         {/* 광주본사 */}
         <div className="mt-32 flex flex-col p-5">
           <RightMotionComponent component={motion.h2} className="text-2xl font-medium mb-8">
-            광주본사
+            {CompanyInfoData?.[9].title?.[isEnglish]}
           </RightMotionComponent>
 
           <div className="flex flex-col lg:flex-row items-center">
@@ -36,16 +40,14 @@ export default function DirectionsComponent() {
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
                   <AiOutlineCompass className="w-12 h-12 mb-3" />
-                  <p className="lg:mt-4 text-sm font-semibold mb-1">주소</p>
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[9].address?.[isEnglish]}</p>
                   <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-6">
-                    광주시 북구 첨단벤처
-                    <br />
-                    소로 38번길 2
+                    {CompanyInfoData?.[9].addressDetail?.[isEnglish]}
                   </p>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
                   <AiOutlinePhone className="w-12 h-12 mb-3" />
-                  <p className="lg:mt-4 text-sm font-semibold mb-1">연락처</p>
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[9].phone?.[isEnglish]}</p>
                   <p className="font-normal text-xs mt-1 text-[#7e7e7e] leading-6">
                     TEL:062-971-7983~6
                     <br />
@@ -55,13 +57,9 @@ export default function DirectionsComponent() {
               </div>
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
                 <AiOutlineClockCircle className="w-12 h-12 hidden lg:flex" />
-                <p className="lg:mt-4 text-base font-semibold md:mb-1">안내</p>
+                <p className="lg:mt-4 text-base font-semibold md:mb-1">{CompanyInfoData?.[9].guide?.[isEnglish]}</p>
                 <p className="font-normal text-xs text-[#7e7e7e] leading-6 px-4">
-                  호남고속도로(88번고속도로,남해안고속도로) → 광산 IC진입 → 우회전(광주과학
-                  <br />
-                  기술원 방향) → 4Km 직진(AMKOR(구아남전자)탑) → 150m 진입 → 좌회전
-                  <br />
-                  (AMKOR 후문) → 우회전(200m)
+                  {CompanyInfoData?.[9].guideDetail?.[isEnglish]}
                 </p>
               </div>
             </LeftMotionComponent>
@@ -71,7 +69,7 @@ export default function DirectionsComponent() {
         {/* 서울지점 */}
         <div className="mt-32 flex flex-col p-5">
           <RightMotionComponent component={motion.h2} className="text-xl font-medium mb-8">
-            서울지점
+            {CompanyInfoData?.[10].title?.[isEnglish]}
           </RightMotionComponent>
 
           <div className="flex flex-col lg:flex-row items-center">
@@ -86,16 +84,14 @@ export default function DirectionsComponent() {
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
                   <AiOutlineCompass className="w-12 h-12 mb-3" />
-                  <p className="lg:mt-4 text-sm font-semibold mb-1">주소</p>
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[10].address?.[isEnglish]}</p>
                   <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-6">
-                    서울특별시 성동구 성수일로 99
-                    <br />
-                    서울숲 AK 벨리 1103호,1104호
+                    {CompanyInfoData?.[10].addressDetail?.[isEnglish]}
                   </p>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
                   <AiOutlinePhone className="w-12 h-12 mb-3" />
-                  <p className="lg:mt-4 text-sm font-semibold mb-1">연락처</p>
+                  <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[10].phone?.[isEnglish]}</p>
                   <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-5">
                     TEL:02-3409-7141 / 02-6965-7975
                     <br />
@@ -105,11 +101,9 @@ export default function DirectionsComponent() {
               </div>
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
                 <AiOutlineClockCircle className="w-12 h-12 mb-3" />
-                <p className="md:mt-4 text-sm font-semibold mb-1">안내</p>
+                <p className="md:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[10].guide?.[isEnglish]}</p>
                 <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-8">
-                  - 지하철 -
-                  <br />
-                  2호선 | 뚝섬역 4번출구
+                  {CompanyInfoData?.[10].guideDetail?.[isEnglish]}
                 </p>
               </div>
             </LeftMotionComponent>

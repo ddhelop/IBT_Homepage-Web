@@ -1,48 +1,32 @@
 import { LeftMotionComponent } from '@/components/commons/FramerMotion/Direction/LeftMotion'
 import { RightMotionComponent } from '@/components/commons/FramerMotion/Direction/RightMotion'
+import { isEnglishState } from '@/context/recoil-context'
+import { CompanyInfoData } from '@/lib/data'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useRecoilValue } from 'recoil'
 
 export default function CompanyHistory3() {
+  const isEnglish = useRecoilValue(isEnglishState)
   return (
     <>
-      <div className="mt-20 w-full flex flex-col lg:items-end">
+      <div className="mt-20 w-full flex flex-col lg:items-end whitespace-pre-wrap">
         {/* top */}
         <div className="ml-8 lg:ml-0 lg:w-[91.5%] flex flex-col items-center ">
           <div className="w-[50%] lg:w-[18%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2005</h3>
-              <p className="font-light text-sm mb-10">ISO14001 인증 획득</p>
+              <p className="font-light text-sm mb-10">{CompanyInfoData[2][2005]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2004</h3>
-              <p className="font-light text-sm leading-7 mb-10">
-                배기식 니켈 수소 전지 특허 출원
-                <br />
-                UH-1H 헬기용 축전지 국산화 개발
-                <br />
-                INNO-BIZ 기업 선정
-                <br />
-                F-4 항공기용 축전지 국산화 개발
-              </p>
+              <p className="font-light text-sm leading-7 mb-10">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2003</h3>
-              <p className="font-light text-sm leading-[2.2rem] mb-8">
-                ㈜아이비티 상호변경
-                <br />
-                기업부설연구소 설립
-                <br />
-                벤처기업인증 획득
-                <br />
-                철도안전용품 인증 획득
-                <br />
-                광주공장 신사옥 준공
-                <br />
-                IEC 규격 인증획득
-              </p>
+              <p className="font-light text-sm leading-[2.2rem] mb-8">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
         </div>
@@ -61,27 +45,17 @@ export default function CompanyHistory3() {
               />
 
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2002</h3>
-              <p className="font-light text-sm leading-[31px] mb-10">
-                항공기용 축전지 국산화 개발업체 선정(방위사업청)
-                <br />
-                AGV용 축전지 개발
-                <br />
-                ISO 9001 인증 획득
-              </p>
+              <p className="font-light text-sm leading-[31px] mb-10">{CompanyInfoData[2][2002]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2001</h3>
-              <p className="font-light text-sm  mb-6">함포용 축전지 국산화 개발</p>
+              <p className="font-light text-sm  mb-6">{CompanyInfoData[2][2001]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2000</h3>
-              <p className="font-light text-sm leading-7 mb-10">
-                디젤 기관차용 축전지 국산화 개발
-                <br />
-                항공기 시동용 축전지 국산화개발
-              </p>
+              <p className="font-light text-sm leading-7 mb-10">{CompanyInfoData[2][2000]?.[isEnglish]}</p>
 
               <Image
                 src="/info/2000.png" // 이미지 경로
@@ -95,31 +69,29 @@ export default function CompanyHistory3() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1998</h3>
-              <p className="font-light text-sm mb-7">소결식 니켈카드뮴 축전지 개발</p>
+              <p className="font-light text-sm mb-7">{CompanyInfoData[2][1998]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1993</h3>
-              <p className="font-light text-sm mb-7">포켓식 니켈카드뮴 전지 KS 인증획득</p>
+              <p className="font-light text-sm mb-7">{CompanyInfoData[2][1993]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1987</h3>
-              <p className="font-light text-sm mb-7">일본 혼다전기와 기술 제휴</p>
+              <p className="font-light text-sm mb-7">{CompanyInfoData[2][1987]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1986</h3>
-              <p className="font-light text-sm mb-7">(주)로케트기전 설립</p>
+              <p className="font-light text-sm mb-7">{CompanyInfoData[2][1986]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
 
           <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[13%] 2xl:left-[23%]">
             <RightMotionComponent component={motion.div}>
               <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl leading-[3.3rem]">
-                배터리 산업의 개척자,
-                <br />
-                기술력으로 초석을 다지다
+                {CompanyInfoData[2].text3?.[isEnglish]}
               </p>
             </RightMotionComponent>
           </div>
