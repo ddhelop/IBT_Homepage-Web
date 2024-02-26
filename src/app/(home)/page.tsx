@@ -4,6 +4,9 @@ import IntroComponent6 from '@/components/intro/IntroComponent6'
 import IntroComponent7 from '@/components/intro/IntroComponent7'
 import { fetchPostData } from '@/lib/action'
 import ContentBlocks from '@/components/intro/IntroContentBlock.client'
+import LogoComponent from '@/components/companyInfo/LogoComponent'
+import IntroLogoComponent from '@/components/intro/IntroLogoComponent'
+import IntroComponent4 from '@/components/intro/IntroComponent4'
 
 export const metadata: Metadata = {
   title: 'IBT intro',
@@ -15,16 +18,19 @@ const IntroPage = async () => {
 
   return (
     <div className="flex flex-col w-full">
-      {/* 1 ~ 4 */}
+      {/* 1 ~ 3 */}
       <ContentBlocks />
 
-      {/* 5th */}
+      {/* 4 */}
+      <IntroComponent4 />
+
+      {/* 5 */}
       <IntroComponent5 />
 
-      {/* 6th */}
+      {/* 6 */}
       <IntroComponent6 />
 
-      {/* 7th */}
+      {/* 7 */}
       <IntroComponent7 data={res.data} />
     </div>
   )

@@ -51,8 +51,8 @@ const IntroSlider = ({ data }: NewsData) => {
         }}
         className="w-full h-[27rem] lg:h-full flex flex-col items-center justify-center gap-y-10"
       >
-        {data?.length > 3 ? (
-          // 개수가 4개 이상인 경우
+        {data?.length > 4 ? (
+          // 개수가 5개 이상인 경우
           <>
             <div className="w-full flex flex-row justify-center items-center">
               {/* 왼쪽 화살표 */}
@@ -68,19 +68,19 @@ const IntroSlider = ({ data }: NewsData) => {
                 <Image alt="arrow" src={'/image/leftArrow.svg'} fill />
               </button>
               <div className="">
-                <div className="w-[17rem] sm:w-[34rem] lg:w-[48rem] h-[14rem] overflow-hidden relative">
+                <div className="w-[29.5rem] lg:w-[46rem] 2xl:w-[82rem] h-80 lg:h-64 2xl:h-72 overflow-hidden relative">
                   {/* ----- 적용 분야 이미지 ----- */}
                   {/* PC버전 큰화면: 4개 carousel*/}
                   <div
                     ref={carouselRef}
                     style={{
                       // translateX로 currentImg 번호에 따라 이동 거리 조정, 3은 이미지 사이 gap 고려
-                      transform: transformValue,
+                      transform: `translateX(-${(140 / imagesPerPage) * currentImg}%)`,
                     }}
-                    className={`hidden lg:w-full lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300  `}
+                    className={`hidden 2xl:flex w-full h-full absolute transition-all duration-300`}
                   >
                     {data?.map((v, i) => (
-                      <div key={i} className={`relative shrink-0 w-56 h-56 mx-4`}>
+                      <div key={i} className={`relative shrink-0 w-72 h-72 mx-20 border-2`}>
                         <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
@@ -91,12 +91,12 @@ const IntroSlider = ({ data }: NewsData) => {
                     ref={carouselRef}
                     style={{
                       // translateX로 currentImg 번호에 따라 이동 거리 조정
-                      transform: `translateX(-${(205 / imagesPerPage) * currentImg}%)`,
+                      transform: `translateX(-${(200 / imagesPerPage) * currentImg}%)`,
                     }}
-                    className={`hidden sm:flex lg:hidden w-full h-full absolute  transition-all duration-300 lg:gap-5`}
+                    className={`hidden lg:flex 2xl:hidden w-full h-full absolute transition-all duration-300`}
                   >
                     {data?.map((v, i) => (
-                      <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
+                      <div key={i} className={`relative shrink-0 w-64 h-64 flex mx-[3.5rem] border-2`}>
                         <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
@@ -109,10 +109,10 @@ const IntroSlider = ({ data }: NewsData) => {
                       // translateX로 currentImg 번호에 따라 이동 거리 조정
                       transform: `translateX(-${(405 / imagesPerPage) * currentImg}%)`,
                     }}
-                    className={`sm:hidden w-full h-full absolute flex transition-all duration-300 lg:gap-5`}
+                    className={`flex lg:hidden w-full h-full absolute transition-all duration-300`}
                   >
                     {data?.map((v, i) => (
-                      <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
+                      <div key={i} className={`relative shrink-0 w-80 h-80 flex justify-center border-2 mx-20`}>
                         <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                       </div>
                     ))}
@@ -154,21 +154,23 @@ const IntroSlider = ({ data }: NewsData) => {
               </button>
             </div>
 
-            <div className="lg:w-[48rem] lg:h-40 sm:w-[34rem] w-[17rem] h-24 relative flex overflow-hidden">
+            <div className="w-[29.5rem] lg:w-[46rem] 2xl:w-[82rem] h-80 lg:h-64 2xl:h-72 overflow-hidden relative">
               {/* ----- 적용 분야 이름 ----- */}
               {/* PC버전 큰화면: 4개 carousel */}
               <div
                 ref={carouselRef}
                 style={{
                   // 제품 이미지와 같게 이동
-                  transform: `translateX(-${(455 / imagesPerPage) * currentImg}%)`,
+                  transform: `translateX(-${(140 / imagesPerPage) * currentImg}%)`,
                 }}
-                className="hidden lg:w-56 lg:h-full lg:absolute lg:flex lg:transition-all lg:duration-300"
+                className={`hidden 2xl:flex w-full h-full absolute transition-all duration-300`}
               >
                 {data?.map((v, i) => (
-                  <div key={i} className="h-40 flex flex-col mx-4 mt-3 ">
+                  <div key={i} className="h-32 flex flex-col mx-28 mt-3 ">
                     <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 text-base font-medium mt-2">{v.desc}</div>
+                    <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
+                      {v.desc}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -179,10 +181,10 @@ const IntroSlider = ({ data }: NewsData) => {
                   // 제품 이미지와 같게 이동
                   transform: `translateX(-${(205 / imagesPerPage) * currentImg}%)`,
                 }}
-                className="hidden sm:flex lg:hidden w-full h-28 absolute  transition-all duration-300 "
+                className={`hidden lg:flex 2xl:hidden w-full h-full absolute transition-all duration-300`}
               >
                 {data?.map((v, i) => (
-                  <div key={i} className="flex flex-col h-40 mt-3 mx-2 ">
+                  <div key={i} className="flex flex-col h-40 mt-3 mx-[3.54rem] ">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
                     <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">{v.desc}</div>
                   </div>
@@ -196,10 +198,10 @@ const IntroSlider = ({ data }: NewsData) => {
                   // 제품 이미지와 같게 이동
                   transform: `translateX(-${(405 / imagesPerPage) * currentImg}%)`,
                 }}
-                className="lg:hidden w-full h-28 absolute flex transition-all duration-300 "
+                className={`flex lg:hidden w-full h-full absolute transition-all duration-300`}
               >
                 {data?.map((v, i) => (
-                  <div key={i} className="flex flex-col h-40 mt-3 mx-2 ">
+                  <div key={i} className="flex flex-col h-40 mt-3 mx-28 ">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
                     <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">{v.desc}</div>
                   </div>
@@ -208,10 +210,10 @@ const IntroSlider = ({ data }: NewsData) => {
             </div>
           </>
         ) : (
-          // 개수가 3개 이하인 경우
+          // 개수가 4개 이하인 경우
           <>
             {/* PC버전 큰화면: carousel 제거하고 가운데 정렬 */}
-            <div className={'hidden lg:relative lg:w-full lg:flex lg:flex-row lg:justify-center lg:gap-28'}>
+            <div className={'hidden lg:relative lg:w-full lg:flex lg:flex-row lg:justify-center lg:gap-36'}>
               {data?.map((v, i) => (
                 <div
                   key={i}
