@@ -82,27 +82,97 @@ export const contents = [
     title: ['친환경 에너지', 'Green Energy'],
     text: [
       '지속 가능한 미래를 만들어 가고 있는 IBT의 그린 에코 기술은 \n지구 온난화와 기후 위기를 해결하고 인류의 삶의 질을 높이는 데에 기여할 것입니다.',
-      `IBT's Green Eco Technology is contributing to a sustainable future,
-    solving climate crisis, and enhancing the quality of life for humanity.`,
+      `IBT's Green Eco Technology is contributing to a sustainable future,\nsolving climate crisis, and enhancing the quality of life for humanity.`,
     ],
     background: '/intro/intro1.png',
   },
   {
-    title: '행복한 에너지',
-    text: '끊임없는 도약으로 새로운 에너지 라이프스타일을 창조하는\nIBT는  안전하고 행복한 삶을 만들어 갑니다. ',
+    title: ['행복한 에너지', 'Happy Energy'],
+    text: [
+      '끊임없는 도약으로 새로운 에너지 라이프스타일을 창조하는\nIBT는  안전하고 행복한 삶을 만들어 갑니다.',
+      'IBT, constantly leaping forward to create a new energy lifestyle,\nis building a safe and happy life.',
+    ],
     background: '/intro/intro2.png',
   },
   {
-    title: '차세대 에너지',
-    text: '친환경 전지와 안전 관리 시스템을 중심으로,\n차세대를 책임질 에너지 시스템을 만들어가고 있습니다.\nIBT는 미래를 함께합니다.',
+    title: ['차세대 에너지', 'Future Energy'],
+    text: [
+      '친환경 전지와 안전 관리 시스템을 중심으로,\n차세대를 책임질 에너지 시스템을 만들어가고 있습니다.\nIBT는 미래를 함께합니다.',
+      'With fuel cells and hydrogen power systems,\nwe are creating energy that will lead the next generation.\nIBT is with you for the future',
+    ],
     background: '/intro/intro3.png',
   },
-  // {
-  //   title: '함께하는 IBT',
-  //   text: 'IBT는 신뢰를 바탕으로 국내외 기업들과\n함께 고민하고 해결해나갑니다.',
-  //   background: '/intro/LogoIntro.png',
-  // },
 ]
+
+export const IntroComponentData = [
+  {
+    // 4
+    title: ['함께하는 IBT', 'IBT Partners'],
+    contents: [
+      'IBT는 신뢰를 바탕으로 국내외 기업들과\n함께 고민하고 해결해나갑니다.',
+      'We always stand together with our partners.',
+    ],
+  },
+  {
+    // 5
+    title: ['Since 1986 IBT'],
+    contents: [
+      '높은 수준의 기술을 바탕으로 방산·산업용 배터리 전문 기업으로 출발한 IBT는\n차세대 연료 전지 수소 에너지 관련 고도화 기업으로 성장하고 있습니다.\n연료전지 스택, 수소 추출기, 시스템 통합 설계 등 연료 전지 분야 All in One Solution을 공급합니다.',
+      'IBT, originally established as a specialist in defense and industrial batteries based on high-\nlevel technology, is evolving into an advanced enterprise in next-generation fuel cell and\n hydrogen energy. We provide an All-in-One Solution in the fuel\ncell sector, including fuel cell stacks, hydrogen generators, and system integration design.',
+    ],
+    first: ['기술인증서', 'Technical certificate'],
+    second: ['지식재산권', 'IPRs'],
+    third: ['개발완료', 'development completion'],
+  },
+  {
+    // 6
+    title: ['연료 전지 분야', 'Energy '],
+    title2: ['All in One Solution 공급', 'all in One Solution'],
+    contents: [
+      '연료전지 개발 생산 기업 IBT는\n수소 에너지 관련 고도화 기업으로 성장하고 있습니다.',
+      'Innovate Today, Power Tomorrow',
+    ],
+    box: [
+      {
+        title: ['회사소개', 'Company'],
+        description: ['IBT의 브랜드 아이덴티티 및 비전', ''],
+        icon: ['/intro/companyIntro.svg', '/intro/companyIntro.svg'],
+        width: [30, 30],
+        height: [30, 30],
+        path: ['/companyInfo', '/companyInfo'],
+      },
+      {
+        title: ['Battery', 'Battery'],
+        description: ['IBT 대표 제품 라인업 소개', ''],
+        icon: '/intro/battery.svg',
+        width: 17,
+        height: 30,
+        path: '/battery',
+        animation: 'animate-fadeInDown2',
+      },
+      {
+        title: ['Hydrogen', 'Hydrogen'],
+        description: ['수소 연료전지의 소개와 도입효과 및 강점', ''],
+        icon: '/intro/hydrogen.svg',
+        width: 30,
+        height: 30,
+        path: '/hydrogen',
+        animation: 'animate-fadeInDown3',
+      },
+      {
+        title: ['고객문의', 'Contact us'],
+        description: ['IBT에 자유롭게 문의하세요', ''],
+        icon: '/intro/customer.svg',
+        width: 30,
+        height: 30,
+        path: '/customer/contact-us',
+        animation: 'animate-fadeInDown4',
+      },
+    ],
+  },
+  // 7
+]
+
 ////// 배터리 페이지 데이터 //////
 
 // 회사 소개 표 데이터

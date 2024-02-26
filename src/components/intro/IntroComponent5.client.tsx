@@ -1,8 +1,11 @@
 'use client'
 
+import { isEnglishState } from '@/context/recoil-context'
+import { IntroComponentData } from '@/lib/data'
 import { motion, animate, Variants } from 'framer-motion'
 import React, { useState, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
+import { useRecoilValue } from 'recoil'
 
 export default function IntroComponent5(): JSX.Element {
   const [ref, inView] = useInView({ triggerOnce: false })
@@ -10,6 +13,7 @@ export default function IntroComponent5(): JSX.Element {
   const [displayValue1, setDisplayValue1] = useState(0)
   const [displayValue2, setDisplayValue2] = useState(0)
   const [displayValue3, setDisplayValue3] = useState(0)
+  const isEnglish = useRecoilValue(isEnglishState)
 
   const Variants: Variants = {
     offscreen: {
@@ -78,10 +82,7 @@ export default function IntroComponent5(): JSX.Element {
             >
               <h1 className="text-6xl md:text-7xl text-white font-bold">Since 1986 IBT</h1>
               <p className="mt-12 text-white leading-7 text-balance text-xl font-medium md:font-light tracking-wide">
-                높은 수준의 기술을 바탕으로 방산·산업용 배터리 전문 기업으로 출발한 IBT는 차세대 연료 전지 수소 에너지
-                관련 고도화 기업으로 성장하고 있습니다.
-                <br />
-                연료전지 스택, 수소 추출기, 시스템 통합 설계 등 연료 전지 분야 All in One Solution을 공급합니다.
+                {IntroComponentData[1].contents[isEnglish]}
               </p>
             </motion.div>
 
@@ -97,7 +98,7 @@ export default function IntroComponent5(): JSX.Element {
                     <span className="relative bottom-6">+</span>
                   </motion.div>
                 </div>
-                <p className="text-white mt-3 mr-6 font-light text-xl">기술인증서</p>
+                <p className="text-white mt-3 mr-6 font-light text-xl">{IntroComponentData[1].first?.[isEnglish]}</p>
               </div>
 
               <div className="flex flex-col relative z-10 justify-center">
@@ -107,7 +108,7 @@ export default function IntroComponent5(): JSX.Element {
                     <span className=" relative bottom-6">+</span>
                   </motion.div>
                 </div>
-                <p className="text-white mt-3 mr-6 font-light text-xl">지식재산권</p>
+                <p className="text-white mt-3 mr-6 font-light text-xl">{IntroComponentData[1].second?.[isEnglish]}</p>
               </div>
 
               <div className="flex flex-col relative z-10 justify-center ">
@@ -117,7 +118,7 @@ export default function IntroComponent5(): JSX.Element {
                     <span className=" relative bottom-6 left-1">+</span>
                   </div>
                 </div>
-                <p className="text-white mt-3 mr-6 font-light text-xl">개발완료</p>
+                <p className="text-white mt-3 mr-6 font-light text-xl">{IntroComponentData[1].third?.[isEnglish]}</p>
               </div>
             </div>
           </div>
