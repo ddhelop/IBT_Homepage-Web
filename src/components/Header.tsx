@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
+import { useRecoilState } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
 
 export const Header = () => {
   const [active, setActive] = useState(false) // 모바일 화면에서 상세 navigation이 내려오는지 여부를 저장
@@ -15,12 +17,16 @@ export const Header = () => {
   // PC버전 상세 메뉴 관리 -> navDown 사용
   // 상세 메뉴 컨텐츠가 hidden -> visible 되도록 구현
 
-  const [isKorean, setIsKorean] = useState(true) // 언어 버전 관리
+  const [isEnglish, setIsEnglish] = useRecoilState(isEnglishState) // 언어 버전 관리
   // 전역 변수 연결 필요
 
+  const toggleEnglish = () => {
+    isEnglish == 0 ? setIsEnglish(1) : setIsEnglish(0)
+  }
   const handleClick = () => {
     setActive(!active)
   }
+
   const location = usePathname()
   const [scrollPosition, setScrollPosition] = useState(0)
   const updateScroll = () => {
@@ -337,21 +343,20 @@ export const Header = () => {
                 className={`lg:w-auto w-full px-3 py-2 rounded text-black items-center justify-center ${
                   active ? 'hidden' : ''
                 }`}
+                onClick={() => toggleEnglish()}
               >
                 <div
-                  className={`${isKorean ? 'text-black' : 'text-gray-400/30'} px-3 ${
+                  className={`${!isEnglish ? 'text-black' : 'text-gray-400/30'} px-3 ${
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
                   }`}
-                  onClick={() => setIsKorean(true)}
                 >
                   KOR
                 </div>
                 <div className="h-[1px] bg-gray-400/30" />
                 <div
-                  className={`${isKorean ? 'text-gray-400/30' : 'text-black'} px-3 ${
+                  className={`${!isEnglish ? 'text-gray-400/30' : 'text-black'} px-3 ${
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
                   }`}
-                  onClick={() => setIsKorean(false)}
                 >
                   ENG
                 </div>

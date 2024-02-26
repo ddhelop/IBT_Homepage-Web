@@ -1,6 +1,6 @@
 'use client'
 
-import { loggedInState } from '@/context/recoil-context'
+// import { loggedInState } from '@/context/recoil-context'
 import { compare } from '@/lib/action'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -8,7 +8,7 @@ import { useRecoilState } from 'recoil'
 
 const LoginPage = () => {
   const router = useRouter()
-  const [loggedIn, setLoggedIn] = useRecoilState(loggedInState)
+  const [loggedIn, setLoggedIn] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isClient, setIsClient] = useState<boolean>(false)
   useEffect(() => {

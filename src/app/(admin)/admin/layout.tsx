@@ -20,12 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
-        <RecoilContextProvider>
-          <AdminHeader />
-          <div className="ml-64" />
-          {children}
-          <SpeedInsights />
-        </RecoilContextProvider>
+        <AdminHeader />
+        <div className="ml-64" />
+        {children}
+        <SpeedInsights />
       </body>
     </html>
   )
