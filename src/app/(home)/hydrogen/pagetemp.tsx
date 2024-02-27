@@ -13,7 +13,7 @@ const HydrogenPage_Temp = () => {
     <>
       <FloatingButton />
       <BatteryDetail
-        title={'HYDROGEN'}
+        title={['HYDROGEN', 'HYDROGEN']}
         explain={[
           '아이비티는 고객의 니즈에 따라',
           '고 에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.',
@@ -22,15 +22,12 @@ const HydrogenPage_Temp = () => {
         ]}
       />
       <CheckerBoard
-        image1={'/image/Lithium.png'}
-        title1={'항공장애등용'}
-        explain1={'설명 필요'}
-        image2={'/image/Lithium.png'}
-        title2={'개폐기용'}
-        explain2={'설명 필요'}
-        image3={'/image/Lithium.png'}
-        title3={'통신용 5G 정류기'}
-        explain3={'설명 필요'}
+        image1={'/image/기타/other1.png'}
+        title1={['항공장애등용', 'Aerial disability lights']}
+        image2={'/image/기타/other2.png'}
+        title2={['개폐기용', 'switch']}
+        image3={''}
+        title3={['통신용 5G 정류기', '5G rectifier for communication']}
       />
     </>
   )

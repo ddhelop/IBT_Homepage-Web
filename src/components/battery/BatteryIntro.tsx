@@ -4,8 +4,12 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { batteryIntroData } from '@/lib/data'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
 
 export default function BatteryIntro() {
+  const isEnglish = useRecoilValue(isEnglishState)
   return (
     <>
       <motion.div
@@ -25,10 +29,9 @@ export default function BatteryIntro() {
                 <Image alt="logo" src={'/image/Logo.png'} fill className="object-contain" />
               </div>
               {/* 이미지 위 텍스트 */}
-              <h1 className="font-bold text-6xl text-white mb-10">IBT는 다릅니다</h1>
-              <div className="font-bold text-xl text-white">
-                <p>IBT는 자체 보유한 BMS 기술을 바탕으로 개별화된 A/S 서비스와</p>
-                <p>신뢰성 있는 고객케어를 제공하고 있습니다.</p>
+              <h1 className="font-bold text-6xl text-white mb-10">{batteryIntroData?.title[isEnglish]}</h1>
+              <div className="font-bold text-xl text-white whitespace-pre-line">
+                <h1>{batteryIntroData?.subTitle[isEnglish]}</h1>
               </div>
             </div>
           </div>

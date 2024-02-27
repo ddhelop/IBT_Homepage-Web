@@ -1,7 +1,7 @@
 import FloatingButton from '@/components/battery/Floating'
 import BatteryDetail from '@/components/battery/BatteryDetail'
 import BatteryItem from '@/components/battery/BatteryItem'
-import { batteryList, industryList } from '@/lib/data'
+import { batteryList } from '@/lib/data'
 import { Metadata } from 'next'
 import { fetchPageData } from '@/lib/action'
 

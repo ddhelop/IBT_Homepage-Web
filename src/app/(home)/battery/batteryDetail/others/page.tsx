@@ -1,6 +1,7 @@
 import FloatingButton from '@/components/battery/Floating'
 import CheckerBoard from '@/components/battery/CheckerBoard'
 import { Metadata } from 'next'
+import BatteryDetail from '@/components/battery/BatteryDetail'
 
 export const metadata: Metadata = {
   title: 'About Others',
@@ -12,20 +13,18 @@ const BatteryOthersPage = () => {
     <>
       {/* 오른쪽 플로팅 버튼 */}
       <FloatingButton />
-      <div className="text-center mt-48">
+      <BatteryDetail title={['기타', 'Others']} explain={[]} />
+      {/* <div className="text-center mt-48">
         <div className="text-6xl font-bold mb-32 text-primary-green">기타</div>
-      </div>
+      </div> */}
       {/* 이미지-설명 박스 */}
       <CheckerBoard
         image1={'/image/기타/other1.png'}
-        title1={'항공장애등용'}
-        explain1={''}
+        title1={['항공장애등용', 'Aerial disability lights']}
         image2={'/image/기타/other2.png'}
-        title2={'개폐기용'}
-        explain2={''}
-        image3={'/image/기타/other2.png'}
-        title3={'통신용 5G 정류기'}
-        explain3={''}
+        title2={['개폐기용', 'switch']}
+        image3={''}
+        title3={['통신용 5G 정류기', '5G rectifier for communication']}
       />
     </>
   )

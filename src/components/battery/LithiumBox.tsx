@@ -6,8 +6,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AiFillThunderbolt } from 'react-icons/ai'
 import { MdEnergySavingsLeaf } from 'react-icons/md'
+import { isEnglishState } from '@/context/recoil-context'
+import { useRecoilValue } from 'recoil'
 
 export default function LithiumBox() {
+  const isEnglish = useRecoilValue(isEnglishState)
   let boxLeftVariants = {}
   if (typeof window !== 'undefined') {
     const isMobile = window.innerWidth < 768
@@ -50,7 +53,9 @@ export default function LithiumBox() {
                 <div className="text-black text-5xl lg:text-4xl font-bold lg:font-medium mb-1.5 lg:mt-0 mt-3">
                   Lithium
                 </div>
-                <div className="text-gray-600 text-xl lg:text-sm font-bold">리튬축전지</div>
+                <div className="text-gray-600 text-xl lg:text-sm font-bold">
+                  {isEnglish ? 'lithium storage battery' : '리튬축전지'}
+                </div>
               </div>
               {/* 화살표 버튼의 경우 group hover시에만 나타나도록 hidden 설정 */}
               <Link prefetch href="/battery/batteryDetail/power">
@@ -60,7 +65,7 @@ export default function LithiumBox() {
                   transition={{
                     duration: 0.3,
                   }}
-                  className="transition-all block lg:hidden group-hover:flex rounded-xl w-30 p-5 items-center justify-center bg-primary-green"
+                  className="transition-all block lg:hidden group-hover:flex rounded-xl w-16 h-8 p-5 items-center justify-center bg-primary-green"
                 >
                   <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
                 </motion.button>
@@ -77,8 +82,9 @@ export default function LithiumBox() {
                 }}
                 className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden"
               >
-                IBT의 LiFePO4 배터리는 부피가 작고 가볍고 전력효율이 높으며, 충방전 관리가 매우 용이하여 골프카, 지게차,
-                AGV, 선박, 통신, UPS, 특수용 등 다양한 영역의 고객에게 사랑받고 있습니다.
+                {isEnglish
+                  ? `Our LiFePO4 batteries are loved by customers in various areas such as golf cars, forklifts, AGVs, ships, communications, UPSs, and special use due to their small volume, light weight, high power efficiency, and very easy charge and discharge management.`
+                  : 'IBT의 LiFePO4 배터리는 부피가 작고 가볍고 전력효율이 높으며, 충방전 관리가 매우 용이하여 골프카, 지게차, AGV, 선박, 통신, UPS, 특수용 등 다양한 영역의 고객에게 사랑받고 있습니다.'}
               </motion.p>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
@@ -92,7 +98,7 @@ export default function LithiumBox() {
                     className="w-full"
                   >
                     <div className="flex lg:h-auto bg-white  hover:bg-gray-300 rounded-2xl lg:bg-inherit flex-col-reverse lg:flex-row justify-between items-center p-8 lg:p-4 shadow-sm lg:shadow-none">
-                      동력용
+                      {isEnglish ? 'power' : '동력용'}
                       <AiFillThunderbolt className="flex lg:hidden mb-6 opacity-50" size={32} />
                       <Image
                         className="hidden lg:flex"
@@ -114,7 +120,7 @@ export default function LithiumBox() {
                     className="w-full"
                   >
                     <div className="flex lg:h-auto bg-white hover:bg-gray-300 rounded-2xl lg:bg-inherit flex-col-reverse lg:flex-row justify-between items-center p-8 lg:p-4 shadow-sm lg:shadow-none">
-                      에너지저장용
+                      {isEnglish ? 'energy storage' : '에너지저장용'}
                       <MdEnergySavingsLeaf className="flex lg:hidden mb-6 opacity-50" size={32} />
                       <Image
                         className="hidden lg:flex"
