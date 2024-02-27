@@ -1,13 +1,16 @@
 'use client'
 
+import { isEnglishState } from '@/context/recoil-context'
 import { motion } from 'framer-motion'
+import { useRecoilValue } from 'recoil'
 
 type Props = {
-  title: string // 중분류 title
+  title: string[] // 중분류 title
   explain: string[] // 배터리 설명
 }
 
 export default function BatteryDetail({ title, explain }: Props) {
+  const isEnglish = useRecoilValue(isEnglishState)
   return (
     <>
       <motion.div
@@ -17,21 +20,16 @@ export default function BatteryDetail({ title, explain }: Props) {
           delay: 0.1,
           duration: 0.5,
         }}
+        className="flex flex-col justify-center items-center"
       >
         {/* 배터리 중분류 title */}
-        <div className="text-center mt-48">
-          <div className="text-6xl font-bold text-primary-green">{title}</div>
+        <div className="lg:w-[65%] text-center mt-48">
+          <div className="text-5xl font-bold text-primary-green">{title[isEnglish]}</div>
         </div>
         {/* 배터리 설명 */}
-        <div className="relative text-center lg:my-28 my-32 items-center">
-          <div className="text-3xl lg:px-5 px-10 text-center font-bold text-primary-green leading-extra-loose">
-            {explain.map((v, i) => {
-              return (
-                <p key={i} className="w-full">
-                  {v}
-                </p>
-              )
-            })}
+        <div className="lg:w-[65%] relative text-center lg:my-28 my-32 items-center">
+          <div className="text-2xl px-5 text-center font-bold text-primary-green leading-extra-loose whitespace-pre-line">
+            <h1>{explain[isEnglish]}</h1>
           </div>
         </div>
       </motion.div>

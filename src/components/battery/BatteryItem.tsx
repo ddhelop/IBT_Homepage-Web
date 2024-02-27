@@ -1,11 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Slider from './Slider'
-import { ModelInfo, energySaveList } from '@/lib/data'
 import { motion } from 'framer-motion'
 import { Product } from '@/lib/types'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+
 
 interface DetailInfo {
   id: number
@@ -23,13 +25,19 @@ type Props = {
 }
 
 export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
+  const isEnglish = useRecoilValue(isEnglishState)
+
   const [categoryIndex, setCategoryIndex] = useState(0) // 선택한 소분류 카테고리를 저장, 가장 왼쪽 0번이 default
-  const categoryLength = detailInfo.length // detailInfo의 길이로 소분류 카테고리 개수 저장
-  const categoryWidth = Math.round((1 / categoryLength) * 100) // % 단위
-  console.log(categoryWidth)
+  // const categoryLength = detailInfo.length // detailInfo의 길이로 소분류 카테고리 개수 저장
+  // const [categoryWidth, setCategoryWidth] = useState('')
+  // // console.log(categoryWidth)
+  // useEffect(() => {
+  //   setCategoryWidth(`${Math.round((1 / categoryLength) * 100)}%`)
+  // }, [])
+
   return (
     <>
-      <section className="w-full min-h-screen">
+      <section className="w-full min-h-screen flex flex-col justify-center items-center ">
         {/* 소분류 카테고리 */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -38,17 +46,12 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             delay: 0.1,
             duration: 0.5,
           }}
+          className="w-full lg:w-[65%]"
         >
-          {/* 소분류 카테고리 개수에 따라 margin 조절 */}
-          <div
-            className={`${
-              categoryLength > 3 ? 'lg:mx-10 mx-5' : categoryLength === 3 ? 'lg:mx-40 mx-5' : 'lg:mx-64 mx-5'
-            } flex flex-row items-center mb-40`}
-          >
+          <div className={'flex flex-row items-center justify-center mb-40'}>
             {detailInfo.map((v, i) => {
               return (
                 // 소분류 카테고리 박스
-                // 넓이는 {( 1 / 소분류 카테고리 개수 ) * 100}% 로 계산
                 // 클릭하면 categoryIndex 변경
                 <div
                   key={i}
@@ -56,16 +59,16 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                     categoryIndex == i
                       ? 'opacity-100 font-semibold bg-primary-green'
                       : 'opacity-40 font-semibold bg-category-back hover:bg-gray-700'
-                  } relative w-[${categoryWidth}%] h-20 text-white z-0`}
+                  } relative w-96 h-16 text-white z-0`}
                   onClick={() => setCategoryIndex(i)}
                 >
-                  <div className="absolute flex justify-center items-center z-10 h-full w-full text-3xl">{v.title}</div>
+                  <div className="absolute flex justify-center items-center z-10 w-full h-full text-2xl">{v.title}</div>
                 </div>
               )
             })}
           </div>
         </motion.div>
-        <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-full lg:w-[65%] flex flex-col items-center justify-center">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -76,7 +79,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             className="w-full flex flex-col items-center justify-center"
           >
             {/* 배터리 제품 이미지 */}
-            <div className="relative flex lg:w-[1000px] lg:h-[700px] w-[600px] h-[400px] justify-center items-center mb-20 lg:px-0 px-10">
+            <div className="relative flex lg:w-[700px] lg:h-[550px] w-[300px] h-[300px] justify-center items-center mb-20 lg:px-0 px-10">
               <Image
                 alt="배터리 제품 이미지"
                 src={detailInfo[categoryIndex].itemFile}
@@ -89,13 +92,8 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             {/* 에너지저장용 설명 - 다른 페이지와 양식 다름 */}
             {mainCategoryIndex === 3 ? (
               <>
-                <div className="lg:w-2/3 w-full px-10 mb-10 leading-extra-loose text-xl">
-                  {/* UPS용 */}
-                  {energySaveList[categoryIndex].itemAdvanced[0]}
-                </div>
-                <div className="lg:w-2/3 w-full px-10 mb-20 leading-extra-loose text-xl">
-                  {/* ESS용 */}
-                  {energySaveList[categoryIndex].itemAdvanced[1]}
+                <div className="w-full px-10 mb-10 leading-extra-loose text-xl whitespace-pre-line">
+                  {detailInfo[categoryIndex].itemAdvanced}
                 </div>
               </>
             ) : mainCategoryIndex === 0 ? (
@@ -132,16 +130,9 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
               ''
             ) : (
               <>
-                <div className="w-3/4 text-2xl font-[350] mb-4 text-center whitespace-pre-line basis-1/2">
+                <div className="text-2xl font-[350] mb-4 text-center whitespace-pre-line basis-1/2">
                   {detailInfo[categoryIndex].itemAdvanced}
                 </div>
-                {/* {detailInfo[categoryIndex].itemAdvanced.map((adv, id) => {
-                  return (
-                    <div key={id} className="w-3/4 text-2xl font-[350] mb-4 text-center">
-                      {adv}
-                    </div>
-                  )
-                })} */}
               </>
             )}
           </motion.div>
@@ -156,22 +147,22 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
           >
             {/* 동력용 충전기 */}
             {mainCategoryIndex === 2 && categoryIndex === 0 && (
-              <div className="relative w-1/3 flex flex-col justify-center items-center mt-20 mb-20">
+              <div className="relative w-1/3 flex flex-col justify-center items-center mt-20">
                 <Image
                   alt="동력용 Lithium 제품(충전기)"
                   src={'/image/340동력용Lithium/341.2_동력용 Lithium_제품(충전기).png'}
                   width={1000}
                   height={700}
                 />
-                <div className="text-4xl font-bold mx-10">충전기</div>
+                <div className="text-4xl font-bold mx-10">{isEnglish ? 'Charger' : '충전기'}</div>
               </div>
             )}
             {/* 제품의 적용분야 */}
-            {ModelInfo[mainCategoryIndex][categoryIndex].itemAdvanced.length === 0 ? (
+            {detailInfo[categoryIndex].products.length === 0 ? (
               ''
             ) : mainCategoryIndex === 1 || mainCategoryIndex === 3 ? (
               <>
-                <div className="w-full mt-20 h-10 border border-t-0 border-b-gray-400" />
+                <div className="w-full mt-20 h-1 border border-t-0 border-x-0 border-b-gray-400" />
                 {/* 산업용Nicd(1), 에너지저장용Lithium(3)의 경우 "Apply" */}
                 <div className="text-3xl font-bold py-10">Apply</div>
                 {/* 적용되는 분야 슬라이드 Carousel */}
@@ -183,9 +174,9 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
               </>
             ) : (
               <>
-                <div className="w-full mt-20 h-10 border border-t-0 border-b-gray-400" />
+                <div className="w-full mt-20 h-1 border border-t-0 border-x-0 border-b-gray-400" />
                 {/* 방산용Nicd(0), 동력용Lithium(2)의 경우 "적용 모델" */}
-                <div className="text-3xl font-bold py-10">적용 모델</div>
+                <div className="text-3xl font-bold py-10">{isEnglish ? 'Application Model' : '적용 모델'}</div>
                 {/* 적용되는 분야 슬라이드 Carousel */}
                 <Slider
                   array={detailInfo[categoryIndex].products}

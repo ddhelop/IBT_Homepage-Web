@@ -24,6 +24,10 @@ const BatteryDefensePage = async () => {
           {/* 소분류 컴포넌트 */}
           {/* mainCategoryIndex는 중분류를 구분하기 위해 사용 -> 방산용 Nicd:0, 산업용 Nicd:1, 동력용 Lithium:2, 에너지저장용 Lithium:3 */}
           <BatteryItem detailInfo={data.data} mainCategoryIndex={0} />
+
+          {/* 테스트용 */}
+          {/* <BatteryItem detailInfo={defenseList} mainCategoryIndex={0} /> */}
+
         </div>
       </div>
     </>
