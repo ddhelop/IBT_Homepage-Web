@@ -26,6 +26,7 @@ export const fetchPostData = async (id: number) => {
     cache: 'no-store',
   })
   if (!res.ok) {
+    console.log(getErrorMessage(res))
     throw new Error('Something went wrong')
   }
   return res.json()
@@ -37,6 +38,7 @@ export const fetchPageData = async (id: number) => {
     cache: 'no-store',
   })
   if (!res.ok) {
+    console.log(getErrorMessage(res))
     throw new Error('Something went wrong')
   }
   return res.json()
