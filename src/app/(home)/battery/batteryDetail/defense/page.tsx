@@ -27,6 +27,7 @@ const BatteryDefensePage = async () => {
 
           {/* 테스트용 */}
           {/* <BatteryItem detailInfo={defenseList} mainCategoryIndex={0} /> */}
+
         </div>
       </div>
     </>

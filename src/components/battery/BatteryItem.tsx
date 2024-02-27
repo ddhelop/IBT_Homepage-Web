@@ -8,6 +8,7 @@ import { Product } from '@/lib/types'
 import { useRecoilValue } from 'recoil'
 import { isEnglishState } from '@/context/recoil-context'
 
+
 interface DetailInfo {
   id: number
   title: string // 소분류카테고리명
