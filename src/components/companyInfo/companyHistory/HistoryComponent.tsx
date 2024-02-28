@@ -38,10 +38,10 @@ export default function HistoryComponent() {
         className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white mb-72"
       >
         <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
-          {CompanyTitleData.title[isEnglish]}
+          {CompanyTitleData.title?.[isEnglish]}
         </DownMotionComponent>
         <DownMotionComponent component={motion.p} className="mt-12 text-center font-light text-xl whitespace-pre-wrap">
-          {CompanyTitleData.contents[isEnglish]}
+          {CompanyTitleData.contents?.[isEnglish]}
         </DownMotionComponent>
 
         {/* Tabs */}

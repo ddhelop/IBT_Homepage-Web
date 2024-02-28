@@ -22,7 +22,7 @@ export default function IntroComponent4() {
               }}
               className={`text-5xl font-bold mb-4 text-white `}
             >
-              {IntroComponentData[0].title[isEnglish]}
+              {IntroComponentData[0].title?.[isEnglish]}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, scale: 0 }}
@@ -33,7 +33,7 @@ export default function IntroComponent4() {
               }}
               className="leading-relaxed whitespace-pre-line text-xl px-8 font-bold md:font-light mt-7 text-white"
             >
-              {IntroComponentData[0].contents[isEnglish]}
+              {IntroComponentData[0].contents?.[isEnglish]}
             </motion.p>
           </div>
         </div>
