@@ -14,7 +14,7 @@ export default async function LoginPage() {
               'use server'
               const { username, password }: { [k: string]: any } = Object.fromEntries(formData)
               await login(username, password)
-              redirect('/admin/catelogs')
+              redirect('/admin/news')
             }}
           >
             <h1 className="text-lg font-bold mb-4 text-center">관리자 로그인</h1>
