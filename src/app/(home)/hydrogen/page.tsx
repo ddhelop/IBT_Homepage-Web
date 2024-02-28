@@ -1,4 +1,4 @@
-import Hydrogen from '@/components/hydrogen/Hydrogen'
+import HydrogenPage from '@/components/hydrogen/HydrogenPage'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function pagHydrogenPage() {
   return (
-    <div className="flex justify-center min-h-[90vh]">
-      <div className="w-[min(92%,1080px)]">
-        <Hydrogen />
-      </div>
-    </div>
+    // <div className="flex justify-center min-h-[90vh]">
+    // <div className="w-[min(92%,1080px)]">
+    <HydrogenPage />
+    // </div>
+    // </div>
   )
 }
