@@ -35,18 +35,18 @@ export default function DirectionsComponent() {
 
             <LeftMotionComponent
               component={motion.div}
-              className="w-[290px] h-[290px] md:w-[380px] md:h-[380px] lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1]"
+              className="w-[290px] h-[290px] md:w-[380px] md:h-[380px] lg:w-[27vw] lg:h-[27vw] bg-[#f1f1f1]"
             >
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
-                  <AiOutlineCompass className="w-12 h-12 mb-3" />
+                  <AiOutlineCompass className="w-7 h-7 hidden xl:flex" />
                   <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[9].address?.[isEnglish]}</p>
                   <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-6">
                     {CompanyInfoData?.[9].addressDetail?.[isEnglish]}
                   </p>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
-                  <AiOutlinePhone className="w-12 h-12 mb-3" />
+                  <AiOutlinePhone className="w-7 h-7 mb-3 hidden xl:flex" />
                   <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[9].phone?.[isEnglish]}</p>
                   <p className="font-normal text-xs mt-1 text-[#7e7e7e] leading-6">
                     TEL:062-971-7983~6
@@ -56,7 +56,7 @@ export default function DirectionsComponent() {
                 </div>
               </div>
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
-                <AiOutlineClockCircle className="w-12 h-12 hidden lg:flex" />
+                <AiOutlineClockCircle className="w-7 h-7 hidden xl:flex" />
                 <p className="lg:mt-4 text-base font-semibold md:mb-1">{CompanyInfoData?.[9].guide?.[isEnglish]}</p>
                 <p className="font-normal text-xs text-[#7e7e7e] leading-6 px-4">
                   {CompanyInfoData?.[9].guideDetail?.[isEnglish]}
@@ -79,18 +79,18 @@ export default function DirectionsComponent() {
 
             <LeftMotionComponent
               component={motion.div}
-              className="w-[290px] h-[290px] md:w-[380px] md:h-[380px] lg:w-[33.85vw] lg:h-[33.85vw] bg-[#f1f1f1] text-sm "
+              className="w-[290px] h-[290px] md:w-[380px] md:h-[380px] lg:w-[27vw] lg:h-[27vw] bg-[#f1f1f1] text-sm "
             >
               <div className="w-full h-1/2 flex flex-row border-b-[1.5px] border-[#b3b3b3]">
                 <div className="w-1/2 flex flex-col justify-center items-center text-center border-r-[1.5px] border-[#b3b3b3]">
-                  <AiOutlineCompass className="w-12 h-12 mb-3" />
+                  <AiOutlineCompass className="w-7 h-7 hidden xl:flex" />
                   <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[10].address?.[isEnglish]}</p>
                   <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-6">
                     {CompanyInfoData?.[10].addressDetail?.[isEnglish]}
                   </p>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center text-center">
-                  <AiOutlinePhone className="w-12 h-12 mb-3" />
+                  <AiOutlinePhone className="w-7 h-7 hidden xl:flex" />
                   <p className="lg:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[10].phone?.[isEnglish]}</p>
                   <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-5">
                     TEL:02-3409-7141 / 02-6965-7975
@@ -100,7 +100,7 @@ export default function DirectionsComponent() {
                 </div>
               </div>
               <div className="w-full h-1/2 flex flex-col justify-center items-center text-center">
-                <AiOutlineClockCircle className="w-12 h-12 mb-3" />
+                <AiOutlineClockCircle className="w-7 h-7 hidden xl:flex" />
                 <p className="md:mt-4 text-sm font-semibold mb-1">{CompanyInfoData?.[10].guide?.[isEnglish]}</p>
                 <p className="font-normal mt-1 text-xs text-[#7e7e7e] leading-8">
                   {CompanyInfoData?.[10].guideDetail?.[isEnglish]}

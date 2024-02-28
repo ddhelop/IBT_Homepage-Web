@@ -11,8 +11,8 @@ interface ILocationProps {
 function GoogleMapComponent(props: ILocationProps) {
   const [loading, setLoading] = useState(true) // 로딩 상태 추가
   const [containerStyle, setContainerStyle] = useState({
-    width: '33.85vw', // PC 화면 기준 너비
-    height: '33.85vw', // PC 화면 기준 높이
+    width: '27vw', // PC 화면 기준 너비
+    height: '27vw', // PC 화면 기준 높이
   })
 
   // 화면 크기 변경에 따른 스타일 업데이트를 처리하는 함수입니다.
@@ -30,8 +30,8 @@ function GoogleMapComponent(props: ILocationProps) {
       })
     } else {
       setContainerStyle({
-        width: '33.85vw', // PC 화면 기준 너비
-        height: '33.85vw', // PC 화면 기준 높이
+        width: '27vw', // PC 화면 기준 너비
+        height: '27vw', // PC 화면 기준 높이
       })
     }
   }
