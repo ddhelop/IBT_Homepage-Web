@@ -82,7 +82,7 @@ export default function IntroComponent5(): JSX.Element {
             >
               <h1 className="text-6xl md:text-7xl text-white font-bold">Since 1986 IBT</h1>
               <p className="mt-12 text-white leading-7 text-balance text-xl font-medium md:font-light tracking-wide">
-                {IntroComponentData[1].contents[isEnglish]}
+                {IntroComponentData[1].contents?.[isEnglish]}
               </p>
             </motion.div>
 

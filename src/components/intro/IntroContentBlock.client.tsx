@@ -26,7 +26,7 @@ export default function ContentBlocks() {
               }}
               className={`text-5xl font-bold mb-4 text-white `}
             >
-              {item.title[isEnglish]}
+              {item.title?.[isEnglish]}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, scale: 0 }}
@@ -37,7 +37,7 @@ export default function ContentBlocks() {
               }}
               className="leading-relaxed whitespace-pre-line text-xl px-8 font-bold md:font-light mt-20 text-white"
             >
-              {item.text[isEnglish]}
+              {item.text?.[isEnglish]}
             </motion.p>
           </div>
         </div>
