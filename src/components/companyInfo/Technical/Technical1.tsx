@@ -29,10 +29,12 @@ export default function Technical1() {
             <tbody className=" text-[#6f6f6f]">
               {TableData1.map((el, index) => (
                 <tr className={`text-center bg-[${el.color[isEnglish]}]`} key={index}>
-                  <td className="py-3 text-sm font-normal border-2 border-[#e2e2e2]">{el.authorization[isEnglish]} </td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.authorization[isEnglish]}</td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.date[isEnglish]}</td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.note[isEnglish]}</td>
+                  <td className="py-3 text-sm font-normal border-2 border-[#e2e2e2]">
+                    {el.authorization?.[isEnglish]}{' '}
+                  </td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.authorization?.[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.date?.[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.note?.[isEnglish]}</td>
                 </tr>
               ))}
             </tbody>
