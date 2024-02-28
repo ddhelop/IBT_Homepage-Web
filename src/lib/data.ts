@@ -7,7 +7,7 @@ export const links_admin = [
   {
     name: '뉴스',
     icon: React.createElement(RiNewspaperFill),
-    path: '/admin',
+    path: '/admin/news',
   },
   {
     name: '카탈로그',
@@ -26,13 +26,20 @@ export const links_admin = [
   },
 ] as const
 export const S3BucketUrl = 'https://ibt-bucket.s3.ap-northeast-2.amazonaws.com'
+
+export const securedURLs = [
+  `${process.env.URL}/admin/news`,
+  `${process.env.URL}/admin/catelogs`,
+  `${process.env.URL}/admin/batteries`,
+  `${process.env.URL}/admin/esg-pdf`,
+]
 export const postData_admin = [
   {
     id: 0,
     postType: 'news',
     title: '뉴스 게시글',
     name: '뉴스',
-    href: '/admin/add',
+    href: '/admin/news/add',
   },
   {
     id: 1,

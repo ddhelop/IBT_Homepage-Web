@@ -87,7 +87,7 @@ export const Header = () => {
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
-                  <Link href={'/companyInfo'}>
+                  <Link prefetch href={'/companyInfo'}>
                     <li onClick={() => setActive(false)}>회사정보</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
@@ -111,7 +111,7 @@ export const Header = () => {
                         비전
                       </li>
                     </Link>
-                    <Link href={'/companyInfo#history'}>
+                    <Link prefetch href={'/companyInfo#history'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -157,7 +157,7 @@ export const Header = () => {
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
-                  <Link href={'/battery'}>
+                  <Link prefetch href={'/battery'}>
                     <li onClick={() => setActive(false)}>BATTERY</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
@@ -281,7 +281,7 @@ export const Header = () => {
                         카탈로그
                       </li>
                     </Link>
-                    <Link prefetch href={'/customer/news'}>
+                    <Link href={'/customer/news'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
@@ -311,7 +311,7 @@ export const Header = () => {
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
-                  <Link href={'/ESG_500'}>
+                  <Link prefetch href={'/ESG_500'}>
                     <li onClick={() => setActive(false)}>ESG</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
