@@ -12,27 +12,55 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
   return (
     <>
       <div className="w-full p-5 md:p-20 flex flex-col items-center lg:items-start min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden">
-        <div className="w-3/5 flex flex-col items-center">
-          <RightMotionComponent component={motion.div}>
-            <Image
-              src="/ESG500/eco_friendly.svg" // 이미지 경로
-              alt="eco_friendly"
-              width={300} // 너비
-              height={194} // 높이
-              // layout="fixed" // 레이아웃 옵션
-              className="mb-20 mt-40 md:mt-20"
-            />
-          </RightMotionComponent>
-          <RightMotionComponent component={motion.div}>
-            <Image
-              src="/ESG500/Eclipse1.png" // 이미지 경로
-              alt="Eclipse1"
-              width={410} // 너비
-              height={410} // 높이
-              // layout="fixed" // 레이아웃 옵션
-              className=""
-            />
-          </RightMotionComponent>
+        <div className="flex w-full mt-40 md:mt-20">
+          <div className="w-1/2 flex flex-col items-center">
+            <RightMotionComponent component={motion.div}>
+              <Image
+                src="/ESG500/eco_friendly.svg" // 이미지 경로
+                alt="eco_friendly"
+                width={300} // 너비
+                height={194} // 높이
+                // layout="fixed" // 레이아웃 옵션
+                className="mb-20"
+              />
+            </RightMotionComponent>
+            <RightMotionComponent component={motion.div}>
+              <Image
+                src="/ESG500/Eclipse1.png" // 이미지 경로
+                alt="Eclipse1"
+                width={410} // 너비
+                height={410} // 높이
+                // layout="fixed" // 레이아웃 옵션
+                className=""
+              />
+            </RightMotionComponent>
+          </div>
+          <LeftMotionComponent component={motion.div} className="flex flex-col w-2/5 mt-9">
+            <h2 className="text-2xl leading-9 mb-12">
+              미래를 위해 지속 가능한
+              <br />
+              에너지 솔루션을 구현하다
+            </h2>
+            <p className="leading-7 text-sm text-[#7b7b7b]">
+              우리는 지구의 미래와 다가오는 세대의 번영을 위해 지속 가능한 에너지 사용을 촉진하는 혁신적인 솔루션을
+              개발하고 있습니다.
+              <br />
+              <br />
+              우리의 목표는 보유한 친환경 배터리 기술과 수소 에너지 통합 시스템으로 화석 연료의 의존도를 줄이고, 탄소
+              배출을 최소화하여 전 세계적으로 환경 영향을 감소시키는 것입니다.
+              <br />
+              <br />
+              우리는 지속 가능한 미래를 위해 필요한 변화를 주도하는 것을 넘어, 이러한 변화를 실현하기 위해 전 세계
+              파트너와 협력하고 있습니다.
+              <br />
+              <br />
+              "미래를 위한 지속 가능한 에너지 솔루션을 구현하다"는 단순한 구호가 아닙니다.이는 우리의 약속, 우리의 행동,
+              그리고 우리가 추구하는 목표의 반영입니다.
+              <br />
+              <br />
+              우리는 모두가 더 밝고, 더 깨끗하고, 더 안전한 미래를 누릴 수 있도록 오늘을 바꾸기 위해 노력하고 있습니다.
+            </p>
+          </LeftMotionComponent>
         </div>
 
         {/* 2nd */}
