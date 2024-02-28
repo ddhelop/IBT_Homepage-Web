@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1900px', // 3xl 화면 크기 정의
+      },
       fontFamily: {
         // 폰트패밀리
         roboto: ['var(--roboto)'],

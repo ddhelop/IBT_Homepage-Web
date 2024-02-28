@@ -1006,6 +1006,115 @@ export const researchData = [
   },
 ]
 
+// ESG_500 페이지 데이터
+export const ESG500Data = [
+  // 0
+  {
+    title: [
+      `미래를 위해 지속 가능한\n에너지 솔루션을 구현하다`,
+      `Implementing\nSustainable Energy Solutions\nfor the Future`,
+    ],
+    contents: [
+      `우리는 지구의 미래와 다가오는 세대의 번영을 위해 지속 가능한 에너지 사용을 촉진하는 혁신적인 솔루션을 개발하고 있습니다.\n\n우리의 목표는 보유한 친환경 배터리 기술과 수소 에너지 통합 시스템으로 화석 연료의 의존도를 줄이고, 탄소 배출을 최소화하여 전 세계적으로 환경 영향을 감소시키는 것입니다.\n\n우리는 지속 가능한 미래를 위해 필요한 변화를 주도하는 것을 넘어, 이러한 변화를 실현하기 위해 전 세계 파트너와 협력하고 있습니다.\n\n"미래를 위한 지속 가능한 에너지 솔루션을 구현하다"는 단순한 구호가 아닙니다.이는 우리의 약속, 우리의 행동, 그리고 우리가 추구하는 목표의 반영입니다.\n\n우리는 모두가 더 밝고, 더 깨끗하고, 더 안전한 미래를 누릴 수 있도록 오늘을 바꾸기 위해 노력하고 있습니다.`,
+      `We are developing innovative solutions to promote sustainable energy use for the future of our planet and the prosperity of generations to come.\n\nOur goal is to reduce reliance on fossil fuels and minimize carbon emissions globally through our eco-friendly battery technology and integrated hydrogen energy systems.\n\nWe aim to lead the necessary changes for a sustainable future and go beyond by collaborating with partners worldwide to realize these changes.\n\n"Implementing Sustainable Energy Solutions for the Future" is not just a slogan. It reflects our commitment, our actions, and the goals we strive to achieve.\n\nWe are working to change today so that everyone can enjoy a brighter, cleaner, and safer future.`,
+    ],
+  },
+  // 1 tab
+  {
+    tab1: [`(재) 지우장학회`, `Jiwoo Scholarship Foundation`],
+    tab2: [`중양 장형태 장학재단`, `Jungyang Jang Hyeong-tae\nScholarship Foundation`],
+  },
+  // 2 contribution1
+  {
+    subTitle1: [`재단소개 및 사업내용`, `Foundation introduction and business details`],
+    contents1: [
+      `안녕하세요. 지우장학회 이사장 장민기입니다.\n지우장학회는 2000년 광주, 전남 지역의 골프 스포츠 인재 육성을 위해 설립되었습니다. 설립 이후 대회 후원과 골프 유망주 지원 등을 꾸준히 이어오고 있습니다.\n재단 이사회는 골프 스포츠에 대한 전문성이 높아 장학사업에 많은 도움을 줄 수 있는 분들로 구성 되어 있어 공정 한 장학생 선발이 가능합니다.\n설립 이후 총 81명에게 1억6천6백만원의 장학금을 지급 하였고, 대회 후원으로 6천만원을 지급하여 총 2억2천6백 만원의 장학 후원을 하였습니다.`,
+      `Hello, I am Min-gi Jang, the chairman of the Jiwoo Scholarship Foundation.\nThe Jiwoo Scholarship Foundation was established in 2000 to nurture golf sports talents in the Gwangju and Jeollanam-do regions.\nSince its establishment, we have consistently sponsored tournaments and supported promising golfers.\nOur board of directors is composed of individuals with high expertise in golf sports, enabling us to select scholarship recipients fairly.\nSince its establishment, we have awarded scholarships totaling 166 million won to a total of 81 individuals and provided 60 million won in tournament sponsorship, totaling 226 million won in scholarship support.
+      `,
+    ],
+    subTitle2: [`투명 경영`, `Transparent Management`],
+    contents2: [
+      `지우장학회는 운영과 관련한 모든 법률과 규정을 준수 하고 있으며, 회계 전문가를 통해 철저히 내부 관리를 실시하고 있습니다.\n기부 빛 후원은 '기부금품의 모집 및 사용에 관한 법률'등 관련 법률을 따르고 있습니다.`,
+      `The Jiwoo Scholarship Foundation complies with all relevant laws and regulations in its operations and conducts thorough internal management through accounting professionals. Our fundraising and sponsorship activities adhere to laws such as the "Act on the Collection and Use of Donations."`,
+    ],
+    tableTitle: [`기부금 모금 및 사용 현황`, `Donations and fundraising status`],
+    unit: [`(단위:만원)`, `(unit:10,000 won)`],
+    tableContent: [
+      `기부금은 장학 목적 사업에만 사용 됩니다.`,
+      `Donations are exclusively used for scholarship-related projects.`,
+    ],
+    support: [`기부 및 후원 문의`, `Donation and sponsorship inquiries`],
+    supportContent1: [
+      `기부 및 후원은 전액 장학 목적 사업에만 사용되며 문의사항은 아래로 부탁드립니다.`,
+      `All donations and sponsorships are exclusively used for scholarship purposes.`,
+    ],
+    supportContent2: [
+      `광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983\n서울 광진구 광나루토 56길 85, 1902호(구의동) 02-3424-1988 재단법인 중양장형태기념재단 재단법인 지우장학회 고객지원센터`,
+      `For inquiries, please contact us at:\n\nGwangju, Buk-gu, Cheomdan Venture So-ro 28beon-gil 2 (Wolchul-dong) 062-971-7983\nSeoul, Gwangjin-gu, Gwangnaru-ro 56-gil 85, Room 1902 (Guui-dong) 02-3424-1988\nJungyang Janghyungtae Memorial Foundation, Jiwoo Scholarship Foundation Customer Support Center`,
+    ],
+
+    fundraising: ['기부금 모금', 'Fundraising for Donations'],
+    use: ['기부금 사용', 'Usage of Donations'],
+  },
+
+  // 3 contribution2
+  {
+    subTitle1: [`재단소개 및 사업내용`, `Foundation introduction and business details`],
+    contents1: [
+      `안녕하세요. 중양장 형태기념재단 이사장 허상만입니다.\n중양 장형태기념재단은 2013년 작고하신 중양 장형태 전 전남도지사님의 뜻을 이어 받아 젊은 인재들을 지원, 육성하여 사회에 기여하고자 설립 되었습니다.\n재단 이사회는 사회 각계의 명망 있는 분들로 구성 되어 있으며 장학생 선발과 장학금 지급을 공정히 하기 위해 노력하고 있습니다.\n2014년 첫 장학생 선발 이후 2020년 현재까지 총 23명의 광주, 전남 지역 고등학생과 대학생에게 1억8천4백만원의 장학금을 지원하고 있습니다.`,
+      `Hello, I am Sangman Heo, the chairman of the Jungyang Janghyungtae Memorial Foundation.\nThe foundation was established in 2013 to honor the will of the late former governor of Jeollanam-do, Jungyang Janghyungtae, by supporting and nurturing young talents to contribute to society.\nOur board of directors consists of reputable individuals from various sectors of society, and we strive to ensure fairness in the selection of scholarship recipients and the distribution of scholarships.\nSince selecting our first scholarship recipients in 2014, we have supported a total of 23 high school and college students from the Gwangju and Jeollanam-do regions with scholarships amounting to 184 million won as of 2020.
+      `,
+    ],
+    subTitle2: [`투명 경영`, `Transparent Management`],
+    contents2: [
+      `중양 장형태기념재단은 운영과 관련한 모든 법률과 규정을 준수 하고 있으며, 회계법인을 통해 철저한 감사를 실시 하고 있습니다.\n기부 및 후원은 ‘기부금품의 모집 및 사용에 관한 법률’ 등 관련 법률을 따르고 있으며, 운영 내용은 국세청 ‘공익법인 결산서류 등 공시시스템’에 매년 공시 하고 있습니다.`,
+      `Transparent ManagementThe Jungyang Janghyungtae Memorial Foundation complies with all relevant laws and regulations in its operations and conducts thorough audits through an accounting firm.\nOur fundraising and sponsorship activities adhere to laws such as the "Act on the Collection and Use of Donations," and our operational details are disclosed annually on the National Tax Service's "Public Interest Corporations Financial Statement Disclosure System.""`,
+    ],
+    tableTitle: [`기부금 모금 및 사용 현황`, `Donations and fundraising status`],
+    unit: [`(단위:만원)`, `(unit:10,000 won)`],
+    tableContent: [
+      `기부금은 장학 목적 사업에만 사용 됩니다.`,
+      `Donations are exclusively used for scholarship-related projects.`,
+    ],
+    support: [`기부 및 후원 문의`, `Donation and sponsorship inquiries`],
+    supportContent1: [
+      `기부 및 후원은 전액 장학 목적 사업에만 사용되며 문의사항은 아래로 부탁드립니다.`,
+      `All donations and sponsorships are exclusively used for scholarship purposes.`,
+    ],
+    supportContent2: [
+      `광주 북구 첨단벤처소로28번길 2(월출동) 062-971-7983\n서울 광진구 광나루토 56길 85, 1902호(구의동) 02-3424-1988 재단법인 중양장형태기념재단 재단법인 지우장학회 고객지원센터`,
+      `For inquiries, please contact us at:\n\nGwangju, Buk-gu, Cheomdan Venture So-ro 28beon-gil 2 (Wolchul-dong) 062-971-7983\nSeoul, Gwangjin-gu, Gwangnaru-ro 56-gil 85, Room 1902 (Guui-dong) 02-3424-1988\nJungyang Janghyungtae Memorial Foundation, Jiwoo Scholarship Foundation Customer Support Center`,
+    ],
+
+    fundraising: ['모금', 'Fundraising'],
+    use: ['사용', 'Use'],
+  },
+
+  // 4 reliable governance
+  {
+    title: ['지식, 윤리, 인재의 힘', '"The Power of Knowledge, Ethics, and Human Resources"'],
+    contents: [
+      `우리는 지속 가능한 미래를 향한 여정에서 'Reliable Governance'를 핵심 가치로 삼고 있습니다.\n이는 단순히 우리의 운영 체계를 넘어서,\n모든 결정과 행동이 윤리적 원칙, 인재의 성장, 그리고 지식의 발전에 기반하도록 하는 우리의 약속입니다.`,
+      `In our journey towards a sustainable future, we hold 'Reliable Governance' as a core value.\n This extends beyond just our operational systems,\n embodying our commitment to ensure that all decisions and actions are grounded in ethical principles,\n the growth of talent, and the advancement of knowledge.`,
+    ],
+    subTitle1: [`인재 경영: 우리의 가장 큰 자산`, `Talent Management:\nOur Greatest Asset`],
+    subTitle2: [`윤리경영: 신뢰의 기반`, `Ethical anagement:\nFoundation of Trust`],
+    subTitle3: [`지식경영: 끊임없는 혁신의 동력`, `Knowledge Management:\nThe Power of Endless Innovation`],
+    contents1: [
+      `인재는 우리 조직의 가장 큰 자산입니다.\n\n우리는 직원들이 자신의 잠재력을 최대한 발휘할 수 있는 환경을 조성하는 데 전념하고 있습니다. \n\n개인의 성장과 발전이 있을 때, 우리는 함께 더 강해질 수 있다고 믿습니다.`,
+      `Talent is the greatest asset of our organization.\n\nWe are committed to creating an environment where employees can fully realize their potential.\n\nWe believe that when individual growth and development occur, we can become stronger together.`,
+    ],
+    contents2: [
+      `우리는 투명성과 정직성을 우리 사업의 근간으로 삼습니다.\n\n모든 이해관계자와의 관계에서 공정하고 윤리적인 행동을 최우선으로 하며, 이는 우리가 시장에서 신뢰를 얻 기반이 됩니다. \n\n우리는 윤리적 결정이 장기적으로 회사와 사회에 가장 큰 가치를 제공한다고 믿습니다.`,
+      `We base our business on transparency and integrity.\n\nWe prioritize fair and ethical behavior in all our relationships with stakeholders, which forms the foundation of our trust in the market. \n\nWe believe that ethical decisions provide the greatest value to both the company and society in the long term.`,
+    ],
+    contents3: [
+      `식은 변화하는 시장과 기술에 대응하기 위한 우리의 열쇠입니다.\n\n우리는 지속적인 학습과 혁신을 통해 경쟁력을 강화하고, 새로운 기회를 창출합니다.\n\n지식 공유와 협업을 장려함으로써, IBT는 업계의 선도적인 위치를 유지하고, 지속 가능한 성장을 이끌어갈 수 있습니다`,
+      `Knowledge is our key to responding to changing markets and technologies.\n\nBy fostering continuous learning and innovation, we enhance our competitiveness and create new opportunities.\n\nBy encouraging knowledge sharing and collaboration, we can maintain our leading position in the industry and drive sustainable growth.`,
+    ],
+  },
+]
+
 //************************************ 배터리 페이지 *************************************/
 
 export const batteryIntroData = {
