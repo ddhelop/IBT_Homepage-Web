@@ -139,7 +139,7 @@ export const IntroComponentData = [
         icon: ['/intro/companyIntro.svg', '/intro/companyIntro.svg'],
         width: [30, 30],
         height: [30, 30],
-        path: ['/companyInfo', '/companyInfo'],
+        path: '/companyInfo',
       },
       {
         title: ['Battery', 'Battery'],
