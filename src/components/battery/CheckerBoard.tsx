@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { batteryList } from '@/lib/data'
 import Image from 'next/image'
 import { useRecoilValue } from 'recoil'
 import { isEnglishState } from '@/context/recoil-context'
