@@ -7,10 +7,14 @@ import './Contribution.css'
 import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotion'
 import { motion } from 'framer-motion'
 import { SocialProps } from '@/lib/types'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+import { ESG500Data } from '@/lib/data'
 
 export default function SocialContributionComponent({ data }: SocialProps) {
   const [activeTab, setActiveTab] = useState('tab1')
   const isActive = (tabName: string) => activeTab === tabName
+  const isEnglish = useRecoilValue(isEnglishState)
 
   const ViewContents = () => {
     switch (activeTab) {
@@ -50,13 +54,13 @@ export default function SocialContributionComponent({ data }: SocialProps) {
               value="tab1"
               onClick={onClickButton}
             >
-              (재) 지우장학회
+              {ESG500Data?.[1].tab1?.[isEnglish]}
             </button>
             <button
               className={`w-1/3 h-11  tab-button2 ${isActive('tab2') ? 'active-tab2' : ''}`}
               onClick={() => setActiveTab('tab2')}
             >
-              중앙장형태 장학재단
+              {ESG500Data?.[1].tab2?.[isEnglish]}
             </button>
           </LeftMotionComponent>
 
