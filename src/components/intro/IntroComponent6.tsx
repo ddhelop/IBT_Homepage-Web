@@ -8,6 +8,7 @@ import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMot
 import { isEnglishState } from '@/context/recoil-context'
 import { useRecoilValue } from 'recoil'
 import { IntroComponentData } from '@/lib/data'
+import Link from 'next/link'
 
 export default function IntroComponent6(): JSX.Element {
   const router = useRouter()
@@ -97,15 +98,14 @@ export default function IntroComponent6(): JSX.Element {
                         {data.description[isEnglish ? 1 : 0]}
                       </p>
                       <div className="w-16 md:w-12 flex aspect-square relative">
-                        <Image
-                          src="/intro/pointer.svg" // 이미지 경로
-                          alt="바로가기"
-                          fill
-                          className="mt-1 cursor-pointer"
-                          onClick={() => {
-                            router.push(data.path[isEnglish])
-                          }}
-                        />
+                        <Link prefetch href={data.path}>
+                          <Image
+                            src="/intro/pointer.svg" // 이미지 경로
+                            alt="바로가기"
+                            fill
+                            className="mt-1 cursor-pointer"
+                          />
+                        </Link>
                       </div>
                     </div>
                   </div>
