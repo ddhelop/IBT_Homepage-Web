@@ -173,7 +173,16 @@ export const IntroComponentData = [
   // 7
 ]
 
-//************************************ 회사 정보 페이지 *************************************/
+export const CompanyTitleData = {
+  title: [`연혁`, `History`],
+  contents: [
+    `1986년부터 지금까지,
+      도전정신으로 IBT는 성장하고 있습니다.`,
+    `Since 1986,\n
+      IBT has been growing with a spirit of challenge.`,
+  ],
+}
+// 회사정보 페이지 데이터
 export const CompanyInfoData = [
   {
     // 0

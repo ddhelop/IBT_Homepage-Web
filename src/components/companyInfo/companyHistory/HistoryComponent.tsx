@@ -8,13 +8,12 @@ import './HistoryComponent.css'
 import { DownMotionComponent } from '@/components/commons/FramerMotion/Direction/DownMotion'
 import { isEnglishState } from '@/context/recoil-context'
 import { useRecoilValue } from 'recoil'
-import { CompanyInfoData } from '@/lib/data'
+import { CompanyTitleData } from '@/lib/data'
 
 export default function HistoryComponent() {
   const [activeTab, setActiveTab] = useState('tab1')
   const isActive = (tabName: string) => activeTab === tabName
   const isEnglish = useRecoilValue(isEnglishState)
-
   const ViewContents = () => {
     switch (activeTab) {
       case 'tab1':
@@ -39,13 +38,10 @@ export default function HistoryComponent() {
         className="w-full flex flex-col justify-center items-center min-h-screen bg-no-repeat bg-cover bg-white mb-72"
       >
         <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
-          {CompanyInfoData[1].title[isEnglish]}
+          {CompanyTitleData.title[isEnglish]}
         </DownMotionComponent>
-        <DownMotionComponent
-          component={motion.p}
-          className="mt-12 text-center font-light text-xl leading-4 whitespace-pre-wrap"
-        >
-          {CompanyInfoData[1].contents[isEnglish]}
+        <DownMotionComponent component={motion.p} className="mt-12 text-center font-light text-xl whitespace-pre-wrap">
+          {CompanyTitleData.contents[isEnglish]}
         </DownMotionComponent>
 
         {/* Tabs */}
