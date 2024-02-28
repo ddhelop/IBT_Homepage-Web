@@ -33,11 +33,15 @@ export default function Technical3() {
             <tbody className=" text-[#6f6f6f]">
               {researchData.map((el, index) => (
                 <tr className={`text-center bg-[${el.color}]`} key={index}>
-                  <td className="py-4 px-3 text-sm font-normal border-2 border-[#e2e2e2]">{el.complete[isEnglish]} </td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.productName[isEnglish]}</td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.contents[isEnglish]}</td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.deliveryDestination[isEnglish]}</td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.etc[isEnglish]}</td>
+                  <td className="py-4 px-3 text-sm font-normal border-2 border-[#e2e2e2]">
+                    {el.complete?.[isEnglish]}{' '}
+                  </td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.productName?.[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.contents?.[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">
+                    {el.deliveryDestination?.[isEnglish]}
+                  </td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.etc?.[isEnglish]}</td>
                 </tr>
               ))}
             </tbody>

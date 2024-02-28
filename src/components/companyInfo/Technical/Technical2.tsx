@@ -42,17 +42,17 @@ export default function Technical2() {
                       {el.check[isEnglish]}
                     </td>
                   ) : null}
-                  <td className="py-2 px-3 text-sm font-normal border-2 border-[#e2e2e2]">{el.name[isEnglish]}</td>
+                  <td className="py-2 px-3 text-sm font-normal border-2 border-[#e2e2e2]">{el.name?.[isEnglish]}</td>
                   {el.totalRowSpan ? (
                     <td className="text-sm font-normal border-2 border-[#e2e2e2]" rowSpan={el.totalRowSpan}>
                       {el.applicant[isEnglish]}
                     </td>
                   ) : null}
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.applicationNumber[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.applicationNumber?.[isEnglish]}</td>
 
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.registrationDate[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.registrationDate?.[isEnglish]}</td>
 
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.patentNumber[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.patentNumber?.[isEnglish]}</td>
                 </tr>
               ))}
             </tbody>
