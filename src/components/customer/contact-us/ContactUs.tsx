@@ -19,7 +19,6 @@ export default function ContactUs() {
       setDesc('')
     }
   }
-  const products = ['제품문의', '견적문의']
   return (
     <div className="w-full flex flex-col items-center mb-56">
       {/* Wrapper */}
