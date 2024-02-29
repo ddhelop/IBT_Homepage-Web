@@ -6,10 +6,9 @@ import { Metadata } from 'next'
 import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
-  title: 'About Industry Ni-cd',
-  description: 'IBT 산업용 Ni-cd 배터리 제품 소개 페이지',
+  title: '(주)아이비티 산업용 Ni-cd',
+  description: '산업용 Ni-cd 배터리 제품 소개 페이지',
 }
-
 const BatteryIndustryPage = async () => {
   const data = await fetchPageData(1)
 
