@@ -54,3 +54,11 @@ export interface IContentBlockProps {
   text: string
   background: string
 }
+
+export type ButtonProps = {
+  text: string
+  isForSubmit: boolean
+  isActive: boolean
+  func?: any
+  isLoading: boolean
+}

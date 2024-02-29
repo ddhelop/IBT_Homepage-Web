@@ -3,7 +3,7 @@ import { createBatteryPage } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
-import AddButton from './SubmitButton'
+import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
@@ -190,7 +190,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                   className=" text-gray-400 bg-gray-50 h-6 rounded-md px-2 py-4 border"
                 />
                 <input type="file" accept="image/*" onChange={(e) => showImage(e, 'product')} />
-                <AddButton
+                <SubmitButton
                   text="제품 추가"
                   isForSubmit={false}
                   isActive={prodTmpUrl != null && prodName.length > 0}
@@ -235,7 +235,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
           </div>
         </div>
         <h1 className="text-red-400 mb-2">{error}</h1>
-        <AddButton text="완료" isForSubmit={true} isActive={true} isLoading={isLoading} />
+        <SubmitButton text="완료" isForSubmit={true} isActive={true} isLoading={isLoading} />
       </form>
     </div>
   )

@@ -6,7 +6,7 @@ import { handleBatteryListEdit } from '@/lib/action'
 
 import { getErrorMessage, reorderPosts } from '@/lib/utils'
 import CategoryDnd from './CategoryDnd'
-import AddButton from './SubmitButton'
+import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
 import { FaPlus } from 'react-icons/fa6'
 import Link from 'next/link'
@@ -60,7 +60,7 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
       />
       <h1 className="text-gray-600 text-sm px-6 mt-4">{message}</h1>
       <div className="p-4 flex items-center gap-8">
-        <AddButton
+        <SubmitButton
           text="순서 변경하기"
           isLoading={isLoading}
           isForSubmit={false}
