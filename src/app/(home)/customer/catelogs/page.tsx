@@ -10,7 +10,7 @@ const CatelogPage = async () => {
     <div className="flex justify-center pt-48">
       <div className="flex flex-col">
         <h1 className="text-[#79AD4B] text-6xl text-center my-8">CATALOG</h1>
-        <div className="grid grid-cols-3 mt-8 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 mt-8 w-[min(92%,1920px)] gap-24">
           {catalogs.length ? (
             catalogs.map((catelog: CatalogProps) => <CatelogCard key={catelog.id.toString()} {...catelog} />)
           ) : (

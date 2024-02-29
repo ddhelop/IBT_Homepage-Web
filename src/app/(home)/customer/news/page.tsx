@@ -18,7 +18,7 @@ const NewsPage = async () => {
           <h3>건</h3>
         </div>
         {posts?.length ? (
-          <div className="grid grid-cols-5 mt-8 w-full gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 mt-8 w-[min(92%,1920px)] gap-8">
             {posts?.map((post: NewsProps) => (
               <Link prefetch key={post.id.toString()} href={`/customer/news/${post.id}`}>
                 <NewsCard key={post.id.toString()} {...post} />
