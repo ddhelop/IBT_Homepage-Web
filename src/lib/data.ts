@@ -1175,3 +1175,33 @@ export const batteryList = [
 ]
 
 export const companyEmail = 'sales2@ibteng.co.kr'
+
+export const headerData = [
+  {
+    title: ['회사정보', 'COMPANY'],
+    subTitle1: ['비전', 'Vision'],
+    subTitle2: ['연혁', 'History'],
+    subTitle3: ['협력/제휴사', 'Partners'],
+    subTitle4: ['기술인증', 'Technology'],
+    subTitle5: ['오시는길', 'Directions'],
+  },
+  {
+    title: ['BATTERY'],
+    subTitle1: ['Ni-cd'],
+    subTitle2: ['Lithium'],
+    subTitle3: ['기타', 'Others'],
+  },
+  {
+    title: ['HYDROGEN'],
+  },
+  {
+    title: ['고객지원', 'CUSTOMER'],
+    subTitle1: ['카탈로그', 'Catalog'],
+    subTitle2: ['IBT News'],
+    subTitle3: ['Contact Us'],
+  },
+  {
+    title: ['ESG'],
+    subTitle1: ['IBT ESG'],
+  },
+]
