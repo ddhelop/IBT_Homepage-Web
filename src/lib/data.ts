@@ -77,6 +77,23 @@ export const batteriesData_admin = [
     name: '적용제품',
   },
 ]
+
+//************************************ Contact Us *************************************/
+export const data_contactUs = {
+  classification: ['분류', 'Classification'],
+  select: ['선택해주세요', 'select'],
+  name: ['이름', 'Name'],
+  email: ['이메일', 'Email'],
+  contact: ['연락처', 'Contact Information'],
+  title: ['제목', 'Title'],
+  content: ['내용', 'Content'],
+  remove: ['지우기', 'Clear'],
+  submit: ['보내기', 'Send'],
+}
+export const products_contactUs = [
+  ['제품문의', '견적문의'],
+  ['Product Inquiry', 'Quote Inquiry'],
+]
 //************************************ INTRO *************************************/
 export const contents = [
   {

@@ -129,7 +129,7 @@ export const sendEmail = async (formData: FormData) => {
       from: '(주)아이비티 <onboarding@resend.dev>',
       // to: 'neoself1105@gmail.com',
       to: 'sales2@ibteng.co.kr',
-      subject: `${category}에 대한 견적문의: ${title}`,
+      subject: `${category}: ${title}`,
       reply_to: email,
       react: React.createElement(ContactFormEmail, {
         message: desc,
