@@ -61,7 +61,7 @@ const IntroSlider = ({ data }: NewsData) => {
                 disabled={currentImg === 0}
                 // 누르면 currentImg 번호 - 1
                 onClick={() => setCurrentImg((prev) => prev - 1)}
-                className={`relative left-[4.5rem] top-[28px] lg:px-20 pl-10 pr-20 pb-10 w-[3rem] h-[3rem] ${
+                className={`relative left-[4.5rem] top-[13px] lg:px-20 pl-10 pr-20 pb-10 w-[3rem] h-[3rem] ${
                   currentImg === 0 && 'opacity-50'
                 }`}
               >
@@ -159,7 +159,7 @@ const IntroSlider = ({ data }: NewsData) => {
                 disabled={currentImg === data?.length - 3}
                 // 누르면 currentImg 번호 + 1
                 onClick={() => setCurrentImg((prev) => prev + 1)}
-                className={`hidden lg:right-[3rem] xl:right-[5rem] 2xl:right-[2.9rem] 3xl:right-[5.5rem] top-[28px] lg:flex lg:relative lg:px-20 lg:w-[3rem] lg:h-[3rem] ${
+                className={`hidden right-[4.3rem] xl:right-[5rem] 2xl:right-[2.9rem] 3xl:right-[5.5rem] top-[13px] lg:flex lg:relative lg:px-20 lg:w-[3rem] lg:h-[3rem] ${
                   currentImg === data?.length - 3 && 'opacity-50'
                 }`}
               >
@@ -169,7 +169,7 @@ const IntroSlider = ({ data }: NewsData) => {
               <button
                 disabled={currentImg === data?.length - 2}
                 onClick={() => setCurrentImg((prev) => prev + 1)}
-                className={`hidden top-[28px] sm:flex lg:hidden relative pl-20 pr-10 w-[3rem] h-[3rem] ${
+                className={`hidden top-[13px] right-[4.3rem] sm:flex lg:hidden relative pl-20 pr-10 w-[3rem] h-[3rem] ${
                   currentImg === data?.length - 2 && 'opacity-50'
                 }`}
               >
@@ -179,7 +179,7 @@ const IntroSlider = ({ data }: NewsData) => {
               <button
                 disabled={currentImg === data?.length - 1}
                 onClick={() => setCurrentImg((prev) => prev + 1)}
-                className={`sm:hidden top-[28px] relative pl-20 pr-10 w-[3rem] h-[3rem] ${
+                className={`sm:hidden top-[13px] right-[4.3rem] relative pl-20 pr-10 w-[3rem] h-[3rem] ${
                   currentImg === data?.length - 1 && 'opacity-50'
                 }`}
               >
