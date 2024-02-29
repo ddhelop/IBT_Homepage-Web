@@ -3,8 +3,8 @@ import { fetchPageData } from '@/lib/action'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About Battery',
-  description: 'IBT Battery 제품 소개 페이지',
+  title: '(주)아이비티 배터리',
+  description: '배터리 제품 소개 페이지',
 }
 
 // 특정 Scroll 위치 이동(nicd, lithium)을 위해 useEffect -> CSR 필요

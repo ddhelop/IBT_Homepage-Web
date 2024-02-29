@@ -2,7 +2,7 @@ import ESG500Component from '@/components/ESG500/ESG500Component'
 import { fetchPostData } from '@/lib/action'
 
 export const metadata = {
-  title: 'ESG_500',
+  title: '(주)아이비티 ESG 500',
   description: 'IBT ESG_500, 지우장학회, 중앙장형태 장학재단',
 }
 

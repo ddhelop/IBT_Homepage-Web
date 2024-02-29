@@ -8,8 +8,8 @@ import CooperativeComponent from '@/components/companyInfo/companyHistory/Cooper
 import HistoryComponent from '@/components/companyInfo/companyHistory/HistoryComponent'
 
 export const metadata = {
-  title: 'Company Info',
-  description: 'IBT CompanyInfo 회사소개 페이지',
+  title: '(주)아이비티 회사정보',
+  description: '회사소개 페이지',
 }
 
 export default function IntroPage(): JSX.Element {

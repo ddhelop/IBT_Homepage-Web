@@ -7,9 +7,8 @@ import RecoilContextProvider from '@/context/recoil-context'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
-  title: 'IBT Admin',
-  description:
-    'IBT는 혁신적인 배터리 기술을 통해 지속 가능한 에너지 솔루션을 선도하며, 새로운 에너지 라이프스타일을 창조하고 있습니다.',
+  title: '(주)아이비티 어드민페이지',
+  description: '(주)아이비티 어드민페이지',
 }
 
 export default function RootLayout({
