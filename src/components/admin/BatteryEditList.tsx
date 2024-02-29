@@ -76,7 +76,7 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
           className="p-4 rounded-lg border
        border-[#04BF7B] text-[#04BF7B] shadow-lg"
         >
-          {batteriesData_admin[batteryId].title + `페이지 추가하기`}
+          {batteriesData_admin[batteryId].title + ` 페이지 추가하기`}
         </Link>
       </div>
     </div>
