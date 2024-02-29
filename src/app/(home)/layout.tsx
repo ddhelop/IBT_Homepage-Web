@@ -19,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta property="og:image" content={'public/image/Logo.png'}></meta>
       <body className={`${cls(notoSansKr.className, roboto.variable)} transition  text-gray-950 relative`}>
         <RecoilContextProvider>
           <Header />
