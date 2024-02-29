@@ -2,11 +2,15 @@
 import { sendEmail } from '@/lib/action'
 import { useRef, useState } from 'react'
 import Button from './Button'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
+import { data_contactUs, products_contactUs } from '@/lib/data'
 
 export default function ContactUs() {
   // 상태를 사용하여 입력된 텍스트의 길이를 추적합니다.
   const ref = useRef<HTMLFormElement>(null)
   const [desc, setDesc] = useState('')
+  const isEnglish = useRecoilValue(isEnglishState)
   const [error, setError] = useState<string>('')
   const onClearText = () => {
     const isConfirmed = window.confirm('모든 입력 내용을 지우시겠습니까?')
@@ -45,14 +49,14 @@ export default function ContactUs() {
           {/* 분류 */}
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd] border-t-2 border-t-black">
             <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
-              <p className="text-sm">분류</p>
+              <p className="text-sm">{data_contactUs.classification[isEnglish]}</p>
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <select defaultValue="none" name="category" className="h-8 border border-[#cdcdcd] bg-[#f6f6f6] rounded">
                 <option value="option1" disabled>
-                  선택해주세요
+                  {data_contactUs.select[isEnglish]}
                 </option>
-                {products.map((item, id) => (
+                {products_contactUs[isEnglish].map((item, id) => (
                   <option key={id} value={item}>
                     {item}
                   </option>
@@ -63,7 +67,7 @@ export default function ContactUs() {
           {/* 이름 */}
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd]">
             <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
-              <p className="text-sm">이름</p>
+              <p className="text-sm">{data_contactUs.name[isEnglish]}</p>
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
@@ -77,7 +81,7 @@ export default function ContactUs() {
           {/* 이메일 */}
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd]">
             <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
-              <p className="text-sm">이메일</p>
+              <p className="text-sm">{data_contactUs.email[isEnglish]}</p>
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
@@ -91,7 +95,7 @@ export default function ContactUs() {
           {/* 연락처 */}
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd]">
             <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
-              <p className="text-sm">연락처</p>
+              <p className="text-sm">{data_contactUs.contact[isEnglish]}</p>
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
@@ -119,7 +123,7 @@ export default function ContactUs() {
           {/* 제목 */}
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd]">
             <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
-              <p className="text-sm">제목</p>
+              <p className="text-sm">{data_contactUs.title[isEnglish]}</p>
             </div>
             <div className="w-[80%] h-12 flex items-center px-5">
               <input
@@ -133,7 +137,7 @@ export default function ContactUs() {
           {/* 내용 */}
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd] relative">
             <div className="w-[20%] h-60 flex justify-center items-center bg-[#fafafa]">
-              <p className="text-sm">내용</p>
+              <p className="text-sm">{data_contactUs.content[isEnglish]}</p>
             </div>
             <div className="w-[80%] h-60 flex items-center px-5">
               <textarea
@@ -152,9 +156,9 @@ export default function ContactUs() {
           {/* 버튼 */}
           <h1 className="text-red-700">{error}</h1>
           <div className="flex flex-row justify-center mt-10 space-x-2">
-            <Button />
+            <Button text={data_contactUs.submit[isEnglish]} />
             <button type="button" onClick={onClearText} className="w-32 h-8 border border-black rounded">
-              지우기
+              {data_contactUs.remove[isEnglish]}
             </button>
           </div>
         </form>
