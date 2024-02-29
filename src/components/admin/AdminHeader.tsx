@@ -15,6 +15,7 @@ const AdminHeader = ({ params }: any) => {
       <h1 className="text-2xl font-bold mb-12 text-gray-100/80">Admin</h1>
       <ul className="text-lg ">
         <Link
+          prefetch
           className={`flex items-center py-4 ${pathname === links_admin[0].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[0].path}
         >
@@ -22,6 +23,7 @@ const AdminHeader = ({ params }: any) => {
           <h1 className="ml-4 font-regular">{links_admin[0].name}</h1>
         </Link>
         <Link
+          prefetch
           className={`flex items-center py-4 ${pathname === links_admin[1].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[1].path}
         >
@@ -29,6 +31,7 @@ const AdminHeader = ({ params }: any) => {
           <h1 className="ml-4 font-regular">{links_admin[1].name}</h1>
         </Link>
         <Link
+          prefetch
           className={`flex items-center py-4 ${pathname === links_admin[2].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[2].path}
         >
@@ -36,6 +39,7 @@ const AdminHeader = ({ params }: any) => {
           <h1 className="ml-4 font-regular">{links_admin[2].name}</h1>
         </Link>
         <Link
+          prefetch
           className={`flex items-center py-4 ${pathname === links_admin[3].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[3].path}
         >

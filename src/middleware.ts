@@ -1,18 +1,14 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const securedURLs = [
-  `${process.env.URL}/admin/news`,
-  `${process.env.URL}/admin/catelogs`,
-  `${process.env.URL}/admin/batteries`,
-  `${process.env.URL}/admin/esg-pdf`,
-]
+export const config = {
+  matcher: ['/admin/news', '/admin/catelogs', '/admin/esg-pdf', '/admin/batteries'],
+}
+
 export function middleware(request: NextRequest) {
-  if (!request.cookies.has('session') && securedURLs.indexOf(request.url) !== -1) {
+  if (!request.cookies.has('session')) {
     //admin/으로 시작하는 url에 접근하는 중일때
-    console.log('쿠키가 없습니다.')
-    return NextResponse.redirect(new URL('/admin', request.url))
+    return NextResponse.redirect(new URL('/admin?alert=로그인 후 이용가능한 서비스입니다.', request.url))
   }
-  console.log(securedURLs.indexOf(request.url))
   return NextResponse.next()
 }

@@ -71,7 +71,7 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
       if (!success) setError(message)
       switch (postTypeId) {
         case 0:
-          router.push(`/admin`)
+          router.push(`/admin/news`)
           break
         case 1:
           router.push(`/admin/catelogs`)

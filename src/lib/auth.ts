@@ -24,13 +24,13 @@ export async function login(username: string, password: string) {
     password == (process.env.ADMIN_PASSWORD as unknown as string)
   ) {
     // Create the session
-    const expires = new Date(Date.now() + 24 * 60 * 60 * 1000) //하루
+    const expires = new Date(Date.now() + 24 * 60 * 60 * 1000)
     const session = await encrypt({ username, expires })
     // Save the session in a cookie
     cookies().set('session', session, { expires, httpOnly: true })
-    return { success: true, message: '로그인 성공' }
+    return { success: true, message: '로그인 되었습니다.' }
   } else {
-    return { success: false, message: '로그인 실패' }
+    return { success: false, message: '회원정보가 일치하지 않습니다.' }
   }
 }
 
