@@ -3,7 +3,7 @@ import { createBatteryPage } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
-import AddButton from './SubmitButton'
+import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
@@ -138,37 +138,55 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
       <form className="m-8 p-8 bg-white rounded-lg flex-col" onSubmit={onSubmit}>
         <div className="2xl:flex">
           <div className="flex-1 text-gray-700 font-bold">
-            <h2 className="mb-2">{`*중분류 제목 (ex:항공,육상)`}</h2>
-            <input required type="text" name="title" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
-            <h2 className="mb-2">*이미지</h2>
-            <div className="flex mb-4">
-              <div className="h-40 w-64 relative flex border rounded-md ">
-                {cateTmpUrl ? (
-                  <Image src={cateTmpUrl} alt="tempImg" fill className="object-contain" />
-                ) : (
-                  <div className="bg-gray-50 w-full h-full" />
-                )}
+            <div className="flex justify-between gap-8">
+              <div className="flex flex-1 flex-col">
+                <h2 className="mb-2">
+                  <span className="text-red-400">*</span>
+                  {`중분류 제목 (ex:항공,육상)`}
+                </h2>
+                <input
+                  required
+                  type="text"
+                  name="title"
+                  className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
+                />
+                <h2 className="mb-2">{`배터리명 (ex:Ni-cd battery Sintered Type)`}</h2>
+                <input
+                  type="text"
+                  name="itemTitle"
+                  className="bg-gray-100 rounded-md py-2 px-3 w-full font-medium mb-4"
+                />
+                <h2 className="mb-2">배터리 부제목</h2>
+                <input
+                  type="text"
+                  name="itemSubtitle"
+                  className="bg-gray-100 rounded-md py-2 px-3 w-full font-medium mb-4"
+                />
               </div>
-              <input
-                required
-                type="file"
-                accept="image/*"
-                className="bg-gray-100 rounded-md p-4 ml-4"
-                onChange={(e) => showImage(e, 'catelog')}
-              />
+              <div className="flex flex-2 flex-col">
+                <h2 className="mb-2">
+                  <span className="text-red-400">*</span>이미지
+                </h2>
+                <div className="h-64 w-80 relative flex border rounded-md mb-2">
+                  {cateTmpUrl ? (
+                    <Image src={cateTmpUrl} alt="tempImg" fill className="object-contain" />
+                  ) : (
+                    <div className="bg-gray-50 w-full h-full" />
+                  )}
+                </div>
+                <input required type="file" accept="image/*" onChange={(e) => showImage(e, 'catelog')} />
+              </div>
             </div>
-            <h2 className="mb-2">{`배터리명 (ex:Ni-cd battery Sintered Type)`}</h2>
-            <input type="text" name="itemTitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
-            <h2 className="mb-2">배터리 부제목</h2>
-            <input type="text" name="itemSubtitle" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
 
-            <h2 className="mb-2">*배터리 설명 / 내용 형식 미리보기:</h2>
+            <h2 className="mb-2">
+              <span className="text-red-400">*</span>배터리 설명 / 내용 형식 미리보기:
+            </h2>
             <div className="flex">
               <textarea
                 required
                 name="itemAdvanced"
                 onChange={(e) => setDesc(e.target.value)}
-                className="bg-gray-100 rounded-md py-2 px-3 mb-8 basis-1/2"
+                className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8 basis-1/2"
                 rows={5}
                 cols={33}
               />
@@ -177,7 +195,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
           </div>
           <div className="border m-4"></div>
           <div className="flex-col flex-2 rounded-md ">
-            <div className="flex p-4 text-gray-600 bg-gray-100 m-4 rounded-md">
+            <div className="flex p-4 bg-gray-100 m-4 rounded-md">
               <div className="h-32 w-40 relative flex border rounded-md">
                 {prodTmpUrl && <Image src={prodTmpUrl} alt="tempImg" fill className="object-contain" />}
               </div>
@@ -187,10 +205,10 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                   onChange={(e) => setProdName(e.target.value)}
                   placeholder="적용제품명"
                   type="text"
-                  className=" text-gray-400 bg-gray-50 h-6 rounded-md px-2 py-4 border"
+                  className="bg-gray-50 h-6 rounded-md px-2 py-4 border"
                 />
                 <input type="file" accept="image/*" onChange={(e) => showImage(e, 'product')} />
-                <AddButton
+                <SubmitButton
                   text="제품 추가"
                   isForSubmit={false}
                   isActive={prodTmpUrl != null && prodName.length > 0}
@@ -199,6 +217,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                 />
               </div>
             </div>
+            <h1 className="ml-4 text-gray-400 font-regular mb-2">{productList.length}개의 적용제품 등록됨</h1>
             <DragDropContext onDragEnd={onDragEnd}>
               <StrictModeDroppable droppableId="droppable">
                 {(droppableProvided) => (
@@ -210,16 +229,12 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                             ref={draggableProvided.innerRef}
                             {...draggableProvided.draggableProps}
                             {...draggableProvided.dragHandleProps}
-                            className="flex px-4 h-12 items-center bg-white border-t"
+                            className="flex items-center p-2 bg-white border mx-4 mb-2 rounded-md"
                           >
-                            <h1 className="truncate font-bold text-md basis-1/4">{prod.name}</h1>
-
-                            <div className="relative w-8 h-8">
+                            <div className="relative w-20 aspect-square border">
                               <Image alt="img" className="object-cover" src={URL.createObjectURL(prod.img)} fill />
                             </div>
-
-                            <h3 className="ml-4 basis-1/2 font-light w-48 truncate">{prod.name}</h3>
-
+                            <h1 className="truncate font-medium text-lg flex-1 ml-4">{prod.name}</h1>
                             <button onClick={() => handleDelete(prod?.id)}>
                               <IoIosClose size={32} color="#747474" />
                             </button>
@@ -235,7 +250,7 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
           </div>
         </div>
         <h1 className="text-red-400 mb-2">{error}</h1>
-        <AddButton text="완료" isForSubmit={true} isActive={true} isLoading={isLoading} />
+        <SubmitButton text="완료" isForSubmit={true} isActive={true} isLoading={isLoading} />
       </form>
     </div>
   )

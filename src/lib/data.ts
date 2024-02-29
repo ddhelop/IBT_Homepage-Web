@@ -7,7 +7,7 @@ export const links_admin = [
   {
     name: '뉴스',
     icon: React.createElement(RiNewspaperFill),
-    path: '/admin',
+    path: '/admin/news',
   },
   {
     name: '카탈로그',
@@ -26,13 +26,14 @@ export const links_admin = [
   },
 ] as const
 export const S3BucketUrl = 'https://ibt-bucket.s3.ap-northeast-2.amazonaws.com'
+
 export const postData_admin = [
   {
     id: 0,
     postType: 'news',
     title: '뉴스 게시글',
     name: '뉴스',
-    href: '/admin/add',
+    href: '/admin/news/add',
   },
   {
     id: 1,
@@ -75,6 +76,23 @@ export const batteriesData_admin = [
     title: '에너지 저장',
     name: '적용제품',
   },
+]
+
+//************************************ Contact Us *************************************/
+export const data_contactUs = {
+  classification: ['분류', 'Classification'],
+  select: ['선택해주세요', 'select'],
+  name: ['이름', 'Name'],
+  email: ['이메일', 'Email'],
+  contact: ['연락처', 'Contact Information'],
+  title: ['제목', 'Title'],
+  content: ['내용', 'Content'],
+  remove: ['지우기', 'Clear'],
+  submit: ['보내기', 'Send'],
+}
+export const products_contactUs = [
+  ['제품문의', '견적문의'],
+  ['Product Inquiry', 'Quote Inquiry'],
 ]
 //************************************ INTRO *************************************/
 export const contents = [
@@ -1311,3 +1329,33 @@ export const hydrogenList = [
 // ]
 
 export const companyEmail = 'sales2@ibteng.co.kr'
+
+export const headerData = [
+  {
+    title: ['회사정보', 'COMPANY'],
+    subTitle1: ['비전', 'Vision'],
+    subTitle2: ['연혁', 'History'],
+    subTitle3: ['협력/제휴사', 'Partners'],
+    subTitle4: ['기술인증', 'Technology'],
+    subTitle5: ['오시는길', 'Directions'],
+  },
+  {
+    title: ['BATTERY'],
+    subTitle1: ['Ni-cd'],
+    subTitle2: ['Lithium'],
+    subTitle3: ['기타', 'Others'],
+  },
+  {
+    title: ['HYDROGEN'],
+  },
+  {
+    title: ['고객지원', 'CUSTOMER'],
+    subTitle1: ['카탈로그', 'Catalog'],
+    subTitle2: ['IBT News'],
+    subTitle3: ['Contact Us'],
+  },
+  {
+    title: ['ESG'],
+    subTitle1: ['IBT ESG'],
+  },
+]

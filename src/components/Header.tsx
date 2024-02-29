@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useRecoilState } from 'recoil'
 import { isEnglishState } from '@/context/recoil-context'
+import { headerData } from '@/lib/data'
 
 export const Header = () => {
   const [active, setActive] = useState(false) // 모바일 화면에서 상세 navigation이 내려오는지 여부를 저장
@@ -87,8 +88,8 @@ export const Header = () => {
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
-                  <Link href={'/companyInfo'}>
-                    <li onClick={() => setActive(false)}>회사정보</li>
+                  <Link prefetch href={'/companyInfo'}>
+                    <li onClick={() => setActive(false)}>{headerData[0].title[isEnglish]}</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
                   <motion.ul
@@ -108,15 +109,15 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        비전
+                        {headerData[0].subTitle1?.[isEnglish]}
                       </li>
                     </Link>
-                    <Link href={'/companyInfo#history'}>
+                    <Link prefetch href={'/companyInfo#history'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        연혁
+                        {headerData[0].subTitle2?.[isEnglish]}
                       </li>
                     </Link>
                     <Link href={'/companyInfo#collaborate'}>
@@ -124,7 +125,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        협력/제휴사
+                        {headerData[0].subTitle3?.[isEnglish]}
                       </li>
                     </Link>
                     <Link href={'/companyInfo#technical'}>
@@ -132,7 +133,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        기술인증
+                        {headerData[0].subTitle4?.[isEnglish]}
                       </li>
                     </Link>
                     <Link href={'/companyInfo#directions'}>
@@ -140,7 +141,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        오시는길
+                        {headerData[0].subTitle5?.[isEnglish]}
                       </li>
                     </Link>
                   </motion.ul>
@@ -157,8 +158,8 @@ export const Header = () => {
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
-                  <Link href={'/battery'}>
-                    <li onClick={() => setActive(false)}>BATTERY</li>
+                  <Link prefetch href={'/battery'}>
+                    <li onClick={() => setActive(false)}>{headerData[1].title}</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
                   <motion.ul
@@ -178,7 +179,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        Ni-cd
+                        {headerData[1].subTitle1}
                       </li>
                     </Link>
                     <Link href={'/battery#lithium'}>
@@ -186,7 +187,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        Lithium
+                        {headerData[1].subTitle2}
                       </li>
                     </Link>
                     <Link href={'/battery/batteryDetail/others'}>
@@ -194,7 +195,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        기타
+                        {headerData[1].subTitle3?.[isEnglish]}
                       </li>
                     </Link>
                   </motion.ul>
@@ -212,10 +213,10 @@ export const Header = () => {
               }`}
                 >
                   <Link href={'/hydrogen'}>
-                    <li onClick={() => setActive(false)}>HYDROGEN</li>
+                    <li onClick={() => setActive(false)}>{headerData[2].title}</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
-                  <motion.ul
+                  {/* <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
@@ -243,7 +244,7 @@ export const Header = () => {
                         사업개요
                       </li>
                     </Link>
-                  </motion.ul>
+                  </motion.ul> */}
                 </div>
                 {/* ----- 4. 고객지원 ----- */}
                 {/* 헤더 기본 메뉴 */}
@@ -258,7 +259,7 @@ export const Header = () => {
               }`}
                 >
                   <Link prefetch href={'/customer/news'}>
-                    <li onClick={() => setActive(false)}>고객지원</li>
+                    <li onClick={() => setActive(false)}>{headerData[3].title?.[isEnglish]}</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
                   <motion.ul
@@ -278,15 +279,15 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        카탈로그
+                        {headerData[3].subTitle1?.[isEnglish]}
                       </li>
                     </Link>
-                    <Link prefetch href={'/customer/news'}>
+                    <Link href={'/customer/news'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        IBT News
+                        {headerData[3].subTitle2}
                       </li>
                     </Link>
                     <Link prefetch href={'/customer/contact-us'}>
@@ -294,7 +295,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        Contact Us
+                        {headerData[3].subTitle3}
                       </li>
                     </Link>
                   </motion.ul>
@@ -311,8 +312,8 @@ export const Header = () => {
                     location === '/' && scrollPosition < 120 && !navDown && 'text-white'
               }`}
                 >
-                  <Link href={'/ESG_500'}>
-                    <li onClick={() => setActive(false)}>ESG</li>
+                  <Link prefetch href={'/ESG_500'}>
+                    <li onClick={() => setActive(false)}>{headerData[4].title}</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
                   <motion.ul
@@ -332,7 +333,7 @@ export const Header = () => {
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        IBT ESG
+                        {headerData[4].subTitle1}
                       </li>
                     </Link>
                   </motion.ul>

@@ -11,7 +11,7 @@ import { handleListEdit } from '@/lib/action'
 import Link from 'next/link'
 import { postData_admin } from '@/lib/data'
 import { getErrorMessage, reorderPosts } from '@/lib/utils'
-import AddButton from './SubmitButton'
+import SubmitButton from './SubmitButton'
 
 const PostEditList = ({ datas, postTypeID }: any) => {
   const [message, setMessage] = useState<string>('')
@@ -101,7 +101,7 @@ const PostEditList = ({ datas, postTypeID }: any) => {
         </DragDropContext>
       </div>
       <div className="flex mx-8 mt-4">
-        <AddButton
+        <SubmitButton
           text="순서 변경하기"
           isLoading={isLoading}
           isForSubmit={false}

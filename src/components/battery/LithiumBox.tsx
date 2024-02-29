@@ -65,7 +65,7 @@ export default function LithiumBox() {
                   transition={{
                     duration: 0.3,
                   }}
-                  className="transition-all block lg:hidden group-hover:flex rounded-xl w-16 h-8 p-5 items-center justify-center bg-primary-green"
+                  className="transition-all block lg:hidden lg:group-hover:flex rounded-xl w-16 lg:h-8 p-5 items-center justify-center bg-primary-green"
                 >
                   <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
                 </motion.button>

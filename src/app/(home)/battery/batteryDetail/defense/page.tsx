@@ -6,8 +6,8 @@ import { Metadata } from 'next'
 import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
-  title: 'About Defense Ni-cd',
-  description: 'IBT 방산용 Ni-cd 배터리 제품 소개 페이지',
+  title: '(주)아이비티 방산용 Ni-cd',
+  description: '방산용 Ni-cd 배터리 제품 소개 페이지',
 }
 
 const BatteryDefensePage = async () => {
@@ -27,7 +27,6 @@ const BatteryDefensePage = async () => {
 
           {/* 테스트용 */}
           {/* <BatteryItem detailInfo={defenseList} mainCategoryIndex={0} /> */}
-
         </div>
       </div>
     </>

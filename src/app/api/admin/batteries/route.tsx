@@ -6,7 +6,6 @@ export const dynamic = 'force-dynamic'
 export const GET = async (request: NextRequest) => {
   try {
     connectToDb()
-
     const batteryPages = await BatteryPage.find().exec()
     return NextResponse.json(batteryPages)
   } catch (err) {

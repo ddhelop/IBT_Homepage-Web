@@ -6,10 +6,9 @@ import { Metadata } from 'next'
 import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
-  title: 'About Energy Save Lithium',
-  description: 'IBT 에너지 저장용 리튬 배터리 제품 소개 페이지',
+  title: '(주)아이비티 에너지저장 Lithium',
+  description: '에너지 저장용 리튬 배터리 제품 소개 페이지',
 }
-
 const BatteryEnergySavePage = async () => {
   const data = await fetchPageData(3)
 

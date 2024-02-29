@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import BatteryDetail from '@/components/battery/BatteryDetail'
 
 export const metadata: Metadata = {
-  title: 'About Others',
+  title: '(주)아이비티 기타 배터리 제품',
   description: 'IBT 배터리 제품 소개 페이지',
 }
 

@@ -18,7 +18,7 @@ export default function IntroComponent5(): JSX.Element {
   const Variants: Variants = {
     offscreen: {
       opacity: 0,
-      scale: 0,
+      scale: 0.8,
     },
     onscreen: {
       opacity: 1,
@@ -26,7 +26,7 @@ export default function IntroComponent5(): JSX.Element {
 
       transition: {
         duration: 0.7,
-        ease: [0, 0.4, 0.8, 1.2],
+        ease: 'easeOut',
 
         bounce: 0.5,
       },
@@ -91,35 +91,55 @@ export default function IntroComponent5(): JSX.Element {
               ref={ref}
               className="w-full flex flex-row justify-center space-x-12 md:space-x-40 lg:space-x-80 mt-16 md:mt-20 text-5xl md:text-6xl font-bold"
             >
-              <div className="flex flex-col relative z-10 justify-center ">
-                <div className="flex flex-row justify-center">
-                  <motion.div className="text-white">
-                    {displayValue1}
-                    <span className="relative bottom-6">+</span>
-                  </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.5,
+                  ease: 'easeOut',
+                }}
+                className="flex flex-col z-10 justify-center text-white"
+              >
+                <div className="flex justify-center">
+                  {displayValue1}
+                  <span className="relative bottom-6 left-1">+</span>
                 </div>
-                <p className="text-white mt-3 mr-6 font-light text-xl">{IntroComponentData[1].first?.[isEnglish]}</p>
-              </div>
+                <p className="mt-3 mr-6 font-light text-xl">{IntroComponentData[1].first?.[isEnglish]}</p>
+              </motion.div>
 
-              <div className="flex flex-col relative z-10 justify-center">
-                <div className="flex flex-row justify-center">
-                  <motion.div className="text-white">
-                    {displayValue2}
-                    <span className=" relative bottom-6">+</span>
-                  </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.5,
+                  ease: 'easeOut',
+                }}
+                className="flex flex-col z-10 justify-center text-white"
+              >
+                <div className="flex justify-center">
+                  {displayValue2}
+                  <span className="relative bottom-6 left-1">+</span>
                 </div>
-                <p className="text-white mt-3 mr-6 font-light text-xl">{IntroComponentData[1].second?.[isEnglish]}</p>
-              </div>
-
-              <div className="flex flex-col relative z-10 justify-center ">
-                <div className="flex flex-row justify-center">
-                  <div className="text-white ">
-                    {displayValue3}
-                    <span className=" relative bottom-6 left-1">+</span>
-                  </div>
+                <p className="mt-3 mr-6 font-light text-xl">{IntroComponentData[1].second?.[isEnglish]}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.5,
+                  ease: 'easeOut',
+                }}
+                className="flex flex-col z-10 justify-center text-white"
+              >
+                <div className="flex justify-center">
+                  {displayValue3}
+                  <span className="relative bottom-6 left-1">+</span>
                 </div>
-                <p className="text-white mt-3 mr-6 font-light text-xl">{IntroComponentData[1].third?.[isEnglish]}</p>
-              </div>
+                <p className="mt-3 mr-6 font-light text-xl">{IntroComponentData[1].third?.[isEnglish]}</p>
+              </motion.div>
             </div>
           </div>
         </div>

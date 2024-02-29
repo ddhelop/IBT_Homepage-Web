@@ -10,16 +10,6 @@ import { batteriesData_admin, postData_admin } from './data'
 import { deleteS3Object, getSignedFileUrl } from './awsUtils'
 import { Category, PostType } from './types'
 
-export const compare = async (username: string, password: string) => {
-  if (
-    username == (process.env.ADMIN_ID as unknown as string) &&
-    password == (process.env.ADMIN_PASSWORD as unknown as string)
-  ) {
-    return true
-  } else {
-    return false
-  }
-}
 export const fetchPostData = async (id: number) => {
   const res = await fetch(`${process.env.URL}/api/admin/posts/${id}`, {
     method: 'GET',
@@ -139,7 +129,7 @@ export const sendEmail = async (formData: FormData) => {
       from: '(주)아이비티 <onboarding@resend.dev>',
       // to: 'neoself1105@gmail.com',
       to: 'sales2@ibteng.co.kr',
-      subject: `${category}에 대한 견적문의: ${title}`,
+      subject: `${category}: ${title}`,
       reply_to: email,
       react: React.createElement(ContactFormEmail, {
         message: desc,
