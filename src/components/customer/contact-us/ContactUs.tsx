@@ -10,9 +10,12 @@ export default function ContactUs() {
   const [error, setError] = useState<string>('')
   const onClearText = () => {
     const isConfirmed = window.confirm('모든 입력 내용을 지우시겠습니까?')
-    if (isConfirmed) ref.current?.reset()
+    if (isConfirmed) {
+      ref.current?.reset()
+      setDesc('')
+    }
   }
-  const products = ['제품문의', '견적문의', 'asdf', 'asdf', 'asdf', 'asdf']
+  const products = ['제품문의', '견적문의']
   return (
     <div className="w-full flex flex-col items-center mb-56">
       {/* Wrapper */}
@@ -32,13 +35,14 @@ export default function ContactUs() {
             const { data, error } = await sendEmail(formData)
             if (error) {
               setError(error)
+            } else {
+              window.alert('이메일을 성공적으로 보냈습니다')
             }
           }}
           className="w-[min(92%,72rem)] flex flex-col pt-20"
         >
           {/* Input Form */}
           {/* 분류 */}
-
           <div className="w-full flex flex-row border-b border-gray-[#cdcdcd] border-t-2 border-t-black">
             <div className="w-[20%] h-12 flex justify-center items-center bg-[#fafafa]">
               <p className="text-sm">분류</p>
