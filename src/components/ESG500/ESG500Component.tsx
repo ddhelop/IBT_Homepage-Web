@@ -17,7 +17,7 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
   return (
     <>
       <div className="w-full p-5 md:p-20 flex flex-col items-center lg:items-start min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden whitespace-pre-wrap">
-        <div className="flex w-full mt-40 md:mt-20">
+        <div className="flex flex-col w-full mt-40 md:mt-20 items-center lg:gap-x-16 lg:flex-row">
           <div className="w-1/2 flex flex-col items-center">
             <RightMotionComponent component={motion.div}>
               <Image
@@ -40,8 +40,8 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
               />
             </RightMotionComponent>
           </div>
-          <LeftMotionComponent component={motion.div} className="flex flex-col w-2/5 mt-2">
-            <h2 className="text-2xl leading-9 mb-12">{ESG500Data?.[0].title?.[isEnglish]}</h2>
+          <LeftMotionComponent component={motion.div} className="flex flex-col w-3/5 lg:w-2/5 mt-20 lg:mt-2 ">
+            <h2 className="text-2xl leading-9 mb-12 text-center lg:text-left">{ESG500Data?.[0].title?.[isEnglish]}</h2>
             <p className="leading-7 text-sm text-[#7b7b7b]">{ESG500Data?.[0].contents?.[isEnglish]}</p>
           </LeftMotionComponent>
         </div>
