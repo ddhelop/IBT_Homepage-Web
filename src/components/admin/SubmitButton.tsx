@@ -4,7 +4,7 @@ export default function SubmitButton({ text, isForSubmit, isActive, func = null,
   return (
     <button
       type={isForSubmit ? 'submit' : 'button'}
-      className={`p-4 w-32 rounded-lg transition font-bold
+      className={`p-4 w-32 rounded-lg transition font-medium
             ${isActive ? 'bg-[#04BF7B] text-white shadow-md' : 'bg-gray-200 shadow-none text-gray-400'}`}
       disabled={!isActive}
       onClick={isForSubmit ? null : func}

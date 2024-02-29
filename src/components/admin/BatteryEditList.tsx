@@ -17,7 +17,6 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
   const [message, setMessage] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [temp, setTemp] = useState<Category[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
-
   const onCategoryListDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
@@ -51,15 +50,20 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
   }
 
   return (
-    <div className="flex flex-col w-[640px] bg-gray-50 rounded-lg">
-      <CategoryDnd
-        datas={datas}
-        onCategoryListDragEnd={onCategoryListDragEnd}
-        categoryList={categoryList}
-        handleDelete={handleDelete}
-      />
+    <div className="flex flex-col w-[640px] justify-between bg-white shadow-md border rounded-lg p-4 min-h-[480px] mb-2">
+      <h1 className="text-xl font-bold text-center mb-4 text-gray-600">
+        {batteriesData_admin[batteryId].title + '페이지 리스트'}
+      </h1>
+      <div className="bg-gray-100 rounded-lg flex-1">
+        <CategoryDnd
+          datas={datas}
+          onCategoryListDragEnd={onCategoryListDragEnd}
+          categoryList={categoryList}
+          handleDelete={handleDelete}
+        />
+      </div>
       <h1 className="text-gray-600 text-sm px-6 mt-4">{message}</h1>
-      <div className="p-4 flex items-center gap-8">
+      <div className="p-4 flex items-center gap-4">
         <SubmitButton
           text="순서 변경하기"
           isLoading={isLoading}
@@ -69,10 +73,10 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
         />
         <Link
           href={`/admin/batteries/${batteryId}`}
-          className=" p-2 rounded-full
-       bg-[#04BF7B] text-white shadow-lg"
+          className="p-4 rounded-lg border
+       border-[#04BF7B] text-[#04BF7B] shadow-lg"
         >
-          <FaPlus size={32} />
+          {batteriesData_admin[batteryId].title + `페이지 추가하기`}
         </Link>
       </div>
     </div>
