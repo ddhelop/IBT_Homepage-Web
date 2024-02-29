@@ -17,7 +17,7 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
   return (
     <>
       <div className="w-full p-5 md:p-20 flex flex-col items-center lg:items-start min-h-screen bg-no-repeat bg-cover bg-white overflow-hidden whitespace-pre-wrap">
-        <div className="flex w-full mt-40 md:mt-20">
+        <div className="flex w-full mt-40 md:mt-20 gap-12 lg:gap-0">
           <div className="w-1/2 flex flex-col items-center">
             <RightMotionComponent component={motion.div}>
               <Image
