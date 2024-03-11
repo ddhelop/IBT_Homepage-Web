@@ -29,7 +29,7 @@ export default function BatteryDetail({ title, explain }: Props) {
         {/* 배터리 설명 */}
         <div className="relative text-center lg:my-28 my-32 items-center">
           <div className="text-2xl px-5 text-center font-bold text-primary-green leading-extra-loose whitespace-pre-line text-balance break-keep">
-            {explain[isEnglish].map((data: any, i: number) => (
+            {explain[isEnglish]?.map((data: any, i: number) => (
               <h1 key={i} className="text-balance">
                 {data}
               </h1>
