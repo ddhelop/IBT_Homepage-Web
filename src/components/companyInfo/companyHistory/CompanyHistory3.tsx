@@ -13,7 +13,7 @@ export default function CompanyHistory3() {
       <div className="mt-20 w-full flex flex-col lg:items-end whitespace-pre-wrap">
         {/* top */}
         <div className="ml-8 lg:ml-0 lg:w-[91.5%] flex flex-col items-center ">
-          <div className="lg:ml-24 w-[50%] lg:w-[26%]">
+          <div className="lg:ml-44 w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2005</h3>
               <p className="font-light text-sm mb-10">{CompanyInfoData[2][2005]?.[isEnglish]}</p>
@@ -33,7 +33,7 @@ export default function CompanyHistory3() {
 
         {/* middle */}
         <div className="ml-8 lg:ml-0 lg:w-[91.5%] flex flex-col items-center relative">
-          <div className="lg:ml-24 w-[50%] lg:w-[28%]">
+          <div className="lg:ml-44 w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
               <Image
                 src="/info/2003.png" // 이미지 경로
