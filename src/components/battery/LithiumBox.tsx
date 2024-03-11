@@ -80,11 +80,11 @@ export default function LithiumBox() {
                 transition={{
                   duration: 0.3,
                 }}
-                className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden"
+                className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden whitespace-pre-line"
               >
                 {isEnglish
                   ? `Our LiFePO4 batteries are loved by customers in various areas such as golf cars, forklifts, AGVs, ships, communications, UPSs, and special use due to their small volume, light weight, high power efficiency, and very easy charge and discharge management.`
-                  : 'IBT의 LiFePO4 배터리는 부피가 작고 가볍고 전력효율이 높으며, 충방전 관리가 매우 용이하여 골프카, 지게차, AGV, 선박, 통신, UPS, 특수용 등 다양한 영역의 고객에게 사랑받고 있습니다.'}
+                  : 'IBT의 LiFePO4 배터리는 부피가 작고\n가볍고 전력효율이 높으며, 충방전\n관리가 매우 용이하여 골프카, 지게차,\nAGV, 선박, 통신, UPS, 특수용 등\n다양한 영역의 고객에게 사랑받고\n있습니다.'}
               </motion.p>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">

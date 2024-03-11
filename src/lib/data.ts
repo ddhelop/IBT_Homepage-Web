@@ -99,7 +99,7 @@ export const contents = [
   {
     title: ['친환경 에너지', 'Green Energy'],
     text: [
-      '지속 가능한 미래를 만들어 가고 있는 IBT의 그린 에코 기술은 \n지구 온난화와 기후 위기를 해결하고 인류의 삶의 질을 높이는 데에 기여할 것입니다.',
+      '지속 가능한 미래를 만들어 가고 있는 IBT의 그린 에코 기술은\n지구 온난화와 기후 위기를 해결하고 인류의 삶의 질을 높이는 데에 기여할 것입니다.',
       `IBT's Green Eco Technology is contributing to a sustainable future,\nsolving climate crisis, and enhancing the quality of life for humanity.`,
     ],
     background: '/intro/intro1.png',
@@ -1147,29 +1147,63 @@ export const batteryList = [
   {
     title: ['방산용 Ni-cd', 'Defense Ni-cd'],
     explain: [
-      'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도\n안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를\n신뢰를 바탕으로 공급해왔습니다.',
-      'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability and can be safely used in poor environments such as cold and hot weather.',
+      [
+        'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도',
+        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를',
+        '신뢰를 바탕으로 공급해왔습니다.',
+      ],
+      [
+        'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability',
+        'and can be safely used in poor environments such as cold and hot weather.',
+      ],
     ],
   },
   {
     title: ['산업용 Ni-cd', 'Industrial Ni-cd'],
     explain: [
-      'IBT는 고객의 니즈에 따라\n고에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.\n우수한 가격 경쟁력과 진동, 충격에 강한 내구성을 가지고 있습니다.',
-      'We provide a variety of products with high energy density and high output characteristics according to customer needs\nIt has excellent price competitiveness and strong durability against vibration and shock.',
+      [
+        'IBT는 고객의 니즈에 따라',
+        '고에너지 밀도 고출력 특성을 갖춘 다양한 제품을 제공하고 있습니다.',
+        '우수한 가격 경쟁력과 진동, 충격에 강한 내구성을 가지고 있습니다.',
+      ],
+      [
+        'We provide a variety of products with high energy density and high output characteristics according to customer needs',
+        'It has excellent price competitiveness and strong durability against vibration and shock.',
+      ],
     ],
   },
   {
     title: ['동력용 Lithium', 'Power Lithium'],
     explain: [
-      '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.\n높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.\n관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.\n낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
-      'High Energy Density - High energy density compared to storage batteries and nickel-cadmium, it is smaller in volume and lighter in weight.\nHigh electromotive force - The electromotive force of a lithium iron phosphate battery is 3.2V, which reduces the number of components when high power is required.\nEasy to manage - There is no Memory effect, so it can be charged even when it is not completely discharged.\nLow self-discharge rate - less than 5%/month self-discharge rate with very little power loss due to self-discharge.',
+      [
+        '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.',
+        '높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.',
+        '관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.',
+        '낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+      ],
+      [
+        'High Energy Density - High energy density compared to storage batteries and nickel-cadmium, it is smaller in volume and lighter in weight.',
+        'High electromotive force - The electromotive force of a lithium iron phosphate battery is 3.2V, which reduces the number of components when high power is required.',
+        'Easy to manage - There is no Memory effect, so it can be charged even when it is not completely discharged.',
+        'Low self-discharge rate - less than 5%/month self-discharge rate with very little power loss due to self-discharge.',
+      ],
     ],
   },
   {
     title: ['에너지저장용 Lithium', 'Energy Storage Lithium'],
     explain: [
-      '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.\n높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.\n관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.\n낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
-      'High Energy Density - High energy density compared to storage batteries and nickel-cadmium, it is smaller in volume and lighter in weight.\nHigh electromotive force - The electromotive force of a lithium iron phosphate battery is 3.2V, which reduces the number of components when high power is required.\nEasy to manage - There is no Memory effect, so it can be charged even when it is not completely discharged.\nLow self-discharge rate - less than 5%/month self-discharge rate with very little power loss due to self-discharge.',
+      [
+        '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.',
+        '높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.',
+        '관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.',
+        '낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+      ],
+      [
+        'High Energy Density - High energy density compared to storage batteries and nickel-cadmium, it is smaller in volume and lighter in weight.',
+        'High electromotive force - The electromotive force of a lithium iron phosphate battery is 3.2V, which reduces the number of components when high power is required.',
+        'Easy to manage - There is no Memory effect, so it can be charged even when it is not completely discharged.',
+        'Low self-discharge rate - less than 5%/month self-discharge rate with very little power loss due to self-discharge.',
+      ],
     ],
   },
 ]
