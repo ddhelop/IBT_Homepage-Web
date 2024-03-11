@@ -12,8 +12,8 @@ export default function CompanyHistory2() {
     <>
       <div className="mt-20 w-full flex flex-col lg:items-end whitespace-pre-wrap">
         {/* top */}
-        <div className="mr-32 lg:mr-0 lg:w-[87%] flex flex-col items-center">
-          <div className="w-[50%] lg:w-[26%]">
+        <div className="mr-28 lg:mr-0 lg:w-[87%] flex flex-col items-center">
+          <div className="ml-16 lg:ml-0 w-[50%] lg:w-[26%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2014</h3>
               <p className="font-light text-sm mb-7">{CompanyInfoData[2][2014]?.[isEnglish]}</p>
