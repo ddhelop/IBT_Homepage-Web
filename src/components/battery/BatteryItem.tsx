@@ -8,7 +8,6 @@ import { Product } from '@/lib/types'
 import { useRecoilValue } from 'recoil'
 import { isEnglishState } from '@/context/recoil-context'
 
-
 interface DetailInfo {
   id: number
   title: string // 소분류카테고리명
@@ -92,7 +91,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             {/* 에너지저장용 설명 - 다른 페이지와 양식 다름 */}
             {mainCategoryIndex === 3 ? (
               <>
-                <div className="w-full px-10 mb-10 leading-extra-loose text-xl whitespace-pre-line">
+                <div className="w-full px-10 mb-10 leading-extra-loose text-xl whitespace-pre-line break-keep">
                   {detailInfo[categoryIndex].itemAdvanced}
                 </div>
               </>
@@ -108,7 +107,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                   {/* 제품명 */}
                   {detailInfo[categoryIndex].itemTitle}
                 </div>
-                <div className="lg:text-2xl text-xl text-center font-[350] mb-10">
+                <div className="lg:text-2xl text-xl text-center font-normal mb-10 whitespace-pre-line">
                   {/* 제품 추가 설명 */}
                   {detailInfo[categoryIndex].itemSubtitle}
                 </div>
@@ -130,7 +129,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
               ''
             ) : (
               <>
-                <div className="text-2xl font-[350] mb-4 text-center whitespace-pre-line basis-1/2">
+                <div className="text-2xl font-normal mb-4 text-center whitespace-pre-line basis-1/2 break-keep text-balance">
                   {detailInfo[categoryIndex].itemAdvanced}
                 </div>
               </>
