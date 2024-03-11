@@ -78,18 +78,18 @@ export default function NicdBox() {
             {/* 컨텐츠 본문 */}
             <div className="mt-8">
               {/* 기본은 보이게, group hover시 hidden */}
-              <motion.p
+              <motion.h3
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{
                   duration: 0.3,
                 }}
-                className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden"
+                className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden lg:whitespace-pre-line"
               >
                 {isEnglish
                   ? `IBT's Ni-cd batteries are essential for stable operation of weapons systems in defense, continuity of power supply in UPS, and safe operation in railway.`
-                  : '방산 분야에서는 무기 시스템의 안정적인 작동을 위해, UPS 분야에서는 전력 공급의 연속성을 위해, 철도 분야에서는 안전한 운행을 위해 IBT의 Ni-cd 배터리가 필수적으로 사용되고 있습니다.'}
-              </motion.p>
+                  : '방산 분야에서는 무기 시스템의\n안정적인 작동을 위해,\nUPS 분야에서는 전력 공급의\n연속성을 위해, 철도 분야에서는\n안전한 운행을 위해 IBT의 Ni-cd\n배터리가 필수적으로 사용되고\n있습니다.'}
+              </motion.h3>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
                 <Link prefetch className="w-full" href="/battery/batteryDetail/defense">
