@@ -1,5 +1,3 @@
-import HydrogenPage from '@/components/hydrogen/HydrogenPage'
-import { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata = {
@@ -9,12 +7,6 @@ export const metadata = {
 
 export default function pagHydrogenPage() {
   return (
-    // <div className="flex justify-center min-h-[90vh]">
-    // <div className="w-[min(92%,1080px)]">
-    // <HydrogenPage />
-    // </div>
-    // </div>
-
     // 임시
     <div className="flex flex-col w-full items-center justify-center">
       <p className="text-4xl text-[#79AD4B] mt-48 mb-32">HYDROGEN</p>
