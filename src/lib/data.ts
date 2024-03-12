@@ -249,8 +249,7 @@ export const CompanyInfoData = [
     ],
     2018: ['AS9100 항공우주 품질경영시스템 인증 획득', 'AS9100 Aerospace Quality Management System Certification'],
     2017: [
-      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등
-    시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
+      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등 시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
       `Development and Standardization of Storage Batteries and Chargers for Urban Railroad Vehicles\n\nDevelopment of Solar Cell-type High-Sensitivity Air Disability Indicator System\n\nDevelopment of Lithium Iron Phosphate Cell System for Ships`,
     ],
     2015: [
