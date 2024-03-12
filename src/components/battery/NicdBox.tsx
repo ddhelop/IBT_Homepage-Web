@@ -55,7 +55,7 @@ export default function NicdBox() {
             <div className="flex justify-between items-center">
               <div>
                 <div className="text-black text-5xl lg:text-4xl font-bold lg:font-medium mb-1.5 lg:mt-0 mt-3">
-                  Ni-cd
+                  Ni-Cd
                 </div>
                 <div className="text-gray-600 text-xl lg:text-sm font-bold">
                   {isEnglish ? 'nickel-cadmium storage battery' : '니켈카드뮴축전지'}
@@ -87,8 +87,8 @@ export default function NicdBox() {
                 className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden lg:whitespace-pre-line"
               >
                 {isEnglish
-                  ? `IBT's Ni-cd batteries are essential for stable operation of weapons systems in defense, continuity of power supply in UPS, and safe operation in railway.`
-                  : '방산 분야에서는 무기 시스템의\n안정적인 작동을 위해,\nUPS 분야에서는 전력 공급의\n연속성을 위해, 철도 분야에서는\n안전한 운행을 위해 IBT의 Ni-cd\n배터리가 필수적으로 사용되고\n있습니다.'}
+                  ? `IBT's Ni-Cd batteries are essential for stable operation of weapons systems in defense, continuity of power supply in UPS, and safe operation in railway.`
+                  : '방산 분야에서는 무기 시스템의\n안정적인 작동을 위해,\nUPS 분야에서는 전력 공급의\n연속성을 위해, 철도 분야에서는\n안전한 운행을 위해 IBT의 Ni-Cd\n배터리가 필수적으로 사용되고\n있습니다.'}
               </motion.h3>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
