@@ -74,7 +74,7 @@ export default function DirectionsComponent() {
 
           <div className="flex flex-col lg:flex-row items-center">
             <RightMotionComponent component={motion.div}>
-              <GoogleMapComponent lat={35.234260075696} lng={126.86200816162} />
+              <GoogleMapComponent lat={37.549452033456} lng={127.05127894488} />
             </RightMotionComponent>
 
             <LeftMotionComponent
