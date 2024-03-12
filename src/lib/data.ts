@@ -249,8 +249,7 @@ export const CompanyInfoData = [
     ],
     2018: ['AS9100 항공우주 품질경영시스템 인증 획득', 'AS9100 Aerospace Quality Management System Certification'],
     2017: [
-      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등
-    시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
+      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등 시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
       `Development and Standardization of Storage Batteries and Chargers for Urban Railroad Vehicles\n\nDevelopment of Solar Cell-type High-Sensitivity Air Disability Indicator System\n\nDevelopment of Lithium Iron Phosphate Cell System for Ships`,
     ],
     2015: [
@@ -1129,7 +1128,7 @@ export const ESG500Data = [
       `We base our business on transparency and integrity.\n\nWe prioritize fair and ethical behavior in all our relationships with stakeholders, which forms the foundation of our trust in the market. \n\nWe believe that ethical decisions provide the greatest value to both the company and society in the long term.`,
     ],
     contents3: [
-      `식은 변화하는 시장과 기술에 대응하기 위한 우리의 열쇠입니다.\n\n우리는 지속적인 학습과 혁신을 통해 경쟁력을 강화하고, 새로운 기회를 창출합니다.\n\n지식 공유와 협업을 장려함으로써, IBT는 업계의 선도적인 위치를 유지하고, 지속 가능한 성장을 이끌어갈 수 있습니다`,
+      `지식은 변화하는 시장과 기술에 대응하기 위한 우리의 열쇠입니다.\n\n우리는 지속적인 학습과 혁신을 통해 경쟁력을 강화하고, 새로운 기회를 창출합니다.\n\n지식 공유와 협업을 장려함으로써, IBT는 업계의 선도적인 위치를 유지하고, 지속 가능한 성장을 이끌어갈 수 있습니다`,
       `Knowledge is our key to responding to changing markets and technologies.\n\nBy fostering continuous learning and innovation, we enhance our competitiveness and create new opportunities.\n\nBy encouraging knowledge sharing and collaboration, we can maintain our leading position in the industry and drive sustainable growth.`,
     ],
   },
