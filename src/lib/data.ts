@@ -1376,7 +1376,7 @@ export const headerData = [
   },
   {
     title: ['BATTERY'],
-    subTitle1: ['Ni-cd'],
+    subTitle1: ['Ni-Cd'],
     subTitle2: ['Lithium'],
     subTitle3: ['기타', 'Others'],
   },
