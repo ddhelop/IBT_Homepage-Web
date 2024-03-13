@@ -47,7 +47,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
           }}
           className="w-full lg:w-[65%]"
         >
-          <div className={'flex flex-row items-center justify-center mb-40 shadow-xl'}>
+          <div className={'flex flex-row items-center justify-center mb-40'}>
             {detailInfo.map((v, i) => {
               return (
                 // 소분류 카테고리 박스
@@ -56,9 +56,9 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                   key={i}
                   className={`${
                     categoryIndex == i
-                      ? 'opacity-100 font-semibold bg-primary-green text-white drop-shadow-2xl shadow-lg'
-                      : 'opacity-40 font-semibold bg-gray-200 hover:bg-gray-700 border-y border-gray-500 text-black'
-                  } relative w-96 h-16 z-0`}
+                      ? 'opacity-100 font-semibold bg-primary-green'
+                      : 'opacity-40 font-semibold bg-category-back hover:bg-gray-700'
+                  } relative w-96 h-16 text-white z-0`}
                   onClick={() => setCategoryIndex(i)}
                 >
                   <div className="absolute flex justify-center items-center z-10 w-full h-full text-2xl">{v.title}</div>
