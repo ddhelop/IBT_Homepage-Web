@@ -102,7 +102,7 @@ const PostEditList = ({ datas, postTypeID }: any) => {
       </div>
       <div className="flex mx-8 mt-4">
         <SubmitButton
-          text="순서 변경하기"
+          text="수정 완료"
           isLoading={isLoading}
           isForSubmit={false}
           func={() => onSubmit()}

@@ -65,7 +65,7 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
       <h1 className="text-gray-600 text-sm px-6 mt-4">{message}</h1>
       <div className="p-4 flex items-center gap-4">
         <SubmitButton
-          text="순서 변경하기"
+          text="수정 완료"
           isLoading={isLoading}
           isForSubmit={false}
           func={() => onSubmit()}
