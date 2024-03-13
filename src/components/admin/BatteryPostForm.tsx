@@ -162,6 +162,18 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                   name="itemSubtitle"
                   className="bg-gray-100 rounded-md py-2 px-3 w-full font-medium mb-4"
                 />
+                <h2 className="mb-2">
+                  <span className="text-red-400">*</span>배터리 설명
+                </h2>
+
+                <textarea
+                  required
+                  name="itemAdvanced"
+                  onChange={(e) => setDesc(e.target.value)}
+                  className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
+                  rows={5}
+                  cols={33}
+                />
               </div>
               <div className="flex flex-2 flex-col">
                 <h2 className="mb-2">
@@ -176,21 +188,6 @@ const BatteryPostForm = ({ batteryId }: PostFormProp) => {
                 </div>
                 <input required type="file" accept="image/*" onChange={(e) => showImage(e, 'catelog')} />
               </div>
-            </div>
-
-            <h2 className="mb-2">
-              <span className="text-red-400">*</span>배터리 설명 / 내용 형식 미리보기:
-            </h2>
-            <div className="flex">
-              <textarea
-                required
-                name="itemAdvanced"
-                onChange={(e) => setDesc(e.target.value)}
-                className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8 basis-1/2"
-                rows={5}
-                cols={33}
-              />
-              <div className="text-center whitespace-pre-line basis-1/2">{desc}</div>
             </div>
           </div>
           <div className="border m-4"></div>
