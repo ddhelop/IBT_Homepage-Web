@@ -288,13 +288,15 @@ const IntroSlider = ({ data }: NewsData) => {
               {data?.map((v, i) => (
                 <div
                   key={i}
-                  className={'w-48 h-full relative flex flex-col justify-center items-center overflow-hidden'}
+                  className={'w-52 h-full relative flex flex-col justify-center items-center overflow-hidden'}
                 >
-                  <div key={i} className={`relative shrink-0 w-56 h-56 mx-4 `}>
+                  <div key={i} className={`relative shrink-0 w-52 h-56 mx-4 `}>
                     <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                   </div>
-                  <div className="relative shrink-0 w-56 text-base font-bold overflow-hidden">{v.title}</div>
-                  <div className="relative shrink-0 w-56 h-40 lg:h-12 text-base font-medium mt-2 ">{v.desc}</div>
+                  <div className="relative shrink-0 w-52 text-base font-bold overflow-hidden">{v.title}</div>
+                  <div className="relative shrink-0 w-52 h-40 lg:h-12 text-base font-medium mt-2 break-keep">
+                    {v.desc}
+                  </div>
                 </div>
               ))}
             </div>
