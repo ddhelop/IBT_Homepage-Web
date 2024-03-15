@@ -280,10 +280,13 @@ export const CompanyInfoData = [
       `광주광역시 선도산업 지원과제 수행 (NEV용 Ni-MH)`,
       `Gwangju Metropolitan City's Leading Industry Support Project (Ni-MH for NEV)`,
     ],
-    2008: [`T-50 고등훈련기용 니켈카드뮴축전지 개발\nKTX 객차 및 동차용 니켈카드뮴 축전지 개발`, ``],
+    2008: [
+      `T-50 고등훈련기용 니켈카드뮴축전지 개발\nKTX 객차 및 동차용 니켈카드뮴 축전지 개발`,
+      `Development of nickel cadmium storage batteries for T-50 advanced trainers\nDevelopment of nickel-cadmium storage batteries for KTX coaches and trains`,
+    ],
     2006: [
       `배기식 니켈수소전지 특허등록\n500MD 헬기용 축전지 국산화 개발\nF-4/5 전투기용 축전지 국산화 개발\n우수재활용 제품(GR) 인증\n천마 지대공 유도무기용 축전지 개발`,
-      `Development of nickel cadmium storage batteries for T-50 advanced trainers\nDevelopment of nickel-cadmium storage batteries for KTX coaches and trains`,
+      `Patent Registration for Exhaust-type Nickel Hydrogen Battery\nLocalization Development of Storage Battery for 500MD Helicopters\nDevelopment of localization of storage batteries for F-4/5 fighter jets\nCertification of Excellent Recycling Products (GR)\nDevelopment of storage batteries for guided weapons of Cheonma surface-to-air use`,
     ],
     text2: [
       `국산화의 선두주자,\n글로벌 경쟁력을 강화하다`,
