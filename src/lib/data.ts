@@ -212,7 +212,7 @@ export const CompanyInfoData = [
     ],
     contents: [
       `브랜드 컬러인 IBT 그린은 친환경 이념을,
-      우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.
+      우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.\n
       ‘International Battery Technology’의 약자인 IBT는,
       세계를 선도하는 한국의 기업으로 성장할 것입니다.`,
       `The brand color IBT Green represents the eco-friendly ethos
@@ -249,8 +249,7 @@ export const CompanyInfoData = [
     ],
     2018: ['AS9100 항공우주 품질경영시스템 인증 획득', 'AS9100 Aerospace Quality Management System Certification'],
     2017: [
-      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등
-    시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
+      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등 시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
       `Development and Standardization of Storage Batteries and Chargers for Urban Railroad Vehicles\n\nDevelopment of Solar Cell-type High-Sensitivity Air Disability Indicator System\n\nDevelopment of Lithium Iron Phosphate Cell System for Ships`,
     ],
     2015: [
@@ -709,162 +708,164 @@ export const intellectualData = [
     color: ['#f7f7f7', '#f7f7f7'],
     rowSpan: 1,
   },
-  {
-    complete: ['2021.07', '2021.07'],
-    productName: ['LAH 주 배터리 국산화', 'LAH State Battery Localization'],
-    contents: ['LAH 주 배터리 개발', 'LAH Main Battery Development'],
-    deliveryDestination: ['한국항공우주산업', 'Korea Aerospace Industries Co., Ltd'],
-    etc: ['', ''],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2013.11', '2013.11'],
-    productName: ['전지, 축전식/트레이, 전지용', 'Battery, Power Storage/Tray, Battery'],
-    contents: [
-      'T-50, TA-50, FA-50용 축전지 국산화개발',
-      'Localization Development of Storage Batteries for T-50, TA-50, FA-50',
-    ],
-    deliveryDestination: ['한국항공', 'Korean Air'],
-    etc: ['', ''],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['2011.06', '2011.06'],
-    productName: ['발칸용 전지', 'Batteries for Balkans'],
-    contents: ['20mm 발관포용 축전지 개발', 'Development of Storage Batteries for 20mm Balkan Bags'],
-    deliveryDestination: ['방위사업청', 'Defense Acquisition Program Administration'],
-    etc: ['', ''],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2010.01', '2010.01'],
-    productName: ['리튬인산철 전지', 'Lithium Iron Phosphate Battery'],
-    contents: ['전동카트용 리튬전지', 'A Lithium Battery for an Electric Cart'],
-    deliveryDestination: ['나라장터', 'Nara Market'],
-    etc: ['', ''],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['2010.04', '2010.04'],
-    productName: ['UH-60 축전지', 'UH-60 Storage Battery'],
-    contents: ['UH-60 헬기용 축전지 개발사업', 'Development of Storage Batteries for UH-60 Helicopters'],
-    deliveryDestination: ['방위사업청', 'Defense Industry Agency'],
-    etc: ['', ''],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2008.04', '2008.04'],
-    productName: ['고속훈련기용 축전지개발', 'Development of storage batteries for advanced trainers'],
-    contents: ['T-50 항공기 축전지 개발사업', 'T-50 Aircraft Storage Battery Development Project'],
-    deliveryDestination: ['한국항공', 'Korean Air'],
-    etc: ['항공우주부품 기술개발사업', 'Aerospace Component Technology Development Project'],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['2008.04', '2008.04'],
-    productName: ['KTX 축전지', 'KTX Storage Battery'],
-    contents: ['KTX 축전지 개발 사업', 'KTX Storage Battery Development Project'],
-    deliveryDestination: ['철도공사', 'Korea Railroad Corporation'],
-    etc: ['중기청 구매조건부신제품 개발사업', 'New Product Development Project'],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2007.01', '2007.01'],
-    productName: [
-      '초고율대용량 니켈수소 축전지 국산화 개발',
-      'Localized development of ultra-high capacity nickel hydrogen storage batteries',
-    ],
-    contents: [
-      '대용량 전력용 니켈수소 축전지 개발 사업',
-      'Development Project of Nickel Hydrogen Storage Battery for High Capacity Power ',
-    ],
-    deliveryDestination: ['한국전력공사', 'Korea Electric Power Corporation'],
-    etc: ['전력산업 연구개발 사업', 'Power business research and development business'],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['2006.12', '2006.12'],
-    productName: ['전지, 축전식', 'Battery, Power storage'],
-    contents: ['유량 천마 장갑차용 축전지 개발', 'Development of storage batteries for Army Cheonma Armored Vehicles'],
-    deliveryDestination: ['육군 군수사령부', 'Army Munitions Command'],
-    etc: ['', ''],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2004.04', '2004.04'],
-    productName: ['배기식 니켈수소 전지', 'exhaust Nickel Hydrogen Battery'],
-    contents: ['환경친화적 니켈수소 전지 개발', 'Development of Environmentally Friendly Nickel Hydrogen Battery'],
-    deliveryDestination: ['포스코, 수원시청, 효성중공업', 'POSCO, Suwon City Hall, Hyosung Heavy Industries'],
-    etc: ['특허출원', 'Patent Application'],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['2004.05', '2004.05'],
-    productName: ['F-4/5 축전지', 'F-4/5 Storage Batteries'],
-    contents: [
-      'F-4/5 전투기용 축전지 국산화 개발',
-      'Development of localized storage batteries for F-4/5 fighter jets',
-    ],
-    deliveryDestination: ['공군군수사령부', 'Air Force Headquarters'],
-    etc: [
-      '중기청 구매조건부신제품 개발사업 (개발 사업비: 1억4천만원)',
-      'New Product Development Project with Purchase Conditions of the Small and Medium Business Administration (development project cost: KRW 140 million)',
-    ],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2003.12', '2003.12'],
-    productName: ['UH-1H 축전지', 'UH-1H storage battery'],
-    contents: ['UH-1H 헬기용 축전지 국산화 개발', 'Localized development of storage batteries for UH-1H helicopters'],
-    deliveryDestination: ['육군군수사령부', 'Army Headquarters'],
-    etc: ['', ''],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['2003.12', '2003.12'],
-    productName: ['500MD 축전지', '500MD Storage Battery'],
-    contents: ['500MD 헬기용 축전지 국산화 개발', 'Development of Localized Storage Battery for 500MD Helicopters'],
-    deliveryDestination: ['육군군수사령부', 'Army Headquarters'],
-    etc: ['', ''],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['2003.08', '2003.08'],
-    productName: ['AGV용 축전지', 'Storage battery for AGV'],
-    contents: ['Localized storage battery development for AGV (unmanned loan)'],
-    deliveryDestination: [
-      'LG필립스, LG전자, 삼성전자, BOEHYDIS',
-      'LG Philips, LG Electronics, Samsung Electronics, BOEHYDIS',
-    ],
-    etc: ['', ''],
-    color: ['#fff', '#fff'],
-  },
-  {
-    complete: ['1999.08', '1999.08'],
-    productName: ['지하철차량용 축전지', 'Development of storage batteries for subway cars'],
-    contents: ['지하철 차량용 축전지 국산화 개발', 'Localization of storage batteries for subway cars'],
-    deliveryDestination: ['도시철도공사 지하철공사', 'Urban Railroad Corporation'],
-    etc: [
-      '도시철도용품 품질인증획득(건설교통부)',
-      'Acquisition of quality certification for urban railway products (Ministry of Construction and Transportation)',
-    ],
-    color: ['#f7f7f7', '#f7f7f7'],
-  },
-  {
-    complete: ['1999.04', '1999.04'],
-    productName: ['디젤기관차용 축전지', 'A storage battery for diesel locomotives'],
-    contents: [
-      '디젤기관차 시동용 축전지 국산화 개발',
-      'Development of localized storage batteries for starting diesel locomotives',
-    ],
-    deliveryDestination: ['철도청', 'Korea Railroad Administration'],
-    etc: [
-      '철도용품 품질인증 획득(철도청/철도기술연구원)',
-      'Acquisition of quality certification for railroad products (Korea Railroad Administration/Korea Railroad Research Institute)',
-    ],
-    color: ['#fff', '#fff'],
-  },
 ]
+// {
+//   complete: ['2021.07', '2021.07'],
+//   productName: ['LAH 주 배터리 국산화', 'LAH State Battery Localization'],
+//   contents: ['LAH 주 배터리 개발', 'LAH Main Battery Development'],
+//   deliveryDestination: ['한국항공우주산업', 'Korea Aerospace Industries Co., Ltd'],
+//   etc: ['', ''],
+//   color: ['#f7f7f7', '#f7f7f7'],
+// },
+// {
+//   complete: ['2013.11', '2013.11'],
+//   productName: ['전지, 축전식/트레이, 전지용', 'Battery, Power Storage/Tray, Battery'],
+//   contents: [
+//     'T-50, TA-50, FA-50용 축전지 국산화개발',
+//     'Localization Development of Storage Batteries for T-50, TA-50, FA-50',
+//   ],
+//   deliveryDestination: ['한국항공', 'Korean Air'],
+//   etc: ['', ''],
+//   color: ['#fff', '#fff'],
+// },
+// {
+//   complete: ['2011.06', '2011.06'],
+//   productName: ['발칸용 전지', 'Batteries for Balkans'],
+//   contents: ['20mm 발관포용 축전지 개발', 'Development of Storage Batteries for 20mm Balkan Bags'],
+//   deliveryDestination: ['방위사업청', 'Defense Acquisition Program Administration'],
+//   etc: ['', ''],
+//   color: ['#f7f7f7', '#f7f7f7'],
+// },
+// {
+//   complete: ['2010.01', '2010.01'],
+//   productName: ['리튬인산철 전지', 'Lithium Iron Phosphate Battery'],
+//   contents: ['전동카트용 리튬전지', 'A Lithium Battery for an Electric Cart'],
+//   deliveryDestination: ['나라장터', 'Nara Market'],
+//   etc: ['', ''],
+//   color: ['#fff', '#fff'],
+// },
+// {
+//   complete: ['2010.04', '2010.04'],
+//   productName: ['UH-60 축전지', 'UH-60 Storage Battery'],
+//   contents: ['UH-60 헬기용 축전지 개발사업', 'Development of Storage Batteries for UH-60 Helicopters'],
+//   deliveryDestination: ['방위사업청', 'Defense Industry Agency'],
+//   etc: ['', ''],
+//   color: ['#f7f7f7', '#f7f7f7'],
+// },
+// {
+//   complete: ['2008.04', '2008.04'],
+//   productName: ['고속훈련기용 축전지개발', 'Development of storage batteries for advanced trainers'],
+//   contents: ['T-50 항공기 축전지 개발사업', 'T-50 Aircraft Storage Battery Development Project'],
+//   deliveryDestination: ['한국항공', 'Korean Air'],
+//   etc: ['항공우주부품 기술개발사업', 'Aerospace Component Technology Development Project'],
+//   color: ['#fff', '#fff'],
+// },
+// {
+//   complete: ['2008.04', '2008.04'],
+//   productName: ['KTX 축전지', 'KTX Storage Battery'],
+//   contents: ['KTX 축전지 개발 사업', 'KTX Storage Battery Development Project'],
+//   deliveryDestination: ['철도공사', 'Korea Railroad Corporation'],
+//   etc: ['중기청 구매조건부신제품 개발사업', 'New Product Development Project'],
+//   color: ['#f7f7f7', '#f7f7f7'],
+// },
+// {
+//   complete: ['2007.01', '2007.01'],
+//   productName: [
+//     '초고율대용량 니켈수소 축전지 국산화 개발',
+//     'Localized development of ultra-high capacity nickel hydrogen storage batteries',
+//   ],
+//   contents: [
+//     '대용량 전력용 니켈수소 축전지 개발 사업',
+//     'Development Project of Nickel Hydrogen Storage Battery for High Capacity Power ',
+//   ],
+//   deliveryDestination: ['한국전력공사', 'Korea Electric Power Corporation'],
+//   etc: ['전력산업 연구개발 사업', 'Power business research and development business'],
+//   color: ['#fff', '#fff'],
+// },
+
+//   {
+//     complete: ['2006.12', '2006.12'],
+//     productName: ['전지, 축전식', 'Battery, Power storage'],
+//     contents: ['유량 천마 장갑차용 축전지 개발', 'Development of storage batteries for Army Cheonma Armored Vehicles'],
+//     deliveryDestination: ['육군 군수사령부', 'Army Munitions Command'],
+//     etc: ['', ''],
+//     color: ['#f7f7f7', '#f7f7f7'],
+//   },
+//   {
+//     complete: ['2004.04', '2004.04'],
+//     productName: ['배기식 니켈수소 전지', 'exhaust Nickel Hydrogen Battery'],
+//     contents: ['환경친화적 니켈수소 전지 개발', 'Development of Environmentally Friendly Nickel Hydrogen Battery'],
+//     deliveryDestination: ['포스코, 수원시청, 효성중공업', 'POSCO, Suwon City Hall, Hyosung Heavy Industries'],
+//     etc: ['특허출원', 'Patent Application'],
+//     color: ['#fff', '#fff'],
+//   },
+//   {
+//     complete: ['2004.05', '2004.05'],
+//     productName: ['F-4/5 축전지', 'F-4/5 Storage Batteries'],
+//     contents: [
+//       'F-4/5 전투기용 축전지 국산화 개발',
+//       'Development of localized storage batteries for F-4/5 fighter jets',
+//     ],
+//     deliveryDestination: ['공군군수사령부', 'Air Force Headquarters'],
+//     etc: [
+//       '중기청 구매조건부신제품 개발사업 (개발 사업비: 1억4천만원)',
+//       'New Product Development Project with Purchase Conditions of the Small and Medium Business Administration (development project cost: KRW 140 million)',
+//     ],
+//     color: ['#f7f7f7', '#f7f7f7'],
+//   },
+//   {
+//     complete: ['2003.12', '2003.12'],
+//     productName: ['UH-1H 축전지', 'UH-1H storage battery'],
+//     contents: ['UH-1H 헬기용 축전지 국산화 개발', 'Localized development of storage batteries for UH-1H helicopters'],
+//     deliveryDestination: ['육군군수사령부', 'Army Headquarters'],
+//     etc: ['', ''],
+//     color: ['#fff', '#fff'],
+//   },
+//   {
+//     complete: ['2003.12', '2003.12'],
+//     productName: ['500MD 축전지', '500MD Storage Battery'],
+//     contents: ['500MD 헬기용 축전지 국산화 개발', 'Development of Localized Storage Battery for 500MD Helicopters'],
+//     deliveryDestination: ['육군군수사령부', 'Army Headquarters'],
+//     etc: ['', ''],
+//     color: ['#f7f7f7', '#f7f7f7'],
+//   },
+//   {
+//     complete: ['2003.08', '2003.08'],
+//     productName: ['AGV용 축전지', 'Storage battery for AGV'],
+//     contents: ['Localized storage battery development for AGV (unmanned loan)'],
+//     deliveryDestination: [
+//       'LG필립스, LG전자, 삼성전자, BOEHYDIS',
+//       'LG Philips, LG Electronics, Samsung Electronics, BOEHYDIS',
+//     ],
+//     etc: ['', ''],
+//     color: ['#fff', '#fff'],
+//   },
+//   {
+//     complete: ['1999.08', '1999.08'],
+//     productName: ['지하철차량용 축전지', 'Development of storage batteries for subway cars'],
+//     contents: ['지하철 차량용 축전지 국산화 개발', 'Localization of storage batteries for subway cars'],
+//     deliveryDestination: ['도시철도공사 지하철공사', 'Urban Railroad Corporation'],
+//     etc: [
+//       '도시철도용품 품질인증획득(건설교통부)',
+//       'Acquisition of quality certification for urban railway products (Ministry of Construction and Transportation)',
+//     ],
+//     color: ['#f7f7f7', '#f7f7f7'],
+//   },
+//   {
+//     complete: ['1999.04', '1999.04'],
+//     productName: ['디젤기관차용 축전지', 'A storage battery for diesel locomotives'],
+//     contents: [
+//       '디젤기관차 시동용 축전지 국산화 개발',
+//       'Development of localized storage batteries for starting diesel locomotives',
+//     ],
+//     deliveryDestination: ['철도청', 'Korea Railroad Administration'],
+//     etc: [
+//       '철도용품 품질인증 획득(철도청/철도기술연구원)',
+//       'Acquisition of quality certification for railroad products (Korea Railroad Administration/Korea Railroad Research Institute)',
+//     ],
+//     color: ['#fff', '#fff'],
+//   },
+// ]
 
 export const researchData = [
   {
@@ -1127,7 +1128,7 @@ export const ESG500Data = [
       `We base our business on transparency and integrity.\n\nWe prioritize fair and ethical behavior in all our relationships with stakeholders, which forms the foundation of our trust in the market. \n\nWe believe that ethical decisions provide the greatest value to both the company and society in the long term.`,
     ],
     contents3: [
-      `식은 변화하는 시장과 기술에 대응하기 위한 우리의 열쇠입니다.\n\n우리는 지속적인 학습과 혁신을 통해 경쟁력을 강화하고, 새로운 기회를 창출합니다.\n\n지식 공유와 협업을 장려함으로써, IBT는 업계의 선도적인 위치를 유지하고, 지속 가능한 성장을 이끌어갈 수 있습니다`,
+      `지식은 변화하는 시장과 기술에 대응하기 위한 우리의 열쇠입니다.\n\n우리는 지속적인 학습과 혁신을 통해 경쟁력을 강화하고, 새로운 기회를 창출합니다.\n\n지식 공유와 협업을 장려함으로써, IBT는 업계의 선도적인 위치를 유지하고, 지속 가능한 성장을 이끌어갈 수 있습니다`,
       `Knowledge is our key to responding to changing markets and technologies.\n\nBy fostering continuous learning and innovation, we enhance our competitiveness and create new opportunities.\n\nBy encouraging knowledge sharing and collaboration, we can maintain our leading position in the industry and drive sustainable growth.`,
     ],
   },
@@ -1207,6 +1208,160 @@ export const batteryList = [
     ],
   },
 ]
+
+export const hydrogenList = [
+  {
+    title: ['123', 'Defense Ni-cd'],
+    explain: [
+      'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도\n안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를\n신뢰를 바탕으로 공급해왔습니다.',
+      'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability and can be safely used in poor environments such as cold and hot weather.',
+    ],
+  },
+  {
+    title: ['Hydro Project', 'Hydro Project'],
+    explain: [
+      '국내외 수소 영역 대기업 및 외국 기업과\n수소 프로젝트를 진행하고 있습니다.',
+      'We provide a variety of products with high energy density and high output characteristics according to customer needs\nIt has excellent price competitiveness and strong durability against vibration and shock.',
+    ],
+  },
+  {
+    title: ['동력용 Lithium', 'Power Lithium'],
+    explain: [
+      '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.\n높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.\n관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.\n낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+      'High Energy Density - High energy density compared to storage batteries and nickel-cadmium, it is smaller in volume and lighter in weight.\nHigh electromotive force - The electromotive force of a lithium iron phosphate battery is 3.2V, which reduces the number of components when high power is required.\nEasy to manage - There is no Memory effect, so it can be charged even when it is not completely discharged.\nLow self-discharge rate - less than 5%/month self-discharge rate with very little power loss due to self-discharge.',
+    ],
+  },
+  {
+    title: ['에너지저장용 Lithium', 'Energy Storage Lithium'],
+    explain: [
+      '고 에너지 밀도 - 축전지, 니켈-카드뮴에 비하여 높은 에너지밀도로 부피가 작고 중량이 가볍습니다.\n높은 기전력 - 리튬인산철전지의 기전력은 3.2V로 높은 전력 요구 시 구성 수량 감소 효과가 나타납니다.\n관리용이 - Memory effect가 없어 완전히 방전시키지 않은 상태에서도 충전이 가능합니다.\n낮은 자가 방전율 - 5%/월 미만의 자가방전율로 자가 방전에 의한 전력 손실이 매우 적습니다.',
+      'High Energy Density - High energy density compared to storage batteries and nickel-cadmium, it is smaller in volume and lighter in weight.\nHigh electromotive force - The electromotive force of a lithium iron phosphate battery is 3.2V, which reduces the number of components when high power is required.\nEasy to manage - There is no Memory effect, so it can be charged even when it is not completely discharged.\nLow self-discharge rate - less than 5%/month self-discharge rate with very little power loss due to self-discharge.',
+    ],
+  },
+]
+
+// 테스트 데이터
+// export const defenseList = [
+//   {
+//     id: 0,
+//     title: '항공',
+//     itemFile: '/image/320방산용Ni-cd/321.1_방산용 Nicd_항공_제품사진.png',
+//     itemTitle: 'Ni-Cd battery Sintered Type',
+//     itemSubtitle: '',
+//     itemAdvanced:
+//       '다양한 항공용 무기 모델에 적용되는 Ni-cd 배터리입니다.\n항공 무기의 에너지 공급원으로서 중요한 진동, 충격 및 고도특성이 우수하여 안전합니다.',
+//     products: [
+//       {
+//         img: '/image/320방산용Ni-cd/321.2_방산용 Nicd_항공_적용모델 (SURION)',
+//         name: 'SURION',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.3_방산용 Nicd_항공_적용모델(T-50).png',
+//         name: 'T-50',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.4_방산용 Nicd_항공_적용모델(KT-1).png',
+//         name: 'KT-1',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.5_방산용 Nicd_항공_적용모델(500MD).png',
+//         name: '500MD',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.6_방산용 Nicd_항공_적용모델(UH-60H).png',
+//         name: 'UH-60H',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.7_방산용 Nicd_항공_적용모델 (UH-1H).png',
+//         name: 'UH-1H',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.8_방산용 Nicd_항공_적용모델(F-45).png',
+//         name: 'F-4/5',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/321.9_방산용 Nicd_항공_적용모델 (LAH,LCH).png',
+//         name: 'LAH/LCH',
+//       },
+//     ],
+//   },
+//   {
+//     id: 1,
+//     title: '육상',
+//     itemFile: '/image/320방산용Ni-cd/322.1_방산용 Nicd_육상_제품사진.png',
+//     itemTitle: 'Ni-Cd battery Sintered Type',
+//     itemSubtitle: '',
+//     itemAdvanced:
+//       '단거리 유도무기인 천마와 발칸포의 회전 및 발사 시 필요한 에너지를 공급하는 육상 무기용 배터리입니다.\n1차 동력원을 확보하고 체계운용에 따라 엔진 가동없이 탑재 장비에 직전력을 공급하며,\n탑재 장비의 작동 시 과도한 전압 발생을 상쇄시키는 등 체계의 중요한 역할을 수행합니다.\n열악한 주위 환경에서도 원활한 엔진 시동으로 운용 안정성이 우수합니다.',
+//     products: [
+//       {
+//         img: '/image/320방산용Ni-cd/322.2_방산용 Nicd_육상_적용모델(발칸).png',
+//         name: '발칸',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/322.2-방산용 Nicd_육상_적용모델(천마).png',
+//         name: '천마',
+//       },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     title: '해상',
+//     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
+//     itemTitle: 'Ni-Cd battery Sintered Type',
+//     itemSubtitle: '',
+//     itemAdvanced:
+//       '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는\n혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.\n고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
+//     products: [
+//       {
+//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (함포).png',
+//         name: '함포',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (해상골키퍼).png',
+//         name: '해상골키퍼',
+//       },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     title: '해상',
+//     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
+//     itemTitle: 'Ni-Cd battery Sintered Type',
+//     itemSubtitle: '',
+//     itemAdvanced:
+//       '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는\n혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.\n고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
+//     products: [
+//       {
+//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (함포).png',
+//         name: '함포',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (해상골키퍼).png',
+//         name: '해상골키퍼',
+//       },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     title: '해상',
+//     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
+//     itemTitle: 'Ni-Cd battery Sintered Type',
+//     itemSubtitle: '',
+//     itemAdvanced:
+//       '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는\n혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.\n고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
+//     products: [
+//       {
+//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (함포).png',
+//         name: '함포',
+//       },
+//       {
+//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (해상골키퍼).png',
+//         name: '해상골키퍼',
+//       },
+//     ],
+//   },
+// ]
 
 export const companyEmail = 'sales2@ibteng.co.kr'
 
