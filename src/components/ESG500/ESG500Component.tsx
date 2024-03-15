@@ -74,7 +74,7 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
         </div>
 
         <div className="w-full flex flex-col items-center ">
-          <NoMotionComponent component={motion.div} className="flex flex-col items-center">
+          <NoMotionComponent component={motion.div} className="flex flex-col items-center break-keep">
             <p className="font-bold text-xl text-[#79ad4b] mb-3">{ESG500Data?.[4].subTitle1?.[isEnglish]}</p>
             <div className="w-96 h-60 bg-[#d9d9d9] rounded-3xl py-5 flex justify-center align-middle text-[#404040] mb-12">
               <div className="w-[70%] flex flex-col items-start justify-center text-sm">
@@ -83,7 +83,7 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
             </div>
           </NoMotionComponent>
           <div className="flex flex-col md:flex-row gap-12">
-            <RightMotionComponent component={motion.div} className="flex flex-col items-center">
+            <RightMotionComponent component={motion.div} className="flex flex-col items-center break-keep">
               <p className="font-bold text-xl text-[#79ad4b] mb-3">{ESG500Data?.[4].subTitle2?.[isEnglish]}</p>
               <div className="w-96 h-60 bg-[#d9d9d9] rounded-3xl py-5 flex justify-center text-[#404040]">
                 <div className="w-[80%] flex flex-col items-center justify-center text-sm">
@@ -91,7 +91,7 @@ export default function ESG500Component({ data }: { data: CatalogProps[] }) {
                 </div>
               </div>
             </RightMotionComponent>
-            <LeftMotionComponent component={motion.div} className="flex flex-col items-center">
+            <LeftMotionComponent component={motion.div} className="flex flex-col items-center break-keep">
               <p className="font-bold text-xl text-[#79ad4b] mb-3">{ESG500Data?.[4].subTitle3?.[isEnglish]}</p>
               <div className="w-96 h-60 bg-[#d9d9d9] rounded-3xl py-5 flex justify-center text-[#404040]">
                 <div className="w-[80%] flex flex-col  justify-center items-center text-sm">
