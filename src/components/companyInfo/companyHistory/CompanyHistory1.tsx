@@ -17,12 +17,10 @@ export default function CompanyHistory1() {
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-5">2023</h3>
               <p className="font-light text-xl lg:text-sm break-keep mb-16">{CompanyInfoData[2][2023]?.[isEnglish]}</p>
-              <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-5">2023</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-16">{CompanyInfoData[2][2023]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
+              <h3 className="text-4xl lg:text-xl  lg:text-xl font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
               <p className="font-light text-xl lg:text-sm break-keep ">{CompanyInfoData[2][2021]?.[isEnglish]}</p>
 
               <Image
@@ -43,8 +41,6 @@ export default function CompanyHistory1() {
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-3">2020</h3>
               <p className="font-light text-xl lg:text-sm break-keep  mb-7">{CompanyInfoData[2][2020]?.[isEnglish]}</p>
-              <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-3">2020</h3>
-              <p className="font-light text-xl lg:text-sm break-keep  mb-7">{CompanyInfoData[2][2020]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
@@ -52,16 +48,10 @@ export default function CompanyHistory1() {
               <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
                 {CompanyInfoData[2][2019]?.[isEnglish]}
               </p>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
-                {CompanyInfoData[2][2019]?.[isEnglish]}
-              </p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2018</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
-                {CompanyInfoData[2][2018]?.[isEnglish]}
-              </p>
               <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
                 {CompanyInfoData[2][2018]?.[isEnglish]}
               </p>
@@ -80,16 +70,11 @@ export default function CompanyHistory1() {
               <p className="font-light text-xl lg:text-sm break-keep leading-6 mb-7">
                 {CompanyInfoData[2][2017]?.[isEnglish]}
               </p>
-              <p className="font-light text-xl lg:text-sm break-keep leading-6 mb-7">
-                {CompanyInfoData[2][2017]?.[isEnglish]}
-              </p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2015</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-8">
-                {CompanyInfoData[2][2015]?.[isEnglish]}
-              </p>
+              <p className="font-light text-xl lg:text-sm break-keep mb-7 ">{CompanyInfoData[2][2015]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
 
