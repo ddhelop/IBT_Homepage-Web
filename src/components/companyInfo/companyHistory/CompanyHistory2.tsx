@@ -74,7 +74,7 @@ export default function CompanyHistory2() {
               <p className="font-light text-xl lg:text-sm mb-14">{CompanyInfoData[2][2006]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
-          <div className="hidden lg:flex absolute lg:left-[3%] xl:left-[11%] 2xl:left-[14%]">
+          <div className="hidden lg:flex absolute lg:left-[3%] xl:left-[8%] 2xl:left-[14%]">
             <RightMotionComponent component={motion.div}>
               <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl ">
                 {CompanyInfoData[2].text2?.[isEnglish]}
