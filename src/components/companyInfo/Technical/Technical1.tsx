@@ -32,7 +32,7 @@ export default function Technical1() {
                   <td className="py-3 text-sm font-normal border-2 border-[#e2e2e2]">
                     {el.authorization?.[isEnglish]}{' '}
                   </td>
-                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.authorization?.[isEnglish]}</td>
+                  <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.Institution?.[isEnglish]}</td>
                   <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.date?.[isEnglish]}</td>
                   <td className="text-sm font-normal border-2 border-[#e2e2e2]">{el.note?.[isEnglish]}</td>
                 </tr>
