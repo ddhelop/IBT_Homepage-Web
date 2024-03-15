@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import '../globals.css'
-import { notoSansKr } from '@/lib/fonts'
+import { cls, notoSansKr } from '@/lib/fonts'
 import Footer from '@/components/Footer'
 import RecoilContextProvider from '@/context/recoil-context'
+import { Analytics } from '@vercel/analytics/react'
+import { Header } from '@/components/Header'
 import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/Header'
 
@@ -21,8 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <meta property="og:image" content={'public/image/Logo.png'}></meta>
       <body className={`${notoSansKr.className} transition  text-gray-950 relative`}>
+      <body className={`${notoSansKr.className} transition  text-gray-950 relative`}>
         <RecoilContextProvider>
           <Header />
+          {/* <Analytics /> */}
           {/* <Analytics /> */}
           {children}
           <Footer />
