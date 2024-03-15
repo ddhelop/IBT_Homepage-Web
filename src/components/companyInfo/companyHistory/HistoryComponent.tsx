@@ -45,25 +45,28 @@ export default function HistoryComponent() {
         </DownMotionComponent>
 
         {/* Tabs */}
-        <DownMotionComponent component={motion.div} className="mt-24 w-1/2 flex items-center justify-center ">
+        <DownMotionComponent
+          component={motion.div}
+          className="mt-24 w-[min(90%,820px)] flex items-center justify-center "
+        >
           <button
             className={`w-1/3 h-12 tab-button1 ${isActive('tab1') ? 'active-tab1' : ''}`}
             value="tab1"
             onClick={onClickButton}
           >
-            2015~
+            <h1 className="text-xl">2015~</h1>
           </button>
           <button
             className={`w-1/3 h-12 tab-button2 ${isActive('tab2') ? 'active-tab2' : ''}`}
             onClick={() => setActiveTab('tab2')}
           >
-            2003 - 2014
+            <h1 className="text-xl">2003 - 2014</h1>
           </button>
           <button
             className={`w-1/3 h-12 tab-button3 ${isActive('tab3') ? 'active-tab3' : ''}`}
             onClick={() => setActiveTab('tab3')}
           >
-            1986 - 2005
+            <h1 className="text-xl">1986 - 2005</h1>
           </button>
         </DownMotionComponent>
 

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import '../globals.css'
-import { cls, notoSansKr, roboto } from '@/lib/fonts'
+import { cls, notoSansKr } from '@/lib/fonts'
 import Footer from '@/components/Footer'
-import { Header } from '@/components/Header'
 import RecoilContextProvider from '@/context/recoil-context'
-import { AnimatePresence } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
+import { Header } from '@/components/Header'
 
 export const metadata: Metadata = {
   title: '(주)아이비티',
@@ -20,9 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <meta property="og:image" content={'public/image/Logo.png'}></meta>
-      <body className={`${cls(notoSansKr.className, roboto.variable)} transition  text-gray-950 relative`}>
+      <body className={`${notoSansKr.className} transition  text-gray-950 relative`}>
         <RecoilContextProvider>
           <Header />
+          {/* <Analytics /> */}
           {children}
           <Footer />
         </RecoilContextProvider>
