@@ -1114,7 +1114,7 @@ export const ESG500Data = [
     title: ['지식, 윤리, 인재의 힘', '"The Power of Knowledge, Ethics, and Human Resources"'],
     contents: [
       `우리는 지속 가능한 미래를 향한 여정에서 'Reliable Governance'를 핵심 가치로 삼고 있습니다.\n이는 단순히 우리의 운영 체계를 넘어서,\n모든 결정과 행동이 윤리적 원칙, 인재의 성장, 그리고 지식의 발전에 기반하도록 하는 우리의 약속입니다.`,
-      `In our journey towards a sustainable future, we hold 'Reliable Governance' as a core value.\n This extends beyond just our operational systems,\n embodying our commitment to ensure that all decisions and actions are grounded in ethical principles,\n the growth of talent, and the advancement of knowledge.`,
+      `In our journey towards a sustainable future, we hold 'Reliable Governance' as a core value.\nThis extends beyond just our operational systems,\nembodying our commitment to ensure that all decisions and actions are grounded in ethical principles,\nthe growth of talent, and the advancement of knowledge.`,
     ],
     subTitle1: [`인재 경영: 우리의 가장 큰 자산`, `Talent Management:\nOur Greatest Asset`],
     subTitle2: [`윤리경영: 신뢰의 기반`, `Ethical anagement:\nFoundation of Trust`],
