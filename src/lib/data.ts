@@ -234,7 +234,7 @@ export const CompanyInfoData = [
   },
   {
     // 2
-    2023: ['수소발전 통합 제어 / 관제 시스템 개발', ''],
+    2023: ['수소발전 통합 제어 / 관제 시스템 개발', 'Hydrogen Integration / Monitoring System development projects'],
     2021: [
       'KAI(한국항공우주산업㈜) 의 LCH(소형민수헬기) 및 LAH(소형무장헬기) 개발사업 참여',
       'KAI (Korea Aerospace Industries) participates in LCH (Small Minsu Helicopter) and LAH (Small Armed Helicopter) development projects',
