@@ -234,7 +234,7 @@ export const CompanyInfoData = [
   },
   {
     // 2
-    2023: ['수소발전 통합 제어 / 관제 시스템 개발', ''],
+    2023: ['수소발전 통합 제어 / 관제 시스템 개발', 'Hydrogen Integration / Monitoring System development projects'],
     2021: [
       'KAI(한국항공우주산업㈜) 의 LCH(소형민수헬기) 및 LAH(소형무장헬기) 개발사업 참여',
       'KAI (Korea Aerospace Industries) participates in LCH (Small Minsu Helicopter) and LAH (Small Armed Helicopter) development projects',
@@ -249,11 +249,11 @@ export const CompanyInfoData = [
     ],
     2018: ['AS9100 항공우주 품질경영시스템 인증 획득', 'AS9100 Aerospace Quality Management System Certification'],
     2017: [
-      `도시철도차량용 축전지,충전기 개발 및 표준화 연구태양전지식 고감도 항공장애 표시등 시스템 개발선 박용 리튬인산철 전지 시스템 개발`,
+      `도시철도차량용 축전지,충전기 개발 및 표준화 연구\n태양전지식 고감도 항공장애 표시등 시스템 개발\n선박용 리튬인산철 전지 시스템 개발`,
       `Development and Standardization of Storage Batteries and Chargers for Urban Railroad Vehicles\n\nDevelopment of Solar Cell-type High-Sensitivity Air Disability Indicator System\n\nDevelopment of Lithium Iron Phosphate Cell System for Ships`,
     ],
     2015: [
-      `광주광역시 강소기업 선정한전 배전지능화용 리튬인산철 전지팩 개발`,
+      `광주광역시 강소기업 선정\n한전 배전지능화용 리튬인산철 전지팩 개발`,
       `Development of a lithium iron phosphate battery pack for power distribution intelligence selected by a small company in Gwangju Metropolitan City`,
     ],
 
@@ -280,10 +280,13 @@ export const CompanyInfoData = [
       `광주광역시 선도산업 지원과제 수행 (NEV용 Ni-MH)`,
       `Gwangju Metropolitan City's Leading Industry Support Project (Ni-MH for NEV)`,
     ],
-    2008: [`T-50 고등훈련기용 니켈카드뮴축전지 개발\nKTX 객차 및 동차용 니켈카드뮴 축전지 개발`, ``],
+    2008: [
+      `T-50 고등훈련기용 니켈카드뮴축전지 개발\nKTX 객차 및 동차용 니켈카드뮴 축전지 개발`,
+      `Development of nickel cadmium storage batteries for T-50 advanced trainers\nDevelopment of nickel-cadmium storage batteries for KTX coaches and trains`,
+    ],
     2006: [
       `배기식 니켈수소전지 특허등록\n500MD 헬기용 축전지 국산화 개발\nF-4/5 전투기용 축전지 국산화 개발\n우수재활용 제품(GR) 인증\n천마 지대공 유도무기용 축전지 개발`,
-      `Development of nickel cadmium storage batteries for T-50 advanced trainers\nDevelopment of nickel-cadmium storage batteries for KTX coaches and trains`,
+      `Patent Registration for Exhaust-type Nickel Hydrogen Battery\nLocalization Development of Storage Battery for 500MD Helicopters\nDevelopment of localization of storage batteries for F-4/5 fighter jets\nCertification of Excellent Recycling Products (GR)\nDevelopment of storage batteries for guided weapons of Cheonma surface-to-air use`,
     ],
     text2: [
       `국산화의 선두주자,\n글로벌 경쟁력을 강화하다`,
@@ -313,7 +316,7 @@ export const CompanyInfoData = [
     1986: [`(주)로케트기전 설립`, `Establishment of Rocket Co.`],
     text3: [
       `배터리 산업의 개척자,\n기술력으로 초석을 다지다`,
-      `Pioneer of the battery industry,\nLaying the foundation with\ntechnology's might`,
+      `Pioneer of the\nbattery industry,\nLaying the foundation\nwith technology's might`,
     ],
   },
   // 3
@@ -1114,7 +1117,7 @@ export const ESG500Data = [
     title: ['지식, 윤리, 인재의 힘', '"The Power of Knowledge, Ethics, and Human Resources"'],
     contents: [
       `우리는 지속 가능한 미래를 향한 여정에서 'Reliable Governance'를 핵심 가치로 삼고 있습니다.\n이는 단순히 우리의 운영 체계를 넘어서,\n모든 결정과 행동이 윤리적 원칙, 인재의 성장, 그리고 지식의 발전에 기반하도록 하는 우리의 약속입니다.`,
-      `In our journey towards a sustainable future, we hold 'Reliable Governance' as a core value.\n This extends beyond just our operational systems,\n embodying our commitment to ensure that all decisions and actions are grounded in ethical principles,\n the growth of talent, and the advancement of knowledge.`,
+      `In our journey towards a sustainable future, we hold 'Reliable Governance' as a core value.\nThis extends beyond just our operational systems,\nembodying our commitment to ensure that all decisions and actions are grounded in ethical principles,\nthe growth of talent, and the advancement of knowledge.`,
     ],
     subTitle1: [`인재 경영: 우리의 가장 큰 자산`, `Talent Management:\nOur Greatest Asset`],
     subTitle2: [`윤리경영: 신뢰의 기반`, `Ethical anagement:\nFoundation of Trust`],
