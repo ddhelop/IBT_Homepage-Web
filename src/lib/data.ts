@@ -313,7 +313,7 @@ export const CompanyInfoData = [
     1986: [`(주)로케트기전 설립`, `Establishment of Rocket Co.`],
     text3: [
       `배터리 산업의 개척자,\n기술력으로 초석을 다지다`,
-      `Pioneer of the battery industry,\nLaying the foundation with\ntechnology's might`,
+      `Pioneer of the\nbattery industry,\nLaying the foundation\nwith technology's might`,
     ],
   },
   // 3
