@@ -33,7 +33,7 @@ export default function IntroComponent4() {
                 ease: 'easeOut',
                 delay: 0.2,
               }}
-              className="leading-relaxed whitespace-pre-line text-xl px-8 font-bold md:font-light mt-7 text-white"
+              className="leading-relaxed break-keep whitespace-pre-line text-xl px-8 font-bold md:font-light mt-7 text-white"
             >
               {IntroComponentData[0].contents?.[isEnglish]}
             </motion.p>
