@@ -56,7 +56,9 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                   key={i}
                   className={`${
                     categoryIndex == i
-                      ? 'opacity-100 font-semibold bg-primary-green text-white'
+
+                      ? 'opacity-100 font-semibold bg-primary-green text-white drop-shadow-2xl shadow-lg'
+
                       : 'opacity-40 font-semibold bg-gray-200 hover:bg-gray-700 border-y border-gray-500 text-black'
                   } relative w-96 h-16 z-0`}
                   onClick={() => setCategoryIndex(i)}

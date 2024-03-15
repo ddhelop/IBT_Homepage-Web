@@ -21,7 +21,9 @@ export default function CompanyHistory3() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2004</h3>
+
               <p className="font-light text-xl lg:text-sm mb-10 break-keep">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
+
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>

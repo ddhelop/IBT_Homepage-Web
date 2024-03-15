@@ -20,7 +20,9 @@ export default function CompanyHistory1() {
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
+
               <h3 className="text-4xl lg:text-xl  font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
+
               <p className="font-light text-xl lg:text-sm break-keep ">{CompanyInfoData[2][2021]?.[isEnglish]}</p>
 
               <Image
@@ -45,12 +47,16 @@ export default function CompanyHistory1() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2019</h3>
+
               <p className="font-light text-xl lg:text-sm break-keep mb-7">{CompanyInfoData[2][2019]?.[isEnglish]}</p>
+
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2018</h3>
+
               <p className="font-light text-xl lg:text-sm break-keep mb-7">{CompanyInfoData[2][2018]?.[isEnglish]}</p>
+
               <Image
                 src="/info/2018.png" // 이미지 경로
                 alt="2018"
@@ -63,7 +69,9 @@ export default function CompanyHistory1() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2017</h3>
+
               <p className="font-light text-xl lg:text-sm break-keep mb-7">{CompanyInfoData[2][2017]?.[isEnglish]}</p>
+
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
