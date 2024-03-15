@@ -13,12 +13,14 @@ export default function CooperativeComponent() {
   return (
     <div className="mb-72">
       <DownMotionComponent component={motion.div} className="flex flex-col items-center">
-        <h1 className="text-4xl mb-12 font-medium">{CompanyInfoData?.[3].title?.[isEnglish]}</h1>
-        <h2 className="text-2xl mb-7 font-bold">{CompanyInfoData?.[3].contents?.[isEnglish]}</h2>
+        <h1 className="text-4xl lg:text-4xl mb-12 font-medium">{CompanyInfoData?.[3].title?.[isEnglish]}</h1>
+        <h2 className="text-3xl lg:text-2xl mb-7 font-bold">{CompanyInfoData?.[3].contents?.[isEnglish]}</h2>
       </DownMotionComponent>
 
       <DownMotionComponent component={motion.div} className="flex flex-col items-center">
-        <p className="text-base text-center mb-12 font-light leading-7">{CompanyInfoData?.[3].desc?.[isEnglish]}</p>
+        <p className="text-xl lg:text-base text-center mb-12 font-light break-keep">
+          {CompanyInfoData?.[3].desc?.[isEnglish]}
+        </p>
       </DownMotionComponent>
 
       <LogoComponent />

@@ -12,21 +12,21 @@ export default function CompanyHistory2() {
     <>
       <div className="mt-20 w-full flex flex-col lg:items-end whitespace-pre-wrap">
         {/* top */}
-        <div className="mr-28 lg:mr-0 lg:w-[87%] flex flex-col items-center">
+        <div className="mr-28 lg:mr-0 w-full lg:w-[87%] flex flex-col items-center">
           <div className="ml-20 w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2014</h3>
-              <p className="font-light text-sm mb-7">{CompanyInfoData[2][2014]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2014</h3>
+              <p className="font-light text-xl lg:text-sm mb-7">{CompanyInfoData[2][2014]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2013</h3>
-              <p className="font-light text-sm mb-8">{CompanyInfoData[2][2013]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2013</h3>
+              <p className="font-light text-xl lg:text-sm mb-8">{CompanyInfoData[2][2013]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2012</h3>
-              <p className="font-light text-sm leading-8 mb-5">{CompanyInfoData[2][2012]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2012</h3>
+              <p className="font-light text-xl lg:text-sm  mb-5">{CompanyInfoData[2][2012]?.[isEnglish]}</p>
               <Image
                 src="/info/2012.png" // 이미지 경로
                 alt="2021"
@@ -39,26 +39,26 @@ export default function CompanyHistory2() {
           </div>
         </div>
         {/* middle */}
-        <div className="mr-48 lg:m-0 lg:w-[92.5%] flex flex-col items-center relative">
+        <div className="mr-28 lg:mr-0 lg:m-0 lg:w-[92.5%] flex flex-col items-center relative">
           <div className="ml-32 lg:ml-56 w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2011</h3>
-              <p className="font-light text-sm leading-8 mb-7">{CompanyInfoData[2][2011]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2011</h3>
+              <p className="font-light text-xl lg:text-sm  mb-7">{CompanyInfoData[2][2011]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2010</h3>
-              <p className="font-light text-sm leading-7 mb-6">{CompanyInfoData[2][2010]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2010</h3>
+              <p className="font-light text-xl lg:text-sm leading-7 mb-6">{CompanyInfoData[2][2010]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2009</h3>
-              <p className="font-light text-sm mb-8">{CompanyInfoData[2][2009]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2009</h3>
+              <p className="font-light text-xl lg:text-sm mb-8">{CompanyInfoData[2][2009]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2008</h3>
-              <p className="font-light text-sm leading-7 mb-14">{CompanyInfoData[2][2008]?.[isEnglish]}</p>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2008</h3>
+              <p className="font-light text-xl lg:text-sm leading-7 mb-14">{CompanyInfoData[2][2008]?.[isEnglish]}</p>
               <Image
                 src="/info/2008.png" // 이미지 경로
                 alt="2018"
@@ -71,7 +71,7 @@ export default function CompanyHistory2() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2006</h3>
-              <p className="font-light text-sm leading-7 mb-14">{CompanyInfoData[2][2006]?.[isEnglish]}</p>
+              <p className="font-light text-xl lg:text-sm leading-7 mb-14">{CompanyInfoData[2][2006]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
           <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[13%] 2xl:left-[19%]">

@@ -34,7 +34,7 @@ export default function CompanyInfoComponent() {
           whileInView="onscreen"
           viewport={{ root: scrollRef }}
           variants={Variants}
-          className="flex flex-col align-middle items-center w-2/3 h-full"
+          className="flex flex-col align-middle items-center w-[min(90%,1290px)] h-full"
         >
           <Image
             src="/info/logo.png" // 이미지 경로
@@ -43,11 +43,11 @@ export default function CompanyInfoComponent() {
             height={120} // 높이
             // layout="fixed" // 레이아웃 옵션
           />
-          <h2 className="mt-6 text-center font-medium text-2xl leading-[4rem] ">
+          <h2 className="mt-6 text-center font-medium text-3xl whitespace-pre-wrap break-keep lg:text-2xl ">
             {CompanyInfoData?.[0].title?.[isEnglish]}
             <br />
           </h2>
-          <p className="mt-12 text-center font-thin text-xl leading-[3rem] whitespace-pre-wrap">
+          <p className="mt-12 text-center font-thin text-2xl lg:text-xl break-keep">
             {CompanyInfoData?.[0].contents?.[isEnglish]}
           </p>
         </motion.div>

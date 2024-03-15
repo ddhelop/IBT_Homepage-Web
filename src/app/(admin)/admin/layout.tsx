@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import '../../globals.css'
-import { cls, notoSansKr, roboto } from '@/lib/fonts'
+import { notoSansKr } from '@/lib/fonts'
 import AdminHeader from '@/components/admin/AdminHeader'
 import RecoilContextProvider from '@/context/recoil-context'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cls(notoSansKr.className, roboto.variable)} transition text-gray-950 flex`}>
+      <body className={`${notoSansKr.className} transition text-gray-950 flex`}>
         <AdminHeader />
         <div className="ml-64" />
         {children}

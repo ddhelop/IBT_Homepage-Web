@@ -1,7 +1,5 @@
 'use client'
 import Image from 'next/image'
-
-import { useRouter } from 'next/navigation'
 import { Variants, motion } from 'framer-motion'
 import { useRef } from 'react'
 import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
@@ -11,7 +9,6 @@ import { IntroComponentData } from '@/lib/data'
 import Link from 'next/link'
 
 export default function IntroComponent6(): JSX.Element {
-  const router = useRouter()
   const scrollRef = useRef(null)
   const isEnglish = useRecoilValue(isEnglishState)
 
@@ -69,13 +66,13 @@ export default function IntroComponent6(): JSX.Element {
               {IntroComponentData[2].title2?.[isEnglish]}
             </h1>
 
-            <p className="text-white text-xl font-medium lg:font-light lg:text-left leading-[29.8px] tracking-[0.23px] mt-6 md:mt-[38px]">
+            <p className="text-white text-xl font-medium lg:font-light lg:text-left break-keep mt-6 md:mt-[38px]">
               {IntroComponentData[2].contents[isEnglish]}
             </p>
           </motion.div>
 
           {/* right container */}
-          <div className="mt-12 lg:mt-0 xl:w-[50%] overflow-hidden flex justify-end">
+          <div className="mt-6 lg:mt-0 xl:w-[50%] overflow-hidden flex justify-end">
             <div className="flex flex-wrap justify-center h-full max-w-[30rem]">
               {IntroComponentData[2]?.box?.map((data, index) => (
                 <RightMotionComponent component={motion.div} key={index} className="p-2 box">
@@ -94,7 +91,7 @@ export default function IntroComponent6(): JSX.Element {
 
                     <h3 className="font-bold text-left text-xl mt-1">{data.title[isEnglish ? 1 : 0]}</h3>
                     <div className="flex justify-between">
-                      <p className="font-medium md:font-thin text-sm text-left text-pretty mt-1 flex-1 mr-4">
+                      <p className="font-medium md:font-thin text-sm text-left break-keep mt-1 flex-1 mr-4">
                         {data.description[isEnglish ? 1 : 0]}
                       </p>
                       <div className="w-16 md:w-12 flex aspect-square relative">
