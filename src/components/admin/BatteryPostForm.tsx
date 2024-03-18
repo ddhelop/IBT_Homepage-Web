@@ -201,23 +201,47 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                 </div>
 
                 <h2 className="mb-2">배터리 부제목</h2>
-                <input
-                  type="text"
-                  name="itemSubtitle"
-                  className="bg-gray-100 rounded-md py-2 px-3 w-full font-medium mb-4"
-                />
+                <div className="flex gap-4">
+                  <input
+                    type="text"
+                    id="itemSubtitle_kr"
+                    name="itemSubtitle_kr"
+                    placeholder={'한글'}
+                    className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
+                  />
+                  <input
+                    type="text"
+                    id="itemSubtitle_en"
+                    name="itemSubtitle_en"
+                    placeholder={'영문'}
+                    className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
+                  />
+                </div>
                 <h2 className="mb-2">
                   <span className="text-red-400">*</span>배터리 설명
                 </h2>
-
-                <textarea
-                  required
-                  name="itemAdvanced"
-                  onChange={(e) => setDesc(e.target.value)}
-                  className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
-                  rows={5}
-                  cols={33}
-                />
+                <div className="flex gap-4">
+                  <textarea
+                    required
+                    id="itemAdvanced_kr"
+                    name="itemAdvanced_kr"
+                    placeholder={'한글'}
+                    onChange={(e) => setDesc(e.target.value)}
+                    className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
+                    rows={5}
+                    cols={33}
+                  />
+                  <textarea
+                    required
+                    id="itemAdvanced_en"
+                    name="itemAdvanced_en"
+                    placeholder={'영문'}
+                    onChange={(e) => setDesc(e.target.value)}
+                    className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
+                    rows={5}
+                    cols={33}
+                  />
+                </div>
               </div>
               <div className="flex flex-2 flex-col">
                 <h2 className="mb-2">
