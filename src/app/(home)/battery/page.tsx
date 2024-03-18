@@ -1,5 +1,4 @@
 import BatteryPage from '@/components/battery/BatteryPage'
-import { fetchPageData } from '@/lib/action'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

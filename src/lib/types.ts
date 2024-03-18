@@ -60,5 +60,5 @@ export type ButtonProps = {
   isForSubmit: boolean
   isActive: boolean
   func?: any
-  isLoading: boolean
+  isLoading?: boolean
 }
