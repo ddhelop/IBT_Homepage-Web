@@ -6,7 +6,8 @@ export const GET = async (request: NextRequest, { params }: any) => {
   const { slug } = params
   try {
     connectToDb()
-    const batteryPage = await BatteryPage.findOne({ id: slug[0] })
+    const batteryPage = await BatteryPage.findOne({ id: slug })
+    console.log('FetchBatteryPage:', batteryPage.toString().substring(0, 10))
     return NextResponse.json(batteryPage)
   } catch (err) {
     console.log(err)

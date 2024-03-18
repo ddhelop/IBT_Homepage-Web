@@ -22,7 +22,7 @@ export default function CompanyHistory1() {
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
-              <h3 className="text-4xl lg:text-xl  lg:text-xl font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
+              <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-5">2021</h3>
               <p className="font-light text-xl lg:text-sm break-keep ">{CompanyInfoData[2][2021]?.[isEnglish]}</p>
 
               <Image
@@ -87,9 +87,9 @@ export default function CompanyHistory1() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2015</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 ">{CompanyInfoData[2][2015]?.[isEnglish]}</p>
-              <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2015</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 ">{CompanyInfoData[2][2015]?.[isEnglish]}</p>
+              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-8">
+                {CompanyInfoData[2][2015]?.[isEnglish]}
+              </p>
             </LeftMotionComponent>
           </div>
 
