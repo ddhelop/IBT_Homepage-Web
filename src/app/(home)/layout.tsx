@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import '../globals.css'
-import { cls, notoSansKr } from '@/lib/fonts'
+import { notoSansKr } from '@/lib/fonts'
 import Footer from '@/components/Footer'
 import RecoilContextProvider from '@/context/recoil-context'
 import { Analytics } from '@vercel/analytics/react'
