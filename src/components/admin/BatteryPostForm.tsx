@@ -3,7 +3,7 @@ import { createBatteryPage } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { fetchPageData } from '@/lib/action'
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
@@ -32,6 +32,8 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
   //허나 prodImg는 별개의 함수로 배열에 추가되는 로직이 있기에 useState에 담고 있어야함.
   const [cateImg, setCateImg] = useState<File | null>(null)
   const [prodImg, setProdImg] = useState<File | null>(null)
+
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const [prodName, setProdName] = useState<string[]>(['', ''])
   const [desc, setDesc] = useState<string>('')
@@ -75,46 +77,69 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
       const { title } = Object.fromEntries(formData)
       const keyString = Math.random().toString(36).substring(0, 4)
-      if (!cateImg) return false
-      formData.append('batteryId', batteryId[0].toString())
 
-      const preImg_cate = await getSignedFileUrl({
-        name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title + keyString}-category.png`,
-        type: cateImg.type,
-      })
-      await fetch(preImg_cate, { method: 'PUT', body: cateImg, headers: { 'Content-type': cateImg.type } })
-      formData.append('cateImg', preImg_cate.split('?')[0])
+      formData.append('batteryId', batteryId[0].toString())
+      const formattedPrev = prevData?.data.filter((item: any) => item.id == batteryId[1])[0]
+
+      //이번에 새로 추가하는 상황이면, prevData가 없을 것 -> presignedURL을 채집하여 이를 ?까지만 자른 후 formData에 추가
+      if (!prevData) {
+        //새로 추가하는데, cateImg가 없으면, 안됨
+        if (!cateImg) {
+          setError('대표 이미지를 선택해주세요.')
+          setIsLoading(false)
+          return false
+        }
+        let preImg_cate = await getSignedFileUrl({
+          name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title + keyString}-category.png`,
+          type: cateImg.type,
+        })
+        await fetch(preImg_cate, { method: 'PUT', body: cateImg, headers: { 'Content-type': cateImg.type } })
+        formData.append('cateImg', preImg_cate.split('?')[0])
+        //기존 데이터를 수정하는 경우이면, prevData가 있을 것 -> 가공된 기존정보를 그대로 formData에 추가
+      } else {
+        let preImg_cate = formattedPrev.itemFile
+        formData.append('cateImg', preImg_cate)
+        formData.append('prevId', batteryId[1].toString())
+      }
 
       let presignedPromises: Promise<string>[] = []
       if (productList.length) {
         productList.forEach((item) => {
           formData.append('productName_kr', item.name[0])
           formData.append('productName_en', item.name[1])
-          presignedPromises.push(
-            //prettier-ignore
-            getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title}/${item.name+keyString}`, type: item.img.type, }),
-          )
+          if (!prevData) {
+            presignedPromises.push(
+              //prettier-ignore
+              getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title}/${item.name+keyString}`, type: item.img.type, }),
+            )
+          }
         })
+        //기존 데이터가 존재한다면, presignedPromises 배열이 초기값인 빈 배열이기에, 별도로 Promise가 수행되지 않을 것.
         const productImg = await Promise.all(presignedPromises)
         let uploadPromises: Promise<any>[] = []
         productList.forEach((item, id) => {
-          formData.append('productImg', productImg[id].split('?')[0] as string)
-          uploadPromises.push(
-            // prettier-ignore
-            fetch(productImg[id].split('?')[0] as string, { method: 'PUT', body: item.img, headers: { 'Content-type': item.img.type }}),
-          )
+          if (prevData) {
+            formData.append('productImg', formattedPrev.products[id].img as string)
+          } else {
+            formData.append('productImg', productImg[id].split('?')[0] as string)
+            uploadPromises.push(
+              // prettier-ignore
+              fetch(productImg[id].split('?')[0] as string, { method: 'PUT', body: item.img, headers: { 'Content-type': item.img.type }}),
+            )
+          }
         })
+        //기존 데이터가 존재한다면, uploadPromises 배열이 초기값인 빈 배열이기에, 별도로 Promise가 수행되지 않을 것.
         await Promise.all(uploadPromises)
       }
       const { success, message } = await createBatteryPage(formData)
-      if (!success) {
-        setError(message)
-        setIsLoading(false)
-      } else {
-        setIsLoading(false)
-        router.push('/admin/batteries')
-        console.log(message)
-      }
+      // if (!success) {
+      //   setError(message)
+      //   setIsLoading(false)
+      // } else {
+      //   setIsLoading(false)
+      //   router.push('/admin/batteries')
+      //   console.log(message)
+      // }
     } catch (e: any) {
       console.log(e)
     }
@@ -133,7 +158,8 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
 
   useEffect(() => {
     if (prevData) {
-      const formattedPrev = prevData.data[batteryId[1]]
+      const formattedPrev = prevData.data.filter((item: any) => item.id == batteryId[1])[0]
+
       let inputs = document.getElementsByTagName('input')
       let textareas = document.getElementsByTagName('textarea')
 
@@ -145,7 +171,6 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
       inputs[5].value = formattedPrev.itemSubtitle[1]
       textareas[0].value = formattedPrev.itemAdvanced[0]
       textareas[1].value = formattedPrev.itemAdvanced[1]
-      setCateImg(formattedPrev.itemFile) //**수정 필요 */
       setCateTmpUrl(formattedPrev.itemFile)
       setProductList(formattedPrev.products)
     }
@@ -254,7 +279,22 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                     <div className="bg-gray-50 w-full h-full" />
                   )}
                 </div>
-                <input required type="file" accept="image/*" onChange={(e) => showImage(e, 'catelog')} />
+                <label htmlFor="file">
+                  <button
+                    onClick={() => fileRef?.current?.click()}
+                    className="rounded-md text-gray-700 p-2 border border-green-700"
+                  >
+                    파일 업로드하기
+                  </button>
+                </label>
+                <input
+                  id="cateImg"
+                  type="file"
+                  ref={fileRef}
+                  className="hidden"
+                  accept="image/*"
+                  onChange={(e) => showImage(e, 'catelog')}
+                />
               </div>
             </div>
           </div>
