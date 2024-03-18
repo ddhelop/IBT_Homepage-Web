@@ -162,11 +162,13 @@ export const createBatteryPage = async (formData: FormData) => {
     itemAdvanced_en,
     batteryId,
     cateImg,
+    prevId,
   } = Object.fromEntries(formData)
   const newBatteryId = parseInt(batteryId as string)
   const productImgs: string[] | null = formData.getAll('productImg') as unknown as string[]
   const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
   const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
+  console.log('prevId:', prevId)
   //데이터는 잘 받아옴
   try {
     const products = productImgs.map(function (img: string, id: number) {
@@ -185,8 +187,9 @@ export const createBatteryPage = async (formData: FormData) => {
       itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],
       products,
     }
-    const res = await BatteryPage.updateOne({ id: newBatteryId }, { data: [...prevData.data, data] })
-    console.log(batteriesData_admin[newBatteryId].title, 'BatteryPage successfully updated!\nresponse:', res)
+    console.log('Final Data!!!:', data)
+    // const res = await BatteryPage.updateOne({ id: newBatteryId }, { data: [...prevData.data, data] })
+    // console.log(batteriesData_admin[newBatteryId].title, 'BatteryPage successfully updated!\nresponse:', res)
     revalidatePath('/admin/batteries')
     return { success: true, message: 'createBatteryPage success' }
   } catch (error) {
