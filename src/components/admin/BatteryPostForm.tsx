@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { fetchPageData } from '@/lib/action'
 import { FormEvent, useEffect, useState } from 'react'
+import { fetchPageData } from '@/lib/action'
+import { FormEvent, useEffect, useState } from 'react'
 import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
@@ -15,16 +17,12 @@ import { getSignedFileUrl } from '@/lib/awsUtils'
 type PostFormProp = {
   batteryId: number[]
   prevData?: any
-  batteryId: number[]
-  prevData?: any
 }
 export type Product = {
   id: number
   name: string[]
-  name: string[]
   img: File
 }
-const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
 const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
   const [error, setError] = useState<string | null>(null)
   const [productList, setProductList] = useState<Product[]>([])
@@ -37,6 +35,7 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
   const [cateImg, setCateImg] = useState<File | null>(null)
   const [prodImg, setProdImg] = useState<File | null>(null)
 
+  const [prodName, setProdName] = useState<string[]>(['', ''])
   const [prodName, setProdName] = useState<string[]>(['', ''])
   const [desc, setDesc] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -68,7 +67,6 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
     const newId = productList.length ? Math.max(...productList.map((item) => item.id)) + 1 : 0
     setProductList([...productList, { id: newId, name: prodName, img: prodImg }])
     setProdName(['', ''])
-    setProdName(['', ''])
     setProdTmpUrl(null)
     setProdImg(null)
   }
@@ -82,8 +80,10 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
       const keyString = Math.random().toString(36).substring(0, 4)
       if (!cateImg) return false
       formData.append('batteryId', batteryId[0].toString())
+      formData.append('batteryId', batteryId[0].toString())
 
       const preImg_cate = await getSignedFileUrl({
+        name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title + keyString}-category.png`,
         name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title + keyString}-category.png`,
         type: cateImg.type,
       })
@@ -95,9 +95,15 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
         productList.forEach((item) => {
           formData.append('productName_kr', item.name[0])
           formData.append('productName_en', item.name[1])
+          formData.append('productName_kr', item.name[0])
+          formData.append('productName_en', item.name[1])
           presignedPromises.push(
             //prettier-ignore
             getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title}/${item.name+keyString}`, type: item.img.type, }),
+            getSignedFileUrl({
+              name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title}/${item.name + keyString}`,
+              type: item.img.type,
+            }),
           )
         })
         //기존 데이터가 존재한다면, presignedPromises 배열이 초기값인 빈 배열이기에, 별도로 Promise가 수행되지 않을 것.
@@ -161,10 +167,28 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
       setProductList(formattedPrev.products)
     }
   }, [])
+  useEffect(() => {
+    if (prevData) {
+      const formattedPrev = prevData.data[batteryId[1]]
+      let inputs = document.getElementsByTagName('input')
+      let textareas = document.getElementsByTagName('textarea')
+
+      inputs[0].value = formattedPrev.title[0]
+      inputs[1].value = formattedPrev.title[1]
+      inputs[2].value = formattedPrev.itemTitle[0]
+      inputs[3].value = formattedPrev.itemTitle[1]
+      inputs[4].value = formattedPrev.itemSubtitle[0]
+      inputs[5].value = formattedPrev.itemSubtitle[1]
+      textareas[0].value = formattedPrev.itemAdvanced[0]
+      textareas[1].value = formattedPrev.itemAdvanced[1]
+      setCateImg(formattedPrev.itemFile) //**수정 필요 */
+      setCateTmpUrl(formattedPrev.itemFile)
+      setProductList(formattedPrev.products)
+    }
+  }, [])
   return (
     <div className="flex flex-col">
       <h1 className="text-2xl font-bold bg-white p-8">
-        {batteriesData_admin[batteryId[0]].title + ' 페이지의 중분류 추가'}
         {batteriesData_admin[batteryId[0]].title + ' 페이지의 중분류 추가'}
       </h1>
       <form className="m-8 p-8 bg-white rounded-lg flex-col" onSubmit={onSubmit}>
@@ -176,24 +200,6 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                   <span className="text-red-400">*</span>
                   {`중분류 제목 (ex:항공,육상)`}
                 </h2>
-                <div className="flex gap-4">
-                  <input
-                    required
-                    type="text"
-                    id="title_kr"
-                    name="title_kr"
-                    placeholder={'한글'}
-                    className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
-                  />
-                  <input
-                    required
-                    type="text"
-                    id="title_en"
-                    name="title_en"
-                    placeholder={'영문'}
-                    className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
-                  />
-                </div>
                 <div className="flex gap-4">
                   <input
                     required
@@ -230,41 +236,48 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                   />
                 </div>
 
+                <h2 className="mb-2">배터리 부제목</h2>
                 <div className="flex gap-4">
                   <input
                     type="text"
-                    id="itemTitle_kr"
-                    name="itemTitle_kr"
+                    id="itemSubtitle_kr"
+                    name="itemSubtitle_kr"
                     placeholder={'한글'}
                     className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
                   />
                   <input
                     type="text"
-                    id="itemTitle_en"
-                    name="itemTitle_en"
+                    id="itemSubtitle_en"
+                    name="itemSubtitle_en"
                     placeholder={'영문'}
                     className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
                   />
                 </div>
-
-                <h2 className="mb-2">배터리 부제목</h2>
-                <input
-                  type="text"
-                  name="itemSubtitle"
-                  className="bg-gray-100 rounded-md py-2 px-3 w-full font-medium mb-4"
-                />
                 <h2 className="mb-2">
                   <span className="text-red-400">*</span>배터리 설명
                 </h2>
-
-                <textarea
-                  required
-                  name="itemAdvanced"
-                  onChange={(e) => setDesc(e.target.value)}
-                  className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
-                  rows={5}
-                  cols={33}
-                />
+                <div className="flex gap-4">
+                  <textarea
+                    required
+                    id="itemAdvanced_kr"
+                    name="itemAdvanced_kr"
+                    placeholder={'한글'}
+                    onChange={(e) => setDesc(e.target.value)}
+                    className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
+                    rows={5}
+                    cols={33}
+                  />
+                  <textarea
+                    required
+                    id="itemAdvanced_en"
+                    name="itemAdvanced_en"
+                    placeholder={'영문'}
+                    onChange={(e) => setDesc(e.target.value)}
+                    className="bg-gray-100 font-medium rounded-md py-2 px-3 mb-8"
+                    rows={5}
+                    cols={33}
+                  />
+                </div>
               </div>
               <div className="flex flex-2 flex-col">
                 <h2 className="mb-2">
@@ -322,24 +335,6 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                     setProdName(tmp)
                   }}
                   placeholder="적용제품명 영문"
-                  value={prodName[0]}
-                  onChange={(e) => {
-                    let tmp = [...prodName]
-                    tmp[0] = e.target.value
-                    setProdName(tmp)
-                  }}
-                  placeholder="적용제품명 한글"
-                  type="text"
-                  className="bg-gray-50 h-6 rounded-md px-2 py-4 border"
-                />
-                <input
-                  value={prodName[1]}
-                  onChange={(e) => {
-                    let tmp = [...prodName]
-                    tmp[1] = e.target.value
-                    setProdName(tmp)
-                  }}
-                  placeholder="적용제품명 영문"
                   type="text"
                   className="bg-gray-50 h-6 rounded-md px-2 py-4 border"
                 />
@@ -347,7 +342,6 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                 <SubmitButton
                   text="제품 추가"
                   isForSubmit={false}
-                  isActive={prodTmpUrl != null && prodName[0].length > 0}
                   isActive={prodTmpUrl != null && prodName[0].length > 0}
                   func={() => addProduct()}
                 />
@@ -368,16 +362,6 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                             className="flex items-center p-2 bg-white border mx-4 mb-2 rounded-md"
                           >
                             <div className="relative w-20 aspect-square border">
-                              <Image
-                                alt="img"
-                                className="object-cover"
-                                src={typeof prod.img === 'string' ? prod.img : URL.createObjectURL(prod.img)}
-                                fill
-                              />
-                            </div>
-                            <div className="flex-1 ml-4">
-                              <h1 className="truncate font-medium text-lg">{prod.name[0]}</h1>
-                              <h1 className="truncate font-medium text-lg">{prod.name[1]}</h1>
                               <Image
                                 alt="img"
                                 className="object-cover"

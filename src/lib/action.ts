@@ -24,7 +24,6 @@ export const fetchPostData = async (id: number) => {
 
 export const fetchPageData = async (id: number) => {
   connectToDb()
-  connectToDb()
   const res = await fetch(`${process.env.URL}/api/admin/batteries/${id}`, {
     method: 'GET',
     cache: 'no-store',
@@ -164,14 +163,27 @@ export const createBatteryPage = async (formData: FormData) => {
     batteryId,
     cateImg,
   } = Object.fromEntries(formData)
+  const {
+    title_kr,
+    title_en,
+    itemTitle_kr,
+    itemTitle_en,
+    itemSubtitle_kr,
+    itemSubtitle_en,
+    itemAdvanced_kr,
+    itemAdvanced_en,
+    batteryId,
+    cateImg,
+  } = Object.fromEntries(formData)
   const newBatteryId = parseInt(batteryId as string)
   const productImgs: string[] | null = formData.getAll('productImg') as unknown as string[]
+  const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
+  const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
   const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
   const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
   //데이터는 잘 받아옴
   try {
     const products = productImgs.map(function (img: string, id: number) {
-      return { id, name: [productNames_kr[id], productNames_en[id]], img }
       return { id, name: [productNames_kr[id], productNames_en[id]], img }
     })
     connectToDb() //MongoDB에 연결
@@ -181,11 +193,7 @@ export const createBatteryPage = async (formData: FormData) => {
     const data = {
       id: newId,
       title: [title_kr, title_en],
-      title: [title_kr, title_en],
       itemFile: cateImg,
-      itemTitle: [itemTitle_kr, itemTitle_en],
-      itemSubtitle: [itemSubtitle_kr, itemSubtitle_en],
-      itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],
       itemTitle: [itemTitle_kr, itemTitle_en],
       itemSubtitle: [itemSubtitle_kr, itemSubtitle_en],
       itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],

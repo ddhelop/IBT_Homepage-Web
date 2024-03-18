@@ -75,7 +75,7 @@ const BatteryEditList = ({ datas, batteryId }: any) => {
       <h1 className="text-gray-600 text-sm px-6 mt-4">{message}</h1>
       <div className="p-4 flex items-center gap-4">
         <SubmitButton
-          text="수정 완료"
+          text={isEditMode ? '수정 완료' : '수정 하기'}
           isLoading={isLoading}
           isForSubmit={false}
           func={isEditMode ? onSubmit : toggleEditMode}
