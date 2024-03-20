@@ -23,9 +23,9 @@ export default function RootLayout({
       <body className={`${notoSansKr.className} transition  text-gray-950 relative`}>
         <RecoilContextProvider>
           <Header />
-          <Analytics />
           {children}
           <Footer />
+          <Analytics />
         </RecoilContextProvider>
       </body>
     </html>

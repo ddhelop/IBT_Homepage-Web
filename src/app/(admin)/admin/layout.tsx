@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import '../../globals.css'
 import { notoSansKr } from '@/lib/fonts'
 import AdminHeader from '@/components/admin/AdminHeader'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: '(주)아이비티 어드민페이지',
@@ -21,7 +20,6 @@ export default function RootLayout({
         <AdminHeader />
         <div className="ml-64" />
         {children}
-        <SpeedInsights />
       </body>
     </html>
   )
