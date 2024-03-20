@@ -1,27 +1,22 @@
-import React from 'react'
-import { GrCatalogOption } from 'react-icons/gr'
-import { RiNewspaperFill } from 'react-icons/ri'
-import { FaFilePdf, FaPager } from 'react-icons/fa6'
-
 export const links_admin = [
   {
     name: '뉴스',
-    icon: React.createElement(RiNewspaperFill),
     path: '/admin/news',
   },
   {
     name: '카탈로그',
-    icon: React.createElement(GrCatalogOption),
     path: '/admin/catelogs',
   },
   {
     name: '배터리페이지 관리',
-    icon: React.createElement(FaPager),
     path: '/admin/batteries',
   },
   {
+    name: '수소페이지 관리',
+    path: '/admin/hydrogens',
+  },
+  {
     name: '지우장학회 PDF',
-    icon: React.createElement(FaFilePdf),
     path: '/admin/esg-pdf',
   },
 ] as const
@@ -74,6 +69,20 @@ export const batteriesData_admin = [
     id: 3,
     postType: 'energy',
     title: '에너지 저장',
+    name: '적용제품',
+  },
+]
+export const hydrogensData_admin = [
+  {
+    id: 0,
+    postType: 'Project',
+    title: '프로젝트',
+    name: '적용제품',
+  },
+  {
+    id: 1,
+    postType: 'System',
+    title: '시스템',
     name: '적용제품',
   },
 ]

@@ -1,4 +1,5 @@
 import BatteryEditList from '@/components/admin/BatteryEditList'
+import OtherBatteryCard from '@/components/admin/OtherBatteryCard'
 
 const getData = async () => {
   const res = await fetch(`${process.env.URL}/api/admin/batteries`, {
@@ -16,10 +17,11 @@ const AdminPage = async () => {
     <div className="flex flex-col flex-1 min-h-screen bg-gray-100">
       <h1 className="text-2xl font-bold bg-white p-8">배터리 상세페이지</h1>
       <div className="flex p-8 flex-wrap gap-4 items-start">
-        <BatteryEditList datas={res[0]} batteryId={0} />
-        <BatteryEditList datas={res[1]} batteryId={1} />
-        <BatteryEditList datas={res[2]} batteryId={2} />
-        <BatteryEditList datas={res[3]} batteryId={3} />
+        <BatteryEditList datas={res[0]} pageId={0} type={'battery'} />
+        <BatteryEditList datas={res[1]} pageId={1} type={'battery'} />
+        <BatteryEditList datas={res[2]} pageId={2} type={'battery'} />
+        <BatteryEditList datas={res[3]} pageId={3} type={'battery'} />
+        <OtherBatteryCard data={res[4].data[0].products} />
       </div>
     </div>
   )

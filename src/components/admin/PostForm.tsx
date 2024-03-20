@@ -34,8 +34,7 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
 
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
-      const { title } = Object.fromEntries(formData)
-      if (!title) return false
+
       formData.append('postType', postTypeId.toString())
       const keyString = Math.random().toString(36).substring(0, 12)
       //S3 버킷에 PDF 파일을 저장한 후, 이를 불러오는 pre-signed URL을 가져오는 과정
@@ -81,6 +80,7 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
       }
     } catch (e: any) {
       setError(e)
+      console.log(e)
     } finally {
       setIsLoading(false)
     }
@@ -120,7 +120,32 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
         )}
 
         <h2 className="block text-gray-700 font-bold mb-2">글 제목:</h2>
-        <input required type="text" name="title" className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4" />
+        {postTypeId === 0 ? (
+          <input
+            required
+            type="text"
+            name="title"
+            placeholder="한글"
+            className="bg-gray-100 rounded-md py-2 px-3 w-full"
+          />
+        ) : (
+          <div className="flex gap-8 mb-12">
+            <input
+              required
+              type="text"
+              name="title_kr"
+              placeholder="한글"
+              className="bg-gray-100 rounded-md py-2 px-3 w-full"
+            />
+            <input
+              required
+              type="text"
+              name="title_en"
+              placeholder="영문"
+              className="bg-gray-100 rounded-md py-2 px-3 w-full"
+            />
+          </div>
+        )}
         {postTypeId === 0 && (
           <>
             <h2 className="block text-gray-700 font-bold mb-2">글:</h2>

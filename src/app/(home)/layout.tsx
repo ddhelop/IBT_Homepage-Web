@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description:
     'IBT는 혁신적인 배터리 기술을 통해 지속 가능한 에너지 솔루션을 선도하며, 새로운 에너지 라이프스타일을 창조하고 있습니다.',
 }
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta property="og:image" content={'public/image/Logo.png'}></meta>
+      <meta property="og:image" content={'https://ibt-bucket.s3.ap-northeast-2.amazonaws.com/Logo.png'}></meta>
       <body className={`${notoSansKr.className} transition  text-gray-950 relative`}>
         <RecoilContextProvider>
           <Header />

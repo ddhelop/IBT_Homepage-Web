@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 const BatteryDefensePage = async () => {
-  const data = await fetchPageData(0)
+  const data = await fetchPageData(0, 'battery')
 
   return (
     <>

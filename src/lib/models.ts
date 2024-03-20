@@ -10,12 +10,12 @@ const ListSchema = new mongoose.Schema({
   itemFile: { type: String, required: true },
   products: { type: Array, default: [] },
 })
+
 //중분류 내용 저장용 스키마 - 방산용 Ni-cd, 산업용 Ni-cd ...
 const pageSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   data: { type: [ListSchema], required: true, default: [] },
 })
-
 const postSubSchema = new mongoose.Schema(
   {
     id: { type: Number, required: true, default: 0 },
@@ -33,5 +33,6 @@ const postSchema = new mongoose.Schema({
   data: { type: [postSubSchema], default: [] },
 })
 
+export const HydrogenPage = mongoose.models?.HydrogenPage || mongoose.model('HydrogenPage', pageSchema)
 export const BatteryPage = mongoose.models?.BatteryPage || mongoose.model('BatteryPage', pageSchema)
 export const Post = mongoose.models?.Post || mongoose.model('Post', postSchema)
