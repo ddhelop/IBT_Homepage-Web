@@ -29,10 +29,10 @@ export type SocialProps = {
 
 export type Category = {
   id: number
-  title: string
+  title: string[]
   itemFile: string
-  itemTitle: string
-  itemSubtitle: string | null
+  itemTitle: string[]
+  itemSubtitle: string[] | null
   itemAdvanced: string[]
   products?: Product[]
 }
@@ -45,7 +45,7 @@ export type PostType = {
 }
 export type Product = {
   id: number
-  name: string
+  name: string[]
   img: string
 }
 

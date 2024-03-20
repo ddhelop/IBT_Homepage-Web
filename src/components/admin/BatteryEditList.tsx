@@ -1,14 +1,13 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+
 import { handleBatteryListEdit } from '@/lib/action'
 
 import { getErrorMessage, reorderPosts } from '@/lib/utils'
 import CategoryDnd from './CategoryDnd'
 import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
-import { FaPlus } from 'react-icons/fa6'
 import Link from 'next/link'
 import { Category } from '@/lib/types'
 

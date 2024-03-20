@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { DragDropContext, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
 import { IoIosClose } from 'react-icons/io'
@@ -18,7 +18,12 @@ const CategoryDnd = ({ onCategoryListDragEnd, categoryList, handleDelete, isEdit
           {(droppableProvided) => (
             <div {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
               {categoryList?.map((cate: any, id: number) => (
-                <Draggable isDragDisabled={!isEditMode} key={cate?.id} draggableId={cate?.id.toString()} index={id}>
+                <Draggable
+                  isDragDisabled={!isEditMode}
+                  key={batteryId.toString() + cate?.id.toString()}
+                  draggableId={batteryId.toString() + cate?.id.toString()}
+                  index={id}
+                >
                   {(draggableProvided) => (
                     <div
                       ref={draggableProvided.innerRef}

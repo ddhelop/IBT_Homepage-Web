@@ -6,7 +6,7 @@ import { fetchPageData } from '@/lib/action'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import SubmitButton from './SubmitButton'
 import { batteriesData_admin } from '@/lib/data'
-import { DragDropContext, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import { reorderPosts } from '@/lib/utils'
 import { IoIosClose } from 'react-icons/io'
@@ -21,6 +21,8 @@ export type Product = {
   name: string[]
   img: File
 }
+
+//batteryId =[ 중분류 id(0,1,2,3), data.id(고유값)]
 const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
   const [error, setError] = useState<string | null>(null)
   const [productList, setProductList] = useState<Product[]>([])
@@ -75,52 +77,54 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
     setIsLoading(true)
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
-      const { title } = Object.fromEntries(formData)
+      const { title_en } = Object.fromEntries(formData)
       const keyString = Math.random().toString(36).substring(0, 4)
 
       formData.append('batteryId', batteryId[0].toString())
-      const formattedPrev = prevData?.data.filter((item: any) => item.id == batteryId[1])[0]
 
       //이번에 새로 추가하는 상황이면, prevData가 없을 것 -> presignedURL을 채집하여 이를 ?까지만 자른 후 formData에 추가
-      if (!prevData) {
-        //새로 추가하는데, cateImg가 없으면, 안됨
-        if (!cateImg) {
-          setError('대표 이미지를 선택해주세요.')
-          setIsLoading(false)
-          return false
-        }
+      if (!cateImg) {
+        setError('대표 이미지를 선택해주세요.')
+        setIsLoading(false)
+        return false
+      } else if (typeof cateImg !== 'string') {
         let preImg_cate = await getSignedFileUrl({
-          name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title + keyString}-category.png`,
+          name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title_en + keyString}-category.png`,
           type: cateImg.type,
         })
         await fetch(preImg_cate, { method: 'PUT', body: cateImg, headers: { 'Content-type': cateImg.type } })
         formData.append('cateImg', preImg_cate.split('?')[0])
         //기존 데이터를 수정하는 경우이면, prevData가 있을 것 -> 가공된 기존정보를 그대로 formData에 추가
       } else {
-        let preImg_cate = formattedPrev.itemFile
+        let preImg_cate = prevData.itemFile
         formData.append('cateImg', preImg_cate)
-        formData.append('prevId', batteryId[1].toString())
       }
+      if (prevData) formData.append('editSectionId', batteryId[1].toString())
 
       let presignedPromises: Promise<string>[] = []
       if (productList.length) {
-        productList.forEach((item) => {
+        productList.forEach((item, id) => {
           formData.append('productName_kr', item.name[0])
           formData.append('productName_en', item.name[1])
-          if (!prevData) {
+          if (typeof item.img !== 'string') {
             presignedPromises.push(
               //prettier-ignore
-              getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title}/${item.name+keyString}`, type: item.img.type, }),
+              getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title_en}/${item.name+keyString}`, type: item.img.type, }),
             )
+          } else {
+            presignedPromises.push(item.img)
           }
         })
         //기존 데이터가 존재한다면, presignedPromises 배열이 초기값인 빈 배열이기에, 별도로 Promise가 수행되지 않을 것.
+
         const productImg = await Promise.all(presignedPromises)
         let uploadPromises: Promise<any>[] = []
         productList.forEach((item, id) => {
-          if (prevData) {
-            formData.append('productImg', formattedPrev.products[id].img as string)
+          //이미 기존에 있어 presignedURL로 img에 저장되어있는 경우
+          if (typeof item.img === 'string') {
+            formData.append('productImg', item.img)
           } else {
+            //수정하는 과정에서 새로운 적용제품 사진을 추가하는 경우
             formData.append('productImg', productImg[id].split('?')[0] as string)
             uploadPromises.push(
               // prettier-ignore
@@ -132,14 +136,14 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
         await Promise.all(uploadPromises)
       }
       const { success, message } = await createBatteryPage(formData)
-      // if (!success) {
-      //   setError(message)
-      //   setIsLoading(false)
-      // } else {
-      //   setIsLoading(false)
-      //   router.push('/admin/batteries')
-      //   console.log(message)
-      // }
+      if (!success) {
+        setError(message)
+        setIsLoading(false)
+      } else {
+        setIsLoading(false)
+        router.push('/admin/batteries')
+        console.log(message)
+      }
     } catch (e: any) {
       console.log(e)
     }
@@ -158,23 +162,23 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
 
   useEffect(() => {
     if (prevData) {
-      const formattedPrev = prevData.data.filter((item: any) => item.id == batteryId[1])[0]
-
       let inputs = document.getElementsByTagName('input')
       let textareas = document.getElementsByTagName('textarea')
 
-      inputs[0].value = formattedPrev.title[0]
-      inputs[1].value = formattedPrev.title[1]
-      inputs[2].value = formattedPrev.itemTitle[0]
-      inputs[3].value = formattedPrev.itemTitle[1]
-      inputs[4].value = formattedPrev.itemSubtitle[0]
-      inputs[5].value = formattedPrev.itemSubtitle[1]
-      textareas[0].value = formattedPrev.itemAdvanced[0]
-      textareas[1].value = formattedPrev.itemAdvanced[1]
-      setCateTmpUrl(formattedPrev.itemFile)
-      setProductList(formattedPrev.products)
+      inputs[0].value = prevData.title[0]
+      inputs[1].value = prevData.title[1]
+      inputs[2].value = prevData.itemTitle[0]
+      inputs[3].value = prevData.itemTitle[1]
+      inputs[4].value = prevData.itemSubtitle[0]
+      inputs[5].value = prevData.itemSubtitle[1]
+      textareas[0].value = prevData.itemAdvanced[0]
+      textareas[1].value = prevData.itemAdvanced[1]
+      setCateTmpUrl(prevData.itemFile)
+      setCateImg(prevData.itemFile)
+      setProductList(prevData.products)
     }
   }, [])
+
   return (
     <div className="flex flex-col">
       <h1 className="text-2xl font-bold bg-white p-8">
@@ -281,6 +285,7 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
                 </div>
                 <label htmlFor="file">
                   <button
+                    type="button"
                     onClick={() => fileRef?.current?.click()}
                     className="rounded-md text-gray-700 p-2 border border-green-700"
                   >
