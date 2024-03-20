@@ -87,7 +87,7 @@ const BatteryEditList = ({ datas, pageId, type }: { datas: any; pageId: number; 
       <h1 className="text-gray-400 text-sm px-2 mt-4">{message}</h1>
       <div className="p-2 flex justify-between items-center gap-4">
         <SubmitButton
-          text={isEditMode ? '순서 저장' : '순서 변경'}
+          text={isEditMode ? '순서 저장' : '순서변경 모드'}
           isLoading={isLoading}
           isForSubmit={false}
           func={() => (isEditMode ? onSubmit() : setIsEditMode(true))}

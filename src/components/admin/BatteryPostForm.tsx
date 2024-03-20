@@ -340,7 +340,7 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
                 <SubmitButton
                   text="제품 추가"
                   isForSubmit={false}
-                  isActive={prodTmpUrl != null && prodName[0].length > 0}
+                  isActive={prodTmpUrl != null}
                   func={() => addProduct()}
                 />
               </div>
