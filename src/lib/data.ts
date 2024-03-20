@@ -1,19 +1,19 @@
 export const links_admin = [
   {
-    name: '뉴스',
-    path: '/admin/news',
-  },
-  {
-    name: '카탈로그',
-    path: '/admin/catelogs',
-  },
-  {
     name: '배터리페이지 관리',
     path: '/admin/batteries',
   },
   {
     name: '수소페이지 관리',
     path: '/admin/hydrogens',
+  },
+  {
+    name: '뉴스',
+    path: '/admin/news',
+  },
+  {
+    name: '카탈로그',
+    path: '/admin/catelogs',
   },
   {
     name: '지우장학회 PDF',
