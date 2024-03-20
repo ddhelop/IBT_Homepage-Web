@@ -7,7 +7,6 @@ const getData = async (slug: string) => {
     method: 'GET',
   })
   if (!res.ok) {
-    console.log(res)
     throw new Error('Something went wrong')
   }
   return res.json()

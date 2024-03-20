@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: '에너지 저장용 리튬 배터리 제품 소개 페이지',
 }
 const BatteryEnergySavePage = async () => {
-  const data = await fetchPageData(3)
+  const data = await fetchPageData(3, 'battery')
 
   return (
     <>

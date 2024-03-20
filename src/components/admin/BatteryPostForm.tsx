@@ -1,20 +1,22 @@
 'use client'
-import { createBatteryPage } from '@/lib/action'
+
+import { createPage } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { fetchPageData } from '@/lib/action'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import SubmitButton from './SubmitButton'
-import { batteriesData_admin } from '@/lib/data'
+import { batteriesData_admin, hydrogensData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import { reorderPosts } from '@/lib/utils'
 import { IoIosClose } from 'react-icons/io'
 import { getSignedFileUrl } from '@/lib/awsUtils'
+import { PageType } from '@/lib/types'
 
 type PostFormProp = {
-  batteryId: number[]
+  pageId: number[]
   prevData?: any
+  type: PageType
 }
 export type Product = {
   id: number
@@ -22,8 +24,8 @@ export type Product = {
   img: File
 }
 
-//batteryId =[ 중분류 id(0,1,2,3), data.id(고유값)]
-const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
+//pageId =[ 중분류 id(0,1,2,3), data.id(고유값)]
+const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
   const [error, setError] = useState<string | null>(null)
   const [productList, setProductList] = useState<Product[]>([])
 
@@ -80,7 +82,7 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
       const { title_en } = Object.fromEntries(formData)
       const keyString = Math.random().toString(36).substring(0, 4)
 
-      formData.append('batteryId', batteryId[0].toString())
+      formData.append('pageId', pageId[0].toString())
 
       //이번에 새로 추가하는 상황이면, prevData가 없을 것 -> presignedURL을 채집하여 이를 ?까지만 자른 후 formData에 추가
       if (!cateImg) {
@@ -89,7 +91,7 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
         return false
       } else if (typeof cateImg !== 'string') {
         let preImg_cate = await getSignedFileUrl({
-          name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title_en + keyString}-category.png`,
+          name: `batteries/${batteriesData_admin[pageId[0]].title}/${title_en + keyString}-category.png`,
           type: cateImg.type,
         })
         await fetch(preImg_cate, { method: 'PUT', body: cateImg, headers: { 'Content-type': cateImg.type } })
@@ -99,7 +101,7 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
         let preImg_cate = prevData.itemFile
         formData.append('cateImg', preImg_cate)
       }
-      if (prevData) formData.append('editSectionId', batteryId[1].toString())
+      if (prevData) formData.append('editSectionId', pageId[1].toString())
 
       let presignedPromises: Promise<string>[] = []
       if (productList.length) {
@@ -109,7 +111,7 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
           if (typeof item.img !== 'string') {
             presignedPromises.push(
               //prettier-ignore
-              getSignedFileUrl({ name: `batteries/${batteriesData_admin[batteryId[0]].title}/${title_en}/${item.name+keyString}`, type: item.img.type, }),
+              getSignedFileUrl({ name: `batteries/${batteriesData_admin[pageId[0]].title}/${title_en}/${item.name+keyString}`, type: item.img.type, }),
             )
           } else {
             presignedPromises.push(item.img)
@@ -135,13 +137,13 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
         //기존 데이터가 존재한다면, uploadPromises 배열이 초기값인 빈 배열이기에, 별도로 Promise가 수행되지 않을 것.
         await Promise.all(uploadPromises)
       }
-      const { success, message } = await createBatteryPage(formData)
+      const { success, message } = await createPage(formData, type)
       if (!success) {
         setError(message)
         setIsLoading(false)
       } else {
         setIsLoading(false)
-        router.push('/admin/batteries')
+        router.push(type === 'battery' ? '/admin/batteries' : '/admin/hydrogens')
         console.log(message)
       }
     } catch (e: any) {
@@ -182,7 +184,9 @@ const BatteryPostForm = ({ batteryId, prevData }: PostFormProp) => {
   return (
     <div className="flex flex-col">
       <h1 className="text-2xl font-bold bg-white p-8">
-        {batteriesData_admin[batteryId[0]].title + ' 페이지의 중분류 추가'}
+        {type === 'battery'
+          ? batteriesData_admin[pageId[0]].title
+          : hydrogensData_admin[pageId[0]].title + ' 페이지의 중분류 추가'}
       </h1>
       <form className="m-8 p-8 bg-white rounded-lg flex-col" onSubmit={onSubmit}>
         <div className="2xl:flex">

@@ -2,13 +2,13 @@
 
 import { Resend } from 'resend'
 import { revalidatePath } from 'next/cache'
-import { BatteryPage, Post } from './models'
+import { BatteryPage, HydrogenPage, Post } from './models'
 import { connectToDb, getErrorMessage, validateString } from './utils'
 import React from 'react'
 import ContactFormEmail from '@/components/customer/contact-us/ContactForm'
 import { batteriesData_admin, postData_admin } from './data'
 import { deleteS3Object, getSignedFileUrl } from './awsUtils'
-import { Category, PostType } from './types'
+import { Category, PageType, PostType } from './types'
 
 export const fetchPostData = async (id: number) => {
   const res = await fetch(`${process.env.URL}/api/admin/posts/${id}`, {
@@ -22,9 +22,10 @@ export const fetchPostData = async (id: number) => {
   return res.json()
 }
 
-export const fetchPageData = async (id: number) => {
+export const fetchPageData = async (id: number, type: string) => {
   connectToDb()
-  const res = await fetch(`${process.env.URL}/api/admin/batteries/${id}`, {
+
+  const res = await fetch(`${process.env.URL}/api/admin/${type === 'battery' ? 'batteries' : 'hydrogens'}/${id}`, {
     method: 'GET',
     cache: 'no-store',
   })
@@ -36,7 +37,7 @@ export const fetchPageData = async (id: number) => {
 }
 
 export const createPost = async (formData: FormData) => {
-  const { postType, title, desc, img, pdf }: { [k: string]: any } = Object.fromEntries(formData)
+  const { postType, title_en, title_kr, desc, img, pdf }: { [k: string]: any } = Object.fromEntries(formData)
   try {
     //MongoDB에 연결
     connectToDb()
@@ -47,36 +48,60 @@ export const createPost = async (formData: FormData) => {
     switch (+postType) {
       case 0:
         if (!img) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        const newNews = { id: newId, title, img, desc }
+        const newNews = { id: newId, title: title_kr, img, desc }
         await Post.updateOne({ id: +postType }, { data: [...prevData.data, newNews] })
         revalidatePath('/admin')
         break
       case 1:
         if (!img || !pdf) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        const newCatalog = { id: newId, title, img, pdf }
+        const newCatalog = { id: newId, title: [title_kr, title_en], img, pdf }
         await Post.updateOne({ id: +postType }, { data: [...prevData.data, newCatalog] })
         revalidatePath('/admin/catelog')
         break
       case 2:
         if (!pdf) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        const newEsg = { id: newId, title, pdf }
+        const newEsg = { id: newId, title: [title_kr, title_en], pdf }
         await Post.updateOne({ id: +postType }, { data: [...prevData.data, newEsg] })
         revalidatePath('/admin/esg-pdf')
     }
     console.log(postData_admin[+postType].title, 'Post successfully updated!')
     return { success: true, message: 'createPost success' }
   } catch (error) {
+    console.log(error)
     return { success: false, message: getErrorMessage(error) }
   }
 }
 
-export const handleBatteryListEdit = async (categoryList: Category[], batteryId: number) => {
+export const handleBatteryListEdit = async (
+  categoryList: Category[],
+  pageId: number,
+  isDelete: boolean,
+  type: PageType,
+) => {
   connectToDb()
   try {
-    const res = await BatteryPage.updateOne({ id: batteryId }, { data: categoryList })
-    console.log('리스트 순서변경 및 삭제 성공! /batteryId:', batteryId)
-    revalidatePath('/')
-    return { success: true, message: '글이 성공적으로 수정되었습니다' }
+    type === 'battery'
+      ? await BatteryPage.updateOne({ id: pageId }, { data: categoryList })
+      : await HydrogenPage.updateOne({ id: pageId }, { data: categoryList })
+    console.log('리스트 순서변경 및 삭제 성공! /PageId:', pageId)
+    return {
+      success: true,
+      message: isDelete ? '항목이 정상적으로 삭제되었습니다' : '순서가 정상적으로 수정되었습니다',
+    }
+  } catch (error) {
+    return { success: false, message: getErrorMessage(error) }
+  }
+}
+export const handleOtherBatteryDelete = async (data: Category) => {
+  connectToDb()
+  try {
+    await BatteryPage.updateOne({ id: 4 }, { data })
+    console.log('리스트 순서변경 및 삭제 성공! /PageId:')
+    revalidatePath('/admin/batteries')
+    return {
+      success: true,
+      message: '항목이 정상적으로 삭제되었습니다',
+    }
   } catch (error) {
     return { success: false, message: getErrorMessage(error) }
   }
@@ -86,7 +111,7 @@ export const handleListEdit = async (posts: PostType[], postTypeId: number) => {
   connectToDb()
   try {
     await Post.updateOne({ id: postTypeId }, { data: posts })
-    console.log('리스트 순서변경 및 삭제 성공! /batteryId:', postTypeId)
+    console.log('리스트 순서변경 및 삭제 성공! /PageId:', postTypeId)
     switch (postTypeId) {
       case 0:
         revalidatePath('/admin')
@@ -150,7 +175,29 @@ export const sendEmail = async (formData: FormData) => {
   }
 }
 
-export const createBatteryPage = async (formData: FormData) => {
+export const createOthersBatteryPage = async (formData: FormData) => {
+  const productImgs: string[] | null = formData.getAll('productImg') as unknown as string[]
+  const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
+  const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
+  try {
+    const products = productImgs.map(function (img: string, id: number) {
+      return { id, name: [productNames_kr[id], productNames_en[id]], img }
+    })
+    connectToDb() //MongoDB에 연결
+    let prevData: { id: number; data: Category[] } | null = await BatteryPage.findOne({ id: 4 })
+    if (!prevData) return { success: false, message: '이전 배터리페이지 데이터를 불러오는데 실패했습니다.' }
+
+    const data = { id: 0, title: [], itemFile: '', itemTitle: [], itemSubtitle: [], itemAdvanced: [], products }
+
+    await BatteryPage.updateOne({ id: 4 }, { data })
+    revalidatePath('/admin/batteries')
+    return { success: true, message: 'create or edit BatteryPage success' }
+  } catch (error) {
+    return { success: false, message: getErrorMessage(error) }
+  }
+}
+
+export const createPage = async (formData: FormData, type: PageType) => {
   const {
     title_kr,
     title_en,
@@ -160,7 +207,7 @@ export const createBatteryPage = async (formData: FormData) => {
     itemSubtitle_en,
     itemAdvanced_kr,
     itemAdvanced_en,
-    batteryId,
+    pageId,
     cateImg,
     editSectionId,
   }: { [k: string]: any } = Object.fromEntries(formData)
@@ -174,7 +221,8 @@ export const createBatteryPage = async (formData: FormData) => {
       return { id, name: [productNames_kr[id], productNames_en[id]], img }
     })
     connectToDb() //MongoDB에 연결
-    let prevData: { id: number; data: Category[] } | null = await BatteryPage.findOne({ id: +batteryId })
+    let prevData: { id: number; data: Category[] } | null =
+      type === 'battery' ? await BatteryPage.findOne({ id: +pageId }) : await HydrogenPage.findOne({ id: +pageId })
     if (!prevData) return { success: false, message: '이전 배터리페이지 데이터를 불러오는데 실패했습니다.' }
 
     if (editSectionId) {
@@ -187,8 +235,10 @@ export const createBatteryPage = async (formData: FormData) => {
         itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],
         products,
       }
-      await BatteryPage.updateOne({ id: +batteryId }, { data: [...prevData.data] })
-      console.log(batteriesData_admin[+batteryId].title, 'BatteryPage successfully Edited!\nresponse:')
+      type === 'battery'
+        ? await BatteryPage.updateOne({ id: +pageId }, { data: [...prevData.data] })
+        : await HydrogenPage.updateOne({ id: +pageId }, { data: [...prevData.data] })
+      console.log(batteriesData_admin[+pageId].title, 'BatteryPage successfully Edited!\nresponse:')
     } else {
       const newId = prevData.data.length ? Math.max(...prevData.data.map((item) => item.id)) + 1 : 0
       const data = {
@@ -201,8 +251,10 @@ export const createBatteryPage = async (formData: FormData) => {
         products,
       }
 
-      await BatteryPage.updateOne({ id: +batteryId }, { data: [...prevData.data, data] })
-      console.log(batteriesData_admin[+batteryId].title, 'BatteryPage successfully Added!\nresponse:')
+      type === 'battery'
+        ? await BatteryPage.updateOne({ id: +pageId }, { data: [...prevData.data, data] })
+        : await HydrogenPage.updateOne({ id: +pageId }, { data: [...prevData.data, data] })
+      console.log(batteriesData_admin[+pageId].title, 'BatteryPage successfully Added!\nresponse:')
     }
     revalidatePath('/admin/batteries')
     return { success: true, message: 'create or edit BatteryPage success' }

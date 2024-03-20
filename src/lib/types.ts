@@ -62,3 +62,4 @@ export type ButtonProps = {
   func?: any
   isLoading?: boolean
 }
+export type PageType = 'hydrogen' | 'battery'
