@@ -162,36 +162,50 @@ export const createBatteryPage = async (formData: FormData) => {
     itemAdvanced_en,
     batteryId,
     cateImg,
-    prevId,
-  } = Object.fromEntries(formData)
-  const newBatteryId = parseInt(batteryId as string)
+    editSectionId,
+  }: { [k: string]: any } = Object.fromEntries(formData)
+
   const productImgs: string[] | null = formData.getAll('productImg') as unknown as string[]
   const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
   const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
-  console.log('prevId:', prevId)
   //데이터는 잘 받아옴
   try {
     const products = productImgs.map(function (img: string, id: number) {
       return { id, name: [productNames_kr[id], productNames_en[id]], img }
     })
     connectToDb() //MongoDB에 연결
-    const prevData: { id: number; data: Category[] } | null = await BatteryPage.findOne({ id: newBatteryId })
+    let prevData: { id: number; data: Category[] } | null = await BatteryPage.findOne({ id: +batteryId })
     if (!prevData) return { success: false, message: '이전 배터리페이지 데이터를 불러오는데 실패했습니다.' }
-    const newId = prevData.data.length ? Math.max(...prevData.data.map((item) => item.id)) + 1 : 0
-    const data = {
-      id: newId,
-      title: [title_kr, title_en],
-      itemFile: cateImg,
-      itemTitle: [itemTitle_kr, itemTitle_en],
-      itemSubtitle: [itemSubtitle_kr, itemSubtitle_en],
-      itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],
-      products,
+
+    if (editSectionId) {
+      prevData.data[prevData.data.findIndex((item) => item.id === +editSectionId)] = {
+        id: +editSectionId,
+        title: [title_kr, title_en],
+        itemFile: cateImg,
+        itemTitle: [itemTitle_kr, itemTitle_en],
+        itemSubtitle: [itemSubtitle_kr, itemSubtitle_en],
+        itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],
+        products,
+      }
+      await BatteryPage.updateOne({ id: +batteryId }, { data: [...prevData.data] })
+      console.log(batteriesData_admin[+batteryId].title, 'BatteryPage successfully Edited!\nresponse:')
+    } else {
+      const newId = prevData.data.length ? Math.max(...prevData.data.map((item) => item.id)) + 1 : 0
+      const data = {
+        id: newId,
+        title: [title_kr, title_en],
+        itemFile: cateImg,
+        itemTitle: [itemTitle_kr, itemTitle_en],
+        itemSubtitle: [itemSubtitle_kr, itemSubtitle_en],
+        itemAdvanced: [itemAdvanced_kr, itemAdvanced_en],
+        products,
+      }
+
+      await BatteryPage.updateOne({ id: +batteryId }, { data: [...prevData.data, data] })
+      console.log(batteriesData_admin[+batteryId].title, 'BatteryPage successfully Added!\nresponse:')
     }
-    console.log('Final Data!!!:', data)
-    // const res = await BatteryPage.updateOne({ id: newBatteryId }, { data: [...prevData.data, data] })
-    // console.log(batteriesData_admin[newBatteryId].title, 'BatteryPage successfully updated!\nresponse:', res)
     revalidatePath('/admin/batteries')
-    return { success: true, message: 'createBatteryPage success' }
+    return { success: true, message: 'create or edit BatteryPage success' }
   } catch (error) {
     return { success: false, message: getErrorMessage(error) }
   }

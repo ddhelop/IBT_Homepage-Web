@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { FaPlus } from 'react-icons/fa6'
-
-import { DragDropContext, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
 import { IoIosClose } from 'react-icons/io'

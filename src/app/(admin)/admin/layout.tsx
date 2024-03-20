@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import '../../globals.css'
 import { notoSansKr } from '@/lib/fonts'
 import AdminHeader from '@/components/admin/AdminHeader'
-import RecoilContextProvider from '@/context/recoil-context'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {

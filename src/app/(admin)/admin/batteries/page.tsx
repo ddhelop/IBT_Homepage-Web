@@ -1,8 +1,4 @@
 import BatteryEditList from '@/components/admin/BatteryEditList'
-import BatteryPostForm from '@/components/admin/BatteryPostForm'
-import PostEditList from '@/components/admin/PostEditList'
-import { BatteryPage } from '@/lib/models'
-import { connectToDb } from '@/lib/utils'
 
 const getData = async () => {
   const res = await fetch(`${process.env.URL}/api/admin/batteries`, {
