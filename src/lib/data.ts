@@ -220,10 +220,8 @@ export const CompanyInfoData = [
       We are creating a new energy lifestyle`,
     ],
     contents: [
-      `브랜드 컬러인 IBT 그린은 친환경 이념을,
-      우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.\n
-      ‘International Battery Technology’의 약자인 IBT는,
-      세계를 선도하는 한국의 기업으로 성장할 것입니다.`,
+      `브랜드 컬러인 IBT 그린은 친환경 이념을, 우로 뻗는 타원은 끊임없이 도약하는 IBT의 혁신정신을 나타냅니다.
+      ‘International Battery Technology’의 약자인 IBT는,세계를 선도하는 한국의 기업으로 성장할 것입니다.`,
       `The brand color IBT Green represents the eco-friendly ethos
       and the upward-extending ellipse symbolizes the relentless innovative spirit of IBT.
       "IBT," an acronym for "International Battery Technology," signifies the companys aspiration to
