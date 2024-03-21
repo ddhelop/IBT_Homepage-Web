@@ -18,7 +18,7 @@ export default function CooperativeComponent() {
       </DownMotionComponent>
 
       <DownMotionComponent component={motion.div} className="flex flex-col items-center">
-        <p className="text-xl lg:text-base text-center mb-12 font-light break-keep">
+        <p className="text-xl lg:text-base font-normal text-center mb-12 break-keep">
           {CompanyInfoData?.[3].desc?.[isEnglish]}
         </p>
       </DownMotionComponent>

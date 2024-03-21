@@ -26,7 +26,7 @@ export default function Technical1() {
                 </th>
               </tr>
             </thead>
-            <tbody className=" text-[#6f6f6f]">
+            <tbody className=" text-black">
               {TableData1.map((el, index) => (
                 <tr className={`text-center bg-[${el.color[isEnglish]}]`} key={index}>
                   <td className="py-3 text-sm font-normal border-2 border-[#e2e2e2]">

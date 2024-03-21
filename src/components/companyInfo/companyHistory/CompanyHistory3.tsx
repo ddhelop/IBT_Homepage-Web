@@ -16,19 +16,18 @@ export default function CompanyHistory3() {
           <div className=" w-[50%] lg:w-[32%]">
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2005</h3>
-              <p className="font-light text-xl lg:text-sm mb-10 break-keep">{CompanyInfoData[2][2005]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm mb-10 break-keep">{CompanyInfoData[2][2005]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2004</h3>
 
-              <p className="font-light text-xl lg:text-sm mb-10 break-keep">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
-
+              <p className="font-normal text-xl lg:text-sm mb-10 break-keep">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2003</h3>
-              <p className="font-light text-xl lg:text-sm mb-8 break-keep">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm mb-8 break-keep">{CompanyInfoData[2][2004]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
         </div>
@@ -47,17 +46,17 @@ export default function CompanyHistory3() {
               />
 
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-3">2002</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-10">{CompanyInfoData[2][2002]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm break-keep mb-10">{CompanyInfoData[2][2002]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2001</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-6">{CompanyInfoData[2][2001]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm break-keep mb-6">{CompanyInfoData[2][2001]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">2000</h3>
-              <p className="font-light text-xl lg:text-sm break-keep mb-10">{CompanyInfoData[2][2000]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm break-keep mb-10">{CompanyInfoData[2][2000]?.[isEnglish]}</p>
 
               <Image
                 src="/info/2000.png" // 이미지 경로
@@ -71,22 +70,22 @@ export default function CompanyHistory3() {
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1998</h3>
-              <p className="font-light text-xl lg:text-sm mb-7 break-keep">{CompanyInfoData[2][1998]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm mb-7 break-keep">{CompanyInfoData[2][1998]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1993</h3>
-              <p className="font-light text-xl lg:text-sm mb-7 break-keep">{CompanyInfoData[2][1993]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm mb-7 break-keep">{CompanyInfoData[2][1993]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1987</h3>
-              <p className="font-light text-xl lg:text-sm mb-7 break-keep">{CompanyInfoData[2][1987]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm mb-7 break-keep">{CompanyInfoData[2][1987]?.[isEnglish]}</p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
               <h3 className="text-4xl lg:text-xl font-bold tracking-[-0.38px] text-[#59A833] mb-4">1986</h3>
-              <p className="font-light text-xl lg:text-sm mb-7 break-keep ">{CompanyInfoData[2][1986]?.[isEnglish]}</p>
+              <p className="font-normal text-xl lg:text-sm mb-7 break-keep ">{CompanyInfoData[2][1986]?.[isEnglish]}</p>
             </LeftMotionComponent>
           </div>
 
