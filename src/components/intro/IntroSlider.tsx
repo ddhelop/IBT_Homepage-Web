@@ -202,7 +202,7 @@ const IntroSlider = ({ data }: NewsData) => {
                   <div key={i} className="h-32 flex flex-col mx-[5.2rem] mt-3 ">
                     <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
                     <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc}
+                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
                     </div>
                   </div>
                 ))}
@@ -220,7 +220,7 @@ const IntroSlider = ({ data }: NewsData) => {
                   <div key={i} className="h-32 flex flex-col mx-28 mt-8">
                     <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
                     <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc}
+                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
                     </div>
                   </div>
                 ))}
@@ -239,7 +239,7 @@ const IntroSlider = ({ data }: NewsData) => {
                   <div key={i} className="h-32 flex flex-col mx-[4.5rem] ">
                     <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
                     <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc}
+                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
                     </div>
                   </div>
                 ))}
@@ -257,7 +257,9 @@ const IntroSlider = ({ data }: NewsData) => {
                 {data?.map((v, i) => (
                   <div key={i} className="flex flex-col h-40 mt-3 mx-[3.54rem] ">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">{v.desc}</div>
+                    <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">
+                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -274,7 +276,9 @@ const IntroSlider = ({ data }: NewsData) => {
                 {data?.map((v, i) => (
                   <div key={i} className="flex flex-col h-40 mt-3 mx-28 ">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">{v.desc}</div>
+                    <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">
+                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -295,7 +299,7 @@ const IntroSlider = ({ data }: NewsData) => {
                   </div>
                   <div className="relative shrink-0 w-52 text-base font-bold overflow-hidden">{v.title}</div>
                   <div className="relative shrink-0 w-52 h-40 lg:h-12 text-base font-medium mt-2 break-keep">
-                    {v.desc}
+                    {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
                   </div>
                 </div>
               ))}
@@ -355,7 +359,9 @@ const IntroSlider = ({ data }: NewsData) => {
                 {data?.map((v, i) => (
                   <div key={i} className="flex flex-col mt-3 mx-2">
                     <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 text-base font-medium mt-2 ">{v.desc}</div>
+                    <div className="relative shrink-0 text-base font-medium mt-2 ">
+                      {v.desc.length > 40 ? `${v.desc.slice(0, 45)}...` : v.desc}
+                    </div>
                   </div>
                 ))}
               </div>
