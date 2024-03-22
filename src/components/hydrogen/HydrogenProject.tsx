@@ -92,8 +92,8 @@ export default function HydrogenProject() {
                 className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden"
               >
                 {isEnglish
-                  ? `In the defense sector, IBT's Ni-cd batteries are essential for the stable operation of weapon systems. In the UPS sector, they are used for the continuity of power supply. In the railway sector, they are necessary for safe operation.`
-                  : '방산 분야에서는 무기 시스템의 안정적인 작동을 위해, UPS 분야에서는 전력 공급의 연속성을 위해, 철도 분야에서는 안전한 운행을 위해 IBT의 Ni-cd 배터리가 필수적으로 사용되고 있습니다.'}
+                  ? `In the defense sector, IBT's Ni-Cd batteries are essential for the stable operation of weapon systems. In the UPS sector, they are used for the continuity of power supply. In the railway sector, they are necessary for safe operation.`
+                  : '방산 분야에서는 무기 시스템의 안정적인 작동을 위해, UPS 분야에서는 전력 공급의 연속성을 위해, 철도 분야에서는 안전한 운행을 위해 IBT의 Ni-Cd 배터리가 필수적으로 사용되고 있습니다.'}
               </motion.p>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">

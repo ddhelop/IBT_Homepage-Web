@@ -32,8 +32,8 @@ export const BatteryPage = () => {
       {/* Battery 메인 */}
       <div className="flex w-full min-h-full flex-col items-center mb-20">
         <h1 className="text-6xl font-bold my-40">BATTERY</h1>
-        {/* Ni-cd */}
-        {/* Ni-cd 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
+        {/* Ni-Cd */}
+        {/* Ni-Cd 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
         <div id="nicd" className="flex flex-col w-[min(92%,720px)] mb-8">
           <NicdBox />
         </div>

@@ -17,18 +17,18 @@ const FloatingButton = () => {
               배터리
             </div>
           </Link>
-          {/* 대분류 Ni-cd 부분으로 이동 */}
+          {/* 대분류 Ni-Cd 부분으로 이동 */}
           {/* 해시태그를 이용하여 해당 ID를 가진 요소 위치로 이동 */}
           <Link href="/battery#nicd">
-            <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">Ni-cd</div>
+            <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">Ni-Cd</div>
           </Link>
-          {/* 중분류 방산용 Ni-cd 페이지로 이동 */}
+          {/* 중분류 방산용 Ni-Cd 페이지로 이동 */}
           <Link href="/battery/batteryDetail/defense">
             <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
               {isEnglish ? 'defense' : '방산'}
             </div>
           </Link>
-          {/* 중분류 산업용 Ni-cd 페이지로 이동 */}
+          {/* 중분류 산업용 Ni-Cd 페이지로 이동 */}
           <Link href="/battery/batteryDetail/industry">
             <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
               {isEnglish ? 'industrial' : '산업'}

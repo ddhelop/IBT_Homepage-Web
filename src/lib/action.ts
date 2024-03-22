@@ -163,22 +163,9 @@ export const createBatteryPage = async (formData: FormData) => {
     batteryId,
     cateImg,
   } = Object.fromEntries(formData)
-  const {
-    title_kr,
-    title_en,
-    itemTitle_kr,
-    itemTitle_en,
-    itemSubtitle_kr,
-    itemSubtitle_en,
-    itemAdvanced_kr,
-    itemAdvanced_en,
-    batteryId,
-    cateImg,
-  } = Object.fromEntries(formData)
+
   const newBatteryId = parseInt(batteryId as string)
   const productImgs: string[] | null = formData.getAll('productImg') as unknown as string[]
-  const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
-  const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
   const productNames_kr: string[] | null = formData.getAll('productName_kr') as unknown as string[]
   const productNames_en: string[] | null = formData.getAll('productName_en') as unknown as string[]
   //데이터는 잘 받아옴

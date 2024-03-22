@@ -111,7 +111,6 @@ export default function CompanyHistory3() {
           <div className="hidden lg:flex absolute lg:left-[-2%] xl:left-[6%] 2xl:left-[10%]">
             <RightMotionComponent component={motion.div}>
               <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl ">
-              <p className="text-[#2B6434] font-bold tracking-[1.059px] lg:text-xl ">
                 {CompanyInfoData[2].text3?.[isEnglish]}
               </p>
             </RightMotionComponent>

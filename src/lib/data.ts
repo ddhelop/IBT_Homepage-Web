@@ -1149,21 +1149,21 @@ export const batteryIntroData = {
 
 export const batteryList = [
   {
-    title: ['방산용 Ni-cd', 'Defense Ni-cd'],
+    title: ['방산용 Ni-Cd', 'Defense Ni-Cd'],
     explain: [
       [
         'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도',
-        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를',
+        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-Cd 배터리를',
         '신뢰를 바탕으로 공급해왔습니다.',
       ],
       [
-        'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability',
+        'We have supplied high-power, high-efficiency, defense-specialized Ni-Cd batteries based on trust that have excellent operational stability',
         'and can be safely used in poor environments such as cold and hot weather.',
       ],
     ],
   },
   {
-    title: ['산업용 Ni-cd', 'Industrial Ni-cd'],
+    title: ['산업용 Ni-Cd', 'Industrial Ni-Cd'],
     explain: [
       [
         'IBT는 고객의 니즈에 따라',
@@ -1214,10 +1214,10 @@ export const batteryList = [
 
 export const hydrogenList = [
   {
-    title: ['123', 'Defense Ni-cd'],
+    title: ['123', 'Defense Ni-Cd'],
     explain: [
       'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도\n안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를\n신뢰를 바탕으로 공급해왔습니다.',
-      'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability and can be safely used in poor environments such as cold and hot weather.',
+      'We have supplied high-power, high-efficiency, defense-specialized Ni-Cd batteries based on trust that have excellent operational stability and can be safely used in poor environments such as cold and hot weather.',
     ],
   },
   {

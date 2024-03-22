@@ -45,7 +45,7 @@ export default function NicdBox() {
       <motion.div {...boxRightVariants} className="inline-flex min-h-80 rounded-3xl shadow-md lg:shadow-lg">
         {/* 배터리 이미지 영역 */}
         <div className="lg:relative lg:flex lg:w-3/5 lg:justify-center lg:items-center hidden">
-          <Image alt="Ni-cd" src={'/image/310인트로/312_메인(Ni-cd).png'} fill className="rounded-l-lg object-cover" />
+          <Image alt="Ni-Cd" src={'/image/310인트로/312_메인(Ni-cd).png'} fill className="rounded-l-lg object-cover" />
         </div>
         {/* 회색 컨텐츠 영역 -> group이라는 이름을 붙여, 해당 요소에 hover할 때 다른 이벤트 발생하도록 */}
         {/* 반응형 - 모바일 버전에서는 좌측 이미지가 배경으로 들어가므로, 글자가 잘보이도록 background black으로 깔아줌 */}
@@ -87,10 +87,8 @@ export default function NicdBox() {
                 className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden lg:whitespace-pre-line"
               >
                 {isEnglish
-
                   ? `IBT's Ni-Cd batteries are essential for stable operation of weapons systems in defense, continuity of power supply in UPS, and safe operation in railway.`
                   : '방산 분야에서는 무기 시스템의\n안정적인 작동을 위해,\nUPS 분야에서는 전력 공급의\n연속성을 위해, 철도 분야에서는\n안전한 운행을 위해 IBT의 Ni-Cd\n배터리가 필수적으로 사용되고\n있습니다.'}
-
               </motion.h3>
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
               <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
