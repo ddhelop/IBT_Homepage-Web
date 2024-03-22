@@ -1,3 +1,4 @@
+import HydrogenPage from '@/components/hydrogen/HydrogenPage'
 import TempHydrogenComponent from '@/components/hydrogen/TempHydrogenComponent'
 
 export const metadata = {
@@ -8,6 +9,7 @@ export const metadata = {
 export default function PagHydrogenPage() {
   return (
     // 임시
-    <TempHydrogenComponent />
+    // <TempHydrogenComponent />
+    <HydrogenPage />
   )
 }

@@ -1,11 +1,11 @@
 'use client'
 
 import FloatingButton from '@/components/battery/Floating'
-import LithiumBox from '@/components/battery/LithiumBox'
 import BatteryIntro from '@/components/battery/BatteryIntro'
 import { useEffect } from 'react'
 import HydrogenProject from '@/components/hydrogen/HydrogenProject'
 import SystemBox from './SystemBox'
+import HydrogenIntro from './HydrogenIntro'
 
 export const HydrogenPage = () => {
   // header, floating button를 통한 페이지 이동시 필요
@@ -27,9 +27,9 @@ export const HydrogenPage = () => {
   return (
     <>
       {/* 오른쪽 플로팅 버튼 */}
-      <FloatingButton />
+      {/* <FloatingButton /> */}
       {/* Battery 인트로 이미지 */}
-      <BatteryIntro />
+      <HydrogenIntro />
       {/* Battery 메인 */}
       <div className="flex w-full min-h-full flex-col items-center mb-20">
         <h1 className="text-6xl font-bold my-40">HYDROGEN</h1>

@@ -53,9 +53,7 @@ export default function SystemBox() {
                 <div className="text-black text-5xl lg:text-4xl font-bold lg:font-semibold mb-1.5 lg:mt-0 mt-3">
                   SYSTEM
                 </div>
-                <div className="text-gray-600 text-xl lg:text-sm font-bold">
-                  {isEnglish ? 'lithium storage battery' : '리튬축전지'}
-                </div>
+                <div className="text-gray-600 text-xl lg:text-sm font-bold">{isEnglish ? 'system' : '시스템'}</div>
               </div>
               {/* 화살표 버튼의 경우 group hover시에만 나타나도록 hidden 설정 */}
               <Link prefetch href="/battery/batteryDetail/power">
@@ -65,7 +63,7 @@ export default function SystemBox() {
                   transition={{
                     duration: 0.3,
                   }}
-                  className="transition-all block lg:hidden group-hover:flex rounded-xl w-16 h-8 p-5 items-center justify-center bg-primary-green"
+                  className="transition-all flex rounded-xl w-16 h-8 p-5 items-center justify-center bg-primary-green"
                 >
                   <Image alt="arrow" src={'/image/arrow.svg'} width={30} height={10} />
                 </motion.button>
@@ -73,7 +71,7 @@ export default function SystemBox() {
             </div>
             {/* 컨텐츠 본문 */}
             <div className="mt-8">
-              {/* 기본은 보이게, group hover시 hidden */}
+              {/* 기본은 보이게, group hover시 hidden
               <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -83,10 +81,10 @@ export default function SystemBox() {
                 className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden"
               >
                 {isEnglish ? `english` : 'korean'}
-              </motion.p>
+              </motion.p> */}
               {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
-              <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
-                <Link prefetch className="w-full" href="/hydrogen/HydrogenDetail/power">
+              <div className="flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
+                <Link prefetch className="w-full" href="/hydrogen/hydrogenDetail/system">
                   <motion.button
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -96,7 +94,7 @@ export default function SystemBox() {
                     className="w-full"
                   >
                     <div className="flex lg:h-auto bg-white text-lg hover:bg-gray-300 rounded-2xl lg:bg-inherit flex-col-reverse lg:flex-row justify-between items-center p-8 lg:p-4 shadow-sm lg:shadow-none">
-                      {isEnglish ? 'aaa' : '111'}
+                      {isEnglish ? 'Progress Project' : '진행 프로젝트'}
                       <AiFillThunderbolt className="flex lg:hidden mb-6 opacity-50" size={32} />
                       <Image
                         className="hidden lg:flex"
@@ -108,7 +106,7 @@ export default function SystemBox() {
                     </div>
                   </motion.button>
                 </Link>
-                <Link prefetch className="w-full" href="/battery/batteryDetail/energy-save">
+                <Link prefetch className="w-full" href="/hydrogen/hydrogenDetail/system">
                   <motion.button
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -118,7 +116,7 @@ export default function SystemBox() {
                     className="w-full"
                   >
                     <div className="flex lg:h-auto bg-white hover:bg-gray-300 rounded-2xl lg:bg-inherit flex-col-reverse lg:flex-row justify-between items-center p-8 lg:p-4 shadow-sm lg:shadow-none text-lg">
-                      {isEnglish ? 'bbb' : '222'}
+                      {isEnglish ? 'Installation' : '설치'}
                       <MdEnergySavingsLeaf className="flex lg:hidden mb-6 opacity-50" size={32} />
                       <Image
                         className="hidden lg:flex"
@@ -133,25 +131,10 @@ export default function SystemBox() {
               </div>
             </div>
           </div>
-          {/* 컨텐츠 하단 버튼 */}
-          {/* 기본은 보이게, group hover시 hidden */}
-
-          {/* 반응형 -> 모바일 버전에서는 우측 이미지가 배경으로 들어감 */}
-          {/* <Image
-            alt="Lithium"
-            src={'/image/310인트로/312_메인(Lithium).png'}
-            fill
-            className="lg:hidden z-0 opacity-40"
-          /> */}
         </div>
         {/* 배터리 이미지 영역 */}
         <div className="lg:relative lg:flex lg:w-3/5 lg:justify-center lg:items-center hidden">
-          <Image
-            alt="Lithium"
-            src={'/image/310인트로/312_메인(Lithium).png'}
-            fill
-            className="rounded-r-lg object-cover"
-          />
+          <Image alt="Lithium" src={'/image/hydrogen/system.png'} fill className="rounded-r-lg object-cover" />
         </div>
       </motion.div>
     </>
