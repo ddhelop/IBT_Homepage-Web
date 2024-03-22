@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { FaPlus } from 'react-icons/fa6'
-
-import { DragDropContext, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
 import { IoIosClose } from 'react-icons/io'
@@ -48,6 +47,7 @@ const PostEditList = ({ datas, postTypeID }: any) => {
     setTemp(posts)
   }, [isLoading])
 
+  console.log(posts)
   return (
     <div className="flex flex-col">
       <div className="mx-8 pb-2 bg-white rounded-lg">
@@ -70,7 +70,9 @@ const PostEditList = ({ datas, postTypeID }: any) => {
                           {...draggableProvided.dragHandleProps}
                           className="flex px-4 h-12 items-center bg-white border-t"
                         >
-                          <h1 className="truncate font-bold text-md basis-1/4">{post.title}</h1>
+                          <h1 className="truncate font-bold text-md basis-1/4">
+                            {postTypeID === 0 ? post.title : post.title[0]}
+                          </h1>
 
                           <div className="relative w-8 h-8">
                             {postTypeID !== 2 && <Image alt="img" className="object-cover" src={post.img} fill />}

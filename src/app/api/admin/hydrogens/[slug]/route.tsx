@@ -1,4 +1,4 @@
-import { BatteryPage } from '@/lib/models'
+import { HydrogenPage } from '@/lib/models'
 import { connectToDb } from '@/lib/utils'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -6,8 +6,8 @@ export const GET = async (request: NextRequest, { params }: any) => {
   const { slug } = params
   try {
     connectToDb()
-    const batteryPage = await BatteryPage.findOne({ id: slug })
-    return NextResponse.json(batteryPage)
+    const hydrogenPage = await HydrogenPage.findOne({ id: slug })
+    return NextResponse.json(hydrogenPage)
   } catch (err) {
     console.log(err)
     throw new Error('Failed to fetch post!')

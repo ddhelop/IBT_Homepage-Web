@@ -34,7 +34,7 @@ export default function Technical2() {
               </tr>
             </thead>
 
-            <tbody className="text-[#6f6f6f]">
+            <tbody className="text-black">
               {intellectualData.map((el, index) => (
                 <tr className={`text-center bg-[${el.color}]`} key={index}>
                   {el.rowSpan ? (

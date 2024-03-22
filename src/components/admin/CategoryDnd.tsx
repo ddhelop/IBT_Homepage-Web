@@ -2,15 +2,32 @@
 
 import React from 'react'
 
-import { DragDropContext, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
-import { IoIosClose } from 'react-icons/io'
+import { IoClose } from 'react-icons/io5'
+
+import { MdEdit } from 'react-icons/md'
+
 import { useRouter } from 'next/navigation'
+import { Category, PageType } from '@/lib/types'
 
-const CategoryDnd = ({ onCategoryListDragEnd, categoryList, handleDelete, isEditMode, batteryId }: any) => {
+const CategoryDnd = ({
+  pageId,
+  isEditMode,
+  onDeleteSubmit,
+  onCategoryListDragEnd,
+  categoryList,
+  type,
+}: {
+  pageId: number
+  isEditMode: boolean
+  onDeleteSubmit: (id: number) => void
+  onCategoryListDragEnd: (result: any) => void
+  categoryList: Category[]
+  type: PageType
+}) => {
   const router = useRouter()
-
   return (
     <div className="w-full">
       <DragDropContext onDragEnd={onCategoryListDragEnd}>
@@ -18,13 +35,20 @@ const CategoryDnd = ({ onCategoryListDragEnd, categoryList, handleDelete, isEdit
           {(droppableProvided) => (
             <div {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
               {categoryList?.map((cate: any, id: number) => (
-                <Draggable isDragDisabled={!isEditMode} key={cate?.id} draggableId={cate?.id.toString()} index={id}>
+                <Draggable
+                  isDragDisabled={!isEditMode}
+                  key={pageId.toString() + cate?.id.toString()}
+                  draggableId={pageId.toString() + cate?.id.toString()}
+                  index={id}
+                >
                   {(draggableProvided) => (
                     <div
                       ref={draggableProvided.innerRef}
                       {...draggableProvided.draggableProps}
                       {...draggableProvided.dragHandleProps}
-                      className="flex h-24 items-center justify-between bg-white border m-4 p-2 rounded-md"
+                      className={`${
+                        isEditMode ? 'm-2 rounded-md border' : 'border-t'
+                      } flex h-24 items-center justify-between bg-white  p-2`}
                     >
                       <div className="relative w-24 h-full">
                         <Image alt="img" className="object-cover border rounded-sm" src={cate.itemFile} fill />
@@ -35,14 +59,25 @@ const CategoryDnd = ({ onCategoryListDragEnd, categoryList, handleDelete, isEdit
                           <span className="font-bold mr-1 text-gray-700">{cate.products.length}</span>개의 적용제품
                         </h1>
                       </div>
-                      {isEditMode ? (
-                        <button onClick={() => handleDelete(cate?.id, 'category')}>
-                          <IoIosClose size={40} color="#747474" />
-                        </button>
-                      ) : (
-                        <button onClick={() => router.push(`/admin/batteries/${batteryId}/${cate?.id}`)}>
-                          <IoIosClose size={40} color="#747474" />
-                        </button>
+                      {!isEditMode && (
+                        <>
+                          <button
+                            className="mr-2 bg-gray-100 p-2 rounded-full border"
+                            onClick={() =>
+                              router.push(
+                                `/admin/${type === 'battery' ? 'batteries' : 'hydrogens'}/${pageId}/${cate?.id}`,
+                              )
+                            }
+                          >
+                            <MdEdit size={24} color="#747474" />
+                          </button>
+                          <button
+                            className=" bg-gray-100 p-2 rounded-full border"
+                            onClick={() => onDeleteSubmit(cate?.id)}
+                          >
+                            <IoClose size={24} color="#747474" />
+                          </button>
+                        </>
                       )}
                     </div>
                   )}

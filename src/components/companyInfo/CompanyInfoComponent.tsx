@@ -47,7 +47,7 @@ export default function CompanyInfoComponent() {
             {CompanyInfoData?.[0].title?.[isEnglish]}
             <br />
           </h2>
-          <p className="mt-12 text-center font-thin text-2xl lg:text-xl break-keep">
+          <p className="w-[91%] mt-12 text-center font-thin text-2xl lg:text-xl break-keep">
             {CompanyInfoData?.[0].contents?.[isEnglish]}
           </p>
         </motion.div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: '산업용 Ni-Cd 배터리 제품 소개 페이지',
 }
 const BatteryIndustryPage = async () => {
-  const data = await fetchPageData(1)
+  const data = await fetchPageData(1, 'battery')
 
   return (
     <>

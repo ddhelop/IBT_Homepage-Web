@@ -6,8 +6,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { links_admin } from '@/lib/data'
 import { FaFilePdf, FaPager } from 'react-icons/fa6'
+import { DiGoogleAnalytics } from 'react-icons/di'
 
-const AdminHeader = ({ params }: any) => {
+const AdminHeader = () => {
   const pathname = usePathname()
 
   return (
@@ -19,7 +20,8 @@ const AdminHeader = ({ params }: any) => {
           className={`flex items-center py-4 ${pathname === links_admin[0].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[0].path}
         >
-          <RiNewspaperFill width={32} height={32} />
+          <FaPager width={32} height={32} />
+
           <h1 className="ml-4 font-regular">{links_admin[0].name}</h1>
         </Link>
         <Link
@@ -27,7 +29,7 @@ const AdminHeader = ({ params }: any) => {
           className={`flex items-center py-4 ${pathname === links_admin[1].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[1].path}
         >
-          <GrCatalogOption width={32} height={32} />
+          <FaPager width={32} height={32} />
           <h1 className="ml-4 font-regular">{links_admin[1].name}</h1>
         </Link>
         <Link
@@ -35,7 +37,7 @@ const AdminHeader = ({ params }: any) => {
           className={`flex items-center py-4 ${pathname === links_admin[2].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[2].path}
         >
-          <FaPager width={32} height={32} />
+          <RiNewspaperFill width={32} height={32} />
           <h1 className="ml-4 font-regular">{links_admin[2].name}</h1>
         </Link>
         <Link
@@ -43,8 +45,24 @@ const AdminHeader = ({ params }: any) => {
           className={`flex items-center py-4 ${pathname === links_admin[3].path ? 'text-white' : 'text-gray-100/60'} `}
           href={links_admin[3].path}
         >
-          <FaFilePdf width={32} height={32} />
+          <GrCatalogOption width={32} height={32} />
           <h1 className="ml-4 font-regular">{links_admin[3].name}</h1>
+        </Link>
+        <Link
+          prefetch
+          className={`flex items-center py-4 ${pathname === links_admin[4].path ? 'text-white' : 'text-gray-100/60'} `}
+          href={links_admin[4].path}
+        >
+          <FaFilePdf width={32} height={32} />
+          <h1 className="ml-4 font-regular">{links_admin[4].name}</h1>
+        </Link>
+        <Link
+          target="_blank"
+          className={`flex items-center py-4 text-gray-100/60 `}
+          href={'https://vercel.com/neoselfs-projects/ibt-homepage/analytics'}
+        >
+          <DiGoogleAnalytics width={32} height={32} />
+          <h1 className="ml-4 font-regular">{'Vercel Analytics'}</h1>
         </Link>
       </ul>
     </div>

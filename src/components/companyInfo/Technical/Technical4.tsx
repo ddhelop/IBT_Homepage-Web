@@ -30,24 +30,24 @@ export default function Technical4() {
               height={430}
             />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm1?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm1?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
           </div>
 
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/2_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm2?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm2?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
           </div>
 
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/3_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm3?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm3?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
           </div>
         </div>
 
@@ -55,17 +55,17 @@ export default function Technical4() {
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/4_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm4?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm4?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm10?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm10?.[isEnglish]}</p>
           </div>
 
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/5_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm5?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm5?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm10?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm10?.[isEnglish]}</p>
           </div>
 
           <div className="flex flex-col text-center items-center mx-4">
@@ -77,9 +77,9 @@ export default function Technical4() {
               height={430}
             />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm6?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm6?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm10?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm10?.[isEnglish]}</p>
           </div>
         </div>
 
@@ -87,17 +87,17 @@ export default function Technical4() {
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/7_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm7?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm7?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
           </div>
 
           <div className="flex flex-col text-center items-center mx-4">
             <Image src="/info/prize/8_800px.jpg" alt="천마 전지 축전식" width={310} height={430} />
 
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm8?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm8?.[isEnglish]}</p>
             <div className="w-32 border-[2.3px] border-green-700"></div>
-            <p className="text-sm py-2 text-[#909090]">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
+            <p className="text-sm py-2 ">{CompanyInfoData?.[8].confirm9?.[isEnglish]}</p>
           </div>
         </div>
       </div>
