@@ -1134,7 +1134,7 @@ export const ESG500Data = [
       `Talent is the greatest asset of our organization.\n\nWe are committed to creating an environment where employees can fully realize their potential.\n\nWe believe that when individual growth and development occur, we can become stronger together.`,
     ],
     contents2: [
-      `우리는 투명성과 정직성을 우리 사업의 근간으로 삼습니다.\n\n모든 이해관계자와의 관계에서 공정하고 윤리적인 행동을 최우선으로 하며, 이는 우리가 시장에서 신뢰를 얻 기반이 됩니다. \n\n우리는 윤리적 결정이 장기적으로 회사와 사회에 가장 큰 가치를 제공한다고 믿습니다.`,
+      `우리는 투명성과 정직성을 우리 사업의 근간으로 삼습니다.\n\n모든 이해관계자와의 관계에서 공정하고 윤리적인 행동을 최우선으로 하며, 이는 우리가 시장에서 신뢰를 얻는 기반이 됩니다. \n\n우리는 윤리적 결정이 장기적으로 회사와 사회에 가장 큰 가치를 제공한다고 믿습니다.`,
       `We base our business on transparency and integrity.\n\nWe prioritize fair and ethical behavior in all our relationships with stakeholders, which forms the foundation of our trust in the market. \n\nWe believe that ethical decisions provide the greatest value to both the company and society in the long term.`,
     ],
     contents3: [
