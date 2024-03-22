@@ -45,7 +45,7 @@ export type PostType = {
 }
 export type Product = {
   id: number
-  name: string
+  name: string[]
   img: string
 }
 
