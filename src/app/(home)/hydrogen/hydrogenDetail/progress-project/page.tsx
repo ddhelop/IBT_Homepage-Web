@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 const ProjectPage = async () => {
-  const data = await fetchPageData(0)
+  const data = await fetchPageData(0, 'hydrogen')
 
   return (
     <>
