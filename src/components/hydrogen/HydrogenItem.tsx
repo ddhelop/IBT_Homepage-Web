@@ -10,11 +10,11 @@ import { isEnglishState } from '@/context/recoil-context'
 
 interface DetailInfo {
   id: number
-  title: string // 소분류카테고리명
+  title: string[] // 소분류카테고리명
   itemFile: string // 제품이미지
-  itemTitle: string // 제품명
-  itemSubtitle: string // 제품추가설명
-  itemAdvanced: string // 제품소개
+  itemTitle: string[] // 제품명
+  itemSubtitle: string[] // 제품추가설명
+  itemAdvanced: string[] // 제품소개
   products: Product[] // 제품적용모델
 }
 
@@ -56,12 +56,14 @@ export default function HydrogenItem({ detailInfo, mainCategoryIndex }: Props) {
                   key={i}
                   className={`${
                     categoryIndex == i
-                      ? 'opacity-100 font-semibold bg-primary-green'
-                      : 'opacity-40 font-semibold bg-category-back hover:bg-gray-700'
-                  } relative w-96 h-16 text-white z-0`}
+                      ? 'opacity-100 font-semibold bg-primary-green text-white drop-shadow-2xl shadow-lg'
+                      : 'opacity-40 font-semibold bg-gray-200 hover:bg-gray-700 border-y border-gray-500 text-black'
+                  } relative w-96 h-16 z-0`}
                   onClick={() => setCategoryIndex(i)}
                 >
-                  <div className="absolute flex justify-center items-center z-10 w-full h-full text-2xl">{v.title}</div>
+                  <div className="absolute flex justify-center items-center z-10 w-full h-full text-2xl">
+                    {v.title[isEnglish]}
+                  </div>
                 </div>
               )
             })}
@@ -91,25 +93,25 @@ export default function HydrogenItem({ detailInfo, mainCategoryIndex }: Props) {
             {/* 에너지저장용 설명 - 다른 페이지와 양식 다름 */}
             {mainCategoryIndex === 3 ? (
               <>
-                <div className="w-full px-10 mb-10 leading-extra-loose text-xl whitespace-pre-line">
-                  {detailInfo[categoryIndex].itemAdvanced}
+                <div className="w-full px-10 mb-10 leading-extra-loose text-xl whitespace-pre-line break-keep">
+                  {detailInfo[categoryIndex].itemAdvanced[isEnglish]}
                 </div>
               </>
             ) : mainCategoryIndex === 0 ? (
               // 방산용 - 제품 추가 설명 존재 X
               <div className="lg:text-5xl text-4xl text-center font-bold mb-10">
                 {/* 제품명 */}
-                {detailInfo[categoryIndex].itemTitle}
+                {detailInfo[categoryIndex].itemTitle[isEnglish]}
               </div>
             ) : (
               <>
                 <div className="lg:text-5xl text-4xl text-center font-bold mb-10">
                   {/* 제품명 */}
-                  {detailInfo[categoryIndex].itemTitle}
+                  {detailInfo[categoryIndex].itemTitle[isEnglish]}
                 </div>
-                <div className="lg:text-2xl text-xl text-center font-[350] mb-10">
+                <div className="lg:text-2xl text-xl text-center font-normal mb-10 whitespace-pre-line">
                   {/* 제품 추가 설명 */}
-                  {detailInfo[categoryIndex].itemSubtitle}
+                  {detailInfo[categoryIndex].itemSubtitle[isEnglish]}
                 </div>
               </>
             )}
@@ -129,8 +131,8 @@ export default function HydrogenItem({ detailInfo, mainCategoryIndex }: Props) {
               ''
             ) : (
               <>
-                <div className="text-2xl font-[350] mb-4 text-center whitespace-pre-line basis-1/2">
-                  {detailInfo[categoryIndex].itemAdvanced}
+                <div className="text-2xl font-normal mb-4 text-center whitespace-pre-line basis-1/2 break-keep text-balance">
+                  {detailInfo[categoryIndex].itemAdvanced[isEnglish]}
                 </div>
               </>
             )}

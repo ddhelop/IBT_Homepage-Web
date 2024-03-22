@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil'
 
 type Props = {
   title: string[] // 중분류 title
-  explain: any // 배터리 설
+  explain: any // 배터리 설명
 }
 
 export default function BatteryDetail({ title, explain }: Props) {

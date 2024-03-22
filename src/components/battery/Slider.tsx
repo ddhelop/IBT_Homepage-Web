@@ -3,6 +3,8 @@ import Image from 'next/image'
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Product } from '@/lib/types'
+import { useRecoilValue } from 'recoil'
+import { isEnglishState } from '@/context/recoil-context'
 
 type Props = {
   array: Product[]
@@ -11,6 +13,8 @@ type Props = {
 }
 
 const Slider = ({ array, categoryIndex }: Props) => {
+  const isEnglish = useRecoilValue(isEnglishState)
+
   const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
   const [currentImg, setCurrentImg] = useState(0) // 현재 보고 있는 carousel 페이지 번호
   const carouselRef = useRef(null)
@@ -114,7 +118,7 @@ const Slider = ({ array, categoryIndex }: Props) => {
               >
                 {data.map((v, i) => (
                   <div key={i} className="relative shrink-0 h-full w-1/4 text-center text-3xl font-bold my-3">
-                    {v.name}
+                    {v.name[isEnglish]}
                   </div>
                 ))}
               </div>
@@ -129,7 +133,7 @@ const Slider = ({ array, categoryIndex }: Props) => {
               >
                 {data.map((v, i) => (
                   <div key={i} className="relative shrink-0 w-full h-full text-center text-3xl font-bold my-3">
-                    {v.name}
+                    {v.name[isEnglish]}
                   </div>
                 ))}
               </div>
@@ -146,7 +150,7 @@ const Slider = ({ array, categoryIndex }: Props) => {
                     <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
                   </div>
                   <div key={i} className="relative shrink-0 lg:w-[20rem] w-20 h-20 text-center text-3xl font-bold my-3">
-                    {v.name}
+                    {v.name[isEnglish]}
                   </div>
                 </div>
               ))}
@@ -201,7 +205,7 @@ const Slider = ({ array, categoryIndex }: Props) => {
               >
                 {data.map((v, i) => (
                   <div key={i} className="relative shrink-0 w-full h-full text-center text-3xl font-bold my-3">
-                    {v.name}
+                    {v.name[isEnglish]}
                   </div>
                 ))}
               </div>

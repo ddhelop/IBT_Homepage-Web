@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil'
 
 type Props = {
   title: string[] // 중분류 title
-  explain: string[] // 배터리 설명
+  explain: any // 배터리 설명
 }
 
 export default function HydrogenDetail({ title, explain }: Props) {
@@ -23,13 +23,17 @@ export default function HydrogenDetail({ title, explain }: Props) {
         className="flex flex-col justify-center items-center"
       >
         {/* 배터리 중분류 title */}
-        <div className="lg:w-[65%] text-center mt-48">
+        <div className=" text-center mt-48">
           <div className="text-5xl font-bold text-primary-green">{title[isEnglish]}</div>
         </div>
         {/* 배터리 설명 */}
-        <div className="lg:w-[65%] relative text-center lg:my-28 my-32 items-center">
-          <div className="text-xl px-5 text-center font-bold text-primary-green leading-extra-loose whitespace-pre-line">
-            <h1>{explain[isEnglish]}</h1>
+        <div className="relative text-center lg:my-28 my-32 items-center">
+          <div className="text-2xl px-5 text-center font-bold text-primary-green leading-extra-loose whitespace-pre-line text-balance break-keep">
+            {explain[isEnglish]?.map((data: any, i: number) => (
+              <h1 key={i} className="text-balance">
+                {data}
+              </h1>
+            ))}
           </div>
         </div>
       </motion.div>

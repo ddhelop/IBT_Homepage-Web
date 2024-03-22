@@ -52,6 +52,9 @@ export default function CompanyHistory1() {
 
                 {CompanyInfoData[2][2019]?.[isEnglish]}
               </p>
+              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
+                {CompanyInfoData[2][2019]?.[isEnglish]}
+              </p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
@@ -59,6 +62,9 @@ export default function CompanyHistory1() {
 
               <p className="font-normal text-xl lg:text-sm break-keep mb-7 leading-6">
 
+                {CompanyInfoData[2][2018]?.[isEnglish]}
+              </p>
+              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
                 {CompanyInfoData[2][2018]?.[isEnglish]}
               </p>
               <Image
@@ -78,6 +84,9 @@ export default function CompanyHistory1() {
 
                 {CompanyInfoData[2][2017]?.[isEnglish]}
               </p>
+              <p className="font-light text-xl lg:text-sm break-keep leading-6 mb-7">
+                {CompanyInfoData[2][2017]?.[isEnglish]}
+              </p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
@@ -91,7 +100,9 @@ export default function CompanyHistory1() {
           </div>
 
           <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[7%] 2xl:left-[11%]">
+          <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[7%] 2xl:left-[11%]">
             <RightMotionComponent component={motion.div}>
+              <p className="text-[#2B6434] font-bold tracking-[0.875px] lg:text-xl  leading-[3.3rem]">
               <p className="text-[#2B6434] font-bold tracking-[0.875px] lg:text-xl  leading-[3.3rem]">
                 {CompanyInfoData[2].text1?.[isEnglish]}
               </p>

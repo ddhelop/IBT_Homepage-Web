@@ -6,8 +6,8 @@ import { Metadata } from 'next'
 import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
-  title: '(주)아이비티 방산용 Ni-cd',
-  description: '방산용 Ni-cd 배터리 제품 소개 페이지',
+  title: '(주)아이비티 방산용 Ni-Cd',
+  description: '방산용 Ni-Cd 배터리 제품 소개 페이지',
 }
 
 const BatteryDefensePage = async () => {
@@ -17,7 +17,7 @@ const BatteryDefensePage = async () => {
     <>
       {/* 오른쪽 플로팅 버튼 */}
       <FloatingButton />
-      {/* 상단 녹색 텍스트 부분 - 배터리 중분류(방산용 Ni-cd) 소개 */}
+      {/* 상단 녹색 텍스트 부분 - 배터리 중분류(방산용 Ni-Cd) 소개 */}
       <div className="flex flex-col justify-center items-center min-h-[90vh]">
         <div className="w-[min(92%,1280px)]">
           <BatteryDetail title={batteryList[0].title} explain={batteryList[0].explain} />

@@ -1156,21 +1156,21 @@ export const batteryIntroData = {
 
 export const batteryList = [
   {
-    title: ['방산용 Ni-cd', 'Defense Ni-cd'],
+    title: ['방산용 Ni-Cd', 'Defense Ni-Cd'],
     explain: [
       [
         'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도',
-        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를',
+        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-Cd 배터리를',
         '신뢰를 바탕으로 공급해왔습니다.',
       ],
       [
-        'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability',
+        'We have supplied high-power, high-efficiency, defense-specialized Ni-Cd batteries based on trust that have excellent operational stability',
         'and can be safely used in poor environments such as cold and hot weather.',
       ],
     ],
   },
   {
-    title: ['산업용 Ni-cd', 'Industrial Ni-cd'],
+    title: ['산업용 Ni-Cd', 'Industrial Ni-Cd'],
     explain: [
       [
         'IBT는 고객의 니즈에 따라',
@@ -1221,10 +1221,10 @@ export const batteryList = [
 
 export const hydrogenList = [
   {
-    title: ['123', 'Defense Ni-cd'],
+    title: ['123', 'Defense Ni-Cd'],
     explain: [
       'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도\n안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-cd 배터리를\n신뢰를 바탕으로 공급해왔습니다.',
-      'We have supplied high-power, high-efficiency, defense-specialized Ni-cd batteries based on trust that have excellent operational stability and can be safely used in poor environments such as cold and hot weather.',
+      'We have supplied high-power, high-efficiency, defense-specialized Ni-Cd batteries based on trust that have excellent operational stability and can be safely used in poor environments such as cold and hot weather.',
     ],
   },
   {
@@ -1250,128 +1250,44 @@ export const hydrogenList = [
   },
 ]
 
-// 테스트 데이터
-// export const defenseList = [
-//   {
-//     id: 0,
-//     title: '항공',
-//     itemFile: '/image/320방산용Ni-cd/321.1_방산용 Nicd_항공_제품사진.png',
-//     itemTitle: 'Ni-Cd battery Sintered Type',
-//     itemSubtitle: '',
-//     itemAdvanced:
-//       '다양한 항공용 무기 모델에 적용되는 Ni-cd 배터리입니다.\n항공 무기의 에너지 공급원으로서 중요한 진동, 충격 및 고도특성이 우수하여 안전합니다.',
-//     products: [
-//       {
-//         img: '/image/320방산용Ni-cd/321.2_방산용 Nicd_항공_적용모델 (SURION)',
-//         name: 'SURION',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.3_방산용 Nicd_항공_적용모델(T-50).png',
-//         name: 'T-50',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.4_방산용 Nicd_항공_적용모델(KT-1).png',
-//         name: 'KT-1',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.5_방산용 Nicd_항공_적용모델(500MD).png',
-//         name: '500MD',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.6_방산용 Nicd_항공_적용모델(UH-60H).png',
-//         name: 'UH-60H',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.7_방산용 Nicd_항공_적용모델 (UH-1H).png',
-//         name: 'UH-1H',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.8_방산용 Nicd_항공_적용모델(F-45).png',
-//         name: 'F-4/5',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/321.9_방산용 Nicd_항공_적용모델 (LAH,LCH).png',
-//         name: 'LAH/LCH',
-//       },
-//     ],
-//   },
-//   {
-//     id: 1,
-//     title: '육상',
-//     itemFile: '/image/320방산용Ni-cd/322.1_방산용 Nicd_육상_제품사진.png',
-//     itemTitle: 'Ni-Cd battery Sintered Type',
-//     itemSubtitle: '',
-//     itemAdvanced:
-//       '단거리 유도무기인 천마와 발칸포의 회전 및 발사 시 필요한 에너지를 공급하는 육상 무기용 배터리입니다.\n1차 동력원을 확보하고 체계운용에 따라 엔진 가동없이 탑재 장비에 직전력을 공급하며,\n탑재 장비의 작동 시 과도한 전압 발생을 상쇄시키는 등 체계의 중요한 역할을 수행합니다.\n열악한 주위 환경에서도 원활한 엔진 시동으로 운용 안정성이 우수합니다.',
-//     products: [
-//       {
-//         img: '/image/320방산용Ni-cd/322.2_방산용 Nicd_육상_적용모델(발칸).png',
-//         name: '발칸',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/322.2-방산용 Nicd_육상_적용모델(천마).png',
-//         name: '천마',
-//       },
-//     ],
-//   },
-//   {
-//     id: 2,
-//     title: '해상',
-//     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
-//     itemTitle: 'Ni-Cd battery Sintered Type',
-//     itemSubtitle: '',
-//     itemAdvanced:
-//       '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는\n혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.\n고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
-//     products: [
-//       {
-//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (함포).png',
-//         name: '함포',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (해상골키퍼).png',
-//         name: '해상골키퍼',
-//       },
-//     ],
-//   },
-//   {
-//     id: 3,
-//     title: '해상',
-//     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
-//     itemTitle: 'Ni-Cd battery Sintered Type',
-//     itemSubtitle: '',
-//     itemAdvanced:
-//       '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는\n혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.\n고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
-//     products: [
-//       {
-//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (함포).png',
-//         name: '함포',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (해상골키퍼).png',
-//         name: '해상골키퍼',
-//       },
-//     ],
-//   },
-//   {
-//     id: 3,
-//     title: '해상',
-//     itemFile: '/image/320방산용Ni-cd/323.1_방산용 Nicd_해상_제품사진.png',
-//     itemTitle: 'Ni-Cd battery Sintered Type',
-//     itemSubtitle: '',
-//     itemAdvanced:
-//       '근거리 대공용 함포의 사격, 함포 회전 및 발사 시 필요한 에너지를 공급하는\n혹한기 및 혹서기 등 열악한 환경에서도 안전하게 사용할 수 있는 배기식 니켈 카드뮴 축전지 제품입니다.\n고율 방전 성능이 우수하여 운용 안정성이 높습니다.',
-//     products: [
-//       {
-//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (함포).png',
-//         name: '함포',
-//       },
-//       {
-//         img: '/image/320방산용Ni-cd/323.2_방산용 Nicd_해상_적용모델 (해상골키퍼).png',
-//         name: '해상골키퍼',
-//       },
-//     ],
-//   },
-// ]
+export const hydrogenIntroData = {
+  title: ['원스톱 서비스', 'a one-stop service'],
+  subTitle: [
+    '아이비티는 친환경 에너지 솔루션을 제공합니다.\n국내외 유수의 신재생 에너지 기업들과의 실증 사업을 통해\n수소경제 밸류체인을 구축하였습니다.',
+    'IBT offers eco-friendly energy solutions.\nThrough demonstration projects with leading domestic and foreign renewable energy companies\nWe have established a hydrogen economy value chain.',
+  ],
+}
+
+export const hydrogenListData = [
+  {
+    title: ['진행중인 프로젝트', 'Project'],
+    explain: [
+      [
+        'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도',
+        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-Cd 배터리를',
+        '신뢰를 바탕으로 공급해왔습니다.',
+      ],
+      [
+        'We have supplied high-power, high-efficiency, defense-specialized Ni-Cd batteries based on trust that have excellent operational stability',
+        'and can be safely used in poor environments such as cold and hot weather.',
+      ],
+    ],
+  },
+  {
+    title: ['시스템', 'System'],
+    explain: [
+      [
+        'IBT는 운용 안정성이 우수하고 혹한기 및 혹서기 등 열악한 환경에서도',
+        '안전하게 사용할 수 있는 고출력의 고효율의 방산 전문 Ni-Cd 배터리를',
+        '신뢰를 바탕으로 공급해왔습니다.',
+      ],
+      [
+        'We have supplied high-power, high-efficiency, defense-specialized Ni-Cd batteries based on trust that have excellent operational stability',
+        'and can be safely used in poor environments such as cold and hot weather.',
+      ],
+    ],
+  },
+]
 
 export const companyEmail = 'sales2@ibteng.co.kr'
 

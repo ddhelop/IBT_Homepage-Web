@@ -10,11 +10,11 @@ import { isEnglishState } from '@/context/recoil-context'
 
 interface DetailInfo {
   id: number
-  title: string // 소분류카테고리명
+  title: string[] // 소분류카테고리명
   itemFile: string // 제품이미지
-  itemTitle: string // 제품명
-  itemSubtitle: string // 제품추가설명
-  itemAdvanced: string // 제품소개
+  itemTitle: string[] // 제품명
+  itemSubtitle: string[] // 제품추가설명
+  itemAdvanced: string[] // 제품소개
   products: Product[] // 제품적용모델
 }
 
@@ -61,7 +61,9 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
                   } relative w-96 h-16 z-0`}
                   onClick={() => setCategoryIndex(i)}
                 >
-                  <div className="absolute flex justify-center items-center z-10 w-full h-full text-2xl">{v.title}</div>
+                  <div className="absolute flex justify-center items-center z-10 w-full h-full text-2xl">
+                    {v.title[isEnglish]}
+                  </div>
                 </div>
               )
             })}
@@ -92,24 +94,24 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             {mainCategoryIndex === 3 ? (
               <>
                 <div className="w-full px-10 mb-10 leading-extra-loose text-xl whitespace-pre-line break-keep">
-                  {detailInfo[categoryIndex].itemAdvanced}
+                  {detailInfo[categoryIndex].itemAdvanced[isEnglish]}
                 </div>
               </>
             ) : mainCategoryIndex === 0 ? (
               // 방산용 - 제품 추가 설명 존재 X
               <div className="lg:text-5xl text-4xl text-center font-bold mb-10">
                 {/* 제품명 */}
-                {detailInfo[categoryIndex].itemTitle}
+                {detailInfo[categoryIndex].itemTitle[isEnglish]}
               </div>
             ) : (
               <>
                 <div className="lg:text-5xl text-4xl text-center font-bold mb-10">
                   {/* 제품명 */}
-                  {detailInfo[categoryIndex].itemTitle}
+                  {detailInfo[categoryIndex].itemTitle[isEnglish]}
                 </div>
                 <div className="lg:text-2xl text-xl text-center font-normal mb-10 whitespace-pre-line">
                   {/* 제품 추가 설명 */}
-                  {detailInfo[categoryIndex].itemSubtitle}
+                  {detailInfo[categoryIndex].itemSubtitle[isEnglish]}
                 </div>
               </>
             )}
@@ -130,7 +132,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
             ) : (
               <>
                 <div className="text-2xl font-normal mb-4 text-center whitespace-pre-line basis-1/2 break-keep text-balance">
-                  {detailInfo[categoryIndex].itemAdvanced}
+                  {detailInfo[categoryIndex].itemAdvanced[isEnglish]}
                 </div>
               </>
             )}
