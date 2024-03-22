@@ -27,12 +27,11 @@ export default function Contribution2({ data }: { data: CatalogProps[] }) {
         </LeftMotionComponent>
         {/* 첫 단락 */}
         <div className="w-full flex flex-col lg:flex-row p-3">
-          <div className="lg:w-1/4 ">
-            <RightMotionComponent
-              component={motion.div}
-              className="w-36 pl-1 pt-3 h-16 border-t-2 text-sm tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-center"
-            >
-              {ESG500Data?.[3].subTitle1?.[isEnglish]}
+          <div className="lg:w-1/4">
+            <RightMotionComponent component={motion.div} className="text-xs tracking-wider text-[#9a9a9a]">
+              <div className="w-32 h-12 pl-1 border-t-[#84ac58] border-t-2 flex items-center justify-left mb-8">
+                {ESG500Data?.[3].subTitle1?.[isEnglish]}
+              </div>
             </RightMotionComponent>
           </div>
           <LeftMotionComponent
@@ -46,11 +45,10 @@ export default function Contribution2({ data }: { data: CatalogProps[] }) {
         {/* 두번째 단락 */}
         <div className="w-full flex flex-col lg:flex-row p-3 mt-24">
           <div className="lg:w-1/4 flex ">
-            <RightMotionComponent
-              component={motion.div}
-              className="w-36 h-16 pt-3 border-t-2 text-sm tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-start"
-            >
-              <p className="pl-2">{ESG500Data?.[3].subTitle2?.[isEnglish]}</p>
+            <RightMotionComponent component={motion.div} className="text-xs tracking-wider text-[#9a9a9a]">
+              <div className="w-32 h-12 pl-1 border-t-[#84ac58] border-t-2 flex items-center justify-left mb-8">
+                {ESG500Data?.[3].subTitle2?.[isEnglish]}
+              </div>
             </RightMotionComponent>
           </div>
           <div className="lg:w-3/4 flex flex-col">
@@ -128,11 +126,10 @@ export default function Contribution2({ data }: { data: CatalogProps[] }) {
 
         <div className="w-full flex flex-col lg:flex-row mt-20 p-3">
           <div className="lg:w-1/4 ">
-            <RightMotionComponent
-              component={motion.div}
-              className="w-36 h-16 pt-2 border-t-2 text-sm tracking-wider text-[#9a9a9a] border-t-[#84ac58] flex items-center justify-start"
-            >
-              <p className="pl-2">{ESG500Data?.[3].support?.[isEnglish]}</p>
+            <RightMotionComponent component={motion.div} className="text-xs tracking-wider text-[#9a9a9a]">
+              <div className="w-32 h-12 pl-1 border-t-[#84ac58] border-t-2 flex items-center justify-left mb-8">
+                {ESG500Data?.[3].support?.[isEnglish]}
+              </div>
             </RightMotionComponent>
           </div>
           <LeftMotionComponent component={motion.div} className="lg:w-3/4">

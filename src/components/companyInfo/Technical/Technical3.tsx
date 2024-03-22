@@ -30,7 +30,7 @@ export default function Technical3() {
               </tr>
             </thead>
 
-            <tbody className=" text-[#6f6f6f]">
+            <tbody className=" text-black">
               {researchData.map((el, index) => (
                 <tr className={`text-center bg-[${el.color}]`} key={index}>
                   <td className="py-4 px-3 text-sm font-normal border-2 border-[#e2e2e2]">
