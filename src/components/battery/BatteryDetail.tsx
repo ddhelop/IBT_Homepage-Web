@@ -11,6 +11,8 @@ type Props = {
 
 export default function BatteryDetail({ title, explain }: Props) {
   const isEnglish = useRecoilValue(isEnglishState)
+  const isNullExplain = JSON.stringify(explain) === JSON.stringify([])
+
   return (
     <>
       <motion.div
@@ -27,15 +29,19 @@ export default function BatteryDetail({ title, explain }: Props) {
           <div className="text-5xl font-bold text-primary-green">{title[isEnglish]}</div>
         </div>
         {/* 배터리 설명 */}
-        <div className="relative text-center lg:my-28 my-32 items-center">
-          <div className="text-2xl px-5 text-center font-bold text-primary-green leading-extra-loose whitespace-pre-line text-balance break-keep">
-            {explain[isEnglish]?.map((data: any, i: number) => (
-              <h1 key={i} className="text-balance">
-                {data}
-              </h1>
-            ))}
+        {isNullExplain ? (
+          <div className="relative text-center lg:my-16 my-20 items-center" />
+        ) : (
+          <div className="relative text-center lg:my-28 my-32 items-center">
+            <div className="text-2xl px-5 text-center font-bold text-primary-green leading-extra-loose whitespace-pre-line text-balance break-keep">
+              {explain[isEnglish]?.map((data: any, i: number) => (
+                <h1 key={i} className="text-balance">
+                  {data}
+                </h1>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </motion.div>
     </>
   )

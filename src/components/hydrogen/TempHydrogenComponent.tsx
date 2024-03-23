@@ -15,7 +15,7 @@ export default function TempHydrogenComponent() {
   return (
     <>
       <div className="flex flex-col w-full items-center justify-center">
-        <p className="text-4xl text-[#79AD4B] mt-48 mb-32">HYDROGEN</p>
+        <p className="text-5xl text-primary-green font-bold mt-48 mb-32">HYDROGEN</p>
 
         <Image alt="hydrogen" src={Data?.[0].src?.[isEnglish]} width={1500} height={850} />
       </div>
