@@ -9,7 +9,10 @@ const AddBatteryCategoryPage = async ({ params }: any) => {
   return (
     <div className="flex flex-col flex-1 pb-8 bg-gray-100 min-h-screen">
       {slug[0] === '4' ? (
-        <OthersBatteryPostForm prevData={slug[1] && data.data.filter((item: any) => item.id == 0)[0]} />
+        <OthersBatteryPostForm
+          prevData={slug[1] && data.data.filter((item: any) => item.id == 0)[0]}
+          type={'battery'}
+        />
       ) : (
         <BatteryPostForm prevData={slug[1] && formattedData} pageId={slug} type={'battery'} />
       )}

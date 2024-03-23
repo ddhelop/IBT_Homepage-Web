@@ -11,11 +11,11 @@ export default function LoginForm() {
     e.preventDefault() //브라우저의 기본 액션인 Post, Get 액션을 막아 재로드 되는 것을 방지
     try {
       const formData = new FormData(e.currentTarget) //새로운 FormData 생성
-      const { username, password }: { [k: string]: any } = Object.fromEntries(formData)
-      const { success, message } = await login(username, password)
+      const { password }: { [k: string]: any } = Object.fromEntries(formData)
+      const { success, message } = await login(password)
       window.alert(message)
       if (success) {
-        router.push('/admin/news')
+        router.push('/admin/batteries')
       }
     } catch (error) {}
   }
@@ -27,13 +27,7 @@ export default function LoginForm() {
   return (
     <form onSubmit={onSubmit} className="flex flex-col items-center w-full h-full justify-between p-2">
       <h1 className="text-xl font-bold text-center">관리자 로그인</h1>
-      <div className="gap-4 flex flex-col w-full">
-        <input
-          className="bg-gray-100 rounded-md py-2 px-3 w-full"
-          name="username"
-          type="text"
-          placeholder="사용자 이름을 입력하세요"
-        />
+      <div className="flex flex-col w-full">
         <input
           className="bg-gray-100 rounded-md py-2 px-3 w-full "
           name="password"

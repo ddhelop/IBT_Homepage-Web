@@ -7,14 +7,15 @@ import { usePathname } from 'next/navigation'
 import { links_admin } from '@/lib/data'
 import { FaFilePdf, FaPager } from 'react-icons/fa6'
 import { DiGoogleAnalytics } from 'react-icons/di'
+import { IoSettingsSharp } from 'react-icons/io5'
 
 const AdminHeader = () => {
   const pathname = usePathname()
 
   return (
-    <div className="bg-[#012626] z-50 p-8 w-64 h-screen fixed">
+    <div className="flex flex-col justify-between bg-[#012626] z-50 p-8 w-64 h-screen fixed">
       <h1 className="text-2xl font-bold mb-12 text-gray-100/80">Admin</h1>
-      <ul className="text-lg ">
+      <ul className="text-lg flex flex-col flex-1">
         <Link
           prefetch
           className={`flex items-center py-4 ${pathname === links_admin[0].path ? 'text-white' : 'text-gray-100/60'} `}
@@ -65,6 +66,12 @@ const AdminHeader = () => {
           <h1 className="ml-4 font-regular">{'Vercel Analytics'}</h1>
         </Link>
       </ul>
+      <Link
+        className={`flex items-center py-4 ${pathname === links_admin[3].path ? 'text-white' : 'text-gray-100/60'} `}
+        href={`/admin/change`}
+      >
+        <IoSettingsSharp size={32} />
+      </Link>
     </div>
   )
 }

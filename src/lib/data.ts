@@ -75,14 +75,38 @@ export const batteriesData_admin = [
 export const hydrogensData_admin = [
   {
     id: 0,
-    postType: 'Project',
-    title: '프로젝트',
+    postType: 'waterSys',
+    title: '수전해 시스템',
     name: '적용제품',
   },
   {
     id: 1,
-    postType: 'System',
-    title: '시스템',
+    postType: 'waterSer',
+    title: '수전해 서비스',
+    name: '적용제품',
+  },
+  {
+    id: 2,
+    postType: 'fuelCellSys',
+    title: '연료전지 시스템',
+    name: '적용제품',
+  },
+  {
+    id: 3,
+    postType: 'hydrogenSer',
+    title: '수소발전 서비스',
+    name: '적용제품',
+  },
+  {
+    id: 4,
+    postType: 'energyFac',
+    title: '에너지자립 설비',
+    name: '적용제품',
+  },
+  {
+    id: 5,
+    postType: 'energySer',
+    title: '에너지 서비스',
     name: '적용제품',
   },
 ]

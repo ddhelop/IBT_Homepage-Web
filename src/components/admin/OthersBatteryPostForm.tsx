@@ -1,10 +1,9 @@
 'use client'
-import { createOthersBatteryPage } from '@/lib/action'
+import { createOthersPage } from '@/lib/action'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import SubmitButton from './SubmitButton'
-import { batteriesData_admin } from '@/lib/data'
 import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import { reorderPosts } from '@/lib/utils'
@@ -17,7 +16,7 @@ export type Product = {
   img: File
 }
 
-const OthersBatteryPostForm = ({ prevData }: any) => {
+const OthersBatteryPostForm = ({ prevData, type }: { prevData: any; type: 'battery' | 'hydrogen' }) => {
   const [error, setError] = useState<string | null>(null)
   const [productList, setProductList] = useState<Product[]>([])
 
@@ -68,8 +67,10 @@ const OthersBatteryPostForm = ({ prevData }: any) => {
           formData.append('productName_en', item.name[1])
           if (typeof item.img !== 'string') {
             presignedPromises.push(
-              //prettier-ignore
-              getSignedFileUrl({ name: `batteries/others/${title_en}/${item.name+keyString}`, type: item.img.type, }),
+              getSignedFileUrl({
+                name: `${type}/others/${id.toString() + title_en}/${item.name + keyString}`,
+                type: item.img.type,
+              }),
             )
           } else {
             presignedPromises.push(item.img)
@@ -95,13 +96,13 @@ const OthersBatteryPostForm = ({ prevData }: any) => {
         //기존 데이터가 존재한다면, uploadPromises 배열이 초기값인 빈 배열이기에, 별도로 Promise가 수행되지 않을 것.
         await Promise.all(uploadPromises)
       }
-      const { success, message } = await createOthersBatteryPage(formData)
+      const { success, message } = await createOthersPage(formData, type)
       if (!success) {
         setError(message)
         setIsLoading(false)
       } else {
         setIsLoading(false)
-        router.push('/admin/batteries')
+        router.push(type === 'battery' ? '/admin/batteries' : '/admin/hydrogens')
         console.log(message)
       }
     } catch (e: any) {
@@ -114,10 +115,8 @@ const OthersBatteryPostForm = ({ prevData }: any) => {
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
-    // if (source.index !== destination.index) {
     const newOrderList = reorderPosts(productList, source.index, destination.index)
     setProductList(newOrderList)
-    // }
   }
 
   useEffect(() => {
@@ -128,7 +127,9 @@ const OthersBatteryPostForm = ({ prevData }: any) => {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-2xl font-bold bg-white p-8">기타 배터리 페이지의 중분류 추가</h1>
+      <h1 className="text-2xl font-bold bg-white p-8">
+        {type === 'battery' ? '배터리' : '수소'} 기타 페이지의 중분류 추가
+      </h1>
       <form className="m-8 p-4 bg-white rounded-lg flex-col" onSubmit={onSubmit}>
         <div className="flex-col flex-2 rounded-md ">
           <div className="flex p-2 bg-gray-100  rounded-md">
