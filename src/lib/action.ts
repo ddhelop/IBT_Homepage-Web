@@ -72,7 +72,7 @@ export const createPost = async (formData: FormData) => {
     const prevData: { id: number; data: PostType[] } | null = await Post.findOne({ id: +postType })
     if (!prevData) return { success: false, message: '이전 데이터를 불러오는데 실패했습니다.' }
     const newId = prevData.data.length ? Math.max(...prevData.data.map((item) => item.id)) + 1 : 0
-
+    console.log(Object.fromEntries(formData))
     switch (+postType) {
       case 0:
         if (!img) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }

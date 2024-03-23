@@ -124,7 +124,7 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
           <input
             required
             type="text"
-            name="title"
+            name="title_kr"
             placeholder="한글"
             className="bg-gray-100 rounded-md py-2 px-3 w-full"
           />
