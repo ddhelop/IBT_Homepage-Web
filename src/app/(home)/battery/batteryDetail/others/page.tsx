@@ -12,24 +12,6 @@ export const metadata: Metadata = {
 const BatteryOthersPage = async () => {
   const data = await fetchPageData(4, 'battery')
   const product = data.data[0].products
-  console.log(product)
-  // const product = [
-  //   {
-  //     id: 0,
-  //     name: ['항공장애등용', 'Aerial disability lights'],
-  //     img: '/image/기타/other1.png',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: ['개폐기용', 'switch'],
-  //     img: '/image/기타/other2.png',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: ['통신용 5G 정류기', '5G rectifier for communication'],
-  //     img: '',
-  //   },
-  // ]
 
   return (
     <>
