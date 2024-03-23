@@ -95,13 +95,11 @@ export default function CompanyHistory1() {
           </div>
 
           <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[7%] 2xl:left-[11%]">
-            <div className="hidden lg:flex absolute lg:left-[6%] xl:left-[7%] 2xl:left-[11%]">
-              <RightMotionComponent component={motion.div}>
-                <p className="text-[#2B6434] font-bold tracking-[0.875px] lg:text-xl  leading-[3.3rem]">
-                  {CompanyInfoData[2].text1?.[isEnglish]}
-                </p>
-              </RightMotionComponent>
-            </div>
+            <RightMotionComponent component={motion.div}>
+              <p className="text-[#2B6434] font-bold tracking-[0.875px] lg:text-xl leading-[3.3rem]">
+                {CompanyInfoData[2].text1?.[isEnglish]}
+              </p>
+            </RightMotionComponent>
           </div>
         </div>
       </div>

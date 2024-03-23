@@ -37,7 +37,7 @@ export default function ContentBlocks() {
                 ease: 'easeOut',
                 delay: 0.2,
               }}
-              className="leading-relaxed break-keep text-xl px-8 font-bold md:font-light mt-20 text-white"
+              className="whitespace-pre-line break-keep text-xl px-8 font-bold md:font-light mt-20 text-white"
             >
               {item.text?.[isEnglish]}
             </motion.p>
