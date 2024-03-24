@@ -1,11 +1,11 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { LeftMotionComponent } from '../commons/FramerMotion/Direction/LeftMotion'
 import { motion } from 'framer-motion'
 import { RightMotionComponent } from '../commons/FramerMotion/Direction/RightMotion'
 import { NoMotionComponent } from '../commons/FramerMotion/Direction/NoMotion'
-import { CatalogProps, SocialProps } from '@/lib/types'
+import { CatalogProps } from '@/lib/types'
 import { useRecoilValue } from 'recoil'
 import { isEnglishState } from '@/context/recoil-context'
 import { ESG500Data } from '@/lib/data'
@@ -120,7 +120,7 @@ export default function Contribution1({ data }: { data: CatalogProps[] }) {
                   className="text-sm hover:text-[#000000] mt-2 tracking-wider text-[#7b7b7b] cursor-pointer"
                   target="_blank"
                 >
-                  {el.title}
+                  {el.title[isEnglish]}
                 </a>
               ))}
             </NoMotionComponent>
