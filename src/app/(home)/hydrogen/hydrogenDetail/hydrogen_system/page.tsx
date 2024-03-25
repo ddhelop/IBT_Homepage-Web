@@ -5,12 +5,12 @@ import HydrogenDetail from '@/components/hydrogen/HydrogenDetail'
 import HydrogenItem from '@/components/hydrogen/HydrogenItem'
 
 export const metadata: Metadata = {
-  title: '(주)아이비티 수소 프로젝트',
-  description: 'IBT 참여 수소 프로젝트',
+  title: '(주)아이비티 수소 발전',
+  description: 'IBT 수소 발전 서비스 페이지',
 }
 
-const SystemPage = async () => {
-  const data = await fetchPageData(1, 'hydrogen')
+const HydrogenSystemPage = async () => {
+  const data = await fetchPageData(2, 'hydrogen')
 
   return (
     <>
@@ -29,4 +29,4 @@ const SystemPage = async () => {
   )
 }
 
-export default SystemPage
+export default HydrogenSystemPage
