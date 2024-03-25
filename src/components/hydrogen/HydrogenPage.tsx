@@ -1,11 +1,9 @@
 'use client'
 
-import FloatingButton from '@/components/battery/Floating'
-import BatteryIntro from '@/components/battery/BatteryIntro'
 import { useEffect } from 'react'
-import HydrogenProject from '@/components/hydrogen/HydrogenProject'
-import SystemBox from './SystemBox'
 import HydrogenIntro from './HydrogenIntro'
+import LeftImageBox from './LeftImageBox'
+import RightImageBox from './RightImageBox'
 
 export const HydrogenPage = () => {
   // header, floating button를 통한 페이지 이동시 필요
@@ -28,20 +26,49 @@ export const HydrogenPage = () => {
     <>
       {/* 오른쪽 플로팅 버튼 */}
       {/* <FloatingButton /> */}
-      {/* Battery 인트로 이미지 */}
+      {/* Hydrogen 인트로 이미지 */}
       <HydrogenIntro />
-      {/* Battery 메인 */}
+      {/* Hydrogen 메인 */}
       <div className="flex w-full min-h-full flex-col items-center mb-20">
         <h1 className="text-6xl font-bold my-40">HYDROGEN</h1>
-        {/* Ni-Cd */}
-        {/* Ni-Cd 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
-        <div id="project" className="flex flex-col w-[min(92%,720px)] mb-8">
-          <HydrogenProject />
+        {/* 수전해 발전 */}
+        {/* 수전해 발전 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
+        <div id="electrolysis" className="flex flex-col w-[min(92%,720px)] mb-8">
+          <LeftImageBox
+            img="/image/hydrogen/main1.png"
+            title={['수전해 발전', 'Electrolysis Power Generation']}
+            subTitle={['IBT 참여 프로젝트', 'IBT Project']}
+            text1={['수전해 시스템', 'Electrolysis System']}
+            link1="/hydrogen/hydrogenDetail/electrolysis_system"
+            text2={['서비스', 'Service']}
+            link2="/hydrogen/hydrogenDetail/electrolysis_service"
+          />
         </div>
-        {/* Lithium */}
-        {/* Lithium 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
-        <div id="system" className="flex flex-col w-[min(92%,720px)]">
-          <SystemBox />
+        {/* 수소 발전 */}
+        {/* 수소 발전 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
+        <div id="hydrogen_service" className="flex flex-col w-[min(92%,720px)] mb-8">
+          <RightImageBox
+            img="/image/hydrogen/main2.png"
+            title={['수소 발전', 'Hydrogen Power Generation']}
+            subTitle={['시스템', 'System']}
+            text1={['연료 전지 시스템', 'Fuel Cell System']}
+            link1="/hydrogen/hydrogenDetail/hydrogen_system"
+            text2={['서비스', 'Service']}
+            link2="/hydrogen/hydrogenDetail/hydrogen_service"
+          />
+        </div>
+        {/* 에너지 자립 시스템 */}
+        {/* 에너지 자립 시스템 컴포넌트 위치로 바로 접근하는 경우가 있어 id 설정 필요 */}
+        <div id="energy_independence" className="flex flex-col w-[min(92%,720px)]">
+          <LeftImageBox
+            img="/image/hydrogen/main3.png"
+            title={['에너지 자립 시스템', 'Energy Independence System']}
+            subTitle={['IBT 참여 프로젝트', 'IBT Project']}
+            text1={['설비', 'Facility']}
+            link1="/hydrogen/hydrogenDetail/energy_independence_system"
+            text2={['서비스', 'Service']}
+            link2="/hydrogen/hydrogenDetail/energy_independence_service"
+          />
         </div>
       </div>
     </>

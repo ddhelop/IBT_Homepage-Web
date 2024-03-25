@@ -5,12 +5,12 @@ import BatteryDetail from '@/components/battery/BatteryDetail'
 import { fetchPageData } from '@/lib/action'
 
 export const metadata: Metadata = {
-  title: '(주)아이비티 기타 배터리 제품',
-  description: 'IBT 배터리 제품 소개 페이지',
+  title: '(주)아이비티 기타 수소 제품',
+  description: 'IBT 수소 페이지',
 }
 
 const BatteryOthersPage = async () => {
-  const data = await fetchPageData(4, 'battery')
+  const data = await fetchPageData(6, 'hydrogen')
   const product = data.data[0].products
 
   return (
