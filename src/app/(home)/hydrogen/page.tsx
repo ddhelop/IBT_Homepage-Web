@@ -9,8 +9,8 @@ export const metadata = {
 export default function PagHydrogenPage() {
   return (
     // 임시 준비중 배너
-    <TempHydrogenComponent />
+    // <TempHydrogenComponent />
     // 데이터 연결된
-    // <HydrogenPage />
+    <HydrogenPage />
   )
 }
