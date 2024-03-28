@@ -50,9 +50,6 @@ export default function CompanyHistory1() {
               <p className="font-normal text-xl lg:text-sm break-keep mb-7 leading-6">
                 {CompanyInfoData[2][2019]?.[isEnglish]}
               </p>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
-                {CompanyInfoData[2][2019]?.[isEnglish]}
-              </p>
             </LeftMotionComponent>
 
             <LeftMotionComponent component={motion.div}>
@@ -61,9 +58,7 @@ export default function CompanyHistory1() {
               <p className="font-normal text-xl lg:text-sm break-keep mb-7 leading-6">
                 {CompanyInfoData[2][2018]?.[isEnglish]}
               </p>
-              <p className="font-light text-xl lg:text-sm break-keep mb-7 leading-6">
-                {CompanyInfoData[2][2018]?.[isEnglish]}
-              </p>
+
               <Image
                 src="/info/2018.png" // 이미지 경로
                 alt="2018"
@@ -78,9 +73,6 @@ export default function CompanyHistory1() {
               <h3 className="text-4xl lg:text-xl font-bold tracking-normal text-[#59A833] mb-4">2017</h3>
 
               <p className="font-normal text-xl lg:text-sm break-keep leading-6 mb-7">
-                {CompanyInfoData[2][2017]?.[isEnglish]}
-              </p>
-              <p className="font-light text-xl lg:text-sm break-keep leading-6 mb-7">
                 {CompanyInfoData[2][2017]?.[isEnglish]}
               </p>
             </LeftMotionComponent>
