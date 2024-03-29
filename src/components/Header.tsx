@@ -42,8 +42,14 @@ export const Header = () => {
       <nav className="fixed top-0 w-full z-50">
         {/* 상세 메뉴가 열릴 때는 흰색 배경, 이외에는 투명 배경 */}
         <nav
-          className={`flex items-center flex-wrap lg:px-20 hover:bg-white py-3 shadow-md ${
-            navDown ? 'bg-white' : active ? 'bg-white ' : 'bg-transparent'
+          className={`flex items-center flex-wrap lg:px-20 py-3 shadow-md ${
+            navDown
+              ? 'bg-white'
+              : active
+              ? 'bg-white '
+              : location === '/'
+              ? 'bg-transparent hover:bg-white'
+              : 'bg-white'
           }`}
           onMouseEnter={() => setNavDown(true)} // 마우스가 영역에 들어오면 상세 메뉴 열기
           onMouseLeave={() => setNavDown(false)} // 마우스가 영역 벗어나면 상세 메뉴 닫기
