@@ -1,5 +1,4 @@
 import HydrogenPage from '@/components/hydrogen/HydrogenPage'
-import TempHydrogenComponent from '@/components/hydrogen/TempHydrogenComponent'
 
 export const metadata = {
   title: '(주)아이비티 수소',
@@ -7,10 +6,5 @@ export const metadata = {
 }
 
 export default function PagHydrogenPage() {
-  return (
-    // 임시 준비중 배너
-    <TempHydrogenComponent />
-    // 데이터 연결된
-    // <HydrogenPage />
-  )
+  return <HydrogenPage />
 }

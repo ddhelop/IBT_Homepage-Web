@@ -1320,3 +1320,10 @@ export const headerData = [
     subTitle1: ['IBT ESG'],
   },
 ]
+
+export const TempHydrogenData = [
+  {
+    // hydrogen 임시 데이터
+    src: ['/image/hydrogen/hydrogen_intro.png', '/image/hydrogen/hydrogen-en.png'],
+  },
+]
