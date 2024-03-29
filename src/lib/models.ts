@@ -32,7 +32,12 @@ const postSchema = new mongoose.Schema({
   id: { type: Number, default: 0 },
   data: { type: [postSubSchema], default: [] },
 })
+const adminSchema = new mongoose.Schema({
+  id: { type: Number, default: 0 },
+  secure: { type: String, default: '' },
+})
 
+export const User = mongoose.models?.User || mongoose.model('User', adminSchema)
 export const HydrogenPage = mongoose.models?.HydrogenPage || mongoose.model('HydrogenPage', pageSchema)
 export const BatteryPage = mongoose.models?.BatteryPage || mongoose.model('BatteryPage', pageSchema)
 export const Post = mongoose.models?.Post || mongoose.model('Post', postSchema)

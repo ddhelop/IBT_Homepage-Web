@@ -40,7 +40,7 @@ export default function HistoryComponent() {
         <DownMotionComponent component={motion.h1} className="text-4xl font-medium">
           {CompanyTitleData.title?.[isEnglish]}
         </DownMotionComponent>
-        <DownMotionComponent component={motion.p} className="mt-12 text-center font-light text-xl whitespace-pre-wrap">
+        <DownMotionComponent component={motion.p} className="mt-12 text-center font-medium text-xl whitespace-pre-wrap">
           {CompanyTitleData.contents?.[isEnglish]}
         </DownMotionComponent>
 

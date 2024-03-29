@@ -91,7 +91,9 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
         return false
       } else if (typeof cateImg !== 'string') {
         let preImg_cate = await getSignedFileUrl({
-          name: `batteries/${batteriesData_admin[pageId[0]].title}/${title_en + keyString}-category.png`,
+          name: `${type}/${
+            type === 'battery' ? batteriesData_admin[pageId[0]].title : hydrogensData_admin[pageId[0]].title
+          }/${title_en + keyString}-category.png`,
           type: cateImg.type,
         })
         await fetch(preImg_cate, { method: 'PUT', body: cateImg, headers: { 'Content-type': cateImg.type } })
@@ -110,8 +112,12 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
           formData.append('productName_en', item.name[1])
           if (typeof item.img !== 'string') {
             presignedPromises.push(
-              //prettier-ignore
-              getSignedFileUrl({ name: `batteries/${batteriesData_admin[pageId[0]].title}/${title_en}/${item.name+keyString}`, type: item.img.type, }),
+              getSignedFileUrl({
+                name: `${type}/${
+                  type === 'battery' ? batteriesData_admin[pageId[0]].title : hydrogensData_admin[pageId[0]].title
+                }/${title_en}/${item.name + keyString}`,
+                type: item.img.type,
+              }),
             )
           } else {
             presignedPromises.push(item.img)
@@ -215,7 +221,7 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
                     className="bg-gray-100 rounded-md py-2 px-3 font-medium w-full mb-4"
                   />
                 </div>
-                <h2 className="mb-2">{`배터리명 (ex:Ni-cd battery Sintered Type)`}</h2>
+                <h2 className="mb-2">{`제목 (ex:Ni-cd battery Sintered Type)`}</h2>
                 <div className="flex gap-4">
                   <input
                     type="text"
@@ -233,7 +239,7 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
                   />
                 </div>
 
-                <h2 className="mb-2">배터리 부제목</h2>
+                <h2 className="mb-2">부제목</h2>
                 <div className="flex gap-4">
                   <input
                     type="text"
@@ -251,7 +257,7 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
                   />
                 </div>
                 <h2 className="mb-2">
-                  <span className="text-red-400">*</span>배터리 설명
+                  <span className="text-red-400">*</span>설명
                 </h2>
                 <div className="flex gap-4">
                   <textarea

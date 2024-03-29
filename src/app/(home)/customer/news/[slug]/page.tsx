@@ -23,7 +23,9 @@ const SingleNewsPage = async ({ params }: any) => {
       </div>
       <h1 className="text-4xl font-bold">{post.title}</h1>
       <span className="font-medium text-gray-400 self-end">{post.createdAt.toString().slice(0, 10)}</span>
-      <div className="text-lg w-[min(64%,1280px)] text-center">{post.desc}</div>
+      <div className="text-lg w-[min(64%,1280px)] text-centerleading-extra-loose whitespace-pre-line text-balance break-keep">
+        {post.desc}
+      </div>
     </div>
   )
 }

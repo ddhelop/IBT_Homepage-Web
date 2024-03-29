@@ -2,6 +2,8 @@
 import { SignJWT, jwtVerify } from 'jose'
 import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
+import { checkAccount } from './action'
+import crypto from 'crypto'
 
 const secretKey = 'neoself'
 const key = new TextEncoder().encode(secretKey)
@@ -17,15 +19,14 @@ export async function decrypt(input: string): Promise<any> {
   return payload
 }
 
-export async function login(username: string, password: string) {
+export async function login(password: string) {
   // Verify credentials && get the user
-  if (
-    username == (process.env.ADMIN_ID as unknown as string) &&
-    password == (process.env.ADMIN_PASSWORD as unknown as string)
-  ) {
+  const currPW = crypto.createHash('sha256').update(password).digest('hex')
+  const isAdmin = await checkAccount(currPW)
+  if (isAdmin) {
     // Create the session
     const expires = new Date(Date.now() + 24 * 60 * 60 * 1000)
-    const session = await encrypt({ username, expires })
+    const session = await encrypt({ username: 'admin', expires })
     // Save the session in a cookie
     cookies().set('session', session, { expires, httpOnly: true })
     return { success: true, message: '로그인 되었습니다.' }

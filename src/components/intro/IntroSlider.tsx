@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { NewsData } from '@/lib/types'
+import Link from 'next/link'
 
 const IntroSlider = ({ data }: NewsData) => {
   const [imagesPerPage, setImagesPerPage] = useState(4) // 한 페이지당 이미지 개수 - PC버전 4개
@@ -67,7 +68,7 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 <Image alt="arrow" src={'/image/leftArrow.svg'} fill />
               </button>
-              <div className="">
+              <div>
                 <div className="w-[29.5rem] lg:w-[46rem] xl:w-[70rem] 2xl:w-[82rem] 3xl:w-[98rem] h-80 lg:h-64 2xl:h-72 overflow-hidden relative">
                   {/* ----- 적용 분야 이미지 ----- */}
 
@@ -82,7 +83,9 @@ const IntroSlider = ({ data }: NewsData) => {
                   >
                     {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-60 h-60 mx-[4.71rem] border-2`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        <Link href={`/customer/news/${v.id}`}>
+                          <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -98,7 +101,9 @@ const IntroSlider = ({ data }: NewsData) => {
                   >
                     {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-72 h-72 mx-20 border-2`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        <Link href={`/customer/news/${v.id}`}>
+                          <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -114,7 +119,9 @@ const IntroSlider = ({ data }: NewsData) => {
                   >
                     {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-56 h-56 mx-[4.55rem] border-2`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        <Link href={`/customer/news/${v.id}`}>
+                          <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -130,7 +137,9 @@ const IntroSlider = ({ data }: NewsData) => {
                   >
                     {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-64 h-64 flex mx-[3.5rem] border-2`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        <Link href={`/customer/news/${v.id}`}>
+                          <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -146,7 +155,9 @@ const IntroSlider = ({ data }: NewsData) => {
                   >
                     {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-80 h-80 flex justify-center border-2 mx-20`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        <Link href={`/customer/news/${v.id}`}>
+                          <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -200,10 +211,12 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 {data?.map((v, i) => (
                   <div key={i} className="h-32 flex flex-col mx-[5.2rem] mt-3 ">
-                    <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
-                    <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
-                    </div>
+                    <Link href={`/customer/news/${v.id}`}>
+                      <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
+                      <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
+                        {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -218,10 +231,12 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 {data?.map((v, i) => (
                   <div key={i} className="h-32 flex flex-col mx-28 mt-8">
-                    <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
-                    <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
-                    </div>
+                    <Link href={`/customer/news/${v.id}`}>
+                      <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
+                      <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
+                        {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -237,10 +252,12 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 {data?.map((v, i) => (
                   <div key={i} className="h-32 flex flex-col mx-[4.5rem] ">
-                    <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
-                    <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
-                    </div>
+                    <Link href={`/customer/news/${v.id}`}>
+                      <div className="relative shrink-0 w-56 text-base font-bold ">{v.title}</div>
+                      <div className="relative h-[3.3rem] shrink-0 text-base font-medium mt-2 overflow-hidden">
+                        {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -256,10 +273,12 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 {data?.map((v, i) => (
                   <div key={i} className="flex flex-col h-40 mt-3 mx-[3.54rem] ">
-                    <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
-                    </div>
+                    <Link href={`/customer/news/${v.id}`}>
+                      <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
+                      <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">
+                        {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -275,10 +294,12 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 {data?.map((v, i) => (
                   <div key={i} className="flex flex-col h-40 mt-3 mx-28 ">
-                    <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">
-                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
-                    </div>
+                    <Link href={`/customer/news/${v.id}`}>
+                      <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
+                      <div className="relative shrink-0 h-12 text-base font-medium mt-2 overflow-hidden">
+                        {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -294,13 +315,15 @@ const IntroSlider = ({ data }: NewsData) => {
                   key={i}
                   className={'w-52 h-full relative flex flex-col justify-center items-center overflow-hidden'}
                 >
-                  <div key={i} className={`relative shrink-0 w-52 h-56 mx-4 `}>
-                    <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
-                  </div>
-                  <div className="relative shrink-0 w-52 text-base font-bold overflow-hidden">{v.title}</div>
-                  <div className="relative shrink-0 w-52 h-40 lg:h-12 text-base font-medium mt-2 break-keep">
-                    {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
-                  </div>
+                  <Link href={`/customer/news/${v.id}`}>
+                    <div key={i} className={`relative shrink-0 w-52 h-56 mx-4 `}>
+                      <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                    </div>
+                    <div className="relative shrink-0 w-52 text-base font-bold overflow-hidden">{v.title}</div>
+                    <div className="relative shrink-0 w-52 h-40 lg:h-12 text-base font-medium mt-2 break-keep">
+                      {v.desc.length > 33 ? `${v.desc.slice(0, 33)}...` : v.desc}
+                    </div>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -329,7 +352,9 @@ const IntroSlider = ({ data }: NewsData) => {
                   >
                     {data?.map((v, i) => (
                       <div key={i} className={`relative shrink-0 w-64 h-64 flex justify-center  mx-2`}>
-                        <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        <Link href={`/customer/news/${v.id}`}>
+                          <Image className="pointer-events-none" alt={`적용모델-${i}`} fill src={v.img} />
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -358,10 +383,12 @@ const IntroSlider = ({ data }: NewsData) => {
               >
                 {data?.map((v, i) => (
                   <div key={i} className="flex flex-col mt-3 mx-2">
-                    <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
-                    <div className="relative shrink-0 text-base font-medium mt-2 ">
-                      {v.desc.length > 40 ? `${v.desc.slice(0, 45)}...` : v.desc}
-                    </div>
+                    <Link href={`/customer/news/${v.id}`}>
+                      <div className="relative shrink-0 w-64 text-base font-bold ">{v.title}</div>
+                      <div className="relative shrink-0 text-base font-medium mt-2 ">
+                        {v.desc.length > 40 ? `${v.desc.slice(0, 45)}...` : v.desc}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>

@@ -1,5 +1,5 @@
 import BatteryEditList from '@/components/admin/BatteryEditList'
-import OtherBatteryCard from '@/components/admin/OtherBatteryCard'
+import OthersCard from '@/components/admin/OtherBatteryCard'
 
 const getData = async () => {
   const res = await fetch(`${process.env.URL}/api/admin/batteries`, {
@@ -21,7 +21,7 @@ const AdminPage = async () => {
         <BatteryEditList datas={res[1]} pageId={1} type={'battery'} />
         <BatteryEditList datas={res[2]} pageId={2} type={'battery'} />
         <BatteryEditList datas={res[3]} pageId={3} type={'battery'} />
-        <OtherBatteryCard data={res[4].data[0].products} />
+        <OthersCard data={res[4].data[0].products} type={'battery'} />
       </div>
     </div>
   )
