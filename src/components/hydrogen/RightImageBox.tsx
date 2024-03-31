@@ -17,12 +17,14 @@ interface BoxProps {
   link1: string
   text2: string[]
   link2: string
+  explain_ko: string
+  explain_en: string
 }
 
 export default function RightImageBox(props: BoxProps) {
   const isEnglish = useRecoilValue(isEnglishState)
 
-  const { img, title, subTitle, text1, link1, text2, link2 } = props
+  const { img, title, subTitle, text1, link1, text2, link2, explain_ko, explain_en } = props
 
   let boxLeftVariants = {}
   if (typeof window !== 'undefined') {
@@ -88,7 +90,19 @@ export default function RightImageBox(props: BoxProps) {
             </div>
             {/* 컨텐츠 본문 */}
             <div className="mt-8">
-              <div className="flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
+              {/* 기본은 보이게, group hover시 hidden */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.3,
+                }}
+                className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden whitespace-pre-line"
+              >
+                {isEnglish ? explain_en : explain_ko}
+              </motion.p>
+              {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
+              <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
                 <Link prefetch className="w-full" href={link1}>
                   <motion.button
                     initial={{ opacity: 0 }}
