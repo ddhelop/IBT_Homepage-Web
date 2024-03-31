@@ -1332,6 +1332,10 @@ export const headerData = [
   },
   {
     title: ['HYDROGEN'],
+    subTitle1: ['수전해 발전', 'Electrolysis'],
+    subTitle2: ['수소 발전', 'Hydrogen'],
+    subTitle3: ['연료 전지', 'Fuel Cell'],
+    subTitle4: ['기타', 'Others'],
   },
   {
     title: ['고객지원', 'CUSTOMER'],
