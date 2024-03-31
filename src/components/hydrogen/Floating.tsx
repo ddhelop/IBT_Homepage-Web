@@ -22,46 +22,16 @@ const FloatingButton = () => {
               {isEnglish ? 'Electrolysis' : '수전해 발전'}
             </div>
           </Link>
-          <Link href="/hydrogen/hydrogenDetail/electrolysis_system">
-            <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
-              {isEnglish ? 'system' : '시스템'}
-            </div>
-          </Link>
-          <Link href="/hydrogen/hydrogenDetail/electrolysis_service">
-            <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
-              {isEnglish ? 'service' : '서비스'}
-            </div>
-          </Link>
           {/* 해시태그를 이용하여 해당 ID를 가진 요소 위치로 이동 */}
           <Link href="/hydrogen#hydrogen_service">
             <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
               {isEnglish ? 'Hydrogen' : '수소 발전'}
             </div>
           </Link>
-          <Link href="/hydrogen/hydrogenDetail/hydrogen_system">
-            <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
-              {isEnglish ? 'system' : '시스템'}
-            </div>
-          </Link>
-          <Link href="/hydrogen/hydrogenDetail/hydrogen_service">
-            <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
-              {isEnglish ? 'service' : '서비스'}
-            </div>
-          </Link>
           {/* 해시태그를 이용하여 해당 ID를 가진 요소 위치로 이동 */}
           <Link href="/hydrogen#energy_independence">
             <div className="bg-slate-100 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
               {isEnglish ? 'Independence' : '에너지 자립'}
-            </div>
-          </Link>
-          <Link href="/hydrogen/hydrogenDetail/energy_independence_system">
-            <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
-              {isEnglish ? 'system' : '시스템'}
-            </div>
-          </Link>
-          <Link href="/hydrogen/hydrogenDetail/energy_independence_service">
-            <div className="bg-slate-200 px-2 py-2 hover:bg-primary-green hover:text-white font-bold">
-              {isEnglish ? 'service' : '서비스'}
             </div>
           </Link>
           {/* 기타 페이지로 이동 */}
