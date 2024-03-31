@@ -17,12 +17,14 @@ interface BoxProps {
   link1: string
   text2: string[]
   link2: string
+  explain_ko: string
+  explain_en: string
 }
 
 export default function LeftImageBox(props: BoxProps) {
   const isEnglish = useRecoilValue(isEnglishState)
 
-  const { img, title, subTitle, text1, link1, text2, link2 } = props
+  const { img, title, subTitle, text1, link1, text2, link2, explain_ko, explain_en } = props
 
   let boxRightVariants = {}
   if (typeof window !== 'undefined') {
@@ -67,7 +69,11 @@ export default function LeftImageBox(props: BoxProps) {
             {/* 컨텐츠 상단 한줄 */}
             <div className="flex justify-between items-center">
               <div>
-                <div className="text-black text-5xl lg:text-3xl font-semibold mb-1.5 lg:mt-0 mt-3">
+                <div
+                  className={`text-black lg:text-2xl font-semibold mb-1.5 lg:mt-0 mt-3 lg:whitespace-pre-wrap ${
+                    isEnglish ? 'lg:text-xl text-3xl mr-1' : 'lg:text-2xl text-4xl'
+                  } `}
+                >
                   {title[isEnglish]}
                 </div>
                 <div className="text-gray-600 text-xl lg:text-sm font-bold">{subTitle[isEnglish]}</div>
@@ -87,7 +93,19 @@ export default function LeftImageBox(props: BoxProps) {
             </div>
             {/* 컨텐츠 본문 */}
             <div className="mt-8">
-              <div className="flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
+              {/* 기본은 보이게, group hover시 hidden */}
+              <motion.h3
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.3,
+                }}
+                className="text-2xl lg:text-sm font-medium text-gray-900 hidden lg:block group-hover:hidden lg:whitespace-pre-line"
+              >
+                {isEnglish ? explain_en : explain_ko}
+              </motion.h3>
+              {/* 기본은 hidden, group hover시에 나타나는 중분류 버튼 */}
+              <div className="flex lg:hidden group-hover:flex flex-row lg:flex-col gap-6 text-gray-600 lg:text-lg text-2xl font-medium lg:font-bold">
                 <Link prefetch className="w-full" href={link1}>
                   <motion.button
                     initial={{ opacity: 0 }}

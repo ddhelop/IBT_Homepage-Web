@@ -47,7 +47,7 @@ export default function BatteryItem({ detailInfo, mainCategoryIndex }: Props) {
           }}
           className="w-full lg:w-[65%]"
         >
-          <div className={'flex items-center justify-center mb-40 shadow-xl'}>
+          <div className={'flex flex-row items-center justify-center mb-40'}>
             {detailInfo.map((v, i) => {
               return (
                 // 소분류 카테고리 박스

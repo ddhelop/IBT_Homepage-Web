@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { TempHydrogenData } from '@/lib/data'
 import { useRecoilValue } from 'recoil'
 import { isEnglishState } from '@/context/recoil-context'
+import FloatingButton from './Floating'
 
 export const HydrogenPage = () => {
   // header, floating button를 통한 페이지 이동시 필요
@@ -27,7 +28,7 @@ export const HydrogenPage = () => {
   }, []) // mount(첫 렌더링) 될 때 -> 스크롤 위치 찾아야 하므로 useEffect(,[]) 사용
 
   const isEnglish = useRecoilValue(isEnglishState)
-  const [temp, setTemp] = useState(true) // 준비중인지 아닌지
+  const [temp, setTemp] = useState(false) // 준비중인지 아닌지
 
   return (
     <>
@@ -39,7 +40,7 @@ export const HydrogenPage = () => {
       ) : (
         <>
           {/* 오른쪽 플로팅 버튼 */}
-          {/* <FloatingButton /> */}
+          <FloatingButton />
           {/* Hydrogen 인트로 이미지 */}
           <HydrogenIntro />
           {/* Hydrogen 메인 */}
@@ -56,6 +57,10 @@ export const HydrogenPage = () => {
                 link1="/hydrogen/hydrogenDetail/electrolysis_system"
                 text2={['서비스', 'Service']}
                 link2="/hydrogen/hydrogenDetail/electrolysis_service"
+                explain_ko={`IBT 수전해\nEMS 기술에 기반한 수전해\n(ESS 전력 → 수소생산)\n설비에 대한 높은 이해도\n실증 프로젝트 경험 다수 보유`}
+                explain_en="IBT Water electrolysis,
+                High understanding of water electrolysis(ESS power → hydrogen production), facilities based on EMS technology,
+                Have a lot of experience in demonstration projects"
               />
             </div>
             {/* 수소 발전 */}
@@ -69,6 +74,11 @@ export const HydrogenPage = () => {
                 link1="/hydrogen/hydrogenDetail/hydrogen_system"
                 text2={['서비스', 'Service']}
                 link2="/hydrogen/hydrogenDetail/hydrogen_service"
+                explain_ko={`수소 가스에 대한 기계공학\n배전 / 전력에 대한 전기공학\nEMS / BMS 에 대한 제어 S/W 공학\n노하우`}
+                explain_en="Mechanical Engineering for Hydrogen Gas,
+                Electrical Engineering for Power Distribution/Power,
+               Control S/W Engineering for EMS/BMS,
+               know-how"
               />
             </div>
             {/* 에너지 자립 시스템 */}
@@ -76,12 +86,15 @@ export const HydrogenPage = () => {
             <div id="energy_independence" className="flex flex-col w-[min(92%,720px)]">
               <LeftImageBox
                 img="/image/hydrogen/main3.png"
-                title={['에너지 자립 시스템', 'Energy Independence System']}
+                title={['에너지 자립\n시스템', 'Energy Independence System']}
                 subTitle={['IBT 참여 프로젝트', 'IBT Project']}
                 text1={['설비', 'Facility']}
                 link1="/hydrogen/hydrogenDetail/energy_independence_system"
                 text2={['서비스', 'Service']}
                 link2="/hydrogen/hydrogenDetail/energy_independence_service"
+                explain_ko={`에너지 시스템 설계와\n유지보수 경험 및 숙련도\n신규 및 재계약 등으로 검증된\n수소에너지 시스템 선도기업`}
+                explain_en="Energy system design and maintenance experience and proficiency, 
+                A leading company in hydrogen energy systems that has been verified through new and renewed contracts"
               />
             </div>
           </div>

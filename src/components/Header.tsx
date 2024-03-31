@@ -42,7 +42,7 @@ export const Header = () => {
       <nav className="fixed top-0 w-full z-50">
         {/* 상세 메뉴가 열릴 때는 흰색 배경, 이외에는 투명 배경 */}
         <nav
-          className={`flex items-center flex-wrap lg:px-20 py-3 shadow-md ${
+          className={`flex items-center flex-wrap lg:px-0 py-3 shadow-md ${
             navDown
               ? 'bg-white'
               : active
@@ -222,7 +222,7 @@ export const Header = () => {
                     <li onClick={() => setActive(false)}>{headerData[2].title}</li>
                   </Link>
                   {/* PC버전 상세 메뉴 */}
-                  {/* <motion.ul
+                  <motion.ul
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
@@ -234,23 +234,39 @@ export const Header = () => {
                       active ? 'hidden' : ''
                     } absolute translate-y-1/2 mt-[120px]`}
                   >
-                    <Link href={'/hydrogen'}>
+                    <Link href={'/hydrogen#electrolysis'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        수소경제
+                        {headerData[2].subTitle1?.[isEnglish]}
                       </li>
                     </Link>
-                    <Link href={'/hydrogen'}>
+                    <Link href={'/hydrogen#hydrogen_service'}>
                       <li
                         className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
                         onClick={() => setNavDown(false)}
                       >
-                        사업개요
+                        {headerData[2].subTitle2?.[isEnglish]}
                       </li>
                     </Link>
-                  </motion.ul> */}
+                    <Link href={'/hydrogen#energy_independence'}>
+                      <li
+                        className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
+                        onClick={() => setNavDown(false)}
+                      >
+                        {headerData[2].subTitle3?.[isEnglish]}
+                      </li>
+                    </Link>
+                    <Link href={'/hydrogen/hydrogenDetail/others'}>
+                      <li
+                        className="mb-[20px] hover:scale-110 hover:transition-transform ease-in-out duration-400 z-10"
+                        onClick={() => setNavDown(false)}
+                      >
+                        {headerData[2].subTitle4?.[isEnglish]}
+                      </li>
+                    </Link>
+                  </motion.ul>
                 </div>
                 {/* ----- 4. 고객지원 ----- */}
                 {/* 헤더 기본 메뉴 */}
