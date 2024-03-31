@@ -27,7 +27,7 @@ export const HydrogenPage = () => {
   }, []) // mount(첫 렌더링) 될 때 -> 스크롤 위치 찾아야 하므로 useEffect(,[]) 사용
 
   const isEnglish = useRecoilValue(isEnglishState)
-  const [temp, setTemp] = useState(true) // 준비중인지 아닌지
+  const [temp, setTemp] = useState(false) // 준비중인지 아닌지
 
   return (
     <>
@@ -76,7 +76,7 @@ export const HydrogenPage = () => {
             <div id="energy_independence" className="flex flex-col w-[min(92%,720px)]">
               <LeftImageBox
                 img="/image/hydrogen/main3.png"
-                title={['에너지 자립 시스템', 'Energy Independence System']}
+                title={['에너지 자립\n시스템', 'Energy Independence System']}
                 subTitle={['IBT 참여 프로젝트', 'IBT Project']}
                 text1={['설비', 'Facility']}
                 link1="/hydrogen/hydrogenDetail/energy_independence_system"

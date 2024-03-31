@@ -67,7 +67,11 @@ export default function LeftImageBox(props: BoxProps) {
             {/* 컨텐츠 상단 한줄 */}
             <div className="flex justify-between items-center">
               <div>
-                <div className="text-black text-5xl lg:text-3xl font-semibold mb-1.5 lg:mt-0 mt-3">
+                <div
+                  className={`text-black lg:text-2xl font-semibold mb-1.5 lg:mt-0 mt-3 lg:whitespace-pre-wrap ${
+                    isEnglish ? 'lg:text-xl text-3xl mr-1' : 'lg:text-2xl text-4xl'
+                  } `}
+                >
                   {title[isEnglish]}
                 </div>
                 <div className="text-gray-600 text-xl lg:text-sm font-bold">{subTitle[isEnglish]}</div>
