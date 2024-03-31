@@ -107,7 +107,7 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
 
       let presignedPromises: Promise<string>[] = []
       if (productList.length) {
-        productList.forEach((item, id) => {
+        productList.forEach((item) => {
           formData.append('productName_kr', item.name[0])
           formData.append('productName_en', item.name[1])
           if (typeof item.img !== 'string') {
@@ -162,10 +162,8 @@ const BatteryPostForm = ({ pageId, prevData, type }: PostFormProp) => {
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
-    // if (source.index !== destination.index) {
     const newOrderList = reorderPosts(productList, source.index, destination.index)
     setProductList(newOrderList)
-    // }
   }
 
   useEffect(() => {

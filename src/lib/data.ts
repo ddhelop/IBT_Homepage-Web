@@ -16,7 +16,7 @@ export const links_admin = [
     path: '/admin/catelogs',
   },
   {
-    name: '지우장학회 PDF',
+    name: '중양장형태 PDF',
     path: '/admin/esg-pdf',
   },
 ] as const
@@ -40,7 +40,7 @@ export const postData_admin = [
   {
     id: 2,
     postType: 'esg-pdf',
-    title: '지우장학회 활용실적명세',
+    title: '중양장형태 활용실적명세',
     name: 'PDF',
     href: '/admin/esg-pdf/add',
   },

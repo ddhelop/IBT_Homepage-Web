@@ -6,11 +6,13 @@ import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
 import { IoIosClose } from 'react-icons/io'
+import { MdEdit } from 'react-icons/md'
 import { handleListEdit } from '@/lib/action'
 import Link from 'next/link'
 import { postData_admin } from '@/lib/data'
 import { getErrorMessage, reorderPosts } from '@/lib/utils'
 import SubmitButton from './SubmitButton'
+import { useRouter } from 'next/navigation'
 
 const PostEditList = ({ datas, postTypeID }: any) => {
   const [message, setMessage] = useState<string>('')
@@ -18,6 +20,7 @@ const PostEditList = ({ datas, postTypeID }: any) => {
   const [posts, setPosts] = useState<any[]>(datas)
   const [temp, setTemp] = useState<any[]>(datas) //버튼의 활성화 기준을 정의하는데에 필요한 비교대상 정의
 
+  const router = useRouter()
   const onDragEnd = (result: any) => {
     const { source, destination } = result
     if (!destination) return
@@ -47,7 +50,6 @@ const PostEditList = ({ datas, postTypeID }: any) => {
     setTemp(posts)
   }, [isLoading])
 
-  console.log(posts)
   return (
     <div className="flex flex-col">
       <div className="mx-8 pb-2 bg-white rounded-lg">
@@ -81,9 +83,12 @@ const PostEditList = ({ datas, postTypeID }: any) => {
                           <h3 className="text-gray-700 font-medium ml-4 basis-1/4">
                             {post.createdAt.substring(0, 10)}
                           </h3>
-
-                          <h3 className="ml-4 basis-1/2 font-light w-48 truncate">{post.desc}</h3>
-
+                          <h3 className="ml-4 basis-1/3 font-light w-32 truncate mr-4">{post.desc}</h3>
+                          {postTypeID === 0 && (
+                            <button className="mr-4" onClick={() => router.push(`/admin/news/edit/${post.id}`)}>
+                              <MdEdit size={24} color="#747474" />
+                            </button>
+                          )}
                           <button onClick={() => handleDelete(post?.id)}>
                             <IoIosClose size={32} color="#747474" />
                           </button>
@@ -114,7 +119,7 @@ const PostEditList = ({ datas, postTypeID }: any) => {
       </div>
       <Link
         href={postData_admin[postTypeID].href}
-        className=" absolute bottom-12 right-12 p-4 rounded-full
+        className="fixed bottom-12 right-12 p-4 rounded-full
        bg-[#04BF7B] text-white shadow-lg"
       >
         <FaPlus size={40} />
