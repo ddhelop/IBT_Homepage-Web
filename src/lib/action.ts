@@ -1,7 +1,6 @@
 'use server'
 
 import { Resend } from 'resend'
-
 import { revalidatePath } from 'next/cache'
 import { BatteryPage, HydrogenPage, Post, User } from './models'
 import { connectToDb, getErrorMessage, validateString } from './utils'
@@ -33,7 +32,6 @@ export const checkAccount = async (password: string) => {
   }
 }
 export const changePassword = async (reqData: { currPW: string; newPW: string }) => {
-  // reqData.currPW
   try {
     //MongoDB에 연결
     connectToDb()
@@ -65,7 +63,7 @@ export const fetchPageData = async (id: number, type: string) => {
 }
 
 export const createPost = async (formData: FormData) => {
-  const { postType, title_en, title_kr, desc, img, pdf }: { [k: string]: any } = Object.fromEntries(formData)
+  const { postType, editId, title_en, title_kr, desc, img, pdf }: { [k: string]: any } = Object.fromEntries(formData)
   try {
     //MongoDB에 연결
     connectToDb()
@@ -76,8 +74,18 @@ export const createPost = async (formData: FormData) => {
     switch (+postType) {
       case 0:
         if (!img) return { success: false, message: 'SignedURL 생성을 실패했습니다.' }
-        const newNews = { id: newId, title: title_kr, img, desc }
-        await Post.updateOne({ id: +postType }, { data: [...prevData.data, newNews] })
+        if (editId) {
+          prevData.data[prevData.data.findIndex((item) => item.id === +editId)] = {
+            id: editId,
+            title: title_kr,
+            img,
+            desc,
+          }
+          await Post.updateOne({ id: 0 }, { data: [...prevData.data] })
+        } else {
+          const newNews = { id: newId, title: title_kr, img, desc }
+          await Post.updateOne({ id: +postType }, { data: [...prevData.data, newNews] })
+        }
         revalidatePath('/admin')
         break
       case 1:
@@ -181,8 +189,7 @@ export const sendEmail = async (formData: FormData) => {
   try {
     data = await resend.emails.send({
       from: '(주)아이비티 <onboarding@resend.dev>',
-      // to: 'neoself1105@gmail.com',
-      to: 'sales2@ibteng.co.kr',
+      to: 'shlee0916@rocketibt.co.kr',
       subject: `${category}: ${title}`,
       reply_to: email,
       react: React.createElement(ContactFormEmail, {

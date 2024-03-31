@@ -6,7 +6,6 @@ import { DragDropContext, Draggable } from '@hello-pangea/dnd'
 import { StrictModeDroppable } from './StrictModeDroppable'
 import Image from 'next/image'
 import { IoClose } from 'react-icons/io5'
-
 import { MdEdit } from 'react-icons/md'
 
 import { useRouter } from 'next/navigation'

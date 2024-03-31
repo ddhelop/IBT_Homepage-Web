@@ -4,23 +4,29 @@ import { getSignedFileUrl } from '@/lib/awsUtils'
 import { postData_admin } from '@/lib/data'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 
 type PostTypeProps = {
   postTypeId: number
+  prevData?: any
 }
-const PostForm = ({ postTypeId }: PostTypeProps) => {
+const PostForm = ({ postTypeId, prevData }: PostTypeProps) => {
   const [error, setError] = useState<string | null>(null)
   const [tempUrl, setTempUrl] = useState<string | null>(null)
 
-  const [image, setImage] = useState<File | null>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
+
+  const [image, setImage] = useState<File | string | null>(null)
   const [pdf, setPDF] = useState<File | null>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter()
+
   const showImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (tempUrl) {
+      console.log('hello')
       URL.revokeObjectURL(tempUrl)
     }
+    console.log('hi')
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0]
       setImage(file)
@@ -41,12 +47,17 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
       switch (postTypeId) {
         case 0:
           if (!image) return false
-          const preImg_news = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
-          await fetch(preImg_news, { method: 'PUT', body: image, headers: { 'Content-type': image.type } })
-          formData.append('img', preImg_news.split('?')[0])
+          if (typeof image === 'string') {
+            formData.append('img', prevData.img)
+          } else {
+            const preImg_news = await getSignedFileUrl({ name: `news/` + keyString, type: image.type })
+            await fetch(preImg_news, { method: 'PUT', body: image, headers: { 'Content-type': image.type } })
+            formData.append('img', preImg_news.split('?')[0])
+          }
+          if (prevData) formData.append('editId', prevData.id)
           break
         case 1:
-          if (!image || !pdf) return false
+          if (!image || typeof image === 'string' || !pdf) return false
           const [preImg_cate, prePdf_cate] = await Promise.all([
             getSignedFileUrl({ name: `catelog/` + keyString + '/img', type: image.type }),
             getSignedFileUrl({ name: `catelog/` + keyString + '/pdf', type: pdf.type }),
@@ -85,6 +96,18 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
       setIsLoading(false)
     }
   }
+
+  useEffect(() => {
+    if (postTypeId === 0 && prevData) {
+      let inputs = document.getElementsByTagName('input')
+      let textareas = document.getElementsByTagName('textarea')
+      inputs[1].value = prevData.title
+      textareas[0].value = prevData.desc
+      setTempUrl(prevData.img)
+      setImage(prevData.img)
+    }
+  }, [])
+
   return (
     <div className="flex flex-col">
       <h1 className="text-2xl font-bold mb-12 bg-white p-8">새 {postData_admin[postTypeId].name} 추가</h1>
@@ -92,17 +115,30 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
         {postTypeId !== 2 && (
           <>
             <h2 className="block text-gray-700 font-bold mb-2">이미지:</h2>
-            {tempUrl && (
-              <div className="w-64 h-64 relative">
+            <div className="w-64 h-64 relative">
+              {tempUrl ? (
                 <Image src={tempUrl} alt="tempImg" fill className="object-contain" />
-              </div>
-            )}
+              ) : (
+                <div className="bg-gray-50 w-full h-full" />
+              )}
+            </div>
+
+            <label htmlFor="file">
+              <button
+                type="button"
+                onClick={() => fileRef?.current?.click()}
+                className="rounded-md text-gray-700 p-2 border border-green-700"
+              >
+                파일 업로드하기
+              </button>
+            </label>
             <input
-              required
+              id="cateImg"
               type="file"
+              ref={fileRef}
+              className="hidden"
               accept="image/*"
-              className="bg-gray-100 rounded-md py-2 px-3 w-full mb-4"
-              onChange={showImage}
+              onChange={(e) => showImage(e)}
             />
           </>
         )}
@@ -148,12 +184,12 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
         )}
         {postTypeId === 0 && (
           <>
-            <h2 className="block text-gray-700 font-bold mb-2">글:</h2>
+            <h2 className="block text-gray-700 font-bold mt-4 mb-2">글:</h2>
             <textarea
               required
               name="desc"
               className="bg-gray-100 rounded-md py-2 px-3 w-full mb-8"
-              rows={5}
+              rows={prevData ? prevData.desc.length / 90 : 16}
               cols={33}
             />
           </>
@@ -172,8 +208,10 @@ const PostForm = ({ postTypeId }: PostTypeProps) => {
                 Loading...
               </span>
             </div>
+          ) : prevData ? (
+            '수정하기 '
           ) : (
-            `추가하기`
+            '추가하기'
           )}
         </button>
       </form>
