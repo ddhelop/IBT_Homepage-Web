@@ -23,7 +23,7 @@ const IntroPage = async () => {
       <IntroComponent6 />
 
       {/* 7 */}
-      <IntroComponent7 data={res.data} />
+      {/* <IntroComponent7 data={res.data} /> */}
     </div>
   )
 }
