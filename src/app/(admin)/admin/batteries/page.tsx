@@ -2,15 +2,10 @@ import BatteryEditList from '@/components/admin/BatteryEditList'
 import OthersCard from '@/components/admin/OtherBatteryCard'
 
 const getData = async () => {
-  const res = await fetch(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/api/admin/batteries`
-      : `http://localhost:3000/api/admin/batteries`,
-    {
-      method: 'GET',
-      cache: 'no-store',
-    },
-  )
+  const res = await fetch(`${process.env.URL}/api/admin/batteries`, {
+    method: 'GET',
+    cache: 'no-store',
+  })
   if (!res.ok) {
     throw new Error('Something went wrong')
   }

@@ -2,15 +2,10 @@ import Image from 'next/image'
 
 // FETCH DATA WITH AN API
 const getData = async (slug: string) => {
-  const res = await fetch(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/api/admin/news/${slug}`
-      : `http://localhost:3000/api/admin/news/${slug}`,
-    {
-      cache: 'no-store',
-      method: 'GET',
-    },
-  )
+  const res = await fetch(`${process.env.URL}/api/admin/news/${slug}`, {
+    cache: 'no-store',
+    method: 'GET',
+  })
   if (!res.ok) {
     throw new Error('Something went wrong')
   }
