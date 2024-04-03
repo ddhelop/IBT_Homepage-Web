@@ -1,16 +1,12 @@
 import BatteryEditList from '@/components/admin/BatteryEditList'
 import OthersCard from '@/components/admin/OtherBatteryCard'
+import { HydrogenPage } from '@/lib/models'
 
 const getData = async () => {
-  const res = await fetch(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/api/admin/hydrogens`
-      : `http://localhost:3000/api/admin/hydrogens`,
-    {
-      method: 'GET',
-      cache: 'no-store',
-    },
-  )
+  const res = await fetch(`${process.env.URL}/api/admin/hydrogens`, {
+    method: 'GET',
+    cache: 'no-store',
+  })
   if (!res.ok) {
     throw new Error('Something went wrong')
   }
