@@ -10,10 +10,15 @@ import { batteriesData_admin, postData_admin } from './data'
 import { Category, PageType, PostType } from './types'
 
 export const fetchPostData = async (id: number) => {
-  const res = await fetch(`${process.env.URL}/api/admin/posts/${id}`, {
-    method: 'GET',
-    cache: 'no-store',
-  })
+  const res = await fetch(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}/api/admin/posts/${id}`
+      : `http://localhost:3000/api/admin/posts/${id}`,
+    {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  )
   if (!res.ok) {
     console.log(getErrorMessage(res))
     throw new Error('Something went wrong')
@@ -51,10 +56,13 @@ export const changePassword = async (reqData: { currPW: string; newPW: string })
 export const fetchPageData = async (id: number, type: string) => {
   connectToDb()
 
-  const res = await fetch(`${process.env.URL}/api/admin/${type === 'battery' ? 'batteries' : 'hydrogens'}/${id}`, {
-    method: 'GET',
-    cache: 'no-store',
-  })
+  const res = await fetch(
+    `https://${process.env.VERCEL_URL}/api/admin/${type === 'battery' ? 'batteries' : 'hydrogens'}/${id}`,
+    {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  )
   if (!res.ok) {
     console.log(getErrorMessage(res))
     throw new Error('Something went wrong')
