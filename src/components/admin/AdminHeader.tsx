@@ -60,7 +60,7 @@ const AdminHeader = () => {
         <Link
           target="_blank"
           className={`flex items-center py-4 text-gray-100/60 `}
-          href={'https://vercel.com/neoselfs-projects/ibt-homepage/analytics'}
+          href={'https://vercel.com/ibts-projects/ibt-homepage-wp6z/analytics'}
         >
           <DiGoogleAnalytics width={32} height={32} />
           <h1 className="ml-4 font-regular">{'Vercel Analytics'}</h1>
